@@ -14,7 +14,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": "These ants can usually be easily distinguished by their elongate, slender habitus (general appearance). Their head is usually longer than broad, eye large, convex and placed at the middle of the head. The mesonotum of the worker is elongate and depressed, the propodeum usually has a pair of spines or small teeth. The workers could be confused with the minor workers of Pheidole, but differ in usually being much larger (over 3 mm total length, usually less than 3 mm in Pheidole), and that the antennal club is poorly defined and consists of four segments (well defined in Pheidole and usually consisting of three segments). (From Mackay and Mackay, 2002).",
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/aphaenogaster/head.jpg",
+      "/images/genera/aphaenogaster/profile.jpg",
+      "/images/genera/aphaenogaster/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": [],
     "body_length": "3-8 mm",
@@ -37,7 +41,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": "Seifert (2003) - [slightly modified from Bolton, 1982] Small to minute, monomorphic myrmicine ants. Palp formula 5,3 (16 species examined). Mandibles with 5 teeth which decrease in size from apical to basal. Clypeus with flattened and prominent projecting lateral portions, which are fused to the raised projecting median portion to form a shelf which projects forward over the mandibles. Median portion of clypeus posteriorly broadly inserted between narrow frontal lobes. Antennal scrobes absent. Eyes relatively large, situated in front of mid length of the head sides. Antennae with 11 - 12 segments, usually with a distinct 3-segmented club. Dorsal mesosoma without sutures; pronotal corners broadly rounded to bluntly angular. Propodeum unarmed to strongly bispinose. Metapleural lobes low and rounded. Petiole nodiform, with a moderate to long, usually slender, anterior peduncle. Postpetiole dorsoventrally flattened, in dorsal view always much broader than petiole. Sting large, knife blade-like in profile, without lamelliform appendages. Pilosity on dorsal body sparse to absent.",
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/cardiocondyla/head.jpg",
+      "/images/genera/cardiocondyla/profile.jpg",
+      "/images/genera/cardiocondyla/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": [],
     "body_length": "2-4 mm"
@@ -57,7 +65,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/crematogaster/head.jpg",
+      "/images/genera/crematogaster/profile.jpg",
+      "/images/genera/crematogaster/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": [],
     "body_length": "2-5 mm"
@@ -77,7 +89,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/formicoxenus/head.jpg",
+      "/images/genera/formicoxenus/profile.jpg",
+      "/images/genera/formicoxenus/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -96,7 +112,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/harpagoxenus/head.jpg",
+      "/images/genera/harpagoxenus/profile.jpg",
+      "/images/genera/harpagoxenus/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -110,12 +130,16 @@
     "habitat": null,
     "nesting": null,
     "diet": null,
-    "species_count_italy": 3,
+    "species_count_italy": 0,
     "endemic_species_count": 0,
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/leptothorax/head.jpg",
+      "/images/genera/leptothorax/profile.jpg",
+      "/images/genera/leptothorax/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -134,7 +158,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/manica/head.jpg",
+      "/images/genera/manica/profile.jpg",
+      "/images/genera/manica/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -148,12 +176,16 @@
     "habitat": null,
     "nesting": null,
     "diet": null,
-    "species_count_italy": 4,
+    "species_count_italy": 5,
     "endemic_species_count": 0,
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/messor/head.jpg",
+      "/images/genera/messor/profile.jpg",
+      "/images/genera/messor/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -172,7 +204,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/monomorium/head.jpg",
+      "/images/genera/monomorium/profile.jpg",
+      "/images/genera/monomorium/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -186,12 +222,16 @@
     "habitat": null,
     "nesting": null,
     "diet": null,
-    "species_count_italy": 0,
+    "species_count_italy": 1,
     "endemic_species_count": 0,
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/myrmecina/head.jpg",
+      "/images/genera/myrmecina/profile.jpg",
+      "/images/genera/myrmecina/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -210,7 +250,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/myrmica/head.jpg",
+      "/images/genera/myrmica/profile.jpg",
+      "/images/genera/myrmica/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -229,7 +273,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/oxyopomyrmex/head.jpg",
+      "/images/genera/oxyopomyrmex/profile.jpg",
+      "/images/genera/oxyopomyrmex/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -243,12 +291,16 @@
     "habitat": null,
     "nesting": null,
     "diet": null,
-    "species_count_italy": 0,
+    "species_count_italy": 1,
     "endemic_species_count": 0,
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/pheidole/head.jpg",
+      "/images/genera/pheidole/profile.jpg",
+      "/images/genera/pheidole/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -262,12 +314,16 @@
     "habitat": null,
     "nesting": null,
     "diet": null,
-    "species_count_italy": 0,
+    "species_count_italy": 1,
     "endemic_species_count": 0,
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/solenopsis/head.jpg",
+      "/images/genera/solenopsis/profile.jpg",
+      "/images/genera/solenopsis/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -286,7 +342,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/stenamma/head.jpg",
+      "/images/genera/stenamma/profile.jpg",
+      "/images/genera/stenamma/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -305,7 +365,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/strongylognathus/head.jpg",
+      "/images/genera/strongylognathus/profile.jpg",
+      "/images/genera/strongylognathus/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -343,7 +407,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/temnothorax/head.jpg",
+      "/images/genera/temnothorax/profile.jpg",
+      "/images/genera/temnothorax/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -362,7 +430,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/tetramorium/head.jpg",
+      "/images/genera/tetramorium/profile.jpg",
+      "/images/genera/tetramorium/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -376,12 +448,16 @@
     "habitat": null,
     "nesting": null,
     "diet": null,
-    "species_count_italy": 0,
+    "species_count_italy": 1,
     "endemic_species_count": 0,
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/cryptopone/head.jpg",
+      "/images/genera/cryptopone/profile.jpg",
+      "/images/genera/cryptopone/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -400,7 +476,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/hypoponera/head.jpg",
+      "/images/genera/hypoponera/profile.jpg",
+      "/images/genera/hypoponera/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -414,12 +494,16 @@
     "habitat": null,
     "nesting": null,
     "diet": null,
-    "species_count_italy": 0,
+    "species_count_italy": 1,
     "endemic_species_count": 0,
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/ponera/head.jpg",
+      "/images/genera/ponera/profile.jpg",
+      "/images/genera/ponera/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -433,12 +517,16 @@
     "habitat": null,
     "nesting": null,
     "diet": null,
-    "species_count_italy": 0,
+    "species_count_italy": 1,
     "endemic_species_count": 0,
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/bothriomyrmex/head.jpg",
+      "/images/genera/bothriomyrmex/profile.jpg",
+      "/images/genera/bothriomyrmex/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -452,12 +540,16 @@
     "habitat": null,
     "nesting": null,
     "diet": null,
-    "species_count_italy": 0,
+    "species_count_italy": 1,
     "endemic_species_count": 0,
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/dolichoderus/head.jpg",
+      "/images/genera/dolichoderus/profile.jpg",
+      "/images/genera/dolichoderus/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -471,7 +563,7 @@
     "habitat": null,
     "nesting": null,
     "diet": null,
-    "species_count_italy": 0,
+    "species_count_italy": 1,
     "endemic_species_count": 0,
     "distribution_notes": null,
     "distribution_regions": [],
@@ -495,7 +587,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/liometopum/head.jpg",
+      "/images/genera/liometopum/profile.jpg",
+      "/images/genera/liometopum/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -514,7 +610,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/tapinoma/head.jpg",
+      "/images/genera/tapinoma/profile.jpg",
+      "/images/genera/tapinoma/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -533,7 +633,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/camponotus/head.jpg",
+      "/images/genera/camponotus/profile.jpg",
+      "/images/genera/camponotus/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -552,7 +656,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/cataglyphis/head.jpg",
+      "/images/genera/cataglyphis/profile.jpg",
+      "/images/genera/cataglyphis/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -566,7 +674,7 @@
     "habitat": null,
     "nesting": null,
     "diet": null,
-    "species_count_italy": 0,
+    "species_count_italy": 1,
     "endemic_species_count": 0,
     "distribution_notes": null,
     "distribution_regions": [],
@@ -590,7 +698,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/formica/head.jpg",
+      "/images/genera/formica/profile.jpg",
+      "/images/genera/formica/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -609,7 +721,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/lasius/head.jpg",
+      "/images/genera/lasius/profile.jpg",
+      "/images/genera/lasius/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -628,7 +744,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/lepisiota/head.jpg",
+      "/images/genera/lepisiota/profile.jpg",
+      "/images/genera/lepisiota/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -647,7 +767,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/plagiolepis/head.jpg",
+      "/images/genera/plagiolepis/profile.jpg",
+      "/images/genera/plagiolepis/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -661,12 +785,16 @@
     "habitat": null,
     "nesting": null,
     "diet": null,
-    "species_count_italy": 0,
+    "species_count_italy": 1,
     "endemic_species_count": 0,
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/polyergus/head.jpg",
+      "/images/genera/polyergus/profile.jpg",
+      "/images/genera/polyergus/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -685,7 +813,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/prenolepis/head.jpg",
+      "/images/genera/prenolepis/profile.jpg",
+      "/images/genera/prenolepis/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -704,7 +836,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/stigmatomma/head.jpg",
+      "/images/genera/stigmatomma/profile.jpg",
+      "/images/genera/stigmatomma/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -723,7 +859,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/proceratium/head.jpg",
+      "/images/genera/proceratium/profile.jpg",
+      "/images/genera/proceratium/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -742,7 +882,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/leptanilla/head.jpg",
+      "/images/genera/leptanilla/profile.jpg",
+      "/images/genera/leptanilla/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   }

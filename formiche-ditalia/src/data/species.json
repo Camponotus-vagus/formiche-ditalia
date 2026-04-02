@@ -1,37 +1,5 @@
 [
   {
-    "id": "stigmatomma-denticulatum",
-    "genus_id": "stigmatomma",
-    "scientific_name": "Stigmatomma denticulatum",
-    "author_year": null,
-    "status": "native",
-    "subspecies": [],
-    "distribution_regions": [],
-    "altitude_range": null,
-    "habitat_notes": null,
-    "photo_urls": [],
-    "synonyms": [],
-    "antweb_url": "https://www.antweb.org/browse.do?genus=Amblyopone&species=denticulatum&rank=species",
-    "antcat_url": null,
-    "gbif_id": null
-  },
-  {
-    "id": "stigmatomma-impressifrons",
-    "genus_id": "stigmatomma",
-    "scientific_name": "Stigmatomma impressifrons",
-    "author_year": null,
-    "status": "native",
-    "subspecies": [],
-    "distribution_regions": [],
-    "altitude_range": null,
-    "habitat_notes": null,
-    "photo_urls": [],
-    "synonyms": [],
-    "antweb_url": "https://www.antweb.org/browse.do?genus=Amblyopone&species=impressifrons&rank=species",
-    "antcat_url": null,
-    "gbif_id": null
-  },
-  {
     "id": "aphaenogaster-spinosa",
     "genus_id": "aphaenogaster",
     "scientific_name": "Aphaenogaster spinosa",
@@ -41,7 +9,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": "The nests are usually under the stones of a draining soil.",
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/aphaenogaster-spinosa/head.jpg",
+      "/images/specie/aphaenogaster-spinosa/profile.jpg",
+      "/images/specie/aphaenogaster-spinosa/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Aphaenogaster&species=spinosa&rank=species",
     "antcat_url": null,
@@ -64,7 +36,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": "The nests are generally under the stones. In the most humid environments, they can be found in the trunks and branches fallen to the ground. The workers go in search of food on the ground.",
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/aphaenogaster-subterranea/head.jpg",
+      "/images/specie/aphaenogaster-subterranea/profile.jpg",
+      "/images/specie/aphaenogaster-subterranea/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Aphaenogaster&species=subterranea&rank=species",
     "antcat_url": null,
@@ -78,6 +54,22 @@
     ]
   },
   {
+    "id": "bothriomyrmex-sp",
+    "genus_id": "bothriomyrmex",
+    "scientific_name": "Bothriomyrmex sp.",
+    "author_year": null,
+    "status": "native",
+    "subspecies": [],
+    "distribution_regions": [],
+    "altitude_range": null,
+    "habitat_notes": null,
+    "photo_urls": [],
+    "synonyms": [],
+    "antweb_url": "https://www.antweb.org/browse.do?genus=Bothriomyrmex&species=sp.&rank=species",
+    "antcat_url": null,
+    "gbif_id": null
+  },
+  {
     "id": "camponotus-aethiops",
     "genus_id": "camponotus",
     "scientific_name": "Camponotus aethiops",
@@ -87,7 +79,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/camponotus-aethiops/head.jpg",
+      "/images/specie/camponotus-aethiops/profile.jpg",
+      "/images/specie/camponotus-aethiops/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Camponotus&species=aethiops&rank=species",
     "antcat_url": null,
@@ -103,7 +99,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/camponotus-fallax/head.jpg",
+      "/images/specie/camponotus-fallax/profile.jpg",
+      "/images/specie/camponotus-fallax/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Camponotus&species=fallax&rank=species",
     "antcat_url": null,
@@ -119,7 +119,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/camponotus-gestroi/head.jpg",
+      "/images/specie/camponotus-gestroi/profile.jpg",
+      "/images/specie/camponotus-gestroi/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Camponotus&species=gestroi&rank=species",
     "antcat_url": null,
@@ -135,7 +139,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/camponotus-lateralis/head.jpg",
+      "/images/specie/camponotus-lateralis/profile.jpg",
+      "/images/specie/camponotus-lateralis/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Camponotus&species=lateralis&rank=species",
     "antcat_url": null,
@@ -151,7 +159,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/camponotus-piceus/head.jpg",
+      "/images/specie/camponotus-piceus/profile.jpg",
+      "/images/specie/camponotus-piceus/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Camponotus&species=piceus&rank=species",
     "antcat_url": null,
@@ -167,7 +179,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/camponotus-vagus/head.jpg",
+      "/images/specie/camponotus-vagus/profile.jpg",
+      "/images/specie/camponotus-vagus/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Camponotus&species=vagus&rank=species",
     "antcat_url": null,
@@ -183,16 +199,20 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/cardiocondyla-elegans/head.jpg",
+      "/images/specie/cardiocondyla-elegans/profile.jpg",
+      "/images/specie/cardiocondyla-elegans/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Cardiocondyla&species=elegans&rank=species",
     "antcat_url": null,
     "gbif_id": null
   },
   {
-    "id": "cardiocondyla-mauritanica",
+    "id": "cardiocondyla-nuda",
     "genus_id": "cardiocondyla",
-    "scientific_name": "Cardiocondyla mauritanica",
+    "scientific_name": "Cardiocondyla nuda",
     "author_year": null,
     "status": "native",
     "subspecies": [],
@@ -201,7 +221,23 @@
     "habitat_notes": null,
     "photo_urls": [],
     "synonyms": [],
-    "antweb_url": "https://www.antweb.org/browse.do?genus=Cardiocondyla&species=mauritanica&rank=species",
+    "antweb_url": "https://www.antweb.org/browse.do?genus=Cardiocondyla&species=nuda&rank=species",
+    "antcat_url": null,
+    "gbif_id": null
+  },
+  {
+    "id": "colobopsis-truncata",
+    "genus_id": "colobopsis",
+    "scientific_name": "Colobopsis truncata",
+    "author_year": null,
+    "status": "native",
+    "subspecies": [],
+    "distribution_regions": [],
+    "altitude_range": null,
+    "habitat_notes": null,
+    "photo_urls": [],
+    "synonyms": [],
+    "antweb_url": "https://www.antweb.org/browse.do?genus=Colobopsis&species=truncata&rank=species",
     "antcat_url": null,
     "gbif_id": null
   },
@@ -215,7 +251,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/crematogaster-scutellaris/head.jpg",
+      "/images/specie/crematogaster-scutellaris/profile.jpg",
+      "/images/specie/crematogaster-scutellaris/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Crematogaster&species=scutellaris&rank=species",
     "antcat_url": null,
@@ -231,9 +271,49 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/crematogaster-sordidula/head.jpg",
+      "/images/specie/crematogaster-sordidula/profile.jpg",
+      "/images/specie/crematogaster-sordidula/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Crematogaster&species=sordidula&rank=species",
+    "antcat_url": null,
+    "gbif_id": null
+  },
+  {
+    "id": "cryptopone-ochraceum",
+    "genus_id": "cryptopone",
+    "scientific_name": "Cryptopone ochraceum",
+    "author_year": null,
+    "status": "native",
+    "subspecies": [],
+    "distribution_regions": [],
+    "altitude_range": null,
+    "habitat_notes": null,
+    "photo_urls": [],
+    "synonyms": [],
+    "antweb_url": "https://www.antweb.org/browse.do?genus=Cryptopone&species=ochraceum&rank=species",
+    "antcat_url": null,
+    "gbif_id": null
+  },
+  {
+    "id": "dolichoderus-quadripunctatus",
+    "genus_id": "dolichoderus",
+    "scientific_name": "Dolichoderus quadripunctatus",
+    "author_year": null,
+    "status": "native",
+    "subspecies": [],
+    "distribution_regions": [],
+    "altitude_range": null,
+    "habitat_notes": null,
+    "photo_urls": [
+      "/images/specie/dolichoderus-quadripunctatus/head.jpg",
+      "/images/specie/dolichoderus-quadripunctatus/profile.jpg",
+      "/images/specie/dolichoderus-quadripunctatus/dorsal.jpg"
+    ],
+    "synonyms": [],
+    "antweb_url": "https://www.antweb.org/browse.do?genus=Dolichoderus&species=quadripunctatus&rank=species",
     "antcat_url": null,
     "gbif_id": null
   },
@@ -247,7 +327,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/formica-cunicularia/head.jpg",
+      "/images/specie/formica-cunicularia/profile.jpg",
+      "/images/specie/formica-cunicularia/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Formica&species=cunicularia&rank=species",
     "antcat_url": null,
@@ -263,7 +347,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/formica-gagates/head.jpg",
+      "/images/specie/formica-gagates/profile.jpg",
+      "/images/specie/formica-gagates/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Formica&species=gagates&rank=species",
     "antcat_url": null,
@@ -295,7 +383,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/formica-sanguinea/head.jpg",
+      "/images/specie/formica-sanguinea/profile.jpg",
+      "/images/specie/formica-sanguinea/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Formica&species=sanguinea&rank=species",
     "antcat_url": null,
@@ -311,7 +403,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/hypoponera-abeillei/head.jpg",
+      "/images/specie/hypoponera-abeillei/profile.jpg",
+      "/images/specie/hypoponera-abeillei/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Hypoponera&species=abeillei&rank=species",
     "antcat_url": null,
@@ -327,7 +423,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/hypoponera-eduardi/head.jpg",
+      "/images/specie/hypoponera-eduardi/profile.jpg",
+      "/images/specie/hypoponera-eduardi/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Hypoponera&species=eduardi&rank=species",
     "antcat_url": null,
@@ -375,7 +475,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/lasius-brunneus/head.jpg",
+      "/images/specie/lasius-brunneus/profile.jpg",
+      "/images/specie/lasius-brunneus/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Lasius&species=brunneus&rank=species",
     "antcat_url": null,
@@ -391,7 +495,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/lasius-distinguendus/head.jpg",
+      "/images/specie/lasius-distinguendus/profile.jpg",
+      "/images/specie/lasius-distinguendus/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Lasius&species=distinguendus&rank=species",
     "antcat_url": null,
@@ -407,7 +515,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/lasius-emarginatus/head.jpg",
+      "/images/specie/lasius-emarginatus/profile.jpg",
+      "/images/specie/lasius-emarginatus/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Lasius&species=emarginatus&rank=species",
     "antcat_url": null,
@@ -423,7 +535,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/lasius-fuliginosus/head.jpg",
+      "/images/specie/lasius-fuliginosus/profile.jpg",
+      "/images/specie/lasius-fuliginosus/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Lasius&species=fuliginosus&rank=species",
     "antcat_url": null,
@@ -439,7 +555,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/lasius-lasioides/head.jpg",
+      "/images/specie/lasius-lasioides/profile.jpg",
+      "/images/specie/lasius-lasioides/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Lasius&species=lasioides&rank=species",
     "antcat_url": null,
@@ -455,7 +575,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/lasius-myops/head.jpg",
+      "/images/specie/lasius-myops/profile.jpg",
+      "/images/specie/lasius-myops/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Lasius&species=myops&rank=species",
     "antcat_url": null,
@@ -471,7 +595,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/lasius-niger/head.jpg",
+      "/images/specie/lasius-niger/profile.jpg",
+      "/images/specie/lasius-niger/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Lasius&species=niger&rank=species",
     "antcat_url": null,
@@ -487,7 +615,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/lasius-nitidigaster/head.jpg",
+      "/images/specie/lasius-nitidigaster/profile.jpg",
+      "/images/specie/lasius-nitidigaster/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Lasius&species=nitidigaster&rank=species",
     "antcat_url": null,
@@ -503,9 +635,29 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/lasius-paralienus/head.jpg",
+      "/images/specie/lasius-paralienus/profile.jpg",
+      "/images/specie/lasius-paralienus/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Lasius&species=paralienus&rank=species",
+    "antcat_url": null,
+    "gbif_id": null
+  },
+  {
+    "id": "linepithema-humile",
+    "genus_id": "linepithema",
+    "scientific_name": "Linepithema humile",
+    "author_year": null,
+    "status": "native",
+    "subspecies": [],
+    "distribution_regions": [],
+    "altitude_range": null,
+    "habitat_notes": null,
+    "photo_urls": [],
+    "synonyms": [],
+    "antweb_url": "https://www.antweb.org/browse.do?genus=Linepithema&species=humile&rank=species",
     "antcat_url": null,
     "gbif_id": null
   },
@@ -519,9 +671,29 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/messor-capitatus/head.jpg",
+      "/images/specie/messor-capitatus/profile.jpg",
+      "/images/specie/messor-capitatus/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Messor&species=capitatus&rank=species",
+    "antcat_url": null,
+    "gbif_id": null
+  },
+  {
+    "id": "messor-meridionalis",
+    "genus_id": "messor",
+    "scientific_name": "Messor meridionalis",
+    "author_year": null,
+    "status": "native",
+    "subspecies": [],
+    "distribution_regions": [],
+    "altitude_range": null,
+    "habitat_notes": null,
+    "photo_urls": [],
+    "synonyms": [],
+    "antweb_url": "https://www.antweb.org/browse.do?genus=Messor&species=meridionalis&rank=species",
     "antcat_url": null,
     "gbif_id": null
   },
@@ -535,7 +707,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/messor-minor/head.jpg",
+      "/images/specie/messor-minor/profile.jpg",
+      "/images/specie/messor-minor/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Messor&species=minor&rank=species",
     "antcat_url": null,
@@ -567,7 +743,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/messor-wasmanni/head.jpg",
+      "/images/specie/messor-wasmanni/profile.jpg",
+      "/images/specie/messor-wasmanni/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Messor&species=wasmanni&rank=species",
     "antcat_url": null,
@@ -583,7 +763,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/monomorium-monomorium/head.jpg",
+      "/images/specie/monomorium-monomorium/profile.jpg",
+      "/images/specie/monomorium-monomorium/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Monomorium&species=monomorium&rank=species",
     "antcat_url": null,
@@ -606,6 +790,26 @@
     "gbif_id": null
   },
   {
+    "id": "myrmecina-graminicola",
+    "genus_id": "myrmecina",
+    "scientific_name": "Myrmecina graminicola",
+    "author_year": null,
+    "status": "native",
+    "subspecies": [],
+    "distribution_regions": [],
+    "altitude_range": null,
+    "habitat_notes": null,
+    "photo_urls": [
+      "/images/specie/myrmecina-graminicola/head.jpg",
+      "/images/specie/myrmecina-graminicola/profile.jpg",
+      "/images/specie/myrmecina-graminicola/dorsal.jpg"
+    ],
+    "synonyms": [],
+    "antweb_url": "https://www.antweb.org/browse.do?genus=Myrmecina&species=graminicola&rank=species",
+    "antcat_url": null,
+    "gbif_id": null
+  },
+  {
     "id": "myrmica-sabuleti",
     "genus_id": "myrmica",
     "scientific_name": "Myrmica sabuleti",
@@ -615,7 +819,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/myrmica-sabuleti/head.jpg",
+      "/images/specie/myrmica-sabuleti/profile.jpg",
+      "/images/specie/myrmica-sabuleti/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Myrmica&species=sabuleti&rank=species",
     "antcat_url": null,
@@ -631,7 +839,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/myrmica-scabrinodis/head.jpg",
+      "/images/specie/myrmica-scabrinodis/profile.jpg",
+      "/images/specie/myrmica-scabrinodis/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Myrmica&species=scabrinodis&rank=species",
     "antcat_url": null,
@@ -647,9 +859,33 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/myrmica-specioides/head.jpg",
+      "/images/specie/myrmica-specioides/profile.jpg",
+      "/images/specie/myrmica-specioides/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Myrmica&species=specioides&rank=species",
+    "antcat_url": null,
+    "gbif_id": null
+  },
+  {
+    "id": "pheidole-pallidula",
+    "genus_id": "pheidole",
+    "scientific_name": "Pheidole pallidula",
+    "author_year": null,
+    "status": "native",
+    "subspecies": [],
+    "distribution_regions": [],
+    "altitude_range": null,
+    "habitat_notes": null,
+    "photo_urls": [
+      "/images/specie/pheidole-pallidula/head.jpg",
+      "/images/specie/pheidole-pallidula/profile.jpg",
+      "/images/specie/pheidole-pallidula/dorsal.jpg"
+    ],
+    "synonyms": [],
+    "antweb_url": "https://www.antweb.org/browse.do?genus=Pheidole&species=pallidula&rank=species",
     "antcat_url": null,
     "gbif_id": null
   },
@@ -663,7 +899,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/plagiolepis-pygmaea/head.jpg",
+      "/images/specie/plagiolepis-pygmaea/profile.jpg",
+      "/images/specie/plagiolepis-pygmaea/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Plagiolepis&species=pygmaea&rank=species",
     "antcat_url": null,
@@ -686,6 +926,66 @@
     "gbif_id": null
   },
   {
+    "id": "polyergus-rufescens",
+    "genus_id": "polyergus",
+    "scientific_name": "Polyergus rufescens",
+    "author_year": null,
+    "status": "native",
+    "subspecies": [],
+    "distribution_regions": [],
+    "altitude_range": null,
+    "habitat_notes": null,
+    "photo_urls": [
+      "/images/specie/polyergus-rufescens/head.jpg",
+      "/images/specie/polyergus-rufescens/profile.jpg",
+      "/images/specie/polyergus-rufescens/dorsal.jpg"
+    ],
+    "synonyms": [],
+    "antweb_url": "https://www.antweb.org/browse.do?genus=Polyergus&species=rufescens&rank=species",
+    "antcat_url": null,
+    "gbif_id": null
+  },
+  {
+    "id": "ponera-coarctata",
+    "genus_id": "ponera",
+    "scientific_name": "Ponera coarctata",
+    "author_year": null,
+    "status": "native",
+    "subspecies": [],
+    "distribution_regions": [],
+    "altitude_range": null,
+    "habitat_notes": null,
+    "photo_urls": [
+      "/images/specie/ponera-coarctata/head.jpg",
+      "/images/specie/ponera-coarctata/profile.jpg",
+      "/images/specie/ponera-coarctata/dorsal.jpg"
+    ],
+    "synonyms": [],
+    "antweb_url": "https://www.antweb.org/browse.do?genus=Ponera&species=coarctata&rank=species",
+    "antcat_url": null,
+    "gbif_id": null
+  },
+  {
+    "id": "solenopsis-fugax",
+    "genus_id": "solenopsis",
+    "scientific_name": "Solenopsis fugax",
+    "author_year": null,
+    "status": "native",
+    "subspecies": [],
+    "distribution_regions": [],
+    "altitude_range": null,
+    "habitat_notes": null,
+    "photo_urls": [
+      "/images/specie/solenopsis-fugax/head.jpg",
+      "/images/specie/solenopsis-fugax/profile.jpg",
+      "/images/specie/solenopsis-fugax/dorsal.jpg"
+    ],
+    "synonyms": [],
+    "antweb_url": "https://www.antweb.org/browse.do?genus=Solenopsis&species=fugax&rank=species",
+    "antcat_url": null,
+    "gbif_id": null
+  },
+  {
     "id": "stenamma-debile",
     "genus_id": "stenamma",
     "scientific_name": "Stenamma debile",
@@ -695,7 +995,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/stenamma-debile/head.jpg",
+      "/images/specie/stenamma-debile/profile.jpg",
+      "/images/specie/stenamma-debile/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Stenamma&species=debile&rank=species",
     "antcat_url": null,
@@ -711,9 +1015,49 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/stenamma-striatulum/head.jpg",
+      "/images/specie/stenamma-striatulum/profile.jpg",
+      "/images/specie/stenamma-striatulum/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Stenamma&species=striatulum&rank=species",
+    "antcat_url": null,
+    "gbif_id": null
+  },
+  {
+    "id": "stigmatomma-denticulatum",
+    "genus_id": "stigmatomma",
+    "scientific_name": "Stigmatomma denticulatum",
+    "author_year": null,
+    "status": "native",
+    "subspecies": [],
+    "distribution_regions": [],
+    "altitude_range": null,
+    "habitat_notes": null,
+    "photo_urls": [],
+    "synonyms": [],
+    "antweb_url": "https://www.antweb.org/browse.do?genus=Amblyopone&species=denticulatum&rank=species",
+    "antcat_url": null,
+    "gbif_id": null
+  },
+  {
+    "id": "stigmatomma-impressifrons",
+    "genus_id": "stigmatomma",
+    "scientific_name": "Stigmatomma impressifrons",
+    "author_year": null,
+    "status": "native",
+    "subspecies": [],
+    "distribution_regions": [],
+    "altitude_range": null,
+    "habitat_notes": null,
+    "photo_urls": [
+      "/images/specie/stigmatomma-impressifrons/head.jpg",
+      "/images/specie/stigmatomma-impressifrons/profile.jpg",
+      "/images/specie/stigmatomma-impressifrons/dorsal.jpg"
+    ],
+    "synonyms": [],
+    "antweb_url": "https://www.antweb.org/browse.do?genus=Amblyopone&species=impressifrons&rank=species",
     "antcat_url": null,
     "gbif_id": null
   },
@@ -791,7 +1135,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/tapinoma-erraticum/head.jpg",
+      "/images/specie/tapinoma-erraticum/profile.jpg",
+      "/images/specie/tapinoma-erraticum/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Tapinoma&species=erraticum&rank=species",
     "antcat_url": null,
@@ -855,7 +1203,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/temnothorax-lichtensteini/head.jpg",
+      "/images/specie/temnothorax-lichtensteini/profile.jpg",
+      "/images/specie/temnothorax-lichtensteini/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Temnothorax&species=lichtensteini&rank=species",
     "antcat_url": null,
@@ -983,7 +1335,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/tetramorium-caespitum/head.jpg",
+      "/images/specie/tetramorium-caespitum/profile.jpg",
+      "/images/specie/tetramorium-caespitum/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Tetramorium&species=caespitum&rank=species",
     "antcat_url": null,
@@ -999,7 +1355,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/tetramorium-meridionale/head.jpg",
+      "/images/specie/tetramorium-meridionale/profile.jpg",
+      "/images/specie/tetramorium-meridionale/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Tetramorium&species=meridionale&rank=species",
     "antcat_url": null,
@@ -1015,7 +1375,11 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/tetramorium-moravicum/head.jpg",
+      "/images/specie/tetramorium-moravicum/profile.jpg",
+      "/images/specie/tetramorium-moravicum/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Tetramorium&species=moravicum&rank=species",
     "antcat_url": null,
@@ -1031,57 +1395,13 @@
     "distribution_regions": [],
     "altitude_range": null,
     "habitat_notes": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/tetramorium-semilaeve/head.jpg",
+      "/images/specie/tetramorium-semilaeve/profile.jpg",
+      "/images/specie/tetramorium-semilaeve/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Tetramorium&species=semilaeve&rank=species",
-    "antcat_url": null,
-    "gbif_id": null
-  },
-  {
-    "id": "leptothorax-recedens",
-    "genus_id": "leptothorax",
-    "scientific_name": "Leptothorax recedens",
-    "author_year": null,
-    "status": "native",
-    "subspecies": [],
-    "distribution_regions": [],
-    "altitude_range": null,
-    "habitat_notes": null,
-    "photo_urls": [],
-    "synonyms": [],
-    "antweb_url": "https://www.antweb.org/browse.do?genus=Leptothorax&species=recedens&rank=species",
-    "antcat_url": null,
-    "gbif_id": null
-  },
-  {
-    "id": "leptothorax-nylanderi",
-    "genus_id": "leptothorax",
-    "scientific_name": "Leptothorax nylanderi",
-    "author_year": null,
-    "status": "native",
-    "subspecies": [],
-    "distribution_regions": [],
-    "altitude_range": null,
-    "habitat_notes": null,
-    "photo_urls": [],
-    "synonyms": [],
-    "antweb_url": "https://www.antweb.org/browse.do?genus=Leptothorax&species=nylanderi&rank=species",
-    "antcat_url": null,
-    "gbif_id": null
-  },
-  {
-    "id": "leptothorax-unifasciatus",
-    "genus_id": "leptothorax",
-    "scientific_name": "Leptothorax unifasciatus",
-    "author_year": null,
-    "status": "native",
-    "subspecies": [],
-    "distribution_regions": [],
-    "altitude_range": null,
-    "habitat_notes": null,
-    "photo_urls": [],
-    "synonyms": [],
-    "antweb_url": "https://www.antweb.org/browse.do?genus=Leptothorax&species=unifasciatus&rank=species",
     "antcat_url": null,
     "gbif_id": null
   }
