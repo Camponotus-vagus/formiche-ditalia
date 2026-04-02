@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GenusCard from '../../components/GenusCard.astro';
+import type { Genus } from '../../types';
+
+import generaData from '../../data/genera.json';
+
+const genera = generaData as Genus[];
+const pageTitle = "Generi di formiche italiane";
+---
+
+<BaseLayout title={pageTitle} description="Esplora tutti i generi di formiche presenti in Italia, organizzati per sottofamiglia.">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="font-display text-3xl font-bold text-gray-900 mb-8" data-i18n="genera_title">{pageTitle}</h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {genera.map((genus) => (
+        <GenusCard genus={genus} />
+      ))}
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,78 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  canonicalUrl?: string;
+  structuredData?: Record<string, unknown>;
+}
+
+const { title, description, canonicalUrl, structuredData } = Astro.props;
+const siteTitle = "Formiche d'Italia";
+const fullTitle = title === siteTitle ? title : `${title} — ${siteTitle}`;
+const metaDescription = description || "La guida italiana alla mirmecologia — identificazione, catalogo specie e rete di esperti";
+const currentUrl = canonicalUrl || Astro.url.href;
+
+import '../styles/global.css';
+import LanguageSwitcher from '../components/LanguageSwitcher.tsx';
+---
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={metaDescription} />
+  <link rel="canonical" href={currentUrl} />
+  <link rel="alternate" hreflang="it" href={currentUrl} />
+  <link rel="alternate" hreflang="en" href={`${currentUrl}${currentUrl.includes('?') ? '&' : '?'}lang=en`} />
+  {structuredData && (
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  )}
+</head>
+<body class="min-h-screen flex flex-col">
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="/" class="font-display text-xl font-bold text-forest-700 hover:text-forest-600 transition-colors">
+        Formiche d'Italia
+      </a>
+      <div class="hidden sm:flex items-center gap-6">
+        <a href="/identifica" class="text-sm font-medium text-gray-600 hover:text-forest-600 transition-colors" data-i18n="nav_identify">Identifica</a>
+        <a href="/generi" class="text-sm font-medium text-gray-600 hover:text-forest-600 transition-colors" data-i18n="nav_genera">Generi</a>
+        <a href="/esperti" class="text-sm font-medium text-gray-600 hover:text-forest-600 transition-colors" data-i18n="nav_experts">Esperti</a>
+        <a href="/chi-siamo" class="text-sm font-medium text-gray-600 hover:text-forest-600 transition-colors" data-i18n="nav_about">Chi siamo</a>
+        <LanguageSwitcher client:load />
+      </div>
+      <!-- Mobile hamburger -->
+      <button id="mobile-menu-btn" class="sm:hidden p-2" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </nav>
+  </header>
+  <!-- Mobile menu (hidden by default) -->
+  <div id="mobile-menu" class="sm:hidden hidden border-b border-gray-200 bg-white">
+    <div class="px-4 py-3 space-y-2">
+      <a href="/identifica" class="block text-sm font-medium text-gray-600 py-2">Identifica</a>
+      <a href="/generi" class="block text-sm font-medium text-gray-600 py-2">Generi</a>
+      <a href="/esperti" class="block text-sm font-medium text-gray-600 py-2">Esperti</a>
+      <a href="/chi-siamo" class="block text-sm font-medium text-gray-600 py-2">Chi siamo</a>
+    </div>
+  </div>
+  <script>
+    document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+      document.getElementById('mobile-menu')?.classList.toggle('hidden');
+    });
+  </script>
+
+  <main class="flex-1">
+    <slot />
+  </main>
+
+  <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <p class="text-sm text-gray-500" data-i18n="footer_credits">Un progetto di Francesco Mensa — MUSE, Trento</p>
+      <p class="text-xs text-gray-400 mt-1" data-i18n="footer_data_credits">Immagini: AntWeb.org (CC BY-SA 3.0). Dati tassonomici: Schifani 2022.</p>
+    </div>
+  </footer>
+</body>
+</html>

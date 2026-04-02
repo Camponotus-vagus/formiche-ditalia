@@ -1,0 +1,33 @@
+---
+import type { Genus } from '../types';
+interface Props {
+  genus: Genus;
+}
+const { genus } = Astro.props;
+const photoUrl = genus.photo_urls[0] || '/images/placeholder-ant.svg';
+---
+
+<a href={`/generi/${genus.id}`} class="group block rounded-xl overflow-hidden border border-gray-200 hover:border-forest-400 hover:shadow-lg transition-all duration-200">
+  <div class="aspect-[4/3] overflow-hidden bg-gray-100">
+    <img
+      src={photoUrl}
+      alt={`${genus.scientific_name} — formica italiana`}
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+      loading="lazy"
+      onerror="this.src='/images/placeholder-ant.svg'"
+    />
+  </div>
+  <div class="p-4">
+    <h3 class="font-display text-lg font-semibold scientific-name text-gray-900 group-hover:text-forest-600 transition-colors">
+      {genus.scientific_name}
+    </h3>
+    <p class="text-sm text-gray-500 mt-1">
+      {genus.subfamily_id.charAt(0).toUpperCase() + genus.subfamily_id.slice(1)}
+    </p>
+    {genus.species_count_italy > 0 && (
+      <p class="text-xs text-forest-600 mt-2">
+        {genus.species_count_italy} <span data-i18n="genera_species_count">specie in Italia</span>
+      </p>
+    )}
+  </div>
+</a>

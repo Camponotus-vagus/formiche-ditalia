@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import IdentificationKey from '../components/IdentificationKey.tsx';
+
+import characters from '../data/characters.json';
+import matrix from '../data/matrix.json';
+import genera from '../data/genera.json';
+---
+
+<BaseLayout title="Chiave di identificazione" description="Identifica le formiche italiane con la chiave interattiva multi-accesso. Seleziona i caratteri morfologici in qualsiasi ordine.">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="font-display text-3xl font-bold text-gray-900 mb-2" data-i18n="identify_title">
+      Chiave di identificazione
+    </h1>
+    <p class="text-gray-500 mb-8">
+      Seleziona i caratteri morfologici in qualsiasi ordine per identificare il genere.
+    </p>
+
+    <IdentificationKey
+      client:load
+      characters={characters}
+      matrix={matrix}
+      genera={genera}
+      lang="it"
+    />
+  </div>
+</BaseLayout>

@@ -1,0 +1,1016 @@
+[
+  {
+    "id": "gen-1",
+    "name_it": "Erect setae on the mesosoma",
+    "name_en": "Erect setae on the mesosoma",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 1,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "absent",
+        "label_en": "absent"
+      },
+      {
+        "value": "1",
+        "label_it": "present",
+        "label_en": "present"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
+  },
+  {
+    "id": "gen-2",
+    "name_it": "Head shape",
+    "name_en": "Head shape",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 2,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "triangular",
+        "label_en": "triangular"
+      },
+      {
+        "value": "1",
+        "label_it": "not_triangular",
+        "label_en": "not_triangular"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
+  },
+  {
+    "id": "gen-3",
+    "name_it": "Antennal segments",
+    "name_en": "Antennal segments",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 3,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "4",
+        "label_en": "4"
+      },
+      {
+        "value": "1",
+        "label_it": "6",
+        "label_en": "6"
+      },
+      {
+        "value": "2",
+        "label_it": "10",
+        "label_en": "10"
+      },
+      {
+        "value": "3",
+        "label_it": "11",
+        "label_en": "11"
+      },
+      {
+        "value": "4",
+        "label_it": "12",
+        "label_en": "12"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
+  },
+  {
+    "id": "gen-4",
+    "name_it": "Segments of the antennal club",
+    "name_en": "Segments of the antennal club",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 4,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "indistinct",
+        "label_en": "indistinct"
+      },
+      {
+        "value": "1",
+        "label_it": "2",
+        "label_en": "2"
+      },
+      {
+        "value": "2",
+        "label_it": "3",
+        "label_en": "3"
+      },
+      {
+        "value": "3",
+        "label_it": "4",
+        "label_en": "4"
+      },
+      {
+        "value": "4",
+        "label_it": "5",
+        "label_en": "5"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
+  },
+  {
+    "id": "gen-5",
+    "name_it": "Compound eyes",
+    "name_en": "Compound eyes",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 5,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "oval",
+        "label_en": "oval"
+      },
+      {
+        "value": "1",
+        "label_it": "elongate, narrowing downward",
+        "label_en": "elongate, narrowing downward"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
+  },
+  {
+    "id": "gen-6",
+    "name_it": "Mandibular shape",
+    "name_en": "Mandibular shape",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 6,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "triangular",
+        "label_en": "triangular"
+      },
+      {
+        "value": "1",
+        "label_it": "narrow and elongate, sabre-like",
+        "label_en": "narrow and elongate, sabre-like"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
+  },
+  {
+    "id": "gen-7",
+    "name_it": "Mandibular dentition",
+    "name_en": "Mandibular dentition",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 7,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "absent_or_only_with_the_apical_tooth",
+        "label_en": "absent_or_only_with_the_apical_tooth"
+      },
+      {
+        "value": "1",
+        "label_it": "4",
+        "label_en": "4"
+      },
+      {
+        "value": "2",
+        "label_it": "5",
+        "label_en": "5"
+      },
+      {
+        "value": "3",
+        "label_it": "between_6_and_9",
+        "label_en": "between_6_and_9"
+      },
+      {
+        "value": "4",
+        "label_it": "10_or_more",
+        "label_en": "10_or_more"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
+  },
+  {
+    "id": "gen-8",
+    "name_it": "Palp formula",
+    "name_en": "Palp formula",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 8,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "from",
+        "label_en": "from"
+      },
+      {
+        "value": "1",
+        "label_it": "1",
+        "label_en": "1"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
+  },
+  {
+    "id": "gen-9",
+    "name_it": "to 5,3' '6,4' '1,1",
+    "name_en": "to 5,3' '6,4' '1,1",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 9,
+    "illustration_url": null,
+    "states": [],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
+  },
+  {
+    "id": "gen-10",
+    "name_it": "Lateral portions of the clypeus",
+    "name_en": "Lateral portions of the clypeus",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 10,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "not_raised_as_a_ridge_in_front_of_the_antennal_insertions",
+        "label_en": "not_raised_as_a_ridge_in_front_of_the_antennal_insertions"
+      },
+      {
+        "value": "1",
+        "label_it": "raised_as_a_ridge_in_front_of_antennal_insertions",
+        "label_en": "raised_as_a_ridge_in_front_of_antennal_insertions"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
+  },
+  {
+    "id": "gen-11",
+    "name_it": "Mesosoma profile",
+    "name_en": "Mesosoma profile",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 11,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "Promesonotum_about_the_same_level_as_the_propodeum",
+        "label_en": "Promesonotum_about_the_same_level_as_the_propodeum"
+      },
+      {
+        "value": "1",
+        "label_it": "promesonotum_at_a_higher_level_than_propodeum",
+        "label_en": "promesonotum_at_a_higher_level_than_propodeum"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
+  },
+  {
+    "id": "gen-12",
+    "name_it": "Lateral sides of the pronotum",
+    "name_en": "Lateral sides of the pronotum",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 12,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "angular, from dorsal view",
+        "label_en": "angular, from dorsal view"
+      },
+      {
+        "value": "1",
+        "label_it": "rounded, from dorsal view",
+        "label_en": "rounded, from dorsal view"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
+  },
+  {
+    "id": "gen-13",
+    "name_it": "Propodeum",
+    "name_en": "Propodeum",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 13,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "without_teeth_or_spines",
+        "label_en": "without_teeth_or_spines"
+      },
+      {
+        "value": "1",
+        "label_it": "with_teeth_or_spines",
+        "label_en": "with_teeth_or_spines"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
+  },
+  {
+    "id": "gen-14",
+    "name_it": "Spur of middle and hind tibiae",
+    "name_en": "Spur of middle and hind tibiae",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 14,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "simple_or_absent",
+        "label_en": "simple_or_absent"
+      },
+      {
+        "value": "1",
+        "label_it": "pectinate",
+        "label_en": "pectinate"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
+  },
+  {
+    "id": "gen-15",
+    "name_it": "Petiole and postpetiole shape",
+    "name_en": "Petiole and postpetiole shape",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 15,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "not_cubical",
+        "label_en": "not_cubical"
+      },
+      {
+        "value": "1",
+        "label_it": "cubical",
+        "label_en": "cubical"
+      },
+      {
+        "value": "2",
+        "label_it": "not cubical, with a pronounced spongy \"skirt\" at the base",
+        "label_en": "not cubical, with a pronounced spongy \"skirt\" at the base"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
+  },
+  {
+    "id": "gen-16",
+    "name_it": "Ventral surface of petiole and postpetiole",
+    "name_en": "Ventral surface of petiole and postpetiole",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 16,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "at_most_with_a_small_tooth_or_lobe",
+        "label_en": "at_most_with_a_small_tooth_or_lobe"
+      },
+      {
+        "value": "1",
+        "label_it": "with_a_well_developed_tooth_or_lobe",
+        "label_en": "with_a_well_developed_tooth_or_lobe"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
+  },
+  {
+    "id": "gen-17",
+    "name_it": "Postpetiole, dorsal view",
+    "name_en": "Postpetiole, dorsal view",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 17,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "much_wider_than_petiole",
+        "label_en": "much_wider_than_petiole"
+      },
+      {
+        "value": "1",
+        "label_it": "as_wide_as_or_a_little_wider_than_the_petiole",
+        "label_en": "as_wide_as_or_a_little_wider_than_the_petiole"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
+  },
+  {
+    "id": "gen-18",
+    "name_it": "Postpetiole",
+    "name_en": "Postpetiole",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 18,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "articulated_with_the_anterior_face_of_the_gaster",
+        "label_en": "articulated_with_the_anterior_face_of_the_gaster"
+      },
+      {
+        "value": "1",
+        "label_it": "articulated_with_the_superior_face_of_the_first_gastral_segment",
+        "label_en": "articulated_with_the_superior_face_of_the_first_gastral_segment"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
+  },
+  {
+    "id": "gen-19",
+    "name_it": "Gaster shape",
+    "name_en": "Gaster shape",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 19,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "oval",
+        "label_en": "oval"
+      },
+      {
+        "value": "1",
+        "label_it": "cordiform",
+        "label_en": "cordiform"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
+  },
+  {
+    "id": "gen-20",
+    "name_it": "Sting",
+    "name_en": "Sting",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 20,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "...without apico-dorsal appendix",
+        "label_en": "...without apico-dorsal appendix"
+      },
+      {
+        "value": "1",
+        "label_it": "...with an apico-dorsal appendix, triangular",
+        "label_en": "...with an apico-dorsal appendix, triangular"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
+  },
+  {
+    "id": "gen-21",
+    "name_it": "Colour",
+    "name_en": "Colour",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 21,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "testaceous",
+        "label_en": "testaceous"
+      },
+      {
+        "value": "1",
+        "label_it": "piceous",
+        "label_en": "piceous"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "ponerinae"
+  },
+  {
+    "id": "gen-22",
+    "name_it": "Mandibular masticatory margin",
+    "name_en": "Mandibular masticatory margin",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 22,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "with some 7-9 separated teeth",
+        "label_en": "with some 7-9 separated teeth"
+      },
+      {
+        "value": "1",
+        "label_it": "few well defined teeth, the remaining margin mostly finely serrated",
+        "label_en": "few well defined teeth, the remaining margin mostly finely serrated"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "ponerinae"
+  },
+  {
+    "id": "gen-23",
+    "name_it": "Hind tibia spur(s)",
+    "name_en": "Hind tibia spur(s)",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 23,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "two spurs: one simple, the other pectinate",
+        "label_en": "two spurs: one simple, the other pectinate"
+      },
+      {
+        "value": "1",
+        "label_it": "a_single_pectinate_spur",
+        "label_en": "a_single_pectinate_spur"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "ponerinae"
+  },
+  {
+    "id": "gen-24",
+    "name_it": "Mid tibia",
+    "name_en": "Mid tibia",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 24,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "without spine-like bristles on its outer surface",
+        "label_en": "without spine-like bristles on its outer surface"
+      },
+      {
+        "value": "1",
+        "label_it": "with spine-like bristles on its outer surface",
+        "label_en": "with spine-like bristles on its outer surface"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "ponerinae"
+  },
+  {
+    "id": "gen-25",
+    "name_it": "Subpetiolar process",
+    "name_en": "Subpetiolar process",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 25,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "lobe-like",
+        "label_en": "lobe-like"
+      },
+      {
+        "value": "1",
+        "label_it": "with a circular, translucent thin spot anteriorly and posteriorly tooth-like",
+        "label_en": "with a circular, translucent thin spot anteriorly and posteriorly tooth-like"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "ponerinae"
+  },
+  {
+    "id": "gen-26",
+    "name_it": "Colour",
+    "name_en": "Colour",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 26,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "uniformly_brown_to_black",
+        "label_en": "uniformly_brown_to_black"
+      },
+      {
+        "value": "1",
+        "label_it": "bicoloured with red/reddish mesosoma",
+        "label_en": "bicoloured with red/reddish mesosoma"
+      },
+      {
+        "value": "2",
+        "label_it": "bicoloured_without_any_red_or_reddish_part",
+        "label_en": "bicoloured_without_any_red_or_reddish_part"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "dolichoderinae"
+  },
+  {
+    "id": "gen-27",
+    "name_it": "Palpal formula",
+    "name_en": "Palpal formula",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 27,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "4,3",
+        "label_en": "4,3"
+      },
+      {
+        "value": "1",
+        "label_it": "6,4",
+        "label_en": "6,4"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "dolichoderinae"
+  },
+  {
+    "id": "gen-28",
+    "name_it": "Anterior margin of the clypeus",
+    "name_en": "Anterior margin of the clypeus",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 28,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "entire",
+        "label_en": "entire"
+      },
+      {
+        "value": "1",
+        "label_it": "distinctly_notched_medially",
+        "label_en": "distinctly_notched_medially"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "dolichoderinae"
+  },
+  {
+    "id": "gen-29",
+    "name_it": "Head and mesosoma integument",
+    "name_en": "Head and mesosoma integument",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 29,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "thin_and_superficially_sculptured",
+        "label_en": "thin_and_superficially_sculptured"
+      },
+      {
+        "value": "1",
+        "label_it": "thick_and_with_strong_sculpture",
+        "label_en": "thick_and_with_strong_sculpture"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "dolichoderinae"
+  },
+  {
+    "id": "gen-30",
+    "name_it": "Erect hairs on the pronotum",
+    "name_en": "Erect hairs on the pronotum",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 30,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "absent",
+        "label_en": "absent"
+      },
+      {
+        "value": "1",
+        "label_it": "present",
+        "label_en": "present"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "dolichoderinae"
+  },
+  {
+    "id": "gen-31",
+    "name_it": "Petiolar scale",
+    "name_en": "Petiolar scale",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 31,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "well_developed",
+        "label_en": "well_developed"
+      },
+      {
+        "value": "1",
+        "label_it": "virtually_absent",
+        "label_en": "virtually_absent"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "dolichoderinae"
+  },
+  {
+    "id": "gen-32",
+    "name_it": "Yellow dots on the gaster",
+    "name_en": "Yellow dots on the gaster",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 32,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "absent",
+        "label_en": "absent"
+      },
+      {
+        "value": "1",
+        "label_it": "present, on the first 2 tergites",
+        "label_en": "present, on the first 2 tergites"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "dolichoderinae"
+  },
+  {
+    "id": "gen-33",
+    "name_it": "Soldier caste with truncated head",
+    "name_en": "Soldier caste with truncated head",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 33,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "absent",
+        "label_en": "absent"
+      },
+      {
+        "value": "1",
+        "label_it": "present",
+        "label_en": "present"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "formicinae"
+  },
+  {
+    "id": "gen-34",
+    "name_it": "Palpal formula",
+    "name_en": "Palpal formula",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 34,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "6,4",
+        "label_en": "6,4"
+      },
+      {
+        "value": "1",
+        "label_it": "4,2",
+        "label_en": "4,2"
+      },
+      {
+        "value": "2",
+        "label_it": "5,4",
+        "label_en": "5,4"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "formicinae"
+  },
+  {
+    "id": "gen-35",
+    "name_it": "4th article of the maxillary palp",
+    "name_en": "4th article of the maxillary palp",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 35,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "...a_little_longer_than_5th",
+        "label_en": "...a_little_longer_than_5th"
+      },
+      {
+        "value": "1",
+        "label_it": "...about_twice_as_long_as_5th",
+        "label_en": "...about_twice_as_long_as_5th"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "formicinae"
+  },
+  {
+    "id": "gen-36",
+    "name_it": "Mandibular shape",
+    "name_en": "Mandibular shape",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 36,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "triangular",
+        "label_en": "triangular"
+      },
+      {
+        "value": "1",
+        "label_it": "falciform",
+        "label_en": "falciform"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "formicinae"
+  },
+  {
+    "id": "gen-37",
+    "name_it": "Mandibular teeth",
+    "name_en": "Mandibular teeth",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 37,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "apical_tooth_only",
+        "label_en": "apical_tooth_only"
+      },
+      {
+        "value": "1",
+        "label_it": "4-6",
+        "label_en": "4-6"
+      },
+      {
+        "value": "2",
+        "label_it": ">=7",
+        "label_en": ">=7"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "formicinae"
+  },
+  {
+    "id": "gen-38",
+    "name_it": "Antennal insertion",
+    "name_en": "Antennal insertion",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 38,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "distant_from_the_posterior_clypeal_margin",
+        "label_en": "distant_from_the_posterior_clypeal_margin"
+      },
+      {
+        "value": "1",
+        "label_it": "very_close_to_the_posterior_clypeal_margin",
+        "label_en": "very_close_to_the_posterior_clypeal_margin"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "formicinae"
+  },
+  {
+    "id": "gen-39",
+    "name_it": "Antennal segments",
+    "name_en": "Antennal segments",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 39,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "11",
+        "label_en": "11"
+      },
+      {
+        "value": "1",
+        "label_it": "12",
+        "label_en": "12"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "formicinae"
+  },
+  {
+    "id": "gen-40",
+    "name_it": "Propodeum",
+    "name_en": "Propodeum",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 40,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "rounded",
+        "label_en": "rounded"
+      },
+      {
+        "value": "1",
+        "label_it": "armed_with_2_teeth",
+        "label_en": "armed_with_2_teeth"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "formicinae"
+  }
+]

@@ -1,0 +1,49 @@
+---
+import type { Expert } from '../types';
+interface Props {
+  expert: Expert;
+}
+const { expert } = Astro.props;
+---
+
+<a href={`/esperti/${expert.id}`} class="group block rounded-xl overflow-hidden border border-gray-200 hover:border-brand-400 hover:shadow-lg transition-all duration-200 p-5">
+  <div class="flex items-start gap-4">
+    {expert.profile_photo_url ? (
+      <img
+        src={expert.profile_photo_url}
+        alt={expert.name}
+        class="w-14 h-14 rounded-full object-cover flex-shrink-0"
+        loading="lazy"
+      />
+    ) : (
+      <div class="w-14 h-14 rounded-full bg-brand-100 flex items-center justify-center flex-shrink-0">
+        <span class="text-brand-600 font-semibold text-lg">
+          {expert.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+        </span>
+      </div>
+    )}
+    <div class="min-w-0">
+      <div class="flex items-center gap-2">
+        <h3 class="font-semibold text-gray-900 group-hover:text-brand-600 transition-colors truncate">
+          {expert.name}
+        </h3>
+        {expert.claimed && (
+          <span class="text-xs bg-forest-100 text-forest-700 px-1.5 py-0.5 rounded-full" data-i18n="experts_verified">Verificato</span>
+        )}
+      </div>
+      {expert.affiliation && (
+        <p class="text-sm text-gray-500 truncate">{expert.affiliation}</p>
+      )}
+      {expert.region && (
+        <p class="text-xs text-gray-400 mt-1">{expert.region}</p>
+      )}
+    </div>
+  </div>
+  {expert.specializations && expert.specializations.length > 0 && (
+    <div class="flex flex-wrap gap-1 mt-3">
+      {expert.specializations.slice(0, 3).map(spec => (
+        <span class="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{spec}</span>
+      ))}
+    </div>
+  )}
+</a>

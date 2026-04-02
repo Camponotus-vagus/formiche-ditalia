@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Chi siamo" description="Formiche d'Italia nasce dalla tesi FormiKey al MUSE di Trento. Scopri il progetto, il team e le fonti dei dati.">
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 prose prose-gray">
+    <h1 class="font-display" data-i18n="about_title">Chi siamo</h1>
+
+    <p>
+      <strong>Formiche d'Italia</strong> nasce come evoluzione digitale della tesi FormiKey,
+      sviluppata presso il <a href="https://www.muse.it" target="_blank" rel="noopener noreferrer">MUSE — Museo delle Scienze di Trento</a>.
+      L'obiettivo: rendere l'identificazione delle formiche italiane accessibile a tutti,
+      da entomologi professionisti a naturalisti amatoriali.
+    </p>
+
+    <h2>Il progetto</h2>
+    <p>
+      La piattaforma offre una <a href="/identifica">chiave di identificazione interattiva multi-accesso</a>
+      con tolleranza agli errori, un <a href="/generi">catalogo completo dei generi</a> presenti
+      in Italia e una <a href="/esperti">directory degli esperti</a> di mirmecologia italiana.
+    </p>
+    <p>
+      I dati tassonomici derivano dalle matrici di caratteri della tesi FormiKey,
+      validate dal Dr. Fabrizio Rigato (Museo Civico di Storia Naturale di Milano).
+      Le immagini provengono da <a href="https://www.antweb.org" target="_blank" rel="noopener noreferrer">AntWeb</a>
+      e sono distribuite con licenza CC BY-SA 3.0. La checklist di riferimento
+      è quella di Schifani (2022).
+    </p>
+
+    <h2>Il team</h2>
+    <ul>
+      <li><strong>Francesco Mensa</strong> — Ricercatore al MUSE, creatore del progetto e della chiave FormiKey</li>
+      <li><strong>Mauro Gobbi</strong> — Ricercatore al MUSE, supervisore scientifico</li>
+      <li><strong>Fabrizio Rigato</strong> — Museo di Milano, validazione delle matrici morfologiche</li>
+    </ul>
+
+    <h2>Contribuisci</h2>
+    <p>
+      Formiche d'Italia è un progetto in crescita. Se sei un esperto di formiche italiane
+      e vuoi contribuire, <a href="/esperti">rivendica il tuo profilo</a> nella directory esperti
+      o contattaci per proporre correzioni e integrazioni ai dati.
+    </p>
+
+    <h2>Fonti dei dati</h2>
+    <ul>
+      <li>Matrici FormiKey (tesi, dati originali)</li>
+      <li>Checklist Formicidae d'Italia — Schifani, 2022</li>
+      <li>Immagini: AntWeb.org (CC BY-SA 3.0)</li>
+      <li>Dati bibliometrici: OpenAlex API</li>
+    </ul>
+  </article>
+</BaseLayout>

@@ -1,0 +1,13 @@
+# Source data (large, not tracked)
+Formiche/
+TESI FORMICHE/
+TESI FORMICHE (Dropbox)/
+
+# macOS
+.DS_Store
+
+# Misc
+copy_tesi.sh
+formiche_ditalia_roadmap.docx
+__pycache__/
+*.pyc
