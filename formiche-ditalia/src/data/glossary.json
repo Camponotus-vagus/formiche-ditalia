@@ -1,0 +1,177 @@
+[
+  {
+    "term": "testa",
+    "term_en": "head",
+    "definition_it": "La parte anteriore del corpo della formica, che ospita gli occhi, le antenne, le mandibole e il clipeo. La sua forma e proporzioni sono fondamentali per l'identificazione.",
+    "definition_en": "The anterior body part of the ant, housing the eyes, antennae, mandibles, and clypeus. Its shape and proportions are key for identification.",
+    "image_url": null
+  },
+  {
+    "term": "mandibole",
+    "term_en": "mandibles",
+    "definition_it": "Appendici buccali robuste utilizzate per trasportare cibo, scavare e difendersi. Il numero di denti e la forma sono caratteri diagnostici importanti.",
+    "definition_en": "Strong mouthparts used for carrying food, digging, and defense. The number of teeth and shape are important diagnostic characters.",
+    "image_url": null
+  },
+  {
+    "term": "clipeo",
+    "term_en": "clypeus",
+    "definition_it": "Sclerite mediano della faccia, situato tra le mandibole e le inserzioni antennali. La sua forma e margine anteriore variano tra i generi.",
+    "definition_en": "Median sclerite of the face, located between the mandibles and antennal insertions. Its shape and anterior margin vary across genera.",
+    "image_url": null
+  },
+  {
+    "term": "occhi composti",
+    "term_en": "compound eyes",
+    "definition_it": "Organi visivi principali situati lateralmente sulla testa, composti da numerose ommatidi. La loro dimensione e posizione sono utili per la classificazione.",
+    "definition_en": "Main visual organs located laterally on the head, composed of numerous ommatidia. Their size and position are useful for classification.",
+    "image_url": null
+  },
+  {
+    "term": "ocelli",
+    "term_en": "ocelli",
+    "definition_it": "Tre piccoli occhi semplici disposti a triangolo sulla sommità della testa, spesso assenti nelle operaie. La loro presenza o assenza è un carattere tassonomico.",
+    "definition_en": "Three small simple eyes arranged in a triangle on the top of the head, often absent in workers. Their presence or absence is a taxonomic character.",
+    "image_url": null
+  },
+  {
+    "term": "antenna",
+    "term_en": "antenna",
+    "definition_it": "Appendice sensoriale articolata inserita sulla testa. Il numero di segmenti e la struttura della clava sono caratteri diagnostici fondamentali.",
+    "definition_en": "Articulated sensory appendage inserted on the head. The number of segments and club structure are fundamental diagnostic characters.",
+    "image_url": null
+  },
+  {
+    "term": "scapo",
+    "term_en": "scape",
+    "definition_it": "Il primo e più lungo segmento dell'antenna. La sua lunghezza relativa alla testa è un carattere identificativo chiave in molti generi.",
+    "definition_en": "The first and longest segment of the antenna. Its length relative to the head is a key identification character in many genera.",
+    "image_url": null
+  },
+  {
+    "term": "funicolo",
+    "term_en": "funiculus",
+    "definition_it": "La porzione dell'antenna distale allo scapo, composta da più segmenti. Il numero di articoli del funicolo varia tra le specie.",
+    "definition_en": "The portion of the antenna distal to the scape, composed of multiple segments. The number of funicular articles varies among species.",
+    "image_url": null
+  },
+  {
+    "term": "clava",
+    "term_en": "antennal club",
+    "definition_it": "Ingrossamento terminale dell'antenna formato dagli ultimi segmenti del funicolo. Il numero di segmenti della clava è un carattere diagnostico importante.",
+    "definition_en": "Terminal enlargement of the antenna formed by the last segments of the funiculus. The number of club segments is an important diagnostic character.",
+    "image_url": null
+  },
+  {
+    "term": "torace",
+    "term_en": "thorax",
+    "definition_it": "La regione mediana del corpo (mesosoma nelle formiche), tra la testa e il peziolo. Porta le zampe e, nei riproduttori, le ali.",
+    "definition_en": "The middle body region (mesosoma in ants), between the head and petiole. It bears the legs and, in reproductives, the wings.",
+    "image_url": null
+  },
+  {
+    "term": "pronoto",
+    "term_en": "pronotum",
+    "definition_it": "Il primo segmento dorsale del torace. La sua forma e la presenza di spine o angoli sono caratteri utili per la determinazione.",
+    "definition_en": "The first dorsal segment of the thorax. Its shape and the presence of spines or angles are useful characters for determination.",
+    "image_url": null
+  },
+  {
+    "term": "mesonoto",
+    "term_en": "mesonotum",
+    "definition_it": "Il secondo segmento dorsale del torace. Nelle operaie delle formiche è spesso fuso con il pronoto formando il promesonoto.",
+    "definition_en": "The second dorsal segment of the thorax. In ant workers it is often fused with the pronotum forming the promesonotum.",
+    "image_url": null
+  },
+  {
+    "term": "propodeo",
+    "term_en": "propodeum",
+    "definition_it": "L'ultimo segmento del mesosoma, in realtà il primo segmento addominale fuso al torace. La presenza e forma delle spine propodeali sono diagnostiche.",
+    "definition_en": "The last segment of the mesosoma, actually the first abdominal segment fused to the thorax. The presence and shape of propodeal spines are diagnostic.",
+    "image_url": null
+  },
+  {
+    "term": "spine propodeali",
+    "term_en": "propodeal spines",
+    "definition_it": "Proiezioni a forma di spina sul propodeo. La loro lunghezza, forma e angolazione sono caratteri importanti nella chiave di identificazione.",
+    "definition_en": "Spine-shaped projections on the propodeum. Their length, shape, and angle are important characters in the identification key.",
+    "image_url": null
+  },
+  {
+    "term": "peziolo",
+    "term_en": "petiole",
+    "definition_it": "Il primo segmento che connette il mesosoma al gastro. La forma del nodo petiolario (squamiforme, nodiforme, cuneiforme) è un carattere tassonomico chiave.",
+    "definition_en": "The first segment connecting the mesosoma to the gaster. The shape of the petiolar node (squamiform, nodiform, cuneiform) is a key taxonomic character.",
+    "image_url": null
+  },
+  {
+    "term": "postpeziolo",
+    "term_en": "postpetiole",
+    "definition_it": "Il secondo segmento tra mesosoma e gastro, presente in alcune sottofamiglie come Myrmicinae. La sua presenza o assenza distingue le sottofamiglie.",
+    "definition_en": "The second segment between mesosoma and gaster, present in some subfamilies like Myrmicinae. Its presence or absence distinguishes subfamilies.",
+    "image_url": null
+  },
+  {
+    "term": "nodo petiolario",
+    "term_en": "petiolar node",
+    "definition_it": "L'elevazione dorsale del peziolo. La sua forma vista di profilo e di fronte varia considerevolmente tra i generi ed è un carattere diagnostico primario.",
+    "definition_en": "The dorsal elevation of the petiole. Its shape in profile and frontal view varies considerably among genera and is a primary diagnostic character.",
+    "image_url": null
+  },
+  {
+    "term": "gastro",
+    "term_en": "gaster",
+    "definition_it": "La parte posteriore dell'addome, dopo il peziolo (e postpeziolo se presente). Contiene gli organi interni e porta l'acidoporo o il pungiglione.",
+    "definition_en": "The posterior part of the abdomen, after the petiole (and postpetiole if present). Contains the internal organs and bears the acidopore or sting.",
+    "image_url": null
+  },
+  {
+    "term": "acidoporo",
+    "term_en": "acidopore",
+    "definition_it": "Apertura circolare all'apice del gastro nelle Formicinae, spesso circondata da un anello di setole. Utilizzata per spruzzare acido formico.",
+    "definition_en": "Circular opening at the apex of the gaster in Formicinae, often surrounded by a ring of setae. Used for spraying formic acid.",
+    "image_url": null
+  },
+  {
+    "term": "pungiglione",
+    "term_en": "sting",
+    "definition_it": "Struttura appuntita all'apice del gastro presente in alcune sottofamiglie (es. Myrmicinae, Ponerinae). La sua presenza o assenza è un carattere diagnostico a livello di sottofamiglia.",
+    "definition_en": "Pointed structure at the apex of the gaster present in some subfamilies (e.g., Myrmicinae, Ponerinae). Its presence or absence is a diagnostic character at the subfamily level.",
+    "image_url": null
+  },
+  {
+    "term": "polimorfismo",
+    "term_en": "polymorphism",
+    "definition_it": "Variazione nelle dimensioni e proporzioni corporee tra le operaie di una stessa colonia. I generi polimorfici hanno operaie di taglie diverse (minori e maggiori).",
+    "definition_en": "Variation in body size and proportions among workers of the same colony. Polymorphic genera have workers of different sizes (minors and majors).",
+    "image_url": null
+  },
+  {
+    "term": "operaia",
+    "term_en": "worker",
+    "definition_it": "Femmina sterile della colonia, la casta più comune e quella su cui si basa la maggior parte delle chiavi di identificazione.",
+    "definition_en": "Sterile female of the colony, the most common caste and the one on which most identification keys are based.",
+    "image_url": null
+  },
+  {
+    "term": "soldato",
+    "term_en": "soldier",
+    "definition_it": "Operaia di grandi dimensioni con testa e mandibole proporzionalmente più sviluppate, presente solo nei generi con polimorfismo marcato.",
+    "definition_en": "Large worker with proportionally larger head and mandibles, present only in genera with marked polymorphism.",
+    "image_url": null
+  },
+  {
+    "term": "scultura tegumentaria",
+    "term_en": "integumental sculpture",
+    "definition_it": "Insieme delle microsculture presenti sulla cuticola (reticolata, striata, punteggiata, liscia). La scultura è un importante carattere diagnostico a tutti i livelli tassonomici.",
+    "definition_en": "Set of microsculptures on the cuticle (reticulate, striate, punctate, smooth). The sculpture is an important diagnostic character at all taxonomic levels.",
+    "image_url": null
+  },
+  {
+    "term": "mesosoma",
+    "term_en": "mesosoma",
+    "definition_it": "Termine tecnico per il torace delle formiche, che include il vero torace più il propodeo (primo segmento addominale fuso).",
+    "definition_en": "Technical term for the ant thorax, which includes the true thorax plus the propodeum (first fused abdominal segment).",
+    "image_url": null
+  }
+]

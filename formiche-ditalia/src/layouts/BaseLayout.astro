@@ -3,14 +3,16 @@ interface Props {
   title: string;
   description?: string;
   canonicalUrl?: string;
+  ogImage?: string;
   structuredData?: Record<string, unknown>;
 }
 
-const { title, description, canonicalUrl, structuredData } = Astro.props;
+const { title, description, canonicalUrl, ogImage, structuredData } = Astro.props;
 const siteTitle = "Formiche d'Italia";
 const fullTitle = title === siteTitle ? title : `${title} — ${siteTitle}`;
 const metaDescription = description || "La guida italiana alla mirmecologia — identificazione, catalogo specie e rete di esperti";
 const currentUrl = canonicalUrl || Astro.url.href;
+const ogImageUrl = ogImage || '/images/og-default.svg';
 
 import '../styles/global.css';
 import LanguageSwitcher from '../components/LanguageSwitcher.tsx';
@@ -26,6 +28,22 @@ import LanguageSwitcher from '../components/LanguageSwitcher.tsx';
   <link rel="canonical" href={currentUrl} />
   <link rel="alternate" hreflang="it" href={currentUrl} />
   <link rel="alternate" hreflang="en" href={`${currentUrl}${currentUrl.includes('?') ? '&' : '?'}lang=en`} />
+  <!-- Open Graph -->
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={metaDescription} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={currentUrl} />
+  <meta property="og:image" content={ogImageUrl} />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:site_name" content="Formiche d'Italia" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={metaDescription} />
+  <meta name="twitter:image" content={ogImageUrl} />
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#2d6f32" />
   {structuredData && (
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   )}
@@ -74,5 +92,10 @@ import LanguageSwitcher from '../components/LanguageSwitcher.tsx';
       <p class="text-xs text-gray-400 mt-1" data-i18n="footer_data_credits">Immagini: AntWeb.org (CC BY-SA 3.0). Dati tassonomici: Schifani 2022.</p>
     </div>
   </footer>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+  </script>
 </body>
 </html>

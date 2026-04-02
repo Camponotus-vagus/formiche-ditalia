@@ -1,10 +1,20 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, type ReactNode } from 'react';
 import type { Character, MatrixEntry, Genus } from '../types';
+import GlossaryTooltip from './GlossaryTooltip';
+
+interface GlossaryEntry {
+  term: string;
+  term_en: string;
+  definition_it: string;
+  definition_en: string;
+  image_url: string | null;
+}
 
 interface Props {
   characters: Character[];
   matrix: MatrixEntry[];
   genera: Genus[];
+  glossary?: GlossaryEntry[];
   lang: 'it' | 'en';
 }
 
@@ -20,10 +30,43 @@ interface ScoredGenus {
   matchedCount: number;
 }
 
-export default function IdentificationKey({ characters, matrix, genera, lang }: Props) {
+export default function IdentificationKey({ characters, matrix, genera, glossary = [], lang }: Props) {
   const [selectedStates, setSelectedStates] = useState<SelectedState[]>([]);
   const [maxMismatches, setMaxMismatches] = useState(1);
   const [selectedRegion, setSelectedRegion] = useState<string>('');
+
+  /** Wraps the first glossary term found in `text` with a GlossaryTooltip. */
+  const annotateWithGlossary = (text: string): ReactNode => {
+    if (glossary.length === 0) return text;
+    const lower = text.toLowerCase();
+    let bestMatch: { entry: GlossaryEntry; index: number; matchLen: number } | null = null;
+
+    for (const entry of glossary) {
+      const term = lang === 'it' ? entry.term : entry.term_en;
+      const idx = lower.indexOf(term.toLowerCase());
+      if (idx !== -1 && (!bestMatch || term.length > bestMatch.matchLen)) {
+        bestMatch = { entry, index: idx, matchLen: term.length };
+      }
+    }
+
+    if (!bestMatch) return text;
+
+    const { entry, index, matchLen } = bestMatch;
+    const before = text.slice(0, index);
+    const match = text.slice(index, index + matchLen);
+    const after = text.slice(index + matchLen);
+    const definition = lang === 'it' ? entry.definition_it : entry.definition_en;
+
+    return (
+      <>
+        {before}
+        <GlossaryTooltip term={lang === 'it' ? entry.term : entry.term_en} definition={definition} imageUrl={entry.image_url}>
+          {match}
+        </GlossaryTooltip>
+        {after}
+      </>
+    );
+  };
 
   const regions = [
     { value: 'nord-ovest', label: lang === 'it' ? 'Nord-Ovest' : 'North-West' },
@@ -229,7 +272,7 @@ export default function IdentificationKey({ characters, matrix, genera, lang }: 
                   }`}
                 >
                   <p className="text-sm font-medium text-gray-800 mb-2">
-                    {lang === 'it' ? char.name_it : char.name_en}
+                    {annotateWithGlossary(lang === 'it' ? char.name_it : char.name_en)}
                     {char.id === bestCharacterId && (
                       <span className="ml-2 text-xs text-forest-600 font-normal">
                         &#9733; {lang === 'it' ? 'consigliato' : 'suggested'}

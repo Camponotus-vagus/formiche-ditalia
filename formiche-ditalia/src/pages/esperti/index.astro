@@ -1,19 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ExpertCard from '../../components/ExpertCard.astro';
+import ExpertsBrowser from '../../components/ExpertsBrowser.tsx';
 import experts from '../../data/experts.json';
 
 const pageTitle = "Esperti di mirmecologia italiana";
-const regions = [...new Set(experts.map((e: any) => e.region).filter(Boolean))].sort();
 ---
 
 <BaseLayout title={pageTitle} description="Directory degli esperti di mirmecologia in Italia — ricercatori, professori e curatori museali.">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <h1 class="font-display text-3xl font-bold text-gray-900 mb-8" data-i18n="experts_title">{pageTitle}</h1>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {experts.map((expert: any) => (
-        <ExpertCard expert={expert} />
-      ))}
-    </div>
+    <ExpertsBrowser client:load experts={experts} />
   </div>
 </BaseLayout>
