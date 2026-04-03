@@ -45,7 +45,7 @@ import LanguageSwitcher from '../components/LanguageSwitcher.tsx';
   <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="#2d6f32" />
   {structuredData && (
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />
   )}
 </head>
 <body class="min-h-screen flex flex-col">

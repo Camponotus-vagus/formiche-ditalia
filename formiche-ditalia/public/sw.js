@@ -1,4 +1,4 @@
-const CACHE_NAME = 'formiche-v1';
+const CACHE_NAME = 'formiche-v2';
 const PRECACHE_URLS = [
   '/',
   '/identifica/',
@@ -31,15 +31,21 @@ self.addEventListener('fetch', (event) => {
   // Only handle GET requests
   if (event.request.method !== 'GET') return;
 
+  const url = new URL(event.request.url);
+
   // Skip cross-origin requests
-  if (!event.request.url.startsWith(self.location.origin)) return;
+  if (url.origin !== self.location.origin) return;
+
+  // Skip non-http(s) requests (e.g., chrome-extension://)
+  if (!url.protocol.startsWith('http')) return;
 
   event.respondWith(
     caches.match(event.request).then((cached) => {
       if (cached) return cached;
       return fetch(event.request).then((response) => {
-        // Cache successful responses for offline use
-        if (response.ok) {
+        // Only cache valid, successful responses
+        // SECURITY: Validate response type and status to prevent cache poisoning
+        if (response.ok && response.type === 'basic' && response.status === 200) {
           const clone = response.clone();
           caches.open(CACHE_NAME).then((cache) => {
             cache.put(event.request, clone);
