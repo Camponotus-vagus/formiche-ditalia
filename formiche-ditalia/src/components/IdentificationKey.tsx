@@ -104,6 +104,19 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     return lookup;
   }, [matrix]);
 
+  // Level 2: Detect implied subfamily from selected characters
+  const impliedSubfamily = useMemo(() => {
+    if (selectedStates.length === 0) return null;
+    const scopes = new Set(
+      selectedStates.map(sel => {
+        const char = characters.find(c => c.id === sel.characterId);
+        return char?.subfamily_scope;
+      }).filter(Boolean)
+    );
+    // If ALL selected characters belong to the same subfamily → that's the implied subfamily
+    return scopes.size === 1 ? [...scopes][0]! : null;
+  }, [selectedStates, characters]);
+
   const scoredGenera = useMemo((): ScoredGenus[] => {
     if (selectedStates.length === 0) {
       return regionFilteredGenera.map(g => ({ genus: g, score: 1, mismatches: 0, matchedCount: 0 }));
@@ -113,12 +126,12 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
       let mismatches = 0;
       let matched = 0;
       let missingCount = 0;
-      let weightedScore = 0;
       let totalWeight = 0;
+      let weightedScore = 0;
+
       for (const sel of selectedStates) {
         const values = matrixLookup[genus.id]?.[sel.characterId];
         if (!values || values.includes('?')) {
-          // Missing data — small penalty (genus hasn't been evaluated for this character)
           missingCount++;
           continue;
         }
@@ -130,18 +143,36 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
           mismatches++;
         }
       }
-      const missingPenalty = 0.3;
-      const avgWeight = totalWeight > 0 ? totalWeight / (matched + mismatches) : 1;
-      const effectiveMismatches = mismatches + (missingCount * missingPenalty);
-      const effectiveTotalWeight = totalWeight + (missingCount * avgWeight);
-      const score = totalWeight > 0
-        ? Math.max(0, (effectiveTotalWeight - effectiveMismatches * avgWeight) / effectiveTotalWeight)
-        : (missingCount > 0 ? 0.7 : 1);
+
+      // Level 2: If all selected characters point to one subfamily,
+      // genera from OTHER subfamilies with no data get a heavy penalty
+      const isOutOfScope = impliedSubfamily && genus.subfamily_id !== impliedSubfamily;
+
+      let score: number;
+      if (totalWeight > 0) {
+        // Genus has some data for selected characters
+        const avgWeight = totalWeight / (matched + mismatches);
+        // Level 1: missing data penalty — heavier if out of scope
+        const missingPenalty = isOutOfScope ? 0.8 : 0.3;
+        const effectiveMismatches = mismatches + (missingCount * missingPenalty);
+        const effectiveTotalWeight = totalWeight + (missingCount * avgWeight);
+        score = Math.max(0, (effectiveTotalWeight - effectiveMismatches * avgWeight) / effectiveTotalWeight);
+      } else {
+        // Genus has NO data at all for any selected character
+        if (isOutOfScope) {
+          // Wrong subfamily + no data = very low score
+          score = 0.2;
+        } else {
+          // Same subfamily but no data (shouldn't happen often)
+          score = 0.5;
+        }
+      }
+
       return { genus, score, mismatches, matchedCount: matched };
     })
     .filter(sg => sg.mismatches <= maxMismatches)
     .sort((a, b) => b.score - a.score || a.genus.scientific_name.localeCompare(b.genus.scientific_name));
-  }, [regionFilteredGenera, selectedStates, matrixLookup, maxMismatches]);
+  }, [regionFilteredGenera, selectedStates, matrixLookup, maxMismatches, impliedSubfamily]);
 
   const bestCharacterId = useMemo(() => {
     const usedIds = new Set(selectedStates.map(s => s.characterId));
