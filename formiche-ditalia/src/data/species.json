@@ -247,7 +247,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/colobopsis-truncata/head.jpg",
+      "/images/specie/colobopsis-truncata/profile.jpg",
+      "/images/specie/colobopsis-truncata/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Colobopsis&species=truncata&rank=species",
     "antcat_url": null,
@@ -306,7 +310,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/cryptopone-ochraceum/head.jpg",
+      "/images/specie/cryptopone-ochraceum/profile.jpg",
+      "/images/specie/cryptopone-ochraceum/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Cryptopone&species=ochraceum&rank=species",
     "antcat_url": null,
@@ -386,7 +394,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/formica-rufifabris/head.jpg",
+      "/images/specie/formica-rufifabris/profile.jpg",
+      "/images/specie/formica-rufifabris/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Formica&species=rufifabris&rank=species",
     "antcat_url": null,
@@ -466,7 +478,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/hypoponera-punctatissima/head.jpg",
+      "/images/specie/hypoponera-punctatissima/profile.jpg",
+      "/images/specie/hypoponera-punctatissima/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Hypoponera&species=punctatissima&rank=species",
     "antcat_url": null,
@@ -483,7 +499,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/lasius-alienus/head.jpg",
+      "/images/specie/lasius-alienus/profile.jpg",
+      "/images/specie/lasius-alienus/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Lasius&species=alienus&rank=species",
     "antcat_url": null,
@@ -689,7 +709,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/linepithema-humile/head.jpg",
+      "/images/specie/linepithema-humile/profile.jpg",
+      "/images/specie/linepithema-humile/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Linepithema&species=humile&rank=species",
     "antcat_url": null,
@@ -727,7 +751,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/messor-meridionalis/head.jpg",
+      "/images/specie/messor-meridionalis/profile.jpg",
+      "/images/specie/messor-meridionalis/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Messor&species=meridionalis&rank=species",
     "antcat_url": null,
@@ -765,7 +793,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/messor-structor/head.jpg",
+      "/images/specie/messor-structor/profile.jpg",
+      "/images/specie/messor-structor/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Messor&species=structor&rank=species",
     "antcat_url": null,
@@ -824,7 +856,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/monomorium-pharaonis/head.jpg",
+      "/images/specie/monomorium-pharaonis/profile.jpg",
+      "/images/specie/monomorium-pharaonis/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Monomorium&species=pharaonis&rank=species",
     "antcat_url": null,
@@ -1089,7 +1125,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/stigmatomma-denticulatum/head.jpg",
+      "/images/specie/stigmatomma-denticulatum/profile.jpg",
+      "/images/specie/stigmatomma-denticulatum/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Amblyopone&species=denticulatum&rank=species",
     "antcat_url": null,
@@ -1127,7 +1167,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/strumigenys-argiola/head.jpg",
+      "/images/specie/strumigenys-argiola/profile.jpg",
+      "/images/specie/strumigenys-argiola/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Strumigenys&species=argiola&rank=species",
     "antcat_url": null,
@@ -1144,7 +1188,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/strumigenys-baudueri/head.jpg",
+      "/images/specie/strumigenys-baudueri/profile.jpg",
+      "/images/specie/strumigenys-baudueri/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Strumigenys&species=baudueri&rank=species",
     "antcat_url": null,
@@ -1161,7 +1209,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/strumigenys-membranifera/head.jpg",
+      "/images/specie/strumigenys-membranifera/profile.jpg",
+      "/images/specie/strumigenys-membranifera/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Strumigenys&species=membranifera&rank=species",
     "antcat_url": null,
@@ -1216,7 +1268,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/tapinoma-madeirense/head.jpg",
+      "/images/specie/tapinoma-madeirense/profile.jpg",
+      "/images/specie/tapinoma-madeirense/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Tapinoma&species=madeirense&rank=species",
     "antcat_url": null,
@@ -1233,7 +1289,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/tapinoma-nigerrimum/head.jpg",
+      "/images/specie/tapinoma-nigerrimum/profile.jpg",
+      "/images/specie/tapinoma-nigerrimum/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Tapinoma&species=nigerrimum&rank=species",
     "antcat_url": null,
@@ -1250,7 +1310,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/temnothorax-italicus/head.jpg",
+      "/images/specie/temnothorax-italicus/profile.jpg",
+      "/images/specie/temnothorax-italicus/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Temnothorax&species=italicus&rank=species",
     "antcat_url": null,
@@ -1288,7 +1352,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/temnothorax-mullerianus/head.jpg",
+      "/images/specie/temnothorax-mullerianus/profile.jpg",
+      "/images/specie/temnothorax-mullerianus/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Temnothorax&species=mullerianus&rank=species",
     "antcat_url": null,
@@ -1305,7 +1373,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/temnothorax-nylanderi/head.jpg",
+      "/images/specie/temnothorax-nylanderi/profile.jpg",
+      "/images/specie/temnothorax-nylanderi/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Temnothorax&species=nylanderi&rank=species",
     "antcat_url": null,
@@ -1322,7 +1394,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/temnothorax-parvulus/head.jpg",
+      "/images/specie/temnothorax-parvulus/profile.jpg",
+      "/images/specie/temnothorax-parvulus/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Temnothorax&species=parvulus&rank=species",
     "antcat_url": null,
@@ -1339,7 +1415,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/temnothorax-recedens/head.jpg",
+      "/images/specie/temnothorax-recedens/profile.jpg",
+      "/images/specie/temnothorax-recedens/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Temnothorax&species=recedens&rank=species",
     "antcat_url": null,
@@ -1356,7 +1436,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/temnothorax-rottenbergii/head.jpg",
+      "/images/specie/temnothorax-rottenbergii/profile.jpg",
+      "/images/specie/temnothorax-rottenbergii/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Temnothorax&species=rottenbergii&rank=species",
     "antcat_url": null,
@@ -1373,7 +1457,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/temnothorax-tuberum/head.jpg",
+      "/images/specie/temnothorax-tuberum/profile.jpg",
+      "/images/specie/temnothorax-tuberum/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Temnothorax&species=tuberum&rank=species",
     "antcat_url": null,
@@ -1390,7 +1478,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/temnothorax-unifasciatus/head.jpg",
+      "/images/specie/temnothorax-unifasciatus/profile.jpg",
+      "/images/specie/temnothorax-unifasciatus/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Temnothorax&species=unifasciatus&rank=species",
     "antcat_url": null,
