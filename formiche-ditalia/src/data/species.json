@@ -230,8 +230,14 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
-    "synonyms": [],
+    "photo_urls": [
+      "/images/specie/cardiocondyla-nuda/head.jpg",
+      "/images/specie/cardiocondyla-nuda/profile.jpg",
+      "/images/specie/cardiocondyla-nuda/dorsal.jpg"
+    ],
+    "synonyms": [
+      "Cardiocondyla mauritanica"
+    ],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Cardiocondyla&species=nuda&rank=species",
     "antcat_url": null,
     "gbif_id": null,
