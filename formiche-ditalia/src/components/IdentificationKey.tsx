@@ -112,11 +112,14 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     return regionFilteredGenera.map((genus) => {
       let mismatches = 0;
       let matched = 0;
+      let missingCount = 0;
       let weightedScore = 0;
       let totalWeight = 0;
       for (const sel of selectedStates) {
         const values = matrixLookup[genus.id]?.[sel.characterId];
         if (!values || values.includes('?')) {
+          // Missing data — small penalty (genus hasn't been evaluated for this character)
+          missingCount++;
           continue;
         }
         totalWeight += sel.weight;
@@ -127,7 +130,13 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
           mismatches++;
         }
       }
-      const score = totalWeight > 0 ? weightedScore / totalWeight : 1;
+      const missingPenalty = 0.3;
+      const avgWeight = totalWeight > 0 ? totalWeight / (matched + mismatches) : 1;
+      const effectiveMismatches = mismatches + (missingCount * missingPenalty);
+      const effectiveTotalWeight = totalWeight + (missingCount * avgWeight);
+      const score = totalWeight > 0
+        ? Math.max(0, (effectiveTotalWeight - effectiveMismatches * avgWeight) / effectiveTotalWeight)
+        : (missingCount > 0 ? 0.7 : 1);
       return { genus, score, mismatches, matchedCount: matched };
     })
     .filter(sg => sg.mismatches <= maxMismatches)
