@@ -66,7 +66,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/bothriomyrmex-sp/head.jpg",
+      "/images/specie/bothriomyrmex-sp/profile.jpg",
+      "/images/specie/bothriomyrmex-sp/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Bothriomyrmex&species=sp.&rank=species",
     "antcat_url": null,
@@ -1009,7 +1013,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/plagiolepis-xene/head.jpg",
+      "/images/specie/plagiolepis-xene/profile.jpg",
+      "/images/specie/plagiolepis-xene/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Plagiolepis&species=xene&rank=species",
     "antcat_url": null,
@@ -1236,7 +1244,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/strumigenys-tenuipilis/head.jpg",
+      "/images/specie/strumigenys-tenuipilis/profile.jpg",
+      "/images/specie/strumigenys-tenuipilis/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Strumigenys&species=tenuipilis&rank=species",
     "antcat_url": null,
