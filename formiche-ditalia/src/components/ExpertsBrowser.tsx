@@ -90,8 +90,8 @@ export default function ExpertsBrowser({ experts }: Props) {
                 </div>
               )}
               <div className="min-w-0">
-                <div className="flex items-center gap-2">
-                  <h3 className="font-semibold text-gray-900 group-hover:text-brand-600 transition-colors truncate">{expert.name}</h3>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <h3 className="font-semibold text-gray-900 group-hover:text-brand-600 transition-colors">{expert.name}</h3>
                   {expert.claimed && <span className="text-xs bg-forest-100 text-forest-700 px-1.5 py-0.5 rounded-full">{t('experts_verified', lang)}</span>}
                 </div>
                 {expert.affiliation && <p className="text-sm text-gray-500 truncate">{expert.affiliation}</p>}

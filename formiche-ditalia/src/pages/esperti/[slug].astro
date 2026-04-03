@@ -64,7 +64,11 @@ const expertGenera = generaData.filter((g: any) =>
       {expert.orcid && (
         <div class="bg-gray-50 rounded-lg p-4">
           <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">ORCID</h2>
-          <a href={`https://orcid.org/${expert.orcid}`} target="_blank" rel="noopener noreferrer" class="text-forest-600 hover:text-forest-800 underline">{expert.orcid}</a>
+          {(() => {
+            const orcidUrl = expert.orcid.startsWith('http') ? expert.orcid : `https://orcid.org/${expert.orcid}`;
+            const orcidId = expert.orcid.replace('https://orcid.org/', '');
+            return <a href={orcidUrl} target="_blank" rel="noopener noreferrer" class="text-forest-600 hover:text-forest-800 underline">{orcidId}</a>;
+          })()}
         </div>
       )}
     </div>
@@ -89,12 +93,19 @@ const expertGenera = generaData.filter((g: any) =>
       </section>
     )}
 
-    <div class="border-t border-gray-200 pt-6 mt-8">
-      <a href={`mailto:francesco.mensa@muse.it?subject=Claim profilo Formiche d'Italia: ${expert.name}`} class="inline-flex items-center px-4 py-2 rounded-lg bg-brand-600 text-white font-medium hover:bg-brand-700 transition-colors">
-        <span data-i18n="experts_claim">Rivendica il tuo profilo</span>
-      </a>
+    <div class="border-t border-gray-200 pt-6 mt-8 flex flex-wrap items-center gap-4">
+      {expert.claimed ? (
+        <span class="inline-flex items-center px-4 py-2 rounded-lg bg-forest-100 text-forest-700 font-medium">
+          <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          <span data-i18n="experts_verified">Profilo verificato</span>
+        </span>
+      ) : (
+        <a href={`mailto:formicheditalia@gmail.com?subject=${encodeURIComponent('Rivendica profilo: ' + expert.name)}&body=${encodeURIComponent('Salve,\n\nvorrei rivendicare il mio profilo su Formiche d\'Italia.\n\nNome: ' + expert.name + '\nPagina: https://formiche-ditalia.vercel.app/esperti/' + expert.id + '\n\nGrazie')}`} class="inline-flex items-center px-4 py-2 rounded-lg bg-brand-600 text-white font-medium hover:bg-brand-700 transition-colors">
+          <span data-i18n="experts_claim">Rivendica il tuo profilo</span>
+        </a>
+      )}
       {expert.website && (
-        <a href={expert.website} target="_blank" rel="noopener noreferrer" class="ml-4 text-forest-600 hover:text-forest-800 underline" data-i18n="experts_institutional_site">Sito istituzionale</a>
+        <a href={expert.website} target="_blank" rel="noopener noreferrer" class="text-forest-600 hover:text-forest-800 underline" data-i18n="experts_institutional_site">Sito istituzionale</a>
       )}
     </div>
   </article>
