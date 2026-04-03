@@ -99,7 +99,7 @@
     ],
     "bio_it": "Autore della guida alle formiche del Veneto.",
     "bio_en": "Author of the Veneto ant handbook.",
-    "profile_photo_url": null,
+    "profile_photo_url": "/images/esperti/antonio-scupola.jpg",
     "h_index": 4,
     "claimed": false
   },
@@ -373,7 +373,7 @@
     ],
     "bio_it": "Curatore e contributore AntWeb. Ha validato le matrici FormiKey.",
     "bio_en": "Museum curator and AntWeb contributor. Validated the FormiKey matrices.",
-    "profile_photo_url": null,
+    "profile_photo_url": "/images/esperti/fabrizio-rigato.jpg",
     "h_index": 6,
     "claimed": false
   },
