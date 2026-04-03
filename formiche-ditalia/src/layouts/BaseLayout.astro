@@ -88,10 +88,15 @@ import LanguageSwitcher from '../components/LanguageSwitcher.tsx';
 
   <footer class="bg-gray-50 border-t border-gray-200 mt-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
         <div>
           <p class="text-sm text-gray-500" data-i18n="footer_credits">Un progetto di Francesco Simone Mensa</p>
           <p class="text-xs text-gray-400 mt-1" data-i18n="footer_data_credits">Immagini: AntWeb.org (CC BY-SA 3.0). Dati tassonomici: Schifani 2022.</p>
+          <div class="flex gap-4 mt-3">
+            <a href="/chi-siamo" class="text-xs text-gray-400 hover:text-forest-600 transition-colors" data-i18n="nav_about">Chi siamo</a>
+            <a href="/roadmap" class="text-xs text-gray-400 hover:text-forest-600 transition-colors">Roadmap</a>
+            <a href="mailto:formicheditalia@gmail.com" class="text-xs text-gray-400 hover:text-forest-600 transition-colors">Contact</a>
+          </div>
         </div>
         <div class="text-xs text-gray-400 sm:text-right">
           <p>&copy; {new Date().getFullYear()} Formiche d'Italia</p>

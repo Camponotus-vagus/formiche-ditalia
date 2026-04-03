@@ -1,0 +1,229 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Roadmap" description="La roadmap di Formiche d'Italia: cosa è stato fatto, cosa stiamo sviluppando e cosa arriverà in futuro.">
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-forest-50 via-white to-brand-50">
+    <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-brand-100/30 blur-3xl"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 relative">
+      <h1 class="font-display text-4xl sm:text-5xl font-bold text-forest-900 tracking-tight" data-i18n="roadmap_title">Roadmap</h1>
+      <p class="mt-4 text-lg text-gray-600 max-w-2xl leading-relaxed" data-i18n="roadmap_subtitle">
+        Formiche d'Italia è un progetto in continua evoluzione. Ecco dove siamo e dove stiamo andando.
+      </p>
+    </div>
+  </section>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+    <!-- Timeline line -->
+    <div class="relative">
+      <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-200 hidden sm:block"></div>
+
+      <!-- v1.0 — Completato -->
+      <div class="relative mb-16">
+        <div class="flex items-start gap-6">
+          <div class="hidden sm:flex w-16 h-16 rounded-full bg-forest-600 text-white items-center justify-center flex-shrink-0 z-10 shadow-lg">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-white bg-forest-600 px-3 py-1 rounded-full">v1.0</span>
+              <span class="text-sm text-forest-600 font-medium" data-i18n="roadmap_v1_status">Completato</span>
+            </div>
+            <h2 class="font-display text-2xl font-bold text-gray-900 mb-4" data-i18n="roadmap_v1_title">Lancio della piattaforma</h2>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div class="flex items-start gap-3 bg-forest-50 rounded-xl p-4 border border-forest-100">
+                <svg class="w-5 h-5 text-forest-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v1_key">Chiave di identificazione interattiva</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v1_key_desc">Scoring pesato, tolleranza errori, suggerimento caratteri</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-forest-50 rounded-xl p-4 border border-forest-100">
+                <svg class="w-5 h-5 text-forest-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v1_catalog">Catalogo generi e specie</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v1_catalog_desc">39 generi, 75 specie, 100% foto specimen</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-forest-50 rounded-xl p-4 border border-forest-100">
+                <svg class="w-5 h-5 text-forest-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v1_experts">Directory esperti</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v1_experts_desc">9 mirmecologi con profilo accademico e pubblicazioni</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-forest-50 rounded-xl p-4 border border-forest-100">
+                <svg class="w-5 h-5 text-forest-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v1_i18n">Bilingue IT/EN</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v1_i18n_desc">133 chiavi di traduzione, switch in tempo reale</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-forest-50 rounded-xl p-4 border border-forest-100">
+                <svg class="w-5 h-5 text-forest-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v1_pwa">PWA offline</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v1_pwa_desc">Utilizzabile sul campo senza connessione internet</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-forest-50 rounded-xl p-4 border border-forest-100">
+                <svg class="w-5 h-5 text-forest-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v1_glossary">Glossario visuale</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v1_glossary_desc">25 termini morfologici con definizioni e tooltip</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- v1.1 — In lavorazione -->
+      <div class="relative mb-16">
+        <div class="flex items-start gap-6">
+          <div class="hidden sm:flex w-16 h-16 rounded-full bg-brand-500 text-white items-center justify-center flex-shrink-0 z-10 shadow-lg animate-pulse">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-white bg-brand-500 px-3 py-1 rounded-full">v1.1</span>
+              <span class="text-sm text-brand-600 font-medium" data-i18n="roadmap_v11_status">In lavorazione</span>
+            </div>
+            <h2 class="font-display text-2xl font-bold text-gray-900 mb-4" data-i18n="roadmap_v11_title">Consolidamento e crescita</h2>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3 bg-brand-50 rounded-xl p-4 border border-brand-100">
+                <div class="w-5 h-5 rounded-full border-2 border-brand-400 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v11_species">Espansione a 267 specie</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v11_species_desc">Dalla checklist completa Schifani 2022</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-brand-50 rounded-xl p-4 border border-brand-100">
+                <div class="w-5 h-5 rounded-full border-2 border-brand-400 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v11_domain">Dominio personalizzato</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v11_domain_desc">formicheditalia.it con certificato SSL</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-brand-50 rounded-xl p-4 border border-brand-100">
+                <div class="w-5 h-5 rounded-full border-2 border-brand-400 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v11_matrix">Matrice cross-sottofamiglia</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v11_matrix_desc">Caratteri universali per discriminare prima la sottofamiglia</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- v2.0 — Prossimamente -->
+      <div class="relative mb-16">
+        <div class="flex items-start gap-6">
+          <div class="hidden sm:flex w-16 h-16 rounded-full bg-gray-300 text-gray-600 items-center justify-center flex-shrink-0 z-10 shadow-lg">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-white bg-gray-400 px-3 py-1 rounded-full">v2.0</span>
+              <span class="text-sm text-gray-500 font-medium" data-i18n="roadmap_v2_status">Prossimamente</span>
+            </div>
+            <h2 class="font-display text-2xl font-bold text-gray-900 mb-4" data-i18n="roadmap_v2_title">Funzionalità avanzate</h2>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-200">
+                <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v2_compare">Confronto side-by-side</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v2_compare_desc">Deep-zoom sulle immagini per confrontare due generi candidati</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-200">
+                <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v2_modes">Doppia modalità</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v2_modes_desc">Semplificata per principianti e completa per esperti</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-200">
+                <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v2_ai">Pre-filtro AI da foto</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v2_ai_desc">Carica una foto per restringere i candidati prima della chiave morfologica</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-200">
+                <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v2_caste">Gestione caste</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v2_caste_desc">Operaia, regina o maschio come filtro iniziale</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- v3.0 — Futuro -->
+      <div class="relative">
+        <div class="flex items-start gap-6">
+          <div class="hidden sm:flex w-16 h-16 rounded-full bg-gray-200 text-gray-400 items-center justify-center flex-shrink-0 z-10 shadow-lg">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-gray-500 bg-gray-200 px-3 py-1 rounded-full">v3.0</span>
+              <span class="text-sm text-gray-400 font-medium" data-i18n="roadmap_v3_status">Futuro</span>
+            </div>
+            <h2 class="font-display text-2xl font-bold text-gray-900 mb-4" data-i18n="roadmap_v3_title">La visione</h2>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                <div class="w-5 h-5 rounded-full border-2 border-gray-200 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-700" data-i18n="roadmap_v3_mobile">App mobile nativa</p>
+                  <p class="text-xs text-gray-400 mt-0.5" data-i18n="roadmap_v3_mobile_desc">Per l'identificazione direttamente sul campo</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                <div class="w-5 h-5 rounded-full border-2 border-gray-200 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-700" data-i18n="roadmap_v3_community">Community e osservazioni</p>
+                  <p class="text-xs text-gray-400 mt-0.5" data-i18n="roadmap_v3_community_desc">Gli utenti caricano segnalazioni con foto e posizione</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                <div class="w-5 h-5 rounded-full border-2 border-gray-200 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-700" data-i18n="roadmap_v3_gbif">Integrazione GBIF</p>
+                  <p class="text-xs text-gray-400 mt-0.5" data-i18n="roadmap_v3_gbif_desc">Mappe di distribuzione interattive basate su dati GBIF</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                <div class="w-5 h-5 rounded-full border-2 border-gray-200 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-700" data-i18n="roadmap_v3_clavis">Formato Clavis</p>
+                  <p class="text-xs text-gray-400 mt-0.5" data-i18n="roadmap_v3_clavis_desc">Esportazione dati per interoperabilità con altri sistemi</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="py-16 bg-gradient-to-br from-forest-600 to-forest-800">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-2xl font-bold text-white" data-i18n="roadmap_cta_title">Hai un'idea o un suggerimento?</h2>
+      <p class="mt-3 text-forest-100" data-i18n="roadmap_cta_desc">Aiutaci a migliorare Formiche d'Italia — ogni contributo conta.</p>
+      <a href="mailto:formicheditalia@gmail.com?subject=Suggerimento%20per%20Formiche%20d'Italia" class="inline-flex items-center justify-center mt-6 px-6 py-3 rounded-xl bg-white text-forest-700 font-semibold hover:bg-forest-50 transition-colors" data-i18n="roadmap_cta_button">
+        Scrivici
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>
