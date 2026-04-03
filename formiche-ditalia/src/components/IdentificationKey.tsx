@@ -243,21 +243,29 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     return { gap, confidenceLevel, top: top.genus, second: second?.genus ?? null };
   }, [selectedStates.length, scoredGenera]);
 
-  // Component C: Progress bar
+  // Component C: Progress bar — based on how concentrated the scores are, not just count
   const progressInfo = useMemo(() => {
     const totalGenera = regionFilteredGenera.length;
-    const remainingGenera = scoredGenera.length;
-    const progress = totalGenera > 0 ? 1 - (remainingGenera / totalGenera) : 0;
+    if (selectedStates.length === 0 || scoredGenera.length === 0) {
+      return { progress: 0, progressLabel: lang === 'it' ? 'Inizia selezionando i caratteri' : 'Start selecting characters', totalGenera, highScoreCount: totalGenera };
+    }
+    // Count genera with score > 0.5 (plausible candidates)
+    const highScoreCount = scoredGenera.filter(sg => sg.score > 0.5).length;
+    // Progress = how much we've narrowed from total to a few candidates
+    const progress = totalGenera > 1 ? Math.max(0, 1 - (highScoreCount / totalGenera)) : 0;
+    // Also factor in the top score gap
+    const topGap = scoredGenera.length >= 2 ? scoredGenera[0].score - scoredGenera[1].score : 1;
+    const adjustedProgress = Math.min(1, progress + (topGap * 0.3));
 
     const progressLabel =
-      progress < 0.25 ? (lang === 'it' ? 'Inizia selezionando i caratteri' : 'Start selecting characters') :
-      progress < 0.50 ? (lang === 'it' ? 'Buon inizio' : 'Good start') :
-      progress < 0.75 ? (lang === 'it' ? 'Buon progresso' : 'Good progress') :
-      progress < 0.90 ? (lang === 'it' ? 'Quasi identificato' : 'Almost identified') :
+      adjustedProgress < 0.15 ? (lang === 'it' ? 'Inizia selezionando i caratteri' : 'Start selecting characters') :
+      adjustedProgress < 0.40 ? (lang === 'it' ? 'Buon inizio' : 'Good start') :
+      adjustedProgress < 0.65 ? (lang === 'it' ? 'Buon progresso' : 'Good progress') :
+      adjustedProgress < 0.85 ? (lang === 'it' ? 'Quasi identificato' : 'Almost identified') :
       (lang === 'it' ? 'Identificazione probabile' : 'Likely identification');
 
-    return { progress, progressLabel, totalGenera, remainingGenera };
-  }, [regionFilteredGenera.length, scoredGenera.length, lang]);
+    return { progress: adjustedProgress, progressLabel, totalGenera, highScoreCount };
+  }, [regionFilteredGenera.length, scoredGenera, selectedStates.length, lang]);
 
   // Component D: Impact prediction per character state
   const predictStateImpact = (charId: string, stateValue: string): number => {
@@ -404,6 +412,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
               {chars.map(char => (
                 <div
                   key={char.id}
+                  id={`char-${char.id}`}
                   className={`p-3 rounded-lg border transition-all ${
                     char.id === bestCharacterId
                       ? 'border-forest-400 bg-forest-50 ring-1 ring-forest-200'
@@ -420,8 +429,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {char.states.map(state => {
-                      const showImpact = selectedStates.length > 0 && char.id === bestCharacterId;
-                      const impact = showImpact ? predictStateImpact(char.id, state.value) : 0;
+                      const impact = selectedStates.length > 0 ? predictStateImpact(char.id, state.value) : 0;
                       return (
                         <button
                           key={state.value}
@@ -429,7 +437,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
                           className="text-xs px-3 py-1.5 rounded-lg border border-gray-200 hover:border-forest-400 hover:bg-forest-50 transition-colors min-h-[44px] flex items-center gap-1.5"
                         >
                           {lang === 'it' ? state.label_it : state.label_en}
-                          {showImpact && impact > 0 && (
+                          {impact > 0 && (
                             <span className="text-[10px] font-medium text-red-500">-{impact}</span>
                           )}
                         </button>
@@ -462,7 +470,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
           <div className="flex items-center justify-between">
             <span className="text-sm text-gray-600">{progressInfo.progressLabel}</span>
             <span className="text-xs text-gray-500">
-              {scoredGenera.length} {lang === 'it' ? 'generi compatibili su' : 'compatible genera out of'} {progressInfo.totalGenera}
+              {progressInfo.highScoreCount} {lang === 'it' ? 'candidati probabili su' : 'likely candidates out of'} {progressInfo.totalGenera}
             </span>
           </div>
         </div>
@@ -479,30 +487,50 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
                 gapInfo.confidenceLevel === 'medium' ? 'bg-yellow-500' : 'bg-red-500'
               }`} />
               <p className="text-sm text-gray-700">
-                {scoredGenera.length >= 2 ? (
+                {scoredGenera.length < 2 ? (
                   lang === 'it'
-                    ? `Il primo risultato è ${Math.round(gapInfo.gap * 100)}% più probabile del secondo`
-                    : `The top result is ${Math.round(gapInfo.gap * 100)}% more likely than the second`
+                    ? 'Un solo genere rimasto — identificazione completa!'
+                    : 'Only one genus remaining — identification complete!'
+                ) : gapInfo.confidenceLevel === 'high' ? (
+                  lang === 'it'
+                    ? <><span className="font-semibold italic">{gapInfo.top?.scientific_name}</span> è il candidato più probabile (distacco: {Math.round(gapInfo.gap * 100)}%)</>
+                    : <><span className="font-semibold italic">{gapInfo.top?.scientific_name}</span> is the most likely candidate (gap: {Math.round(gapInfo.gap * 100)}%)</>
+                ) : gapInfo.confidenceLevel === 'medium' ? (
+                  lang === 'it'
+                    ? <>Alcuni generi ancora in competizione — seleziona altri caratteri</>
+                    : <>Several genera still competing — select more characters</>
                 ) : (
                   lang === 'it'
-                    ? 'Un solo genere rimasto — identificazione completa'
-                    : 'Only one genus remaining — identification complete'
+                    ? <>Molti generi ancora compatibili — continua a selezionare caratteri</>
+                    : <>Many genera still compatible — keep selecting characters</>
                 )}
               </p>
             </div>
             {suggestedCharDetail && scoredGenera.length >= 2 && (
-              <p className="text-sm text-gray-500 mt-1">
-                {lang === 'it' ? 'Prossimo passo: seleziona' : 'Next step: select'}{' '}
-                <span className="font-medium text-gray-700">&quot;{suggestedCharDetail.charName}&quot;</span>
+              <button
+                onClick={() => {
+                  // Fix 4: scroll to suggested character
+                  const el = document.getElementById(`char-${bestCharacterId}`);
+                  if (el) {
+                    // Open the parent <details> if closed
+                    const details = el.closest('details');
+                    if (details && !details.open) details.open = true;
+                    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  }
+                }}
+                className="text-sm text-forest-600 hover:text-forest-800 hover:underline text-left mt-1 cursor-pointer"
+              >
+                {lang === 'it' ? '→ Prossimo passo:' : '→ Next step:'}{' '}
+                <span className="font-medium">{suggestedCharDetail.charName}</span>
                 {suggestedCharDetail.genus1 && suggestedCharDetail.genus2 && (
                   <>
-                    {' '}{lang === 'it' ? 'per distinguere' : 'to distinguish'}{' '}
+                    {' '}{lang === 'it' ? '(distingue' : '(distinguishes'}{' '}
                     <span className="italic">{suggestedCharDetail.genus1}</span>
                     {' '}{lang === 'it' ? 'da' : 'from'}{' '}
-                    <span className="italic">{suggestedCharDetail.genus2}</span>
+                    <span className="italic">{suggestedCharDetail.genus2}</span>)
                   </>
                 )}
-              </p>
+              </button>
             )}
           </div>
         )}
@@ -539,7 +567,9 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
                   </div>
                   {selectedStates.length > 0 && (
                     <span className={`text-xs px-2 py-1 rounded-full font-medium ${
-                      mismatches === 0 ? 'bg-forest-100 text-forest-700' : 'bg-brand-100 text-brand-700'
+                      score >= 0.8 ? 'bg-green-100 text-green-700' :
+                      score >= 0.5 ? 'bg-yellow-100 text-yellow-700' :
+                      'bg-red-100 text-red-700'
                     }`}>
                       {Math.round(score * 100)}%
                     </span>
@@ -549,7 +579,9 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
                   <div className="mt-2 w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
                     <div
                       className={`h-full rounded-full transition-all duration-300 ${
-                        mismatches === 0 ? 'bg-forest-500' : 'bg-brand-400'
+                        score >= 0.8 ? 'bg-green-500' :
+                        score >= 0.5 ? 'bg-yellow-500' :
+                        'bg-red-500'
                       }`}
                       style={{ width: `${Math.round(score * 100)}%` }}
                     />
