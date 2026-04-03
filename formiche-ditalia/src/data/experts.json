@@ -257,66 +257,6 @@
     "claimed": false
   },
   {
-    "id": "giorgio-sabella",
-    "name": "Giorgio Sabella",
-    "affiliation": "Universita di Catania",
-    "role": "Professor",
-    "email": null,
-    "website": null,
-    "orcid": "https://orcid.org/0000-0002-2234-1901",
-    "region": "Sicilia",
-    "specializations": [
-      "invasive species",
-      "taxonomy"
-    ],
-    "genera_of_interest": [
-      "Linepithema",
-      "Solenopsis"
-    ],
-    "key_publications": [
-      {
-        "title": "Systematic Review of the Effects of Chemical Insecticides on Four Common Butterfly Families",
-        "authors": "Mulè R., Sabella G., Robba L. et al.",
-        "year": 2017,
-        "doi": "10.3389/fenvs.2017.00032",
-        "url": "https://doi.org/10.3389/fenvs.2017.00032"
-      },
-      {
-        "title": "Italian natural history museums on the verge of collapse?",
-        "authors": "Andreone F., Bartolozzi L., Boano G. et al.",
-        "year": 2014,
-        "doi": "10.3897/zookeys.456.8862",
-        "url": "https://doi.org/10.3897/zookeys.456.8862"
-      },
-      {
-        "title": "New records of Eutardigrada from Belarus with the description of three new species",
-        "authors": "Pilato G., Kiosya Y., Lisi O. et al.",
-        "year": 2012,
-        "doi": "10.11646/zootaxa.3179.1.2",
-        "url": "https://doi.org/10.11646/zootaxa.3179.1.2"
-      },
-      {
-        "title": "The clade Ecdysozoa, perplexities and questions",
-        "authors": "Pilato G., Binda M.G., Biondi O. et al.",
-        "year": 2005,
-        "doi": "10.1016/j.jcz.2005.04.001",
-        "url": "https://doi.org/10.1016/j.jcz.2005.04.001"
-      },
-      {
-        "title": "A COI Nonsynonymous Mutation as Diagnostic Tool for Intraspecific Discrimination in the European Anchovy Engraulis encrasicolus (Linnaeus)",
-        "authors": "Pappalardo A.M., Federico C., Sabella G. et al.",
-        "year": 2015,
-        "doi": "10.1371/journal.pone.0143297",
-        "url": "https://doi.org/10.1371/journal.pone.0143297"
-      }
-    ],
-    "bio_it": "Specialista in specie invasive.",
-    "bio_en": "Specialist in invasive species.",
-    "profile_photo_url": null,
-    "h_index": 9,
-    "claimed": false
-  },
-  {
     "id": "fabrizio-rigato",
     "name": "Fabrizio Rigato",
     "affiliation": "Museo Civico di Storia Naturale di Milano",
@@ -434,5 +374,57 @@
     "profile_photo_url": "/images/esperti/francesco-mensa.jpg",
     "h_index": 1,
     "claimed": true
+  },
+  {
+    "id": "daniele-giannetti",
+    "name": "Daniele Giannetti",
+    "affiliation": "Universita di Parma",
+    "role": "Research Fellow",
+    "email": null,
+    "website": null,
+    "orcid": null,
+    "region": "Emilia-Romagna",
+    "specializations": [
+      "myrmecology",
+      "host-parasite interactions",
+      "drone ecology",
+      "ethology"
+    ],
+    "genera_of_interest": [
+      "Formica",
+      "Polyergus"
+    ],
+    "key_publications": [],
+    "bio_it": "Ricercatore presso il laboratorio di mirmecologia dell'Universita di Parma. Studi innovativi sulle interazioni formiche-patogeni, l'uso delle formiche come bioindicatori di parassiti, e esperimenti con droni per lo studio dei voli nuziali.",
+    "bio_en": "Research fellow at the myrmecology lab, University of Parma. Innovative studies on ant-pathogen interactions, using ants as biological indicators of parasites, and drone experiments to study nuptial flights.",
+    "profile_photo_url": "/images/esperti/daniele-giannetti.jpg",
+    "h_index": null,
+    "claimed": false
+  },
+  {
+    "id": "mattia-menchetti",
+    "name": "Mattia Menchetti",
+    "affiliation": "Museum fur Naturkunde, Berlin",
+    "role": "Researcher",
+    "email": null,
+    "website": "https://www.mattiamenchetti.com",
+    "orcid": null,
+    "region": null,
+    "specializations": [
+      "evolutionary biology",
+      "phylogeography",
+      "invasive species",
+      "genomics"
+    ],
+    "genera_of_interest": [
+      "Solenopsis",
+      "Formica"
+    ],
+    "key_publications": [],
+    "bio_it": "Mirmecologo e biologo evoluzionista italiano. Il suo lavoro si concentra sulla mappatura genetica delle formiche europee. Nel 2023 ha confermato, insieme a Schifani e Alicata, l'arrivo della formica di fuoco (Solenopsis invicta) in Europa, in Sicilia.",
+    "bio_en": "Italian myrmecologist and evolutionary biologist. His work focuses on genetic mapping of European ants. In 2023, together with Schifani and Alicata, he confirmed the arrival of the fire ant (Solenopsis invicta) in Europe, in Sicily.",
+    "profile_photo_url": "/images/esperti/mattia-menchetti.jpg",
+    "h_index": null,
+    "claimed": false
   }
 ]
