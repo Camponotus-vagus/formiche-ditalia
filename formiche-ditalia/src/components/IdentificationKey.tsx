@@ -19,9 +19,10 @@ interface Props {
   lang: 'it' | 'en';
 }
 
-interface SelectedState {
+interface WeightedSelection {
   characterId: string;
   value: string;
+  weight: number; // normalized entropy at time of selection (0-1)
 }
 
 interface ScoredGenus {
@@ -32,7 +33,7 @@ interface ScoredGenus {
 }
 
 export default function IdentificationKey({ characters, matrix, genera, glossary = [], lang: initialLang }: Props) {
-  const [selectedStates, setSelectedStates] = useState<SelectedState[]>([]);
+  const [selectedStates, setSelectedStates] = useState<WeightedSelection[]>([]);
   const [maxMismatches, setMaxMismatches] = useState(1);
   const [selectedRegion, setSelectedRegion] = useState<string>('');
   const [lang, setCurrentLang] = useState<Lang>(initialLang);
@@ -111,20 +112,22 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     return regionFilteredGenera.map((genus) => {
       let mismatches = 0;
       let matched = 0;
+      let weightedScore = 0;
+      let totalWeight = 0;
       for (const sel of selectedStates) {
         const values = matrixLookup[genus.id]?.[sel.characterId];
         if (!values || values.includes('?')) {
           continue;
         }
+        totalWeight += sel.weight;
         if (values.includes(sel.value)) {
           matched++;
+          weightedScore += sel.weight;
         } else {
           mismatches++;
         }
       }
-      const score = selectedStates.length > 0
-        ? (selectedStates.length - mismatches) / selectedStates.length
-        : 1;
+      const score = totalWeight > 0 ? weightedScore / totalWeight : 1;
       return { genus, score, mismatches, matchedCount: matched };
     })
     .filter(sg => sg.mismatches <= maxMismatches)
@@ -164,10 +167,97 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     return bestId;
   }, [characters, selectedStates, scoredGenera, matrixLookup]);
 
+  // Best character suggestion detail (for diagnosis panel)
+  const suggestedCharDetail = useMemo(() => {
+    if (!bestCharacterId || scoredGenera.length < 2) return null;
+    const char = characters.find(c => c.id === bestCharacterId);
+    if (!char) return null;
+    // Find two genera this character best distinguishes
+    const top = scoredGenera[0];
+    const second = scoredGenera[1];
+    const topValues = matrixLookup[top.genus.id]?.[bestCharacterId];
+    const secondValues = matrixLookup[second.genus.id]?.[bestCharacterId];
+    if (topValues && secondValues && !topValues.some(v => secondValues.includes(v))) {
+      return {
+        charName: lang === 'it' ? char.name_it : char.name_en,
+        genus1: top.genus.scientific_name,
+        genus2: second.genus.scientific_name,
+      };
+    }
+    return {
+      charName: lang === 'it' ? char.name_it : char.name_en,
+      genus1: null,
+      genus2: null,
+    };
+  }, [bestCharacterId, scoredGenera, characters, matrixLookup, lang]);
+
+  // Component B: Gap from second place
+  const gapInfo = useMemo(() => {
+    if (selectedStates.length === 0 || scoredGenera.length === 0) {
+      return { gap: 0, confidenceLevel: 'low' as const, top: null as Genus | null, second: null as Genus | null };
+    }
+    const top = scoredGenera[0];
+    const second = scoredGenera.length >= 2 ? scoredGenera[1] : null;
+    const gap = second ? top.score - second.score : 1;
+    const confidenceLevel = gap > 0.3 ? 'high' as const : gap > 0.1 ? 'medium' as const : 'low' as const;
+    return { gap, confidenceLevel, top: top.genus, second: second?.genus ?? null };
+  }, [selectedStates.length, scoredGenera]);
+
+  // Component C: Progress bar
+  const progressInfo = useMemo(() => {
+    const totalGenera = regionFilteredGenera.length;
+    const remainingGenera = scoredGenera.length;
+    const progress = totalGenera > 0 ? 1 - (remainingGenera / totalGenera) : 0;
+
+    const progressLabel =
+      progress < 0.25 ? (lang === 'it' ? 'Inizia selezionando i caratteri' : 'Start selecting characters') :
+      progress < 0.50 ? (lang === 'it' ? 'Buon inizio' : 'Good start') :
+      progress < 0.75 ? (lang === 'it' ? 'Buon progresso' : 'Good progress') :
+      progress < 0.90 ? (lang === 'it' ? 'Quasi identificato' : 'Almost identified') :
+      (lang === 'it' ? 'Identificazione probabile' : 'Likely identification');
+
+    return { progress, progressLabel, totalGenera, remainingGenera };
+  }, [regionFilteredGenera.length, scoredGenera.length, lang]);
+
+  // Component D: Impact prediction per character state
+  const predictStateImpact = (charId: string, stateValue: string): number => {
+    return scoredGenera.filter(sg => {
+      const values = matrixLookup[sg.genus.id]?.[charId];
+      if (!values || values.includes('?')) return false;
+      return !values.includes(stateValue);
+    }).length;
+  };
+
+  // Helper: calculate entropy of a character among given genera
+  const calculateCharacterEntropy = (charId: string, generaList: ScoredGenus[]): number => {
+    const stateCounts: Record<string, number> = {};
+    let total = 0;
+    for (const sg of generaList) {
+      const values = matrixLookup[sg.genus.id]?.[charId];
+      if (!values || values.includes('?')) continue;
+      for (const v of values) {
+        stateCounts[v] = (stateCounts[v] || 0) + 1;
+      }
+      total++;
+    }
+    if (total === 0) return 0;
+    let entropy = 0;
+    for (const count of Object.values(stateCounts)) {
+      const p = count / total;
+      if (p > 0) entropy -= p * Math.log2(p);
+    }
+    return entropy;
+  };
+
   const selectState = (characterId: string, value: string) => {
+    // Component A: Calculate entropy weight at time of selection
+    const entropy = calculateCharacterEntropy(characterId, scoredGenera);
+    const maxEntropy = Math.log2(Math.max(2, scoredGenera.length));
+    const weight = maxEntropy > 0 ? entropy / maxEntropy : 0.5;
+
     setSelectedStates(prev => {
       const filtered = prev.filter(s => s.characterId !== characterId);
-      return [...filtered, { characterId, value }];
+      return [...filtered, { characterId, value, weight: Math.max(0.1, weight) }];
     });
   };
 
@@ -257,7 +347,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
               const char = characters.find(c => c.id === sel.characterId);
               const state = char?.states.find(s => s.value === sel.value);
               return (
-                <span key={i} className="text-xs bg-forest-100 text-forest-700 px-2 py-1 rounded-full">
+                <span key={i} className="text-xs bg-forest-100 text-forest-700 px-2 py-1 rounded-full" title={`${lang === 'it' ? 'Peso' : 'Weight'}: ${sel.weight.toFixed(2)}`}>
                   {lang === 'it' ? char?.name_it : char?.name_en}: {lang === 'it' ? state?.label_it : state?.label_en}
                 </span>
               );
@@ -289,15 +379,22 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
                     )}
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {char.states.map(state => (
-                      <button
-                        key={state.value}
-                        onClick={() => selectState(char.id, state.value)}
-                        className="text-xs px-3 py-1.5 rounded-lg border border-gray-200 hover:border-forest-400 hover:bg-forest-50 transition-colors min-h-[44px]"
-                      >
-                        {lang === 'it' ? state.label_it : state.label_en}
-                      </button>
-                    ))}
+                    {char.states.map(state => {
+                      const showImpact = selectedStates.length > 0 && char.id === bestCharacterId;
+                      const impact = showImpact ? predictStateImpact(char.id, state.value) : 0;
+                      return (
+                        <button
+                          key={state.value}
+                          onClick={() => selectState(char.id, state.value)}
+                          className="text-xs px-3 py-1.5 rounded-lg border border-gray-200 hover:border-forest-400 hover:bg-forest-50 transition-colors min-h-[44px] flex items-center gap-1.5"
+                        >
+                          {lang === 'it' ? state.label_it : state.label_en}
+                          {showImpact && impact > 0 && (
+                            <span className="text-[10px] font-medium text-red-500">-{impact}</span>
+                          )}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
               ))}
@@ -308,10 +405,67 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
 
       {/* Results panel */}
       <div className="lg:w-1/2">
-        <p className="text-sm text-gray-500 mb-4" aria-live="polite">
-          <span className="font-semibold text-forest-700 text-lg">{scoredGenera.length}</span>{' '}
-          {lang === 'it' ? 'generi corrispondenti' : 'matching genera'}
-        </p>
+        {/* Component C: Progress bar */}
+        <div className="mb-4 p-4 rounded-xl border border-gray-200 bg-gray-50">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+              {lang === 'it' ? 'Progresso' : 'Progress'}
+            </span>
+            <span className="text-sm font-medium text-gray-700">{Math.round(progressInfo.progress * 100)}%</span>
+          </div>
+          <div className="w-full h-2.5 bg-gray-200 rounded-full overflow-hidden mb-2">
+            <div
+              className="h-full bg-forest-500 rounded-full transition-all duration-500"
+              style={{ width: `${Math.round(progressInfo.progress * 100)}%` }}
+            />
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-sm text-gray-600">{progressInfo.progressLabel}</span>
+            <span className="text-xs text-gray-500">
+              {scoredGenera.length} {lang === 'it' ? 'generi compatibili su' : 'compatible genera out of'} {progressInfo.totalGenera}
+            </span>
+          </div>
+        </div>
+
+        {/* Component B: Diagnosis panel */}
+        {selectedStates.length > 0 && (
+          <div className="mb-4 p-4 rounded-xl border border-gray-200 bg-white">
+            <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 block mb-2">
+              {lang === 'it' ? 'Diagnosi' : 'Diagnosis'}
+            </span>
+            <div className="flex items-start gap-2 mb-2">
+              <span className={`inline-block w-3 h-3 rounded-full mt-0.5 flex-shrink-0 ${
+                gapInfo.confidenceLevel === 'high' ? 'bg-green-500' :
+                gapInfo.confidenceLevel === 'medium' ? 'bg-yellow-500' : 'bg-red-500'
+              }`} />
+              <p className="text-sm text-gray-700">
+                {scoredGenera.length >= 2 ? (
+                  lang === 'it'
+                    ? `Il primo risultato è ${Math.round(gapInfo.gap * 100)}% più probabile del secondo`
+                    : `The top result is ${Math.round(gapInfo.gap * 100)}% more likely than the second`
+                ) : (
+                  lang === 'it'
+                    ? 'Un solo genere rimasto — identificazione completa'
+                    : 'Only one genus remaining — identification complete'
+                )}
+              </p>
+            </div>
+            {suggestedCharDetail && scoredGenera.length >= 2 && (
+              <p className="text-sm text-gray-500 mt-1">
+                {lang === 'it' ? 'Prossimo passo: seleziona' : 'Next step: select'}{' '}
+                <span className="font-medium text-gray-700">&quot;{suggestedCharDetail.charName}&quot;</span>
+                {suggestedCharDetail.genus1 && suggestedCharDetail.genus2 && (
+                  <>
+                    {' '}{lang === 'it' ? 'per distinguere' : 'to distinguish'}{' '}
+                    <span className="italic">{suggestedCharDetail.genus1}</span>
+                    {' '}{lang === 'it' ? 'da' : 'from'}{' '}
+                    <span className="italic">{suggestedCharDetail.genus2}</span>
+                  </>
+                )}
+              </p>
+            )}
+          </div>
+        )}
 
         {scoredGenera.length === 0 ? (
           <div className="text-center py-12 text-gray-500">
@@ -351,6 +505,16 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
                     </span>
                   )}
                 </div>
+                {selectedStates.length > 0 && (
+                  <div className="mt-2 w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                    <div
+                      className={`h-full rounded-full transition-all duration-300 ${
+                        mismatches === 0 ? 'bg-forest-500' : 'bg-brand-400'
+                      }`}
+                      style={{ width: `${Math.round(score * 100)}%` }}
+                    />
+                  </div>
+                )}
                 {genus.photo_urls[0] && (
                   <img
                     src={genus.photo_urls[0]}
