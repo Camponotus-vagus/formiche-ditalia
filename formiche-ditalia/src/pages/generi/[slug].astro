@@ -68,10 +68,12 @@ const structuredData = {
       </div>
     )}
 
-    {genus.description_it && (
+    {(genus.description_it || genus.description_en) && (
       <section class="prose prose-gray max-w-none mb-8">
         <h2 class="font-display text-xl font-semibold" data-i18n="genus_description">Descrizione</h2>
-        <p>{genus.description_it}</p>
+        <p data-i18n-field="description" data-it={genus.description_it} data-en={genus.description_en}>
+          {genus.description_it || genus.description_en}
+        </p>
       </section>
     )}
 

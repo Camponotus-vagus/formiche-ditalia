@@ -34,9 +34,12 @@ export interface Species {
   subspecies: string[];
   distribution_regions: string[];
   altitude_range: string | null;
-  habitat_notes: string | null;
+  habitat_notes_it: string | null;
+  habitat_notes_en: string | null;
   photo_urls: string[];
   synonyms: string[];
+  description_it: string | null;
+  description_en: string | null;
   antweb_url: string | null;
   antcat_url: string | null;
   gbif_id: string | null;

@@ -20,6 +20,12 @@ export default function LanguageSwitcher() {
         });
       }
     });
+    // Swap bilingual data fields (description_it/description_en, bio_it/bio_en, etc.)
+    document.querySelectorAll('[data-i18n-field]').forEach((el) => {
+      const itText = el.getAttribute('data-it') || '';
+      const enText = el.getAttribute('data-en') || '';
+      el.textContent = (newLang === 'en' ? enText : itText) || itText || enText;
+    });
   };
 
   return (

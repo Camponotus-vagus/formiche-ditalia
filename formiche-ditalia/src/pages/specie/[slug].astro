@@ -71,6 +71,15 @@ const structuredData = {
       </div>
     )}
 
+    {(species.description_it || species.description_en) && (
+      <section class="prose prose-gray max-w-none mb-8">
+        <h2 class="font-display text-xl font-semibold" data-i18n="genus_description">Descrizione</h2>
+        <p data-i18n-field="description" data-it={species.description_it} data-en={species.description_en}>
+          {species.description_it || species.description_en}
+        </p>
+      </section>
+    )}
+
     {species.synonyms && species.synonyms.length > 0 && (
       <section class="mb-6">
         <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2" data-i18n="species_synonyms">Sinonimi</h2>
@@ -78,10 +87,12 @@ const structuredData = {
       </section>
     )}
 
-    {species.habitat_notes && (
+    {(species.habitat_notes_it || species.habitat_notes_en) && (
       <section class="bg-gray-50 rounded-lg p-4 mb-6">
         <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1" data-i18n="species_habitat">Habitat</h2>
-        <p class="text-gray-700">{species.habitat_notes}</p>
+        <p class="text-gray-700" data-i18n-field="habitat_notes" data-it={species.habitat_notes_it} data-en={species.habitat_notes_en}>
+          {species.habitat_notes_it || species.habitat_notes_en}
+        </p>
       </section>
     )}
 

@@ -44,9 +44,11 @@ const expertGenera = generaData.filter((g: any) =>
       </div>
     </header>
 
-    {expert.bio_it && (
+    {(expert.bio_it || expert.bio_en) && (
       <section class="prose prose-gray max-w-none mb-8">
-        <p>{expert.bio_it}</p>
+        <p data-i18n-field="bio" data-it={expert.bio_it} data-en={expert.bio_en}>
+          {expert.bio_it || expert.bio_en}
+        </p>
       </section>
     )}
 
