@@ -1,12 +1,25 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroCarousel from '../components/HeroCarousel.tsx';
 import genera from '../data/genera.json';
 
-// Pick 6 genera with photos, sorted by species count (most interesting first)
-const featuredGenera = genera
+// Pick genera with photos, sorted by species count
+const generaWithPhotos = genera
   .filter((g: any) => g.photo_urls && g.photo_urls.length > 0 && g.species_count_italy > 0)
-  .sort((a: any, b: any) => (b.species_count_italy || 0) - (a.species_count_italy || 0))
-  .slice(0, 6);
+  .sort((a: any, b: any) => (b.species_count_italy || 0) - (a.species_count_italy || 0));
+
+const featuredGenera = generaWithPhotos.slice(0, 6);
+
+// For the hero carousel, pick 8 diverse genera (different subfamilies)
+const carouselGenera = generaWithPhotos
+  .slice(0, 12)
+  .map((g: any) => ({
+    id: g.id,
+    scientific_name: g.scientific_name,
+    photo_url: g.photo_urls[0],
+    species_count: g.species_count_italy,
+    subfamily_id: g.subfamily_id,
+  }));
 ---
 
 <BaseLayout title="Formiche d'Italia">
@@ -40,20 +53,8 @@ const featuredGenera = genera
             </a>
           </div>
         </div>
-        <div class="hidden lg:block">
-          <div class="relative">
-            <div class="absolute inset-0 bg-gradient-to-br from-forest-200 to-brand-200 rounded-3xl rotate-3 scale-105 opacity-40"></div>
-            <img
-              src="/images/genera/camponotus/head.jpg"
-              alt="Camponotus, vista frontale della testa"
-              class="relative rounded-3xl shadow-2xl w-full aspect-square object-cover"
-              loading="eager"
-            />
-            <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-xl px-4 py-2.5 shadow-lg">
-              <p class="text-sm font-semibold text-forest-800">Camponotus</p>
-              <p class="text-xs text-gray-500">Uno dei generi di formiche piu diffusi in Italia</p>
-            </div>
-          </div>
+        <div class="hidden lg:block pb-10">
+          <HeroCarousel client:load genera={carouselGenera} intervalMs={4000} />
         </div>
       </div>
     </div>
