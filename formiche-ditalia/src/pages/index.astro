@@ -1,45 +1,202 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import genera from '../data/genera.json';
+
+// Pick 6 genera with photos, sorted by species count (most interesting first)
+const featuredGenera = genera
+  .filter((g: any) => g.photo_urls && g.photo_urls.length > 0 && g.species_count_italy > 0)
+  .sort((a: any, b: any) => (b.species_count_italy || 0) - (a.species_count_italy || 0))
+  .slice(0, 6);
 ---
 
 <BaseLayout title="Formiche d'Italia">
-  <section class="relative overflow-hidden bg-gradient-to-br from-forest-50 to-brand-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
-      <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-forest-900 tracking-tight" data-i18n="hero_title">
-        Formiche d'Italia
-      </h1>
-      <p class="mt-4 text-lg sm:text-xl text-gray-600 max-w-2xl" data-i18n="hero_subtitle">
-        La prima guida completa alle formiche italiane
-      </p>
-      <div class="mt-10 flex flex-col sm:flex-row gap-4">
-        <a href="/identifica" class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-forest-600 text-white font-semibold hover:bg-forest-700 transition-colors shadow-lg hover:shadow-xl">
-          <span data-i18n="hero_identify">Identifica</span>
-          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+
+  <!-- ═══════ HERO ═══════ -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-forest-50 via-white to-brand-50">
+    <!-- Decorative circles -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-forest-100/40 blur-3xl"></div>
+    <div class="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-brand-100/30 blur-3xl"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-32">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-forest-100 text-forest-700 text-sm font-medium mb-6">
+            <span class="w-2 h-2 rounded-full bg-forest-500"></span>
+            <span data-i18n="home_badge">7 sottofamiglie &middot; 39 generi &middot; 75 specie</span>
+          </div>
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-forest-900 tracking-tight leading-tight" data-i18n="hero_title">
+            Formiche d'Italia
+          </h1>
+          <p class="mt-5 text-lg sm:text-xl text-gray-600 max-w-xl leading-relaxed" data-i18n="home_hero_subtitle">
+            La prima guida interattiva alle formiche italiane. Identifica, esplora e scopri la mirmecofauna del nostro paese.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-4">
+            <a href="/identifica" class="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-forest-600 text-white font-semibold hover:bg-forest-700 transition-all shadow-lg shadow-forest-600/25 hover:shadow-xl hover:shadow-forest-600/30 hover:-translate-y-0.5">
+              <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+              <span data-i18n="home_hero_identify">Inizia a identificare</span>
+            </a>
+            <a href="/generi" class="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-white text-forest-700 font-semibold border-2 border-forest-200 hover:border-forest-400 hover:bg-forest-50 transition-all">
+              <span data-i18n="home_hero_browse">Esplora il catalogo</span>
+            </a>
+          </div>
+        </div>
+        <div class="hidden lg:block">
+          <div class="relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-forest-200 to-brand-200 rounded-3xl rotate-3 scale-105 opacity-40"></div>
+            <img
+              src="/images/genera/camponotus/head.jpg"
+              alt="Camponotus, vista frontale della testa"
+              class="relative rounded-3xl shadow-2xl w-full aspect-square object-cover"
+              loading="eager"
+            />
+            <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-xl px-4 py-2.5 shadow-lg">
+              <p class="text-sm font-semibold text-forest-800">Camponotus</p>
+              <p class="text-xs text-gray-500">Uno dei generi di formiche piu diffusi in Italia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ COSA PUOI FARE ═══════ -->
+  <section class="py-20 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900" data-i18n="home_what_title">Cosa puoi fare</h2>
+        <p class="mt-3 text-lg text-gray-500 max-w-2xl mx-auto" data-i18n="home_what_subtitle">Tre strumenti pensati per chi studia, osserva o semplicemente vuole conoscere le formiche italiane.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Identifica -->
+        <a href="/identifica" class="group relative bg-gradient-to-b from-forest-50 to-white rounded-2xl p-8 border border-forest-100 hover:border-forest-300 hover:shadow-lg hover:shadow-forest-100/50 transition-all hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-xl bg-forest-100 flex items-center justify-center mb-6 group-hover:bg-forest-200 transition-colors">
+            <svg class="w-7 h-7 text-forest-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="home_card_identify_title">Identifica</h3>
+          <p class="text-gray-600 leading-relaxed" data-i18n="home_card_identify_desc">Chiave interattiva multi-accesso con tolleranza agli errori. Seleziona i caratteri che osservi e ottieni i generi compatibili.</p>
+          <span class="inline-flex items-center text-sm font-semibold text-forest-600 mt-4 group-hover:gap-2 transition-all">
+            <span data-i18n="home_card_identify_cta">Apri la chiave</span>
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+          </span>
         </a>
-        <a href="/generi" class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-forest-700 font-semibold border-2 border-forest-200 hover:border-forest-400 transition-colors">
-          <span data-i18n="hero_browse">Esplora</span>
+
+        <!-- Esplora -->
+        <a href="/generi" class="group relative bg-gradient-to-b from-brand-50 to-white rounded-2xl p-8 border border-brand-100 hover:border-brand-300 hover:shadow-lg hover:shadow-brand-100/50 transition-all hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-xl bg-brand-100 flex items-center justify-center mb-6 group-hover:bg-brand-200 transition-colors">
+            <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="home_card_browse_title">Esplora</h3>
+          <p class="text-gray-600 leading-relaxed" data-i18n="home_card_browse_desc">Catalogo completo di 39 generi e 75 specie con fotografie AntWeb, caratteri diagnostici e distribuzione.</p>
+          <span class="inline-flex items-center text-sm font-semibold text-brand-600 mt-4 group-hover:gap-2 transition-all">
+            <span data-i18n="home_card_browse_cta">Sfoglia i generi</span>
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+          </span>
         </a>
-        <a href="/esperti" class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-brand-700 font-semibold border-2 border-brand-200 hover:border-brand-400 transition-colors">
-          <span data-i18n="hero_experts">Esperti</span>
+
+        <!-- Esperti -->
+        <a href="/esperti" class="group relative bg-gradient-to-b from-gray-50 to-white rounded-2xl p-8 border border-gray-200 hover:border-gray-300 hover:shadow-lg hover:shadow-gray-100/50 transition-all hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-xl bg-gray-100 flex items-center justify-center mb-6 group-hover:bg-gray-200 transition-colors">
+            <svg class="w-7 h-7 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="home_card_experts_title">Esperti</h3>
+          <p class="text-gray-600 leading-relaxed" data-i18n="home_card_experts_desc">Rete di 9 mirmecologi italiani con profilo accademico, pubblicazioni e aree di specializzazione.</p>
+          <span class="inline-flex items-center text-sm font-semibold text-gray-600 mt-4 group-hover:gap-2 transition-all">
+            <span data-i18n="home_card_experts_cta">Scopri gli esperti</span>
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+          </span>
         </a>
       </div>
     </div>
   </section>
 
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="text-center p-6">
-        <div class="text-4xl font-bold text-forest-600">7</div>
-        <div class="text-sm text-gray-500 mt-1">Sottofamiglie</div>
+  <!-- ═══════ GENERI IN EVIDENZA ═══════ -->
+  <section class="py-20 sm:py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between mb-12">
+        <div>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900" data-i18n="home_featured_title">Generi in evidenza</h2>
+          <p class="mt-3 text-lg text-gray-500" data-i18n="home_featured_subtitle">Alcuni dei generi piu rappresentativi della fauna mirmecologica italiana.</p>
+        </div>
+        <a href="/generi" class="hidden sm:inline-flex items-center text-sm font-semibold text-forest-600 hover:text-forest-700 transition-colors">
+          <span data-i18n="home_featured_see_all">Vedi tutti</span>
+          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
       </div>
-      <div class="text-center p-6">
-        <div class="text-4xl font-bold text-forest-600">41</div>
-        <div class="text-sm text-gray-500 mt-1">Generi</div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+        {featuredGenera.map((genus: any) => (
+          <a href={`/generi/${genus.id}`} class="group relative rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all hover:-translate-y-1">
+            <div class="aspect-square overflow-hidden bg-gray-100">
+              <img
+                src={genus.photo_urls[0]}
+                alt={`${genus.scientific_name}, vista frontale`}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-4">
+              <h3 class="text-lg font-bold text-gray-900 italic">{genus.scientific_name}</h3>
+              <p class="text-sm text-gray-500 mt-0.5">{genus.species_count_italy} {genus.species_count_italy === 1 ? 'specie' : 'specie'} in Italia</p>
+            </div>
+          </a>
+        ))}
       </div>
-      <div class="text-center p-6">
-        <div class="text-4xl font-bold text-forest-600">75+</div>
-        <div class="text-sm text-gray-500 mt-1">Specie</div>
+      <div class="mt-8 text-center sm:hidden">
+        <a href="/generi" class="inline-flex items-center text-sm font-semibold text-forest-600 hover:text-forest-700 transition-colors">
+          <span data-i18n="home_featured_see_all_mobile">Vedi tutti i generi</span>
+          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
       </div>
     </div>
   </section>
+
+  <!-- ═══════ COME FUNZIONA ═══════ -->
+  <section class="py-20 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900" data-i18n="home_how_title">Come funziona</h2>
+        <p class="mt-3 text-lg text-gray-500 max-w-2xl mx-auto" data-i18n="home_how_subtitle">Tre passi per identificare un genere di formica usando la chiave interattiva.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 lg:gap-16">
+        <!-- Step 1 -->
+        <div class="text-center">
+          <div class="relative mx-auto w-16 h-16 rounded-full bg-forest-100 flex items-center justify-center mb-6">
+            <span class="text-2xl font-bold text-forest-700">1</span>
+            <div class="hidden md:block absolute top-1/2 left-full w-[calc(100%+2rem)] lg:w-[calc(100%+5rem)] h-px bg-forest-200 -translate-y-1/2"></div>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="home_step1_title">Osserva i caratteri</h3>
+          <p class="text-gray-600 leading-relaxed" data-i18n="home_step1_desc">Esamina l'esemplare con una lente o un microscopio. Nota forma del torace, antenne, peziolo e altri dettagli morfologici.</p>
+        </div>
+        <!-- Step 2 -->
+        <div class="text-center">
+          <div class="relative mx-auto w-16 h-16 rounded-full bg-forest-100 flex items-center justify-center mb-6">
+            <span class="text-2xl font-bold text-forest-700">2</span>
+            <div class="hidden md:block absolute top-1/2 left-full w-[calc(100%+2rem)] lg:w-[calc(100%+5rem)] h-px bg-forest-200 -translate-y-1/2"></div>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="home_step2_title">Seleziona nella chiave</h3>
+          <p class="text-gray-600 leading-relaxed" data-i18n="home_step2_desc">Scegli gli stati dei caratteri nella chiave interattiva, in qualsiasi ordine. Il glossario visivo ti aiuta a interpretarli.</p>
+        </div>
+        <!-- Step 3 -->
+        <div class="text-center">
+          <div class="mx-auto w-16 h-16 rounded-full bg-forest-100 flex items-center justify-center mb-6">
+            <span class="text-2xl font-bold text-forest-700">3</span>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="home_step3_title">Identifica il genere</h3>
+          <p class="text-gray-600 leading-relaxed" data-i18n="home_step3_desc">I generi compatibili vengono ordinati per punteggio. Anche con qualche errore, il risultato corretto resta in evidenza.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ CTA FINALE ═══════ -->
+  <section class="py-20 sm:py-24 bg-gradient-to-br from-forest-600 to-forest-800">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-white" data-i18n="home_cta_title">Pronto a identificare?</h2>
+      <p class="mt-4 text-lg text-forest-100 max-w-xl mx-auto" data-i18n="home_cta_subtitle">La chiave interattiva ti guida passo dopo passo. Non serve essere un esperto per iniziare.</p>
+      <a href="/identifica" class="mt-8 inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white text-forest-700 font-bold text-lg hover:bg-forest-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+        <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+        <span data-i18n="home_cta_button">Inizia ora</span>
+      </a>
+    </div>
+  </section>
+
 </BaseLayout>

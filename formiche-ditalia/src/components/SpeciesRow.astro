@@ -37,7 +37,7 @@ const statusLabels: Record<string, string> = {
       <span class="text-sm text-gray-400 ml-2">{species.author_year}</span>
     )}
   </div>
-  <span class={`text-xs px-2 py-0.5 rounded-full font-medium ${statusColors[species.status] || ''}`}>
+  <span class={`text-xs px-2 py-0.5 rounded-full font-medium ${statusColors[species.status] || ''}`} data-i18n={`species_status_${species.status}`}>
     {statusLabels[species.status] || species.status}
   </span>
 </a>

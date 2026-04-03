@@ -11,12 +11,12 @@
     "states": [
       {
         "value": "0",
-        "label_it": "absent",
+        "label_it": "assente",
         "label_en": "absent"
       },
       {
         "value": "1",
-        "label_it": "present",
+        "label_it": "presente",
         "label_en": "present"
       }
     ],
@@ -35,13 +35,13 @@
     "states": [
       {
         "value": "0",
-        "label_it": "triangular",
+        "label_it": "triangolare",
         "label_en": "triangular"
       },
       {
         "value": "1",
-        "label_it": "not_triangular",
-        "label_en": "not_triangular"
+        "label_it": "non triangolare",
+        "label_en": "not triangular"
       }
     ],
     "level": "genus",
@@ -98,7 +98,7 @@
     "states": [
       {
         "value": "0",
-        "label_it": "indistinct",
+        "label_it": "indistinta",
         "label_en": "indistinct"
       },
       {
@@ -137,12 +137,12 @@
     "states": [
       {
         "value": "0",
-        "label_it": "oval",
+        "label_it": "ovale",
         "label_en": "oval"
       },
       {
         "value": "1",
-        "label_it": "elongate, narrowing downward",
+        "label_it": "allungato, rastremato verso il basso",
         "label_en": "elongate, narrowing downward"
       }
     ],
@@ -161,12 +161,12 @@
     "states": [
       {
         "value": "0",
-        "label_it": "triangular",
+        "label_it": "triangolare",
         "label_en": "triangular"
       },
       {
         "value": "1",
-        "label_it": "narrow and elongate, sabre-like",
+        "label_it": "stretto e allungato, a sciabola",
         "label_en": "narrow and elongate, sabre-like"
       }
     ],
@@ -185,8 +185,8 @@
     "states": [
       {
         "value": "0",
-        "label_it": "absent_or_only_with_the_apical_tooth",
-        "label_en": "absent_or_only_with_the_apical_tooth"
+        "label_it": "assente o solo con dente apicale",
+        "label_en": "absent or only with the apical tooth"
       },
       {
         "value": "1",
@@ -200,13 +200,13 @@
       },
       {
         "value": "3",
-        "label_it": "between_6_and_9",
-        "label_en": "between_6_and_9"
+        "label_it": "tra 6 e 9",
+        "label_en": "between 6 and 9"
       },
       {
         "value": "4",
-        "label_it": "10_or_more",
-        "label_en": "10_or_more"
+        "label_it": "10 o piu",
+        "label_en": "10 or more"
       }
     ],
     "level": "genus",
@@ -224,7 +224,7 @@
     "states": [
       {
         "value": "0",
-        "label_it": "from",
+        "label_it": "da",
         "label_en": "from"
       },
       {
@@ -261,13 +261,13 @@
     "states": [
       {
         "value": "0",
-        "label_it": "not_raised_as_a_ridge_in_front_of_the_antennal_insertions",
-        "label_en": "not_raised_as_a_ridge_in_front_of_the_antennal_insertions"
+        "label_it": "non rialzato a cresta davanti alle inserzioni antennali",
+        "label_en": "not raised as a ridge in front of the antennal insertions"
       },
       {
         "value": "1",
-        "label_it": "raised_as_a_ridge_in_front_of_antennal_insertions",
-        "label_en": "raised_as_a_ridge_in_front_of_antennal_insertions"
+        "label_it": "rialzato a cresta davanti alle inserzioni antennali",
+        "label_en": "raised as a ridge in front of antennal insertions"
       }
     ],
     "level": "genus",
@@ -285,13 +285,13 @@
     "states": [
       {
         "value": "0",
-        "label_it": "Promesonotum_about_the_same_level_as_the_propodeum",
-        "label_en": "Promesonotum_about_the_same_level_as_the_propodeum"
+        "label_it": "Promesonoto circa allo stesso livello del propodeo",
+        "label_en": "Promesonotum about the same level as the propodeum"
       },
       {
         "value": "1",
-        "label_it": "promesonotum_at_a_higher_level_than_propodeum",
-        "label_en": "promesonotum_at_a_higher_level_than_propodeum"
+        "label_it": "promesonoto a livello piu alto del propodeo",
+        "label_en": "promesonotum at a higher level than propodeum"
       }
     ],
     "level": "genus",
@@ -309,12 +309,12 @@
     "states": [
       {
         "value": "0",
-        "label_it": "angular, from dorsal view",
+        "label_it": "angolare, vista dorsale",
         "label_en": "angular, from dorsal view"
       },
       {
         "value": "1",
-        "label_it": "rounded, from dorsal view",
+        "label_it": "arrotondato, vista dorsale",
         "label_en": "rounded, from dorsal view"
       }
     ],
@@ -333,13 +333,13 @@
     "states": [
       {
         "value": "0",
-        "label_it": "without_teeth_or_spines",
-        "label_en": "without_teeth_or_spines"
+        "label_it": "senza denti o spine",
+        "label_en": "without teeth or spines"
       },
       {
         "value": "1",
-        "label_it": "with_teeth_or_spines",
-        "label_en": "with_teeth_or_spines"
+        "label_it": "con denti o spine",
+        "label_en": "with teeth or spines"
       }
     ],
     "level": "genus",
@@ -357,12 +357,12 @@
     "states": [
       {
         "value": "0",
-        "label_it": "simple_or_absent",
-        "label_en": "simple_or_absent"
+        "label_it": "semplice o assente",
+        "label_en": "simple or absent"
       },
       {
         "value": "1",
-        "label_it": "pectinate",
+        "label_it": "pettinato",
         "label_en": "pectinate"
       }
     ],
@@ -381,17 +381,17 @@
     "states": [
       {
         "value": "0",
-        "label_it": "not_cubical",
-        "label_en": "not_cubical"
+        "label_it": "non cubico",
+        "label_en": "not cubical"
       },
       {
         "value": "1",
-        "label_it": "cubical",
+        "label_it": "cubico",
         "label_en": "cubical"
       },
       {
         "value": "2",
-        "label_it": "not cubical, with a pronounced spongy \"skirt\" at the base",
+        "label_it": "non cubico, con una pronunciata \"gonna\" spugnosa alla base",
         "label_en": "not cubical, with a pronounced spongy \"skirt\" at the base"
       }
     ],
@@ -410,13 +410,13 @@
     "states": [
       {
         "value": "0",
-        "label_it": "at_most_with_a_small_tooth_or_lobe",
-        "label_en": "at_most_with_a_small_tooth_or_lobe"
+        "label_it": "al massimo con un piccolo dente o lobo",
+        "label_en": "at most with a small tooth or lobe"
       },
       {
         "value": "1",
-        "label_it": "with_a_well_developed_tooth_or_lobe",
-        "label_en": "with_a_well_developed_tooth_or_lobe"
+        "label_it": "con dente o lobo ben sviluppato",
+        "label_en": "with a well developed tooth or lobe"
       }
     ],
     "level": "genus",
@@ -434,13 +434,13 @@
     "states": [
       {
         "value": "0",
-        "label_it": "much_wider_than_petiole",
-        "label_en": "much_wider_than_petiole"
+        "label_it": "molto piu largo del peziolo",
+        "label_en": "much wider than petiole"
       },
       {
         "value": "1",
-        "label_it": "as_wide_as_or_a_little_wider_than_the_petiole",
-        "label_en": "as_wide_as_or_a_little_wider_than_the_petiole"
+        "label_it": "largo quanto o poco piu del peziolo",
+        "label_en": "as wide as or a little wider than the petiole"
       }
     ],
     "level": "genus",
@@ -458,13 +458,13 @@
     "states": [
       {
         "value": "0",
-        "label_it": "articulated_with_the_anterior_face_of_the_gaster",
-        "label_en": "articulated_with_the_anterior_face_of_the_gaster"
+        "label_it": "articolato con la faccia anteriore del gastro",
+        "label_en": "articulated with the anterior face of the gaster"
       },
       {
         "value": "1",
-        "label_it": "articulated_with_the_superior_face_of_the_first_gastral_segment",
-        "label_en": "articulated_with_the_superior_face_of_the_first_gastral_segment"
+        "label_it": "articolato con la faccia superiore del primo segmento gastrale",
+        "label_en": "articulated with the superior face of the first gastral segment"
       }
     ],
     "level": "genus",
@@ -482,12 +482,12 @@
     "states": [
       {
         "value": "0",
-        "label_it": "oval",
+        "label_it": "ovale",
         "label_en": "oval"
       },
       {
         "value": "1",
-        "label_it": "cordiform",
+        "label_it": "cordiforme",
         "label_en": "cordiform"
       }
     ],
@@ -506,12 +506,12 @@
     "states": [
       {
         "value": "0",
-        "label_it": "...without apico-dorsal appendix",
+        "label_it": "...senza appendice apico-dorsale",
         "label_en": "...without apico-dorsal appendix"
       },
       {
         "value": "1",
-        "label_it": "...with an apico-dorsal appendix, triangular",
+        "label_it": "...con appendice apico-dorsale, triangolare",
         "label_en": "...with an apico-dorsal appendix, triangular"
       }
     ],
@@ -530,12 +530,12 @@
     "states": [
       {
         "value": "0",
-        "label_it": "testaceous",
+        "label_it": "testaceo",
         "label_en": "testaceous"
       },
       {
         "value": "1",
-        "label_it": "piceous",
+        "label_it": "piceo",
         "label_en": "piceous"
       }
     ],
@@ -554,12 +554,12 @@
     "states": [
       {
         "value": "0",
-        "label_it": "with some 7-9 separated teeth",
+        "label_it": "con circa 7-9 denti separati",
         "label_en": "with some 7-9 separated teeth"
       },
       {
         "value": "1",
-        "label_it": "few well defined teeth, the remaining margin mostly finely serrated",
+        "label_it": "pochi denti ben definiti, il margine restante per lo piu finemente seghettato",
         "label_en": "few well defined teeth, the remaining margin mostly finely serrated"
       }
     ],
@@ -578,13 +578,13 @@
     "states": [
       {
         "value": "0",
-        "label_it": "two spurs: one simple, the other pectinate",
+        "label_it": "due speroni: uno semplice, uno pettinato",
         "label_en": "two spurs: one simple, the other pectinate"
       },
       {
         "value": "1",
-        "label_it": "a_single_pectinate_spur",
-        "label_en": "a_single_pectinate_spur"
+        "label_it": "un singolo sperone pettinato",
+        "label_en": "a single pectinate spur"
       }
     ],
     "level": "genus",
@@ -602,12 +602,12 @@
     "states": [
       {
         "value": "0",
-        "label_it": "without spine-like bristles on its outer surface",
+        "label_it": "senza setole spiniformi sulla superficie esterna",
         "label_en": "without spine-like bristles on its outer surface"
       },
       {
         "value": "1",
-        "label_it": "with spine-like bristles on its outer surface",
+        "label_it": "con setole spiniformi sulla superficie esterna",
         "label_en": "with spine-like bristles on its outer surface"
       }
     ],
@@ -626,12 +626,12 @@
     "states": [
       {
         "value": "0",
-        "label_it": "lobe-like",
+        "label_it": "a lobo",
         "label_en": "lobe-like"
       },
       {
         "value": "1",
-        "label_it": "with a circular, translucent thin spot anteriorly and posteriorly tooth-like",
+        "label_it": "con una macchia circolare translucida sottile anteriormente e posteriormente a forma di dente",
         "label_en": "with a circular, translucent thin spot anteriorly and posteriorly tooth-like"
       }
     ],
@@ -650,18 +650,18 @@
     "states": [
       {
         "value": "0",
-        "label_it": "uniformly_brown_to_black",
-        "label_en": "uniformly_brown_to_black"
+        "label_it": "uniformemente da bruno a nero",
+        "label_en": "uniformly brown to black"
       },
       {
         "value": "1",
-        "label_it": "bicoloured with red/reddish mesosoma",
+        "label_it": "bicolore con mesosoma rosso/rossastro",
         "label_en": "bicoloured with red/reddish mesosoma"
       },
       {
         "value": "2",
-        "label_it": "bicoloured_without_any_red_or_reddish_part",
-        "label_en": "bicoloured_without_any_red_or_reddish_part"
+        "label_it": "bicolore senza parti rosse o rossastre",
+        "label_en": "bicoloured without any red or reddish part"
       }
     ],
     "level": "genus",
@@ -703,13 +703,13 @@
     "states": [
       {
         "value": "0",
-        "label_it": "entire",
+        "label_it": "intero",
         "label_en": "entire"
       },
       {
         "value": "1",
-        "label_it": "distinctly_notched_medially",
-        "label_en": "distinctly_notched_medially"
+        "label_it": "distintamente inciso medialmente",
+        "label_en": "distinctly notched medially"
       }
     ],
     "level": "genus",
@@ -727,13 +727,13 @@
     "states": [
       {
         "value": "0",
-        "label_it": "thin_and_superficially_sculptured",
-        "label_en": "thin_and_superficially_sculptured"
+        "label_it": "sottile e con scultura superficiale",
+        "label_en": "thin and superficially sculptured"
       },
       {
         "value": "1",
-        "label_it": "thick_and_with_strong_sculpture",
-        "label_en": "thick_and_with_strong_sculpture"
+        "label_it": "spesso e con scultura marcata",
+        "label_en": "thick and with strong sculpture"
       }
     ],
     "level": "genus",
@@ -751,12 +751,12 @@
     "states": [
       {
         "value": "0",
-        "label_it": "absent",
+        "label_it": "assente",
         "label_en": "absent"
       },
       {
         "value": "1",
-        "label_it": "present",
+        "label_it": "presente",
         "label_en": "present"
       }
     ],
@@ -775,13 +775,13 @@
     "states": [
       {
         "value": "0",
-        "label_it": "well_developed",
-        "label_en": "well_developed"
+        "label_it": "ben sviluppato",
+        "label_en": "well developed"
       },
       {
         "value": "1",
-        "label_it": "virtually_absent",
-        "label_en": "virtually_absent"
+        "label_it": "virtualmente assente",
+        "label_en": "virtually absent"
       }
     ],
     "level": "genus",
@@ -799,12 +799,12 @@
     "states": [
       {
         "value": "0",
-        "label_it": "absent",
+        "label_it": "assente",
         "label_en": "absent"
       },
       {
         "value": "1",
-        "label_it": "present, on the first 2 tergites",
+        "label_it": "presente, sui primi 2 tergiti",
         "label_en": "present, on the first 2 tergites"
       }
     ],
@@ -823,12 +823,12 @@
     "states": [
       {
         "value": "0",
-        "label_it": "absent",
+        "label_it": "assente",
         "label_en": "absent"
       },
       {
         "value": "1",
-        "label_it": "present",
+        "label_it": "presente",
         "label_en": "present"
       }
     ],
@@ -876,13 +876,13 @@
     "states": [
       {
         "value": "0",
-        "label_it": "...a_little_longer_than_5th",
-        "label_en": "...a_little_longer_than_5th"
+        "label_it": "...un poco piu lungo del 5o",
+        "label_en": "...a little longer than 5th"
       },
       {
         "value": "1",
-        "label_it": "...about_twice_as_long_as_5th",
-        "label_en": "...about_twice_as_long_as_5th"
+        "label_it": "...circa il doppio del 5o",
+        "label_en": "...about twice as long as 5th"
       }
     ],
     "level": "genus",
@@ -900,12 +900,12 @@
     "states": [
       {
         "value": "0",
-        "label_it": "triangular",
+        "label_it": "triangolare",
         "label_en": "triangular"
       },
       {
         "value": "1",
-        "label_it": "falciform",
+        "label_it": "falciforme",
         "label_en": "falciform"
       }
     ],
@@ -924,8 +924,8 @@
     "states": [
       {
         "value": "0",
-        "label_it": "apical_tooth_only",
-        "label_en": "apical_tooth_only"
+        "label_it": "solo dente apicale",
+        "label_en": "apical tooth only"
       },
       {
         "value": "1",
@@ -953,13 +953,13 @@
     "states": [
       {
         "value": "0",
-        "label_it": "distant_from_the_posterior_clypeal_margin",
-        "label_en": "distant_from_the_posterior_clypeal_margin"
+        "label_it": "distante dal margine posteriore del clipeo",
+        "label_en": "distant from the posterior clypeal margin"
       },
       {
         "value": "1",
-        "label_it": "very_close_to_the_posterior_clypeal_margin",
-        "label_en": "very_close_to_the_posterior_clypeal_margin"
+        "label_it": "molto vicino al margine posteriore del clipeo",
+        "label_en": "very close to the posterior clypeal margin"
       }
     ],
     "level": "genus",
@@ -1001,13 +1001,13 @@
     "states": [
       {
         "value": "0",
-        "label_it": "rounded",
+        "label_it": "arrotondato",
         "label_en": "rounded"
       },
       {
         "value": "1",
-        "label_it": "armed_with_2_teeth",
-        "label_en": "armed_with_2_teeth"
+        "label_it": "armato con 2 denti",
+        "label_en": "armed with 2 teeth"
       }
     ],
     "level": "genus",

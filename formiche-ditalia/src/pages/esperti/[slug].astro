@@ -20,7 +20,7 @@ const expertGenera = generaData.filter((g: any) =>
 <BaseLayout title={expert.name} description={`${expert.name} — ${expert.affiliation || 'esperto di mirmecologia italiana'}`}>
   <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <nav class="text-sm text-gray-500 mb-6">
-      <a href="/esperti" class="hover:text-brand-600">Esperti</a>
+      <a href="/esperti" class="hover:text-brand-600" data-i18n="nav_experts">Esperti</a>
       <span class="mx-2">/</span>
       <span>{expert.name}</span>
     </nav>
@@ -36,7 +36,7 @@ const expertGenera = generaData.filter((g: any) =>
       <div>
         <div class="flex items-center gap-3">
           <h1 class="font-display text-3xl font-bold text-gray-900">{expert.name}</h1>
-          {expert.claimed && <span class="text-xs bg-forest-100 text-forest-700 px-2 py-1 rounded-full">Verificato</span>}
+          {expert.claimed && <span class="text-xs bg-forest-100 text-forest-700 px-2 py-1 rounded-full" data-i18n="experts_verified">Verificato</span>}
         </div>
         {expert.role && <p class="text-gray-600 mt-1">{expert.role}</p>}
         {expert.affiliation && <p class="text-gray-500">{expert.affiliation}</p>}
@@ -53,7 +53,7 @@ const expertGenera = generaData.filter((g: any) =>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
       {expert.specializations && expert.specializations.length > 0 && (
         <div class="bg-gray-50 rounded-lg p-4">
-          <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Specializzazioni</h2>
+          <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2" data-i18n="experts_specializations">Specializzazioni</h2>
           <div class="flex flex-wrap gap-2">
             {expert.specializations.map(s => <span class="text-sm bg-white text-gray-700 px-3 py-1 rounded-full border border-gray-200">{s}</span>)}
           </div>
@@ -69,7 +69,7 @@ const expertGenera = generaData.filter((g: any) =>
 
     {expertGenera.length > 0 && (
       <section class="mb-8">
-        <h2 class="font-display text-xl font-semibold mb-4">Generi di interesse</h2>
+        <h2 class="font-display text-xl font-semibold mb-4" data-i18n="experts_genera_of_interest">Generi di interesse</h2>
         <div class="flex flex-wrap gap-2">
           {expertGenera.map((g: any) => (
             <a href={`/generi/${g.id}`} class="text-sm bg-forest-50 text-forest-700 px-3 py-1 rounded-full hover:bg-forest-100 transition-colors italic">{g.scientific_name}</a>
@@ -80,7 +80,7 @@ const expertGenera = generaData.filter((g: any) =>
 
     {expert.key_publications && expert.key_publications.length > 0 && (
       <section class="mb-8">
-        <h2 class="font-display text-xl font-semibold mb-4">Pubblicazioni principali</h2>
+        <h2 class="font-display text-xl font-semibold mb-4" data-i18n="experts_publications">Pubblicazioni principali</h2>
         <ul class="space-y-2">
           {expert.key_publications.map(pub => <li class="text-gray-700">{pub}</li>)}
         </ul>
@@ -89,10 +89,10 @@ const expertGenera = generaData.filter((g: any) =>
 
     <div class="border-t border-gray-200 pt-6 mt-8">
       <a href={`mailto:francesco.mensa@muse.it?subject=Claim profilo Formiche d'Italia: ${expert.name}`} class="inline-flex items-center px-4 py-2 rounded-lg bg-brand-600 text-white font-medium hover:bg-brand-700 transition-colors">
-        Rivendica il tuo profilo
+        <span data-i18n="experts_claim">Rivendica il tuo profilo</span>
       </a>
       {expert.website && (
-        <a href={expert.website} target="_blank" rel="noopener noreferrer" class="ml-4 text-forest-600 hover:text-forest-800 underline">Sito istituzionale</a>
+        <a href={expert.website} target="_blank" rel="noopener noreferrer" class="ml-4 text-forest-600 hover:text-forest-800 underline" data-i18n="experts_institutional_site">Sito istituzionale</a>
       )}
     </div>
   </article>

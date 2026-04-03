@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ImageLightbox from '../../components/ImageLightbox';
 import type { Species, Genus } from '../../types';
 
 import speciesData from '../../data/species.json';
@@ -36,7 +37,7 @@ const structuredData = {
 >
   <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <nav class="text-sm text-gray-500 mb-6">
-      <a href="/generi" class="hover:text-forest-600">Generi</a>
+      <a href="/generi" class="hover:text-forest-600" data-i18n="genus_breadcrumb">Generi</a>
       <span class="mx-2">/</span>
       <a href={`/generi/${species.genus_id}`} class="hover:text-forest-600 italic">{genus?.scientific_name || species.genus_id}</a>
       <span class="mx-2">/</span>
@@ -56,35 +57,36 @@ const structuredData = {
           species.status === 'exotic' ? 'bg-red-100 text-red-700' :
           'bg-forest-100 text-forest-700'
         }`}>
-          {species.status === 'native' ? 'Nativa' : species.status === 'exotic' ? 'Esotica' : 'Endemica'}
+          <span data-i18n={`species_status_${species.status}`}>{species.status === 'native' ? 'Nativa' : species.status === 'exotic' ? 'Esotica' : 'Endemica'}</span>
         </span>
       </div>
     </header>
 
     {species.photo_urls.length > 0 && (
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-8">
-        {species.photo_urls.slice(0, 4).map((url) => (
-          <img src={url} alt={`${species.scientific_name} specimen`} class="rounded-lg w-full aspect-square object-cover" loading="lazy" onerror="this.src='/images/placeholder-ant.svg'" />
-        ))}
+      <div class="mb-8">
+        <ImageLightbox
+          client:load
+          images={species.photo_urls.map((url) => ({ src: url, alt: `${species.scientific_name} specimen` }))}
+        />
       </div>
     )}
 
     {species.synonyms && species.synonyms.length > 0 && (
       <section class="mb-6">
-        <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Sinonimi</h2>
+        <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2" data-i18n="species_synonyms">Sinonimi</h2>
         <p class="text-gray-700 italic">{species.synonyms.join(', ')}</p>
       </section>
     )}
 
     {species.habitat_notes && (
       <section class="bg-gray-50 rounded-lg p-4 mb-6">
-        <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">Habitat</h2>
+        <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1" data-i18n="species_habitat">Habitat</h2>
         <p class="text-gray-700">{species.habitat_notes}</p>
       </section>
     )}
 
     <section class="mb-8">
-      <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">Link esterni</h2>
+      <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3" data-i18n="species_external_links">Link esterni</h2>
       <div class="flex flex-wrap gap-3">
         {species.antweb_url && (
           <a href={species.antweb_url} target="_blank" rel="noopener noreferrer" class="text-sm text-forest-600 hover:text-forest-800 underline">AntWeb</a>

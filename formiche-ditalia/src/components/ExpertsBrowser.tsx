@@ -1,4 +1,12 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { getLang, type Lang } from '../i18n';
+import it from '../i18n/it.json';
+import en from '../i18n/en.json';
+
+const translations: Record<string, Record<string, string>> = { it, en };
+function t(key: string, lang: Lang): string {
+  return translations[lang]?.[key] || translations.it[key] || key;
+}
 
 interface Expert {
   id: string;
@@ -18,6 +26,14 @@ interface Props {
 export default function ExpertsBrowser({ experts }: Props) {
   const [search, setSearch] = useState('');
   const [regionFilter, setRegionFilter] = useState('');
+  const [lang, setLang] = useState<Lang>('it');
+
+  useEffect(() => {
+    setLang(getLang());
+    const handler = (e: Event) => setLang((e as CustomEvent).detail as Lang);
+    window.addEventListener('langchange', handler);
+    return () => window.removeEventListener('langchange', handler);
+  }, []);
 
   const regions = useMemo(() => {
     return [...new Set(experts.map(e => e.region).filter(Boolean))].sort() as string[];
@@ -39,7 +55,7 @@ export default function ExpertsBrowser({ experts }: Props) {
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Cerca un esperto..."
+          placeholder={t('experts_search', lang)}
           className="flex-1 px-4 py-2.5 rounded-lg border border-gray-300 focus:border-forest-400 focus:ring-2 focus:ring-forest-200 outline-none transition-all text-sm"
         />
         <select
@@ -47,14 +63,14 @@ export default function ExpertsBrowser({ experts }: Props) {
           onChange={(e) => setRegionFilter(e.target.value)}
           className="px-4 py-2.5 rounded-lg border border-gray-300 focus:border-forest-400 focus:ring-2 focus:ring-forest-200 outline-none transition-all text-sm bg-white"
         >
-          <option value="">Tutte le regioni</option>
+          <option value="">{t('experts_all_regions', lang)}</option>
           {regions.map((r) => (
             <option key={r} value={r}>{r}</option>
           ))}
         </select>
       </div>
 
-      <p className="text-sm text-gray-500 mb-4">{filtered.length} esperti</p>
+      <p className="text-sm text-gray-500 mb-4">{filtered.length} {t('experts_count', lang)}</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {filtered.map((expert) => (
@@ -76,7 +92,7 @@ export default function ExpertsBrowser({ experts }: Props) {
               <div className="min-w-0">
                 <div className="flex items-center gap-2">
                   <h3 className="font-semibold text-gray-900 group-hover:text-brand-600 transition-colors truncate">{expert.name}</h3>
-                  {expert.claimed && <span className="text-xs bg-forest-100 text-forest-700 px-1.5 py-0.5 rounded-full">Verificato</span>}
+                  {expert.claimed && <span className="text-xs bg-forest-100 text-forest-700 px-1.5 py-0.5 rounded-full">{t('experts_verified', lang)}</span>}
                 </div>
                 {expert.affiliation && <p className="text-sm text-gray-500 truncate">{expert.affiliation}</p>}
                 {expert.region && <p className="text-xs text-gray-400 mt-1">{expert.region}</p>}
@@ -94,7 +110,7 @@ export default function ExpertsBrowser({ experts }: Props) {
       </div>
 
       {filtered.length === 0 && (
-        <p className="text-center text-gray-400 py-12">Nessun esperto trovato.</p>
+        <p className="text-center text-gray-400 py-12">{t('experts_no_results', lang)}</p>
       )}
     </div>
   );

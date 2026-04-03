@@ -1,4 +1,12 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { getLang, type Lang } from '../i18n';
+import it from '../i18n/it.json';
+import en from '../i18n/en.json';
+
+const translations: Record<string, Record<string, string>> = { it, en };
+function t(key: string, lang: Lang): string {
+  return translations[lang]?.[key] || translations.it[key] || key;
+}
 
 interface Genus {
   id: string;
@@ -21,6 +29,14 @@ interface Props {
 export default function GeneraBrowser({ genera, subfamilies }: Props) {
   const [search, setSearch] = useState('');
   const [subfamilyFilter, setSubfamilyFilter] = useState('');
+  const [lang, setLang] = useState<Lang>('it');
+
+  useEffect(() => {
+    setLang(getLang());
+    const handler = (e: Event) => setLang((e as CustomEvent).detail as Lang);
+    window.addEventListener('langchange', handler);
+    return () => window.removeEventListener('langchange', handler);
+  }, []);
 
   const filtered = useMemo(() => {
     return genera.filter((g) => {
@@ -37,7 +53,7 @@ export default function GeneraBrowser({ genera, subfamilies }: Props) {
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Cerca un genere..."
+          placeholder={t('genera_search', lang)}
           className="flex-1 px-4 py-2.5 rounded-lg border border-gray-300 focus:border-forest-400 focus:ring-2 focus:ring-forest-200 outline-none transition-all text-sm"
         />
         <select
@@ -45,14 +61,14 @@ export default function GeneraBrowser({ genera, subfamilies }: Props) {
           onChange={(e) => setSubfamilyFilter(e.target.value)}
           className="px-4 py-2.5 rounded-lg border border-gray-300 focus:border-forest-400 focus:ring-2 focus:ring-forest-200 outline-none transition-all text-sm bg-white"
         >
-          <option value="">Tutte le sottofamiglie</option>
+          <option value="">{t('genera_all_subfamilies', lang)}</option>
           {subfamilies.map((sf) => (
             <option key={sf.id} value={sf.id}>{sf.name}</option>
           ))}
         </select>
       </div>
 
-      <p className="text-sm text-gray-500 mb-4">{filtered.length} generi</p>
+      <p className="text-sm text-gray-500 mb-4">{filtered.length} {t('genera_count', lang)}</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map((genus) => (
@@ -76,7 +92,7 @@ export default function GeneraBrowser({ genera, subfamilies }: Props) {
               </h3>
               <p className="text-sm text-gray-500 mt-1 capitalize">{genus.subfamily_id}</p>
               {genus.species_count_italy > 0 && (
-                <p className="text-xs text-forest-600 mt-2">{genus.species_count_italy} specie in Italia</p>
+                <p className="text-xs text-forest-600 mt-2">{genus.species_count_italy} {t('genera_species_count', lang)}</p>
               )}
             </div>
           </a>
@@ -84,7 +100,7 @@ export default function GeneraBrowser({ genera, subfamilies }: Props) {
       </div>
 
       {filtered.length === 0 && (
-        <p className="text-center text-gray-400 py-12">Nessun genere trovato.</p>
+        <p className="text-center text-gray-400 py-12">{t('genera_no_results', lang)}</p>
       )}
     </div>
   );

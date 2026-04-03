@@ -247,8 +247,8 @@
   },
   {
     "id": "francesco-mensa",
-    "name": "Francesco Mensa",
-    "affiliation": "MUSE, Trento",
+    "name": "Francesco Simone Mensa",
+    "affiliation": null,
     "role": "Researcher",
     "email": null,
     "website": null,
@@ -272,32 +272,5 @@
     "profile_photo_url": null,
     "h_index": 1,
     "claimed": true
-  },
-  {
-    "id": "mauro-gobbi",
-    "name": "Mauro Gobbi",
-    "affiliation": "MUSE, Trento",
-    "role": "Researcher",
-    "email": null,
-    "website": null,
-    "orcid": "https://orcid.org/0000-0002-1704-4857",
-    "region": "Trentino-Alto Adige",
-    "specializations": [
-      "glacial ecology",
-      "alpine entomology"
-    ],
-    "genera_of_interest": [],
-    "key_publications": [
-      "Scientists' warning on climate change and insects (2022)",
-      "Dynamics of Ecological Communities Following Current Retreat of Glaciers (2021)",
-      "Biodiversity of ground beetles (Coleoptera: Carabidae) in different habitats of the Italian Po lowland (2008)",
-      "The Consequences of Glacier Retreat Are Uneven Between Plant Species (2021)",
-      "Changes in ground beetle assemblages above and below the treeline of the <scp>D</scp>olomites after almost 30 years (1980/2009) (2014)"
-    ],
-    "bio_it": "Supervisore del progetto, specialista in ecologia glaciale.",
-    "bio_en": "Project supervisor, specialist in glacial ecology.",
-    "profile_photo_url": null,
-    "h_index": 26,
-    "claimed": false
   }
 ]

@@ -1,6 +1,7 @@
-import { useState, useMemo, type ReactNode } from 'react';
+import { useState, useMemo, useEffect, type ReactNode } from 'react';
 import type { Character, MatrixEntry, Genus } from '../types';
 import GlossaryTooltip from './GlossaryTooltip';
+import { getLang, type Lang } from '../i18n';
 
 interface GlossaryEntry {
   term: string;
@@ -30,10 +31,18 @@ interface ScoredGenus {
   matchedCount: number;
 }
 
-export default function IdentificationKey({ characters, matrix, genera, glossary = [], lang }: Props) {
+export default function IdentificationKey({ characters, matrix, genera, glossary = [], lang: initialLang }: Props) {
   const [selectedStates, setSelectedStates] = useState<SelectedState[]>([]);
   const [maxMismatches, setMaxMismatches] = useState(1);
   const [selectedRegion, setSelectedRegion] = useState<string>('');
+  const [lang, setCurrentLang] = useState<Lang>(initialLang);
+
+  useEffect(() => {
+    setCurrentLang(getLang());
+    const handler = (e: Event) => setCurrentLang((e as CustomEvent).detail as Lang);
+    window.addEventListener('langchange', handler);
+    return () => window.removeEventListener('langchange', handler);
+  }, []);
 
   /** Wraps the first glossary term found in `text` with a GlossaryTooltip. */
   const annotateWithGlossary = (text: string): ReactNode => {
