@@ -2,57 +2,193 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Chi siamo" description="Formiche d'Italia nasce dalla tesi FormiKey al MUSE di Trento. Scopri il progetto, il team e le fonti dei dati.">
-  <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 prose prose-gray">
-    <h1 class="font-display" data-i18n="about_title">Chi siamo</h1>
+<BaseLayout title="Chi siamo" description="Formiche d'Italia nasce dalla tesi FormiKey. Scopri il progetto, il team e le fonti dei dati.">
 
-    <p>
-      <strong>Formiche d'Italia</strong> nasce come evoluzione digitale della tesi FormiKey,
-      un progetto di ricerca dedicato all'identificazione delle formiche italiane.
-      L'obiettivo: rendere la mirmecologia accessibile a tutti,
-      da entomologi professionisti a naturalisti amatoriali.
-    </p>
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-forest-50 via-white to-brand-50">
+    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-forest-100/40 blur-3xl"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 relative">
+      <h1 class="font-display text-4xl sm:text-5xl font-bold text-forest-900 tracking-tight" data-i18n="about_title">Chi siamo</h1>
+      <p class="mt-4 text-lg text-gray-600 max-w-2xl leading-relaxed">
+        <strong class="text-forest-800">Formiche d'Italia</strong> nasce come evoluzione digitale della tesi FormiKey,
+        un progetto di ricerca dedicato all'identificazione delle formiche italiane.
+        L'obiettivo: rendere la mirmecologia accessibile a tutti.
+      </p>
+    </div>
+  </section>
 
-    <h2>Il progetto</h2>
-    <p>
-      La piattaforma offre una <a href="/identifica">chiave di identificazione interattiva multi-accesso</a>
-      con tolleranza agli errori, un <a href="/generi">catalogo completo dei generi</a> presenti
-      in Italia e una <a href="/esperti">directory degli esperti</a> di mirmecologia italiana.
-    </p>
-    <p>
-      I dati tassonomici derivano dalle matrici di caratteri della tesi FormiKey,
-      validate dal Dr. Fabrizio Rigato (Museo Civico di Storia Naturale di Milano).
-      Le immagini provengono da <a href="https://www.antweb.org" target="_blank" rel="noopener noreferrer">AntWeb</a>
-      e sono distribuite con licenza CC BY-SA 3.0. La checklist di riferimento
-      è quella di Schifani (2022).
-    </p>
+  <!-- Il progetto -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-forest-600">Il progetto</span>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-gray-900 mt-2">Tre strumenti in un'unica piattaforma</h2>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            I dati tassonomici derivano dalle matrici di caratteri della tesi FormiKey,
+            validate dal Dr. Fabrizio Rigato. Le immagini provengono da
+            <a href="https://www.antweb.org" target="_blank" rel="noopener noreferrer" class="text-forest-600 hover:text-forest-800 underline">AntWeb</a>
+            (CC BY-SA 3.0). La checklist di riferimento è quella di Schifani (2022).
+          </p>
+        </div>
+        <div class="space-y-4">
+          <a href="/identifica" class="group flex items-start gap-4 p-4 rounded-xl border border-gray-200 hover:border-forest-400 hover:shadow-md transition-all">
+            <div class="w-10 h-10 rounded-lg bg-forest-100 flex items-center justify-center flex-shrink-0 group-hover:bg-forest-200 transition-colors">
+              <svg class="w-5 h-5 text-forest-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 group-hover:text-forest-600 transition-colors">Chiave di identificazione</h3>
+              <p class="text-sm text-gray-500 mt-0.5">Multi-accesso con tolleranza agli errori</p>
+            </div>
+          </a>
+          <a href="/generi" class="group flex items-start gap-4 p-4 rounded-xl border border-gray-200 hover:border-forest-400 hover:shadow-md transition-all">
+            <div class="w-10 h-10 rounded-lg bg-brand-100 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-200 transition-colors">
+              <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 group-hover:text-forest-600 transition-colors">Catalogo generi e specie</h3>
+              <p class="text-sm text-gray-500 mt-0.5">39 generi, 75 specie con foto AntWeb</p>
+            </div>
+          </a>
+          <a href="/esperti" class="group flex items-start gap-4 p-4 rounded-xl border border-gray-200 hover:border-brand-400 hover:shadow-md transition-all">
+            <div class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0 group-hover:bg-gray-200 transition-colors">
+              <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 group-hover:text-brand-600 transition-colors">Directory esperti</h3>
+              <p class="text-sm text-gray-500 mt-0.5">Rete di mirmecologi italiani</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <h2>Il team</h2>
-    <ul>
-      <li><strong>Francesco Simone Mensa</strong> — Creatore del progetto, autore della chiave FormiKey e dei dati tassonomici</li>
-      <li><strong>Claude</strong> (Anthropic) — Sviluppo tecnico del sito web e della piattaforma</li>
-    </ul>
+  <!-- Il team -->
+  <section class="py-16 sm:py-20 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="text-xs font-semibold uppercase tracking-wider text-forest-600">Il team</span>
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-gray-900 mt-2 mb-10">Chi c'è dietro al progetto</h2>
 
-    <h2>Ringraziamenti</h2>
-    <p>
-      Si ringraziano il Dr. Fabrizio Rigato (Museo Civico di Storia Naturale di Milano)
-      per la validazione delle matrici morfologiche, e tutti i mirmecologi italiani che
-      hanno contribuito alla conoscenza della fauna formicologica italiana.
-    </p>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <!-- Francesco -->
+        <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="/images/esperti/francesco-mensa.jpg" alt="Francesco Simone Mensa" class="w-16 h-16 rounded-full object-cover" />
+            <div>
+              <h3 class="font-bold text-gray-900 text-lg">Francesco Simone Mensa</h3>
+              <p class="text-sm text-forest-600">Creatore del progetto</p>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Autore della chiave FormiKey e dei dati tassonomici.
+            Ha progettato le matrici di caratteri morfologici e curato
+            la raccolta dei dati su generi e specie italiane.
+          </p>
+        </div>
 
-    <h2>Contribuisci</h2>
-    <p>
-      Formiche d'Italia è un progetto in crescita. Se sei un esperto di formiche italiane
-      e vuoi contribuire, <a href="/esperti">rivendica il tuo profilo</a> nella directory esperti
-      o contattaci per proporre correzioni e integrazioni ai dati.
-    </p>
+        <!-- Claude -->
+        <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center flex-shrink-0">
+              <span class="text-white font-bold text-xl">C</span>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-900 text-lg">Claude <span class="text-gray-400 font-normal text-sm">(Anthropic)</span></h3>
+              <p class="text-sm text-brand-600">Sviluppo tecnico</p>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Sviluppo del sito web, della piattaforma e della chiave di identificazione interattiva.
+            Implementazione del sistema di scoring con tolleranza agli errori e information gain.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <h2>Fonti dei dati</h2>
-    <ul>
-      <li>Matrici FormiKey (tesi, dati originali)</li>
-      <li>Checklist Formicidae d'Italia — Schifani, 2022</li>
-      <li>Immagini: AntWeb.org (CC BY-SA 3.0)</li>
-      <li>Dati bibliometrici: OpenAlex API</li>
-    </ul>
-  </article>
+  <!-- Ringraziamenti -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="text-xs font-semibold uppercase tracking-wider text-brand-600">Ringraziamenti</span>
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-gray-900 mt-2 mb-6">Collaboratori e supporto</h2>
+      <div class="bg-brand-50 rounded-2xl p-6 sm:p-8 border border-brand-100">
+        <p class="text-gray-700 leading-relaxed">
+          Si ringrazia il <strong>Dr. Fabrizio Rigato</strong> (Museo Civico di Storia Naturale di Milano)
+          per la validazione delle matrici morfologiche, e tutti i mirmecologi italiani che
+          hanno contribuito alla conoscenza della fauna formicologica italiana.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fonti dei dati -->
+  <section class="py-16 sm:py-20 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="text-xs font-semibold uppercase tracking-wider text-forest-600">Fonti</span>
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-gray-900 mt-2 mb-8">Da dove vengono i dati</h2>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="bg-white rounded-xl p-5 border border-gray-200">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-8 h-8 rounded-lg bg-forest-100 flex items-center justify-center">
+              <svg class="w-4 h-4 text-forest-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+            </div>
+            <h3 class="font-semibold text-gray-900">Matrici FormiKey</h3>
+          </div>
+          <p class="text-sm text-gray-500">Dati originali dalla tesi di ricerca</p>
+        </div>
+
+        <div class="bg-white rounded-xl p-5 border border-gray-200">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-8 h-8 rounded-lg bg-brand-100 flex items-center justify-center">
+              <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
+            </div>
+            <h3 class="font-semibold text-gray-900">Schifani 2022</h3>
+          </div>
+          <p class="text-sm text-gray-500">Checklist Formicidae d'Italia</p>
+        </div>
+
+        <div class="bg-white rounded-xl p-5 border border-gray-200">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center">
+              <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+            </div>
+            <h3 class="font-semibold text-gray-900">AntWeb.org</h3>
+          </div>
+          <p class="text-sm text-gray-500">Immagini specimen (CC BY-SA 3.0)</p>
+        </div>
+
+        <div class="bg-white rounded-xl p-5 border border-gray-200">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-8 h-8 rounded-lg bg-forest-100 flex items-center justify-center">
+              <svg class="w-4 h-4 text-forest-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+            </div>
+            <h3 class="font-semibold text-gray-900">OpenAlex API</h3>
+          </div>
+          <p class="text-sm text-gray-500">Dati bibliometrici e profili accademici</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contribuisci CTA -->
+  <section class="py-16 sm:py-20 bg-gradient-to-br from-forest-600 to-forest-800">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-white">Vuoi contribuire?</h2>
+      <p class="mt-4 text-forest-100 text-lg leading-relaxed">
+        Formiche d'Italia è un progetto in crescita. Se sei un esperto di formiche italiane
+        e vuoi contribuire, rivendica il tuo profilo o contattaci per proporre correzioni.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/esperti" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white text-forest-700 font-semibold hover:bg-forest-50 transition-colors">
+          Directory esperti
+        </a>
+        <a href="mailto:formicheditalia@gmail.com?subject=Contributo%20a%20Formiche%20d'Italia" class="inline-flex items-center justify-center px-6 py-3 rounded-xl border-2 border-white/30 text-white font-semibold hover:bg-white/10 transition-colors">
+          Contattaci
+        </a>
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>
