@@ -97,9 +97,8 @@
   "about_hero_desc": "Formiche d'Italia nasce come evoluzione digitale della tesi FormiKey, un progetto di ricerca dedicato all'identificazione delle formiche italiane. L'obiettivo: rendere la mirmecologia accessibile a tutti.",
   "about_origin_label": "Le origini",
   "about_formikey_title": "Cos'è FormiKey?",
-  "about_formikey_p1": "FormiKey è una chiave di identificazione multi-accesso per le formiche italiane, sviluppata come tesi di laurea magistrale da Francesco Simone Mensa. A differenza delle chiavi dicotomiche tradizionali, FormiKey permette di selezionare i caratteri morfologici in qualsiasi ordine e include un sistema di tolleranza agli errori.",
-  "about_formikey_p2": "Le matrici di caratteri sono state costruite a partire dalla letteratura tassonomica e validate dal Dr. Fabrizio Rigato (Museo Civico di Storia Naturale di Milano), uno dei massimi esperti di tassonomia delle formiche in Italia.",
-  "about_formikey_thesis": "La tesi originale non è al momento disponibile pubblicamente. Per informazioni, contattare l'autore.",
+  "about_formikey_p1": "FormiKey nasce dalla tesi di laurea magistrale \"Chiave interattiva per il riconoscimento dei generi di Formicidae italiani e delle specie della città di Roma\", discussa da Francesco Simone Mensa nell'anno accademico 2016-2017 presso il Dipartimento di Scienze dell'Università Roma Tre, Corso di Laurea in Biodiversità e Gestione degli Ecosistemi, sotto la supervisione del Prof. Andrea Di Giulio.",
+  "about_formikey_p2": "La tesi ha prodotto una chiave interattiva multi-accesso basata su matrici di caratteri morfologici costruite con il software Mesquite e la piattaforma MOSCHweb. A differenza delle chiavi dicotomiche tradizionali, FormiKey permette di selezionare i caratteri in qualsiasi ordine. Le matrici originali sono state successivamente validate dal Dr. Fabrizio Rigato (Museo Civico di Storia Naturale di Milano).",
   "about_formikey_numbers": "FormiKey in numeri",
   "about_stat_subfamilies": "Sottofamiglie",
   "about_stat_genera": "Generi",
@@ -131,5 +130,6 @@
   "about_cta_title": "Vuoi contribuire?",
   "about_cta_desc": "Formiche d'Italia è un progetto in crescita. Se sei un esperto di formiche italiane e vuoi contribuire, rivendica il tuo profilo o contattaci per proporre correzioni.",
   "about_cta_experts": "Directory esperti",
-  "about_cta_contact": "Contattaci"
+  "about_cta_contact": "Contattaci",
+  "about_formikey_p3": "La tesi copre i 41 generi e 7 sottofamiglie presenti nella penisola italiana, con un approfondimento sulle 75 specie della città di Roma, che rappresentano il 30% delle specie italiane. Il sito Formiche d'Italia è l'evoluzione digitale di questo lavoro di ricerca."
 }

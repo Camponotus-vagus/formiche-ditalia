@@ -97,9 +97,8 @@
   "about_hero_desc": "Formiche d'Italia is the digital evolution of the FormiKey thesis, a research project dedicated to identifying Italian ants. The goal: making myrmecology accessible to everyone.",
   "about_origin_label": "Origins",
   "about_formikey_title": "What is FormiKey?",
-  "about_formikey_p1": "FormiKey is a multi-access identification key for Italian ants, developed as a master's thesis by Francesco Simone Mensa. Unlike traditional dichotomous keys, FormiKey allows selecting morphological characters in any order and includes an error tolerance system.",
-  "about_formikey_p2": "The character matrices were built from taxonomic literature and validated by Dr. Fabrizio Rigato (Civic Museum of Natural History of Milan), one of Italy's leading ant taxonomy experts.",
-  "about_formikey_thesis": "The original thesis is not currently publicly available. For information, please contact the author.",
+  "about_formikey_p1": "FormiKey originates from the master's thesis \"Interactive key for the identification of Italian Formicidae genera and the species of the city of Rome\", presented by Francesco Simone Mensa in the 2016-2017 academic year at the Department of Sciences, Roma Tre University, MSc in Biodiversity and Ecosystem Management, under the supervision of Prof. Andrea Di Giulio.",
+  "about_formikey_p2": "The thesis produced an interactive multi-access identification key based on morphological character matrices built with Mesquite software and the MOSCHweb platform. Unlike traditional dichotomous keys, FormiKey allows selecting characters in any order. The original matrices were subsequently validated by Dr. Fabrizio Rigato (Civic Museum of Natural History of Milan).",
   "about_formikey_numbers": "FormiKey in numbers",
   "about_stat_subfamilies": "Subfamilies",
   "about_stat_genera": "Genera",
@@ -131,5 +130,6 @@
   "about_cta_title": "Want to contribute?",
   "about_cta_desc": "Formiche d'Italia is a growing project. If you're an Italian ant expert and want to contribute, claim your profile or contact us to suggest corrections.",
   "about_cta_experts": "Expert directory",
-  "about_cta_contact": "Contact us"
+  "about_cta_contact": "Contact us",
+  "about_formikey_p3": "The thesis covers the 41 genera and 7 subfamilies present in the Italian peninsula, with a focus on the 75 species of the city of Rome, representing 30% of Italian species. Formiche d'Italia is the digital evolution of this research work."
 }
