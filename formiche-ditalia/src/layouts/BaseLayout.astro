@@ -88,8 +88,16 @@ import LanguageSwitcher from '../components/LanguageSwitcher.tsx';
 
   <footer class="bg-gray-50 border-t border-gray-200 mt-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <p class="text-sm text-gray-500" data-i18n="footer_credits">Un progetto di Francesco Simone Mensa</p>
-      <p class="text-xs text-gray-400 mt-1" data-i18n="footer_data_credits">Immagini: AntWeb.org (CC BY-SA 3.0). Dati tassonomici: Schifani 2022.</p>
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <p class="text-sm text-gray-500" data-i18n="footer_credits">Un progetto di Francesco Simone Mensa</p>
+          <p class="text-xs text-gray-400 mt-1" data-i18n="footer_data_credits">Immagini: AntWeb.org (CC BY-SA 3.0). Dati tassonomici: Schifani 2022.</p>
+        </div>
+        <div class="text-xs text-gray-400 sm:text-right">
+          <p>&copy; {new Date().getFullYear()} Formiche d'Italia</p>
+          <p class="mt-1" data-i18n="footer_cite">Per citare: Mensa F.S. (2026). Formiche d'Italia. formicheditalia.it</p>
+        </div>
+      </div>
     </div>
   </footer>
   <script>
