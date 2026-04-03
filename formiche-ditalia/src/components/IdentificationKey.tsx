@@ -32,6 +32,30 @@ interface ScoredGenus {
   matchedCount: number;
 }
 
+/** Inline info tooltip — shows on click (mobile) and hover (desktop) */
+function InfoTip({ text }: { text: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <span className="relative inline-block ml-1">
+      <button
+        onClick={(e) => { e.preventDefault(); e.stopPropagation(); setOpen(!open); }}
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setOpen(false)}
+        className="inline-flex items-center justify-center w-[18px] h-[18px] rounded-full bg-gray-200 hover:bg-gray-300 text-gray-500 text-[10px] font-bold cursor-help transition-colors"
+        aria-label="Info"
+      >
+        i
+      </button>
+      {open && (
+        <span className="absolute z-50 bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 px-3 py-2 text-xs text-gray-700 bg-white rounded-lg shadow-xl border border-gray-200 leading-relaxed">
+          {text}
+          <span className="absolute top-full left-1/2 -translate-x-1/2 w-2 h-2 bg-white border-r border-b border-gray-200 rotate-45 -translate-y-1" />
+        </span>
+      )}
+    </span>
+  );
+}
+
 export default function IdentificationKey({ characters, matrix, genera, glossary = [], lang: initialLang }: Props) {
   const [selectedStates, setSelectedStates] = useState<WeightedSelection[]>([]);
   const [maxMismatches, setMaxMismatches] = useState(1);
@@ -273,11 +297,21 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
   }, [regionFilteredGenera.length, scoredGenera, selectedStates.length, lang]);
 
   // Component D: Impact prediction per character state
+  // Counts genera that would be excluded or significantly penalized
   const predictStateImpact = (charId: string, stateValue: string): number => {
+    const char = characters.find(c => c.id === charId);
+    const charScope = char?.subfamily_scope;
     return scoredGenera.filter(sg => {
       const values = matrixLookup[sg.genus.id]?.[charId];
-      if (!values || values.includes('?')) return false;
-      return !values.includes(stateValue);
+      if (values && !values.includes('?')) {
+        // Has data: count as excluded if doesn't match
+        return !values.includes(stateValue);
+      }
+      // No data: would be penalized if out of scope
+      if (charScope && sg.genus.subfamily_id !== charScope) {
+        return true; // out-of-scope genera get heavy penalty
+      }
+      return false;
     }).length;
   };
 
@@ -381,7 +415,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
           </button>
           <label className="ml-auto flex items-center gap-2 text-sm text-gray-600">
             {lang === 'it' ? 'Tolleranza' : 'Tolerance'}
-            <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gray-200 text-gray-500 text-[10px] cursor-help" title={lang === 'it' ? 'Quanti errori sono ammessi. Con tolleranza 1, un genere che non matcha un carattere resta visibile. Aumenta se non sei sicuro delle osservazioni.' : 'How many mismatches are allowed. With tolerance 1, a genus that doesn\'t match one character stays visible. Increase if you\'re unsure of your observations.'}>i</span>:
+            <InfoTip text={lang === 'it' ? 'Quanti errori sono ammessi. Con tolleranza 1, un genere che non matcha un carattere resta visibile. Aumenta se non sei sicuro delle osservazioni.' : 'How many mismatches are allowed. With tolerance 1, a genus that doesn\'t match one character stays visible. Increase if you\'re unsure of your observations.'} />:
             <select
               value={maxMismatches}
               onChange={e => setMaxMismatches(Number(e.target.value))}
@@ -419,7 +453,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
                 <span className="text-forest-600 text-lg">&#9733;</span>
                 <h3 className="font-semibold text-forest-800">
                   {lang === 'it' ? 'Carattere consigliato' : 'Suggested character'}
-                  <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-forest-200 text-forest-600 text-[10px] cursor-help ml-1" title={lang === 'it' ? 'Questo carattere è il più utile per distinguere i generi rimasti.' : 'This character is the most useful to distinguish the remaining genera.'}>i</span>
+                  <InfoTip text={lang === 'it' ? 'Questo carattere è il più utile per distinguere i generi rimasti.' : 'This character is the most useful to distinguish the remaining genera.'} />
                 </h3>
               </div>
               <p className="text-sm font-medium text-gray-800 mb-3">
@@ -449,7 +483,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
         {/* Impact badge legend */}
         {selectedStates.length > 0 && (
           <p className="text-[11px] text-gray-400 mb-4">
-            <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gray-200 text-gray-500 text-[10px] cursor-help mr-1" title={lang === 'it' ? 'I numeri in rosso indicano quanti generi verrebbero esclusi scegliendo quel valore.' : 'Red numbers show how many genera would be excluded by choosing that value.'}>i</span>
+            <InfoTip text={lang === 'it' ? 'I numeri in rosso indicano quanti generi verrebbero esclusi scegliendo quel valore.' : 'Red numbers show how many genera would be excluded by choosing that value.'} />
             {lang === 'it' ? 'I numeri in rosso (-N) indicano quanti generi verrebbero esclusi' : 'Red numbers (-N) show how many genera would be excluded'}
           </p>
         )}
@@ -507,7 +541,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">
               {lang === 'it' ? 'Progresso' : 'Progress'}
-              <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gray-200 text-gray-500 text-[10px] cursor-help ml-1" title={lang === 'it' ? 'Indica quanto l\'identificazione è avanzata in base ai caratteri selezionati e ai generi rimasti.' : 'Shows how far the identification has progressed based on selected characters and remaining genera.'}>i</span>
+              <InfoTip text={lang === 'it' ? 'Indica quanto l\'identificazione è avanzata in base ai caratteri selezionati e ai generi rimasti.' : 'Shows how far the identification has progressed based on selected characters and remaining genera.'} />
             </span>
             <span className="text-sm font-medium text-gray-700">{Math.round(progressInfo.progress * 100)}%</span>
           </div>
@@ -530,7 +564,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
           <div className="mb-4 p-4 rounded-xl border border-gray-200 bg-white">
             <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 block mb-2">
               {lang === 'it' ? 'Diagnosi' : 'Diagnosis'}
-              <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gray-200 text-gray-500 text-[10px] cursor-help ml-1" title={lang === 'it' ? 'Mostra quanto è sicura l\'identificazione e suggerisce il prossimo carattere da osservare.' : 'Shows how confident the identification is and suggests the next character to observe.'}>i</span>
+              <InfoTip text={lang === 'it' ? 'Mostra quanto è sicura l\'identificazione e suggerisce il prossimo carattere da osservare.' : 'Shows how confident the identification is and suggests the next character to observe.'} />
             </span>
             <div className="flex items-start gap-2 mb-2">
               <span className={`inline-block w-3 h-3 rounded-full mt-0.5 flex-shrink-0 ${
