@@ -388,7 +388,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/strumigenys/head.jpg",
+      "/images/genera/strumigenys/profile.jpg",
+      "/images/genera/strumigenys/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -568,7 +572,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/linepithema/head.jpg",
+      "/images/genera/linepithema/profile.jpg",
+      "/images/genera/linepithema/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
@@ -679,7 +687,11 @@
     "distribution_notes": null,
     "distribution_regions": [],
     "diagnostic_characters": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/genera/colobopsis/head.jpg",
+      "/images/genera/colobopsis/profile.jpg",
+      "/images/genera/colobopsis/dorsal.jpg"
+    ],
     "similar_genera": [],
     "references": []
   },
