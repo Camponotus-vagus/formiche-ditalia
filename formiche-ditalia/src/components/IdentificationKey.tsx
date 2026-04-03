@@ -243,28 +243,33 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     return { gap, confidenceLevel, top: top.genus, second: second?.genus ?? null };
   }, [selectedStates.length, scoredGenera]);
 
-  // Component C: Progress bar — based on how concentrated the scores are, not just count
+  // Component C: Progress bar — based on top score gap and score concentration
   const progressInfo = useMemo(() => {
     const totalGenera = regionFilteredGenera.length;
     if (selectedStates.length === 0 || scoredGenera.length === 0) {
-      return { progress: 0, progressLabel: lang === 'it' ? 'Inizia selezionando i caratteri' : 'Start selecting characters', totalGenera, highScoreCount: totalGenera };
+      return { progress: 0, progressLabel: lang === 'it' ? 'Inizia selezionando i caratteri' : 'Start selecting characters', totalGenera, topCandidates: totalGenera };
     }
-    // Count genera with score > 0.5 (plausible candidates)
-    const highScoreCount = scoredGenera.filter(sg => sg.score > 0.5).length;
-    // Progress = how much we've narrowed from total to a few candidates
-    const progress = totalGenera > 1 ? Math.max(0, 1 - (highScoreCount / totalGenera)) : 0;
-    // Also factor in the top score gap
-    const topGap = scoredGenera.length >= 2 ? scoredGenera[0].score - scoredGenera[1].score : 1;
-    const adjustedProgress = Math.min(1, progress + (topGap * 0.3));
+
+    // Top candidates = genera within 30% of the top score
+    const topScore = scoredGenera[0]?.score || 0;
+    const threshold = topScore * 0.7;
+    const topCandidates = scoredGenera.filter(sg => sg.score >= threshold).length;
+
+    // Progress based on: how few top candidates remain + how many characters used
+    const candidateProgress = totalGenera > 1 ? 1 - (topCandidates / totalGenera) : 0;
+    const charProgress = Math.min(1, selectedStates.length / 8); // ~8 chars = fully explored
+
+    // Weighted combination: candidates matter more
+    const progress = Math.min(0.99, candidateProgress * 0.7 + charProgress * 0.3);
 
     const progressLabel =
-      adjustedProgress < 0.15 ? (lang === 'it' ? 'Inizia selezionando i caratteri' : 'Start selecting characters') :
-      adjustedProgress < 0.40 ? (lang === 'it' ? 'Buon inizio' : 'Good start') :
-      adjustedProgress < 0.65 ? (lang === 'it' ? 'Buon progresso' : 'Good progress') :
-      adjustedProgress < 0.85 ? (lang === 'it' ? 'Quasi identificato' : 'Almost identified') :
+      progress < 0.2 ? (lang === 'it' ? 'Inizia selezionando i caratteri' : 'Start selecting characters') :
+      progress < 0.4 ? (lang === 'it' ? 'Buon inizio' : 'Good start') :
+      progress < 0.6 ? (lang === 'it' ? 'Buon progresso' : 'Good progress') :
+      progress < 0.8 ? (lang === 'it' ? 'Quasi identificato' : 'Almost identified') :
       (lang === 'it' ? 'Identificazione probabile' : 'Likely identification');
 
-    return { progress: adjustedProgress, progressLabel, totalGenera, highScoreCount };
+    return { progress, progressLabel, totalGenera, topCandidates };
   }, [regionFilteredGenera.length, scoredGenera, selectedStates.length, lang]);
 
   // Component D: Impact prediction per character state
@@ -375,7 +380,8 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
             {lang === 'it' ? 'Ricomincia' : 'Reset'}
           </button>
           <label className="ml-auto flex items-center gap-2 text-sm text-gray-600">
-            {lang === 'it' ? 'Tolleranza' : 'Tolerance'}:
+            {lang === 'it' ? 'Tolleranza' : 'Tolerance'}
+            <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gray-200 text-gray-500 text-[10px] cursor-help" title={lang === 'it' ? 'Quanti errori sono ammessi. Con tolleranza 1, un genere che non matcha un carattere resta visibile. Aumenta se non sei sicuro delle osservazioni.' : 'How many mismatches are allowed. With tolerance 1, a genus that doesn\'t match one character stays visible. Increase if you\'re unsure of your observations.'}>i</span>:
             <select
               value={maxMismatches}
               onChange={e => setMaxMismatches(Number(e.target.value))}
@@ -403,52 +409,95 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
           </div>
         )}
 
-        {charsByRegion.map(({ region, chars }) => (
-          <details key={region} className="mb-4" open={chars.some(c => c.id === bestCharacterId)}>
-            <summary className="cursor-pointer font-semibold text-gray-700 py-2">
-              {regionLabels[region] || region}
-            </summary>
-            <div className="space-y-3 pl-4 mt-2">
-              {chars.map(char => (
-                <div
-                  key={char.id}
-                  id={`char-${char.id}`}
-                  className={`p-3 rounded-lg border transition-all ${
-                    char.id === bestCharacterId
-                      ? 'border-forest-400 bg-forest-50 ring-1 ring-forest-200'
-                      : 'border-gray-200 hover:border-gray-300'
-                  }`}
-                >
-                  <p className="text-sm font-medium text-gray-800 mb-2">
-                    {annotateWithGlossary(lang === 'it' ? char.name_it : char.name_en)}
-                    {char.id === bestCharacterId && (
-                      <span className="ml-2 text-xs text-forest-600 font-normal">
-                        &#9733; {lang === 'it' ? 'consigliato' : 'suggested'}
-                      </span>
-                    )}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {char.states.map(state => {
-                      const impact = selectedStates.length > 0 ? predictStateImpact(char.id, state.value) : 0;
-                      return (
-                        <button
-                          key={state.value}
-                          onClick={() => selectState(char.id, state.value)}
-                          className="text-xs px-3 py-1.5 rounded-lg border border-gray-200 hover:border-forest-400 hover:bg-forest-50 transition-colors min-h-[44px] flex items-center gap-1.5"
-                        >
-                          {lang === 'it' ? state.label_it : state.label_en}
-                          {impact > 0 && (
-                            <span className="text-[10px] font-medium text-red-500">-{impact}</span>
-                          )}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              ))}
+        {/* Suggested character — prominent box at top */}
+        {bestCharacterId && (() => {
+          const bestChar = characters.find(c => c.id === bestCharacterId);
+          if (!bestChar) return null;
+          return (
+            <div className="bg-forest-50 border-2 border-forest-300 rounded-xl p-5 mb-6" id={`char-${bestChar.id}`}>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-forest-600 text-lg">&#9733;</span>
+                <h3 className="font-semibold text-forest-800">
+                  {lang === 'it' ? 'Carattere consigliato' : 'Suggested character'}
+                  <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-forest-200 text-forest-600 text-[10px] cursor-help ml-1" title={lang === 'it' ? 'Questo carattere è il più utile per distinguere i generi rimasti.' : 'This character is the most useful to distinguish the remaining genera.'}>i</span>
+                </h3>
+              </div>
+              <p className="text-sm font-medium text-gray-800 mb-3">
+                {annotateWithGlossary(lang === 'it' ? bestChar.name_it : bestChar.name_en)}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {bestChar.states.map(state => {
+                  const impact = selectedStates.length > 0 ? predictStateImpact(bestChar.id, state.value) : 0;
+                  return (
+                    <button
+                      key={state.value}
+                      onClick={() => selectState(bestChar.id, state.value)}
+                      className="text-xs px-3 py-1.5 rounded-lg border border-forest-300 hover:border-forest-500 hover:bg-forest-100 transition-colors min-h-[44px] flex items-center gap-1.5 bg-white"
+                    >
+                      {lang === 'it' ? state.label_it : state.label_en}
+                      {impact > 0 && (
+                        <span className="text-[10px] font-medium text-red-500">-{impact}</span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-          </details>
-        ))}
+          );
+        })()}
+
+        {/* Impact badge legend */}
+        {selectedStates.length > 0 && (
+          <p className="text-[11px] text-gray-400 mb-4">
+            <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gray-200 text-gray-500 text-[10px] cursor-help mr-1" title={lang === 'it' ? 'I numeri in rosso indicano quanti generi verrebbero esclusi scegliendo quel valore.' : 'Red numbers show how many genera would be excluded by choosing that value.'}>i</span>
+            {lang === 'it' ? 'I numeri in rosso (-N) indicano quanti generi verrebbero esclusi' : 'Red numbers (-N) show how many genera would be excluded'}
+          </p>
+        )}
+
+        {/* All other characters in flat grid grouped by body region */}
+        <div className="space-y-6">
+          {charsByRegion.map(({ region, chars }) => {
+            const filteredChars = chars.filter(c => c.id !== bestCharacterId);
+            if (filteredChars.length === 0) return null;
+            return (
+              <div key={region}>
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">
+                  {regionLabels[region] || region}
+                </h3>
+                <div className="space-y-2">
+                  {filteredChars.map(char => (
+                    <div
+                      key={char.id}
+                      id={`char-${char.id}`}
+                      className="p-3 rounded-lg border border-gray-200 hover:border-gray-300 transition-all"
+                    >
+                      <p className="text-sm font-medium text-gray-700 mb-2">
+                        {annotateWithGlossary(lang === 'it' ? char.name_it : char.name_en)}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {char.states.map(state => {
+                          const impact = selectedStates.length > 0 ? predictStateImpact(char.id, state.value) : 0;
+                          return (
+                            <button
+                              key={state.value}
+                              onClick={() => selectState(char.id, state.value)}
+                              className="text-xs px-3 py-1.5 rounded-lg border border-gray-200 hover:border-forest-400 hover:bg-forest-50 transition-colors min-h-[44px] flex items-center gap-1.5"
+                            >
+                              {lang === 'it' ? state.label_it : state.label_en}
+                              {impact > 0 && (
+                                <span className="text-[10px] font-medium text-red-500">-{impact}</span>
+                              )}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       {/* Results panel */}
@@ -458,6 +507,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">
               {lang === 'it' ? 'Progresso' : 'Progress'}
+              <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gray-200 text-gray-500 text-[10px] cursor-help ml-1" title={lang === 'it' ? 'Indica quanto l\'identificazione è avanzata in base ai caratteri selezionati e ai generi rimasti.' : 'Shows how far the identification has progressed based on selected characters and remaining genera.'}>i</span>
             </span>
             <span className="text-sm font-medium text-gray-700">{Math.round(progressInfo.progress * 100)}%</span>
           </div>
@@ -470,7 +520,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
           <div className="flex items-center justify-between">
             <span className="text-sm text-gray-600">{progressInfo.progressLabel}</span>
             <span className="text-xs text-gray-500">
-              {progressInfo.highScoreCount} {lang === 'it' ? 'candidati probabili su' : 'likely candidates out of'} {progressInfo.totalGenera}
+              {progressInfo.topCandidates} {lang === 'it' ? 'candidati probabili su' : 'likely candidates out of'} {progressInfo.totalGenera}
             </span>
           </div>
         </div>
@@ -480,6 +530,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
           <div className="mb-4 p-4 rounded-xl border border-gray-200 bg-white">
             <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 block mb-2">
               {lang === 'it' ? 'Diagnosi' : 'Diagnosis'}
+              <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gray-200 text-gray-500 text-[10px] cursor-help ml-1" title={lang === 'it' ? 'Mostra quanto è sicura l\'identificazione e suggerisce il prossimo carattere da osservare.' : 'Shows how confident the identification is and suggests the next character to observe.'}>i</span>
             </span>
             <div className="flex items-start gap-2 mb-2">
               <span className={`inline-block w-3 h-3 rounded-full mt-0.5 flex-shrink-0 ${
@@ -509,12 +560,8 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
             {suggestedCharDetail && scoredGenera.length >= 2 && (
               <button
                 onClick={() => {
-                  // Fix 4: scroll to suggested character
                   const el = document.getElementById(`char-${bestCharacterId}`);
                   if (el) {
-                    // Open the parent <details> if closed
-                    const details = el.closest('details');
-                    if (details && !details.open) details.open = true;
                     el.scrollIntoView({ behavior: 'smooth', block: 'center' });
                   }
                 }}
