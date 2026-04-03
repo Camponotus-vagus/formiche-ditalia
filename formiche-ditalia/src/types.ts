@@ -83,7 +83,13 @@ export interface Expert {
   region: string | null;
   specializations: string[];
   genera_of_interest: string[];
-  key_publications: string[];
+  key_publications: (string | {
+    title: string;
+    authors?: string | null;
+    year?: number | null;
+    doi?: string | null;
+    url?: string | null;
+  })[];
   bio_it: string | null;
   bio_en: string | null;
   profile_photo_url: string | null;

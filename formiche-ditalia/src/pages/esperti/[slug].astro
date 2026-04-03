@@ -87,8 +87,31 @@ const expertGenera = generaData.filter((g: any) =>
     {expert.key_publications && expert.key_publications.length > 0 && (
       <section class="mb-8">
         <h2 class="font-display text-xl font-semibold mb-4" data-i18n="experts_publications">Pubblicazioni principali</h2>
-        <ul class="space-y-2">
-          {expert.key_publications.map(pub => <li class="text-gray-700">{pub}</li>)}
+        <ul class="space-y-3">
+          {expert.key_publications.map(pub => {
+            if (typeof pub === 'string') {
+              return <li class="text-gray-700">{pub}</li>;
+            }
+            const hasLink = !!pub.url;
+            return (
+              <li class="text-gray-700">
+                {pub.authors && <span class="text-gray-600">{pub.authors} </span>}
+                {hasLink ? (
+                  <a href={pub.url} target="_blank" rel="noopener noreferrer" class="font-semibold text-forest-700 hover:text-forest-900 hover:underline">
+                    {pub.title}
+                  </a>
+                ) : (
+                  <span class="font-semibold">{pub.title}</span>
+                )}
+                {pub.year && <span class="text-gray-500"> ({pub.year})</span>}
+                {pub.doi && (
+                  <span class="text-xs text-gray-400 ml-2">
+                    DOI: <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener noreferrer" class="hover:text-forest-600 hover:underline">{pub.doi}</a>
+                  </span>
+                )}
+              </li>
+            );
+          })}
         </ul>
       </section>
     )}

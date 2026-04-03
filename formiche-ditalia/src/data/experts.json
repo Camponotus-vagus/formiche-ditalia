@@ -24,7 +24,13 @@
       "Tetramorium"
     ],
     "key_publications": [
-      "Checklist of the Italian Fauna - Formicidae (2022)"
+      {
+        "title": "Checklist of the Italian Fauna - Formicidae",
+        "authors": "Schifani E.",
+        "year": 2022,
+        "doi": "10.21426/b637155803",
+        "url": "https://doi.org/10.21426/b637155803"
+      }
     ],
     "bio_it": "Autore della checklist 2022 delle formiche italiane.",
     "bio_en": "Author of the 2022 Italian ant checklist.",
@@ -83,7 +89,13 @@
       "Tetramorium"
     ],
     "key_publications": [
-      "Le formiche del Veneto (2018)"
+      {
+        "title": "Le formiche del Veneto",
+        "authors": null,
+        "year": 2018,
+        "doi": null,
+        "url": null
+      }
     ],
     "bio_it": "Autore della guida alle formiche del Veneto.",
     "bio_en": "Author of the Veneto ant handbook.",
@@ -114,11 +126,41 @@
       "Temnothorax"
     ],
     "key_publications": [
-      "The invasive ant Solenopsis invicta is established in Europe (2023)",
-      "Exploring the myrmecofauna of Sicily: thirty-two new ant species recorded, including six new to Italy and many new aliens (Hymenoptera, Formicidae) (2018)",
-      "Revisiting the morphological species groups of West-Palearctic Aphaenogaster ants (Hymenoptera: Formicidae) under a phylogenetic perspective: toward an evolutionary classification (2022)",
-      "Three endemic Aphaenogaster from the Siculo-Maltese archipelago and the Italian Peninsula: part of a hitherto unrecognized species group from the Maghreb? (Hymenoptera: Formicidae: Myrmicinae) (2019)",
-      "Integrating morphology with phylogenomics to describe four island endemic species of Temnothorax from Sicily and Malta (Hymenoptera, Formicidae) (2022)"
+      {
+        "title": "The invasive ant Solenopsis invicta is established in Europe",
+        "authors": "Menchetti M., Schifani E., Alicata A. et al.",
+        "year": 2023,
+        "doi": "10.1016/j.cub.2023.07.036",
+        "url": "https://doi.org/10.1016/j.cub.2023.07.036"
+      },
+      {
+        "title": "Exploring the myrmecofauna of Sicily: thirty-two new ant species recorded, including six new to Italy and many new aliens (Hymenoptera, Formicidae)",
+        "authors": "Schifani E., Alicata A.",
+        "year": 2018,
+        "doi": "10.2478/pjen-2018-0023",
+        "url": "https://doi.org/10.2478/pjen-2018-0023"
+      },
+      {
+        "title": "Revisiting the morphological species groups of West-Palearctic Aphaenogaster ants (Hymenoptera: Formicidae) under a phylogenetic perspective: toward an evolutionary classification",
+        "authors": "Schifani E., Alicata A., Menchetti M. et al.",
+        "year": 2022,
+        "doi": "10.3897/asp.80.e84428",
+        "url": "https://doi.org/10.3897/asp.80.e84428"
+      },
+      {
+        "title": "Three endemic Aphaenogaster from the Siculo-Maltese archipelago and the Italian Peninsula: part of a hitherto unrecognized species group from the Maghreb? (Hymenoptera: Formicidae: Myrmicinae)",
+        "authors": "Alicata A., Schifani E.",
+        "year": 2019,
+        "doi": "10.2478/aemnp-2019-0001",
+        "url": "https://doi.org/10.2478/aemnp-2019-0001"
+      },
+      {
+        "title": "Integrating morphology with phylogenomics to describe four island endemic species of Temnothorax from Sicily and Malta (Hymenoptera, Formicidae)",
+        "authors": "Schifani E., Prebus M., Alicata A.",
+        "year": 2022,
+        "doi": "10.5852/ejt.2022.833.1891",
+        "url": "https://doi.org/10.5852/ejt.2022.833.1891"
+      }
     ],
     "bio_it": "Specialista in specie endemiche siciliane.",
     "bio_en": "Specialist in Sicilian endemic species.",
@@ -148,11 +190,41 @@
       "Tetramorium"
     ],
     "key_publications": [
-      "Climate mediates the effects of disturbance on ant assemblage structure (2015)",
-      "Ecologists, educators, and writers collaborate with the public to assess backyard diversity in The School of Ants Project (2014)",
-      "Is mimicry a diversification-driver in ants? Biogeography, ecology, ethology, genetics and morphology define a second West-Palaearctic<i>Colobopsis</i>species (Hymenoptera: Formicidae) (2021)",
-      "Dominance–diversity relationships in ant communities differ with invasion (2018)",
-      "The ant fauna of Castelporziano Presidential Reserve (Rome, Italy) as a model for the analysis of ant community structure in relation to environmental variation in Mediterranean ecosystems (2010)"
+      {
+        "title": "Climate mediates the effects of disturbance on ant assemblage structure",
+        "authors": "Gibb H., Sanders N.J., Dunn R.R. et al.",
+        "year": 2015,
+        "doi": "10.1098/rspb.2015.0418",
+        "url": "https://doi.org/10.1098/rspb.2015.0418"
+      },
+      {
+        "title": "Ecologists, educators, and writers collaborate with the public to assess backyard diversity in The School of Ants Project",
+        "authors": "Lucky A., Savage A.M., Nichols L.M. et al.",
+        "year": 2014,
+        "doi": "10.1890/es13-00364.1",
+        "url": "https://doi.org/10.1890/es13-00364.1"
+      },
+      {
+        "title": "Is mimicry a diversification-driver in ants? Biogeography, ecology, ethology, genetics and morphology define a second West-PalaearcticColobopsisspecies (Hymenoptera: Formicidae)",
+        "authors": null,
+        "year": 2021,
+        "doi": null,
+        "url": null
+      },
+      {
+        "title": "Dominance–diversity relationships in ant communities differ with invasion",
+        "authors": "Arnán X., Andersen A.N., Gibb H. et al.",
+        "year": 2018,
+        "doi": "10.1111/gcb.14331",
+        "url": "https://doi.org/10.1111/gcb.14331"
+      },
+      {
+        "title": "The ant fauna of Castelporziano Presidential Reserve (Rome, Italy) as a model for the analysis of ant community structure in relation to environmental variation in Mediterranean ecosystems",
+        "authors": "Castracani C., Grasso D.A., Fanfani A. et al.",
+        "year": 2010,
+        "doi": "10.1007/s10841-010-9285-3",
+        "url": "https://doi.org/10.1007/s10841-010-9285-3"
+      }
     ],
     "bio_it": "Ricercatrice presso il laboratorio di mirmecologia di Parma.",
     "bio_en": "Researcher at the Parma myrmecology lab.",
@@ -202,11 +274,41 @@
       "Solenopsis"
     ],
     "key_publications": [
-      "Systematic Review of the Effects of Chemical Insecticides on Four Common Butterfly Families (2017)",
-      "Italian natural history museums on the verge of collapse? (2014)",
-      "New records of Eutardigrada from Belarus with the description of three new species (2012)",
-      "The clade Ecdysozoa, perplexities and questions (2005)",
-      "A COI Nonsynonymous Mutation as Diagnostic Tool for Intraspecific Discrimination in the European Anchovy Engraulis encrasicolus (Linnaeus) (2015)"
+      {
+        "title": "Systematic Review of the Effects of Chemical Insecticides on Four Common Butterfly Families",
+        "authors": "Mulè R., Sabella G., Robba L. et al.",
+        "year": 2017,
+        "doi": "10.3389/fenvs.2017.00032",
+        "url": "https://doi.org/10.3389/fenvs.2017.00032"
+      },
+      {
+        "title": "Italian natural history museums on the verge of collapse?",
+        "authors": "Andreone F., Bartolozzi L., Boano G. et al.",
+        "year": 2014,
+        "doi": "10.3897/zookeys.456.8862",
+        "url": "https://doi.org/10.3897/zookeys.456.8862"
+      },
+      {
+        "title": "New records of Eutardigrada from Belarus with the description of three new species",
+        "authors": "Pilato G., Kiosya Y., Lisi O. et al.",
+        "year": 2012,
+        "doi": "10.11646/zootaxa.3179.1.2",
+        "url": "https://doi.org/10.11646/zootaxa.3179.1.2"
+      },
+      {
+        "title": "The clade Ecdysozoa, perplexities and questions",
+        "authors": "Pilato G., Binda M.G., Biondi O. et al.",
+        "year": 2005,
+        "doi": "10.1016/j.jcz.2005.04.001",
+        "url": "https://doi.org/10.1016/j.jcz.2005.04.001"
+      },
+      {
+        "title": "A COI Nonsynonymous Mutation as Diagnostic Tool for Intraspecific Discrimination in the European Anchovy Engraulis encrasicolus (Linnaeus)",
+        "authors": "Pappalardo A.M., Federico C., Sabella G. et al.",
+        "year": 2015,
+        "doi": "10.1371/journal.pone.0143297",
+        "url": "https://doi.org/10.1371/journal.pone.0143297"
+      }
     ],
     "bio_it": "Specialista in specie invasive.",
     "bio_en": "Specialist in invasive species.",
@@ -233,11 +335,41 @@
       "Strumigenys"
     ],
     "key_publications": [
-      "Exotic ant records from Italy (Hymenoptera, Formicidae). (2008)",
-      "Revision of the myrmicine ant genus <i>Lophomyrmex</i> , with a review of its taxonomic position (Hymenoptera: Formicidae) (1994)",
-      "The ant genus Polyrhachis F. Smith in sub-Saharan Africa, with descriptions of ten new species. (Hymenoptera: Formicidae) (2016)",
-      "Evidence of Entrance Sharing and Subterranean Connections in Andrena agilissima (Hymenoptera; Andrenidae) (1999)",
-      "Seven New<i>Myrmica</i>Species (Hymenoptera: Formicidae) from China (2008)"
+      {
+        "title": "Exotic ant records from Italy (Hymenoptera, Formicidae).",
+        "authors": "Jucker C., Rigato F., Regalin R.",
+        "year": 2008,
+        "doi": null,
+        "url": "https://riviste.unimi.it/index.php/bzab/article/view/26058"
+      },
+      {
+        "title": "Revision of the myrmicine ant genus Lophomyrmex , with a review of its taxonomic position (Hymenoptera: Formicidae)",
+        "authors": "Rigato F.",
+        "year": 1994,
+        "doi": "10.1111/j.1365-3113.1994.tb00578.x",
+        "url": "https://doi.org/10.1111/j.1365-3113.1994.tb00578.x"
+      },
+      {
+        "title": "The ant genus Polyrhachis F. Smith in sub-Saharan Africa, with descriptions of ten new species. (Hymenoptera: Formicidae)",
+        "authors": "Rigato F.",
+        "year": 2016,
+        "doi": "10.11646/zootaxa.4088.1.1",
+        "url": "https://doi.org/10.11646/zootaxa.4088.1.1"
+      },
+      {
+        "title": "Evidence of Entrance Sharing and Subterranean Connections in Andrena agilissima (Hymenoptera; Andrenidae)",
+        "authors": "Giovanetti M., Andrietti F., Martinoli A. et al.",
+        "year": 1999,
+        "doi": "10.1023/a:1020902420836",
+        "url": "https://doi.org/10.1023/a:1020902420836"
+      },
+      {
+        "title": "Seven NewMyrmicaSpecies (Hymenoptera: Formicidae) from China",
+        "authors": null,
+        "year": 2008,
+        "doi": null,
+        "url": null
+      }
     ],
     "bio_it": "Curatore e contributore AntWeb. Ha validato le matrici FormiKey.",
     "bio_en": "Museum curator and AntWeb contributor. Validated the FormiKey matrices.",
@@ -261,11 +393,41 @@
     ],
     "genera_of_interest": [],
     "key_publications": [
-      "When the Utility of Micro-Computed Tomography Collides with Insect Sample Preparation: An Entomologist User Guide to Solve Post-Processing Issues and Achieve Optimal 3D Models (2022)",
-      "Supraglacial microbial communities of Forni glacier (2026)",
-      "\"The orchids of the animal kingdom\": tackling functional anatomy and phenotypic plasticity of ant nest beetles (Carabidae: Paussus) using 3D models generated by Micro-Computed Tomography (µ-CT) (2019)",
-      "Flying above fragility: Remote sensing and field samplings unveil microcrustacean patterns in ephemeral ponds (2026)",
-      "Spatial and temporal variability of supraglacial algae on an Alpine glacier (Forni Glacier, Italy) (2026)"
+      {
+        "title": "When the Utility of Micro-Computed Tomography Collides with Insect Sample Preparation: An Entomologist User Guide to Solve Post-Processing Issues and Achieve Optimal 3D Models",
+        "authors": "Mensa F.S., Muzzi M., Spani F. et al.",
+        "year": 2022,
+        "doi": "10.3390/app12020769",
+        "url": "https://doi.org/10.3390/app12020769"
+      },
+      {
+        "title": "Supraglacial microbial communities of Forni glacier",
+        "authors": "Pittino F., Ambrosini R., Valle B. et al.",
+        "year": 2026,
+        "doi": "10.5194/wbf2026-145",
+        "url": "https://doi.org/10.5194/wbf2026-145"
+      },
+      {
+        "title": "\"The orchids of the animal kingdom\": tackling functional anatomy and phenotypic plasticity of ant nest beetles (Carabidae: Paussus) using 3D models generated by Micro-Computed Tomography (µ-CT)",
+        "authors": "Mensa F.S., Spani F., Giulio A.D.",
+        "year": 2019,
+        "doi": "10.3897/aca.2.e38577",
+        "url": "https://doi.org/10.3897/aca.2.e38577"
+      },
+      {
+        "title": "Flying above fragility: Remote sensing and field samplings unveil microcrustacean patterns in ephemeral ponds",
+        "authors": "Taurozzi D.",
+        "year": 2026,
+        "doi": "10.6084/m9.figshare.31402884",
+        "url": "https://doi.org/10.6084/m9.figshare.31402884"
+      },
+      {
+        "title": "Spatial and temporal variability of supraglacial algae on an Alpine glacier (Forni Glacier, Italy)",
+        "authors": "Dory F., Ambrosini R., Ahmad A. et al.",
+        "year": 2026,
+        "doi": "10.1038/s41598-026-36705-w",
+        "url": "https://doi.org/10.1038/s41598-026-36705-w"
+      }
     ],
     "bio_it": "Creatore del progetto Formiche d'Italia e della chiave FormiKey.",
     "bio_en": "Creator of Formiche d'Italia and the FormiKey identification key.",
