@@ -92,7 +92,7 @@ export default function HeroCarousel({ genera, intervalMs = 5000 }: Props) {
               {genus.scientific_name}
             </p>
             <p className={`text-xs text-gray-500 transition-all duration-300 delay-75 ${isTransitioning ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}`}>
-              {genus.species_count} specie in Italia · <span className="capitalize">{genus.subfamily_id}</span>
+              {genus.species_count} specie a Roma · <span className="capitalize">{genus.subfamily_id}</span>
             </p>
           </div>
           <svg className="w-4 h-4 text-forest-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
