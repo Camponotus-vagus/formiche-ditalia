@@ -29,7 +29,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="bg-forest-50 rounded-xl p-5 border border-forest-100">
           <h3 class="font-semibold text-forest-800 mb-2" data-i18n="methods_thesis_title">Tesi FormiKey</h3>
           <p class="text-sm text-gray-600 leading-relaxed" data-i18n="methods_thesis_desc">
-            Matrici di caratteri costruite con Mesquite in formato NEXUS per 39 generi e 75 specie della citta di Roma.
+            Matrici di caratteri costruite con Mesquite in formato NEXUS per 39 generi e 75 specie della città di Roma.
           </p>
           <a href="https://www.researchgate.net/publication/330994606" target="_blank" rel="noopener" class="inline-block mt-3 text-sm text-forest-600 hover:underline font-medium" data-i18n="methods_thesis_link">
             Leggi su ResearchGate &rarr;
@@ -61,7 +61,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2 class="font-display text-2xl sm:text-3xl font-bold text-gray-900 mt-2" data-i18n="methods_matrix_title">Matrice di caratteri</h2>
       <p class="mt-4 text-gray-600 leading-relaxed max-w-3xl" data-i18n="methods_matrix_desc">
         La chiave utilizza una matrice a <strong class="text-gray-800">40 caratteri morfologici</strong> per 39 generi.
-        Ogni carattere e classificato per:
+        Ogni carattere è classificato per:
       </p>
       <ul class="mt-4 space-y-2 text-gray-600">
         <li class="flex items-start gap-2">
@@ -70,7 +70,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </li>
         <li class="flex items-start gap-2">
           <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-forest-500 flex-shrink-0"></span>
-          <span data-i18n="methods_matrix_difficulty"><strong class="text-gray-800">Difficolta di osservazione</strong>: facile, medio, difficile</span>
+          <span data-i18n="methods_matrix_difficulty"><strong class="text-gray-800">Difficoltà di osservazione</strong>: facile, medio, difficile</span>
         </li>
         <li class="flex items-start gap-2">
           <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-forest-500 flex-shrink-0"></span>
@@ -79,7 +79,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </ul>
       <div class="mt-6 bg-white rounded-xl p-5 border border-gray-200 max-w-2xl">
         <p class="text-sm text-gray-600" data-i18n="methods_matrix_polymorphism">
-          Ogni cella contiene uno o piu stati possibili (supporto al polimorfismo: <code class="bg-gray-100 px-1.5 py-0.5 rounded text-xs font-mono">{"{"}0, 1{"}"}</code>).
+          Ogni cella contiene uno o più stati possibili (supporto al polimorfismo: <code class="bg-gray-100 px-1.5 py-0.5 rounded text-xs font-mono">{"{"}0, 1{"}"}</code>).
           Il valore <code class="bg-gray-100 px-1.5 py-0.5 rounded text-xs font-mono">?</code> indica dato mancante e viene trattato come compatibile.
         </p>
       </div>
@@ -93,7 +93,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2 class="font-display text-2xl sm:text-3xl font-bold text-gray-900 mt-2" data-i18n="methods_algo_title">Scoring multi-accesso pesato</h2>
       <p class="mt-4 text-gray-600 leading-relaxed max-w-3xl" data-i18n="methods_algo_desc">
         A differenza delle chiavi dicotomiche tradizionali, i caratteri possono essere selezionati in qualsiasi ordine
-        e i generi non vengono eliminati ma <strong class="text-gray-800">classificati per compatibilita</strong>.
+        e i generi non vengono eliminati ma <strong class="text-gray-800">classificati per compatibilità</strong>.
       </p>
 
       <div class="mt-8 space-y-6">
@@ -104,7 +104,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="flex-1">
               <h3 class="font-semibold text-gray-900 mb-2" data-i18n="methods_step1_title">Pesatura con entropia di Shannon</h3>
               <p class="text-sm text-gray-600 leading-relaxed" data-i18n="methods_step1_desc">
-                Il peso di ogni selezione e calcolato come l'entropia di Shannon (information gain) del carattere al momento della selezione.
+                Il peso di ogni selezione è calcolato come l'entropia di Shannon (information gain) del carattere al momento della selezione.
                 Un carattere che divide equamente i generi ha alta entropia (alto valore diagnostico).
               </p>
               <div class="mt-3 bg-white rounded-lg p-3 border border-gray-100">
@@ -112,7 +112,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   H(c) = - &sum;<sub>i</sub> p<sub>i</sub> &middot; log<sub>2</sub>(p<sub>i</sub>)
                 </p>
                 <p class="text-xs text-gray-500 text-center mt-1" data-i18n="methods_step1_formula">
-                  dove p<sub>i</sub> e la frequenza dello stato i tra i generi candidati rimanenti
+                  dove p<sub>i</sub> è la frequenza dello stato i tra i generi candidati rimanenti
                 </p>
               </div>
             </div>
@@ -134,7 +134,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <li data-i18n="methods_step2_wtot"><strong>W<sub>tot</sub></strong> = somma dei pesi dei caratteri per cui il genere ha dati</li>
                 <li data-i18n="methods_step2_wavg"><strong>W<sub>avg</sub></strong> = peso medio per carattere</li>
                 <li data-i18n="methods_step2_mismatch"><strong>mismatch</strong> = numero di caratteri non compatibili</li>
-                <li data-i18n="methods_step2_weff"><strong>W<sub>tot,eff</sub></strong> = peso totale effettivo, inclusa penalita per dati mancanti</li>
+                <li data-i18n="methods_step2_weff"><strong>W<sub>tot,eff</sub></strong> = peso totale effettivo, inclusa penalità per dati mancanti</li>
               </ul>
             </div>
           </div>
@@ -148,7 +148,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <h3 class="font-semibold text-gray-900 mb-2" data-i18n="methods_step3_title">Penalizzazione per sottofamiglia</h3>
               <p class="text-sm text-gray-600 leading-relaxed" data-i18n="methods_step3_desc">
                 Quando tutti i caratteri selezionati appartengono alla stessa sottofamiglia, il sistema inferisce una sottofamiglia implicita.
-                I generi di altre sottofamiglie ricevono una penalita maggiore per dati mancanti (fattore 0.8 vs. 0.3).
+                I generi di altre sottofamiglie ricevono una penalità maggiore per dati mancanti (fattore 0.8 vs. 0.3).
               </p>
             </div>
           </div>
@@ -161,7 +161,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="flex-1">
               <h3 class="font-semibold text-gray-900 mb-2" data-i18n="methods_step4_title">Tolleranza agli errori</h3>
               <p class="text-sm text-gray-600 leading-relaxed" data-i18n="methods_step4_desc">
-                L'utente puo impostare una tolleranza (0-3 mismatch ammessi). Con tolleranza 1 (default), un genere che non corrisponde
+                L'utente può impostare una tolleranza (0-3 mismatch ammessi). Con tolleranza 1 (default), un genere che non corrisponde
                 a un singolo carattere resta visibile con score ridotto, compensando errori di osservazione comuni.
               </p>
             </div>
@@ -236,7 +236,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
         <div class="flex items-start gap-3 bg-amber-50 rounded-lg p-4 border border-amber-100">
           <svg class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
-          <p class="text-sm text-gray-700" data-i18n="methods_limit_4">Le specie coprono la <strong>citta di Roma</strong>. L'espansione all'intera fauna italiana e in corso.</p>
+          <p class="text-sm text-gray-700" data-i18n="methods_limit_4">Le specie coprono la <strong>città di Roma</strong>. L'espansione all'intera fauna italiana è in corso.</p>
         </div>
       </div>
 
@@ -256,7 +256,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <p class="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2" data-i18n="methods_cite_thesis_label">Tesi originale</p>
             <p class="text-sm text-gray-700" data-i18n="methods_cite_thesis">
               Mensa, F.S. (2017). <em>Chiave interattiva per il riconoscimento dei generi di Formicidae italiani e
-              delle specie della citta di Roma</em>. Tesi di laurea magistrale, Universita Roma Tre.
+              delle specie della città di Roma</em>. Tesi di laurea magistrale, Università Roma Tre.
               <a href="https://www.researchgate.net/publication/330994606" target="_blank" rel="noopener" class="text-forest-600 hover:underline ml-1">ResearchGate &rarr;</a>
             </p>
           </div>

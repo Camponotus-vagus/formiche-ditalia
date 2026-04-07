@@ -44,6 +44,9 @@ import LanguageSwitcher from '../components/LanguageSwitcher.tsx';
   <meta name="twitter:title" content={fullTitle} />
   <meta name="twitter:description" content={metaDescription} />
   <meta name="twitter:image" content={ogImageUrl} />
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <!-- PWA -->
   <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="#2d6f32" />
@@ -125,11 +128,17 @@ import LanguageSwitcher from '../components/LanguageSwitcher.tsx';
       var lang;
       try { lang = localStorage.getItem('lang'); } catch(e) { return; }
       if (lang && lang !== 'it') {
+        document.documentElement.lang = lang;
         import('../i18n').then(({ t }) => {
           document.querySelectorAll('[data-i18n]').forEach((el) => {
             const key = el.getAttribute('data-i18n');
             if (key) {
-              el.textContent = t(key as any, lang as any);
+              const value = t(key as any, lang as any);
+              if (/<[a-z][\s\S]*>/i.test(value)) {
+                el.innerHTML = value;
+              } else {
+                el.textContent = value;
+              }
             }
           });
           document.querySelectorAll('[data-i18n-field]').forEach((el) => {

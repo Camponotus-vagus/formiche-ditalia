@@ -224,28 +224,20 @@
     "states": [
       {
         "value": "0",
-        "label_it": "da",
-        "label_en": "from"
+        "label_it": "da 1,2 a 5,3",
+        "label_en": "from 1,2 to 5,3"
       },
       {
         "value": "1",
-        "label_it": "1",
-        "label_en": "1"
+        "label_it": "6,4",
+        "label_en": "6,4"
+      },
+      {
+        "value": "2",
+        "label_it": "1,1",
+        "label_en": "1,1"
       }
     ],
-    "level": "genus",
-    "subfamily_scope": "myrmicinae"
-  },
-  {
-    "id": "gen-9",
-    "name_it": "Formula palpale (continua)",
-    "name_en": "Palp formula (continued)",
-    "description_it": "",
-    "body_region": "head",
-    "difficulty": "hard",
-    "display_order": 9,
-    "illustration_url": null,
-    "states": [],
     "level": "genus",
     "subfamily_scope": "myrmicinae"
   },

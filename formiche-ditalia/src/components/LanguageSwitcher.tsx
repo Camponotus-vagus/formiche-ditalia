@@ -12,14 +12,19 @@ export default function LanguageSwitcher() {
     const newLang: Lang = lang === 'it' ? 'en' : 'it';
     setLang(newLang);
     setCurrentLang(newLang);
-    // SECURITY: Always use textContent (never innerHTML) to prevent XSS.
-    // Translation values from i18n JSON and data-it/data-en attributes
-    // must never be rendered as HTML.
+    document.documentElement.lang = newLang;
+    // Use innerHTML for translations containing HTML markup (e.g. <strong>, <em>, <a>),
+    // textContent otherwise. Values come from our own i18n JSON files, not user input.
     document.querySelectorAll('[data-i18n]').forEach((el) => {
       const key = el.getAttribute('data-i18n');
       if (key) {
         import('../i18n').then(({ t }) => {
-          el.textContent = t(key as any, newLang);
+          const value = t(key as any, newLang);
+          if (/<[a-z][\s\S]*>/i.test(value)) {
+            el.innerHTML = value;
+          } else {
+            el.textContent = value;
+          }
         });
       }
     });

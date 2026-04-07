@@ -1,9 +1,11 @@
-const CACHE_NAME = 'formiche-v2';
+const CACHE_NAME = 'formiche-v3';
 const PRECACHE_URLS = [
   '/',
   '/identifica/',
   '/generi/',
   '/esperti/',
+  '/anatomia/',
+  '/manifest.json',
   '/images/placeholder-ant.svg',
 ];
 

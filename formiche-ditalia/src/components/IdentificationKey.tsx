@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, type ReactNode } from 'react';
+import { useState, useMemo, useEffect, useRef, type ReactNode } from 'react';
 import type { Character, MatrixEntry, Genus } from '../types';
 import GlossaryTooltip from './GlossaryTooltip';
 import { getLang, type Lang } from '../i18n';
@@ -230,6 +230,58 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     }
     return bestId;
   }, [characters, selectedStates, scoredGenera, matrixLookup]);
+
+  // Issue 1: Scroll to and highlight the suggested character when it changes
+  const prevBestCharRef = useRef<string>('');
+  const suggestedBoxRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (bestCharacterId && bestCharacterId !== prevBestCharRef.current && selectedStates.length > 0) {
+      const el = suggestedBoxRef.current;
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.remove('suggest-glow');
+        // Force reflow to restart animation
+        void el.offsetWidth;
+        el.classList.add('suggest-glow');
+      }
+    }
+    prevBestCharRef.current = bestCharacterId;
+  }, [bestCharacterId, selectedStates.length]);
+
+  // Issue 3: Best "easy" character for beginner tip
+  const bestEasyCharId = useMemo(() => {
+    const usedIds = new Set(selectedStates.map(s => s.characterId));
+    const easyChars = characters.filter(c => !usedIds.has(c.id) && c.difficulty === 'easy');
+
+    let bestId = '';
+    let bestScore = -1;
+
+    for (const char of easyChars) {
+      const stateCounts: Record<string, number> = {};
+      let total = 0;
+      for (const sg of scoredGenera) {
+        const values = matrixLookup[sg.genus.id]?.[char.id];
+        if (!values || values.includes('?')) continue;
+        for (const v of values) {
+          stateCounts[v] = (stateCounts[v] || 0) + 1;
+        }
+        total++;
+      }
+      if (total === 0) continue;
+
+      let entropy = 0;
+      for (const count of Object.values(stateCounts)) {
+        const p = count / total;
+        if (p > 0) entropy -= p * Math.log2(p);
+      }
+      if (entropy > bestScore) {
+        bestScore = entropy;
+        bestId = char.id;
+      }
+    }
+    // Only suggest if there's an easy character different from the main suggestion
+    return bestId && bestId !== bestCharacterId ? bestId : '';
+  }, [characters, selectedStates, scoredGenera, matrixLookup, bestCharacterId]);
 
   // Best character suggestion detail (for diagnosis panel)
   const suggestedCharDetail = useMemo(() => {
@@ -472,21 +524,11 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
 
       {/* Character selector panel */}
       <div className="lg:w-1/2">
-        <div className="mb-6">
-          <label className="text-sm font-medium text-gray-700 mb-2 block">
-            {lang === 'it' ? 'Regione geografica' : 'Geographic region'}
-          </label>
-          <select
-            value={selectedRegion}
-            onChange={e => setSelectedRegion(e.target.value)}
-            className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:border-forest-400 focus:ring-2 focus:ring-forest-200 outline-none text-sm bg-white"
-          >
-            <option value="">{lang === 'it' ? 'Tutta Italia' : 'All Italy'}</option>
-            {regions.map(r => (
-              <option key={r.value} value={r.value}>{r.label}</option>
-            ))}
-          </select>
-        </div>
+        {/* Geographic region dropdown — hidden until distribution_regions data is available.
+            Re-enable when genera have populated distribution_regions arrays. */}
+        <p className="mb-6 text-xs text-gray-400 italic">
+          {lang === 'it' ? 'Prossimamente: filtro per regione geografica' : 'Coming soon: geographic region filter'}
+        </p>
 
         <div className="flex items-center gap-3 mb-6">
           <button
@@ -538,7 +580,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
           const bestChar = characters.find(c => c.id === bestCharacterId);
           if (!bestChar) return null;
           return (
-            <div className="bg-forest-50 border-2 border-forest-300 rounded-xl p-5 mb-6" id={`char-${bestChar.id}`}>
+            <div ref={suggestedBoxRef} className="bg-forest-50 border-2 border-forest-300 rounded-xl p-5 mb-6" id={`char-${bestChar.id}`}>
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-forest-600 text-lg">&#9733;</span>
                 <h3 className="font-semibold text-forest-800">
@@ -567,6 +609,27 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
                 })}
               </div>
             </div>
+          );
+        })()}
+
+        {/* Issue 3: Beginner tip — suggest easiest informative character */}
+        {bestEasyCharId && (() => {
+          const easyChar = characters.find(c => c.id === bestEasyCharId);
+          if (!easyChar) return null;
+          return (
+            <button
+              onClick={() => {
+                const el = document.getElementById(`char-${bestEasyCharId}`);
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }}
+              className="mb-4 w-full text-left text-xs text-gray-500 bg-gray-50 border border-gray-200 rounded-lg px-4 py-2.5 hover:bg-gray-100 transition-colors cursor-pointer"
+            >
+              <span className="inline-block w-2 h-2 rounded-full bg-green-400 mr-1.5" />
+              {lang === 'it'
+                ? <>Consiglio per principianti: inizia da <span className="font-medium text-gray-700">{easyChar.name_it}</span></>
+                : <>Beginner tip: start with <span className="font-medium text-gray-700">{easyChar.name_en}</span></>
+              }
+            </button>
           );
         })()}
 

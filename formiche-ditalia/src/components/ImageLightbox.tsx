@@ -4,8 +4,30 @@ interface Props {
   images: { src: string; alt: string }[];
 }
 
+function getLang(): 'it' | 'en' {
+  try {
+    return (localStorage.getItem('lang') as 'it' | 'en') || 'it';
+  } catch {
+    return 'it';
+  }
+}
+
+const labels = {
+  it: { close: 'Chiudi', prev: 'Precedente', next: 'Successiva' },
+  en: { close: 'Close', prev: 'Previous', next: 'Next' },
+} as const;
+
 export default function ImageLightbox({ images }: Props) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [lang, setLang] = useState<'it' | 'en'>(getLang);
+
+  useEffect(() => {
+    const onLangChange = () => setLang(getLang());
+    window.addEventListener('langchange', onLangChange);
+    return () => window.removeEventListener('langchange', onLangChange);
+  }, []);
+
+  const t = labels[lang];
 
   const close = useCallback(() => setActiveIndex(null), []);
   const next = useCallback(() => {
@@ -60,7 +82,7 @@ export default function ImageLightbox({ images }: Props) {
           <button
             onClick={close}
             className="absolute top-4 right-4 text-white/80 hover:text-white text-3xl z-10 w-12 h-12 flex items-center justify-center"
-            aria-label="Chiudi"
+            aria-label={t.close}
           >
             &#x2715;
           </button>
@@ -69,14 +91,14 @@ export default function ImageLightbox({ images }: Props) {
               <button
                 onClick={(e) => { e.stopPropagation(); prev(); }}
                 className="absolute left-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-4xl z-10 w-12 h-12 flex items-center justify-center"
-                aria-label="Precedente"
+                aria-label={t.prev}
               >
                 &#x2039;
               </button>
               <button
                 onClick={(e) => { e.stopPropagation(); next(); }}
                 className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-4xl z-10 w-12 h-12 flex items-center justify-center"
-                aria-label="Successiva"
+                aria-label={t.next}
               >
                 &#x203A;
               </button>
