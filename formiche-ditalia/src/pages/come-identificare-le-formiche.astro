@@ -3,69 +3,219 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Come identificare le formiche" description="Guida pratica all'identificazione delle formiche italiane: strumenti necessari, caratteri morfologici chiave e uso della chiave interattiva.">
-  <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 prose prose-gray">
-    <h1 class="font-display">Come identificare le formiche</h1>
 
-    <p>
-      L'identificazione delle formiche richiede l'osservazione di caratteri morfologici
-      specifici. Questa guida ti aiuta a capire cosa guardare e come usare la nostra
-      <a href="/identifica">chiave di identificazione interattiva</a>.
-    </p>
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-forest-50 via-white to-brand-50">
+    <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-forest-100/40 blur-3xl"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 relative">
+      <h1 class="font-display text-4xl sm:text-5xl font-bold text-forest-900 tracking-tight" data-i18n="guide_title">Come identificare le formiche</h1>
+      <p class="mt-4 text-lg text-gray-600 max-w-2xl leading-relaxed" data-i18n="guide_subtitle">
+        Guida pratica per osservare i caratteri morfologici e usare la
+        <a href="/identifica" class="text-forest-600 hover:underline font-medium">chiave di identificazione interattiva</a>.
+      </p>
+    </div>
+  </section>
 
-    <h2>Strumenti necessari</h2>
-    <ul>
-      <li><strong>Lente d'ingrandimento</strong> (10x-20x) o stereomicroscopio — essenziale per osservare i caratteri</li>
-      <li><strong>Pinzette morbide</strong> — per manipolare i campioni senza danneggiarli</li>
-      <li><strong>Alcool etilico 70%</strong> — per conservare i campioni</li>
-      <li><strong>Provette</strong> — con etichetta di località e data</li>
-    </ul>
+  <!-- Strumenti -->
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-gray-900 mb-8" data-i18n="guide_tools_title">Strumenti necessari</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 text-center">
+          <div class="w-12 h-12 rounded-full bg-forest-100 flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-forest-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+          </div>
+          <h3 class="font-semibold text-gray-900 text-sm" data-i18n="guide_tool_lens">Lente 10x-20x</h3>
+          <p class="text-xs text-gray-500 mt-1" data-i18n="guide_tool_lens_desc">Essenziale per i dettagli</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 text-center">
+          <div class="w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
+          </div>
+          <h3 class="font-semibold text-gray-900 text-sm" data-i18n="guide_tool_forceps">Pinzette morbide</h3>
+          <p class="text-xs text-gray-500 mt-1" data-i18n="guide_tool_forceps_desc">Per manipolare senza danni</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 text-center">
+          <div class="w-12 h-12 rounded-full bg-sky-100 flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+          </div>
+          <h3 class="font-semibold text-gray-900 text-sm" data-i18n="guide_tool_ethanol">Alcool etilico 70%</h3>
+          <p class="text-xs text-gray-500 mt-1" data-i18n="guide_tool_ethanol_desc">Per conservare i campioni</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 text-center">
+          <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
+          </div>
+          <h3 class="font-semibold text-gray-900 text-sm" data-i18n="guide_tool_vials">Provette + etichette</h3>
+          <p class="text-xs text-gray-500 mt-1" data-i18n="guide_tool_vials_desc">Località, data, habitat</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <h2>Caratteri morfologici chiave</h2>
-    <p>I principali caratteri da osservare per identificare il genere di una formica:</p>
+  <!-- Caratteri morfologici -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between mb-8">
+        <div>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-gray-900" data-i18n="guide_morpho_title">Caratteri morfologici chiave</h2>
+          <p class="mt-2 text-gray-600" data-i18n="guide_morpho_subtitle">Le 4 regioni del corpo da osservare per identificare il genere.</p>
+        </div>
+        <a href="/anatomia" class="hidden sm:inline-flex items-center text-sm text-forest-600 hover:underline font-medium">
+          <span data-i18n="guide_anatomy_link">Glossario anatomico</span> &rarr;
+        </a>
+      </div>
 
-    <h3>Testa</h3>
-    <ul>
-      <li>Forma della testa (vista frontale): allungata, quadrata, rotonda</li>
-      <li>Numero di segmenti antennali e forma della clava</li>
-      <li>Presenza e forma delle mandibole</li>
-      <li>Occhi: dimensione e posizione</li>
-    </ul>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="bg-white rounded-xl p-6 border border-gray-200">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center">
+              <span class="text-emerald-700 font-bold text-sm">1</span>
+            </div>
+            <h3 class="font-bold text-gray-900" data-i18n="guide_region_head">Testa</h3>
+          </div>
+          <ul class="space-y-1.5 text-sm text-gray-600">
+            <li data-i18n="guide_head_shape">Forma del capo (vista frontale): allungata, quadrata, rotonda</li>
+            <li data-i18n="guide_head_antennae">Numero di segmenti antennali e forma della clava</li>
+            <li data-i18n="guide_head_mandibles">Presenza e forma delle mandibole</li>
+            <li data-i18n="guide_head_eyes">Occhi: dimensione e posizione</li>
+          </ul>
+        </div>
 
-    <h3>Torace</h3>
-    <ul>
-      <li>Profilo del torace visto di lato: convesso, con spine, piatto</li>
-      <li>Presenza di spine propodeali</li>
-    </ul>
+        <div class="bg-white rounded-xl p-6 border border-gray-200">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-sky-100 flex items-center justify-center">
+              <span class="text-sky-700 font-bold text-sm">2</span>
+            </div>
+            <h3 class="font-bold text-gray-900" data-i18n="guide_region_mesosoma">Mesosoma (torace)</h3>
+          </div>
+          <ul class="space-y-1.5 text-sm text-gray-600">
+            <li data-i18n="guide_meso_profile">Profilo del torace visto di lato: convesso, con spine, piatto</li>
+            <li data-i18n="guide_meso_spines">Presenza di spine propodeali</li>
+            <li data-i18n="guide_meso_sculpture">Scultura superficiale e pelosità</li>
+          </ul>
+        </div>
 
-    <h3>Peziolo</h3>
-    <ul>
-      <li>Numero di segmenti (1 o 2 nodi)</li>
-      <li>Forma dei nodi (appuntito, arrotondato, squamiforme)</li>
-    </ul>
+        <div class="bg-white rounded-xl p-6 border border-gray-200">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center">
+              <span class="text-amber-700 font-bold text-sm">3</span>
+            </div>
+            <h3 class="font-bold text-gray-900" data-i18n="guide_region_petiole">Peziolo (vita)</h3>
+          </div>
+          <ul class="space-y-1.5 text-sm text-gray-600">
+            <li data-i18n="guide_pet_segments">Numero di segmenti: 1 nodo o 2 nodi (peziolo + postpeziolo)</li>
+            <li data-i18n="guide_pet_shape">Forma dei nodi: appuntito, arrotondato, squamiforme</li>
+          </ul>
+        </div>
 
-    <h3>Gastro</h3>
-    <ul>
-      <li>Presenza dell'acidoporo (apertura circolare con setole)</li>
-      <li>Presenza del pungiglione</li>
-    </ul>
+        <div class="bg-white rounded-xl p-6 border border-gray-200">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-rose-100 flex items-center justify-center">
+              <span class="text-rose-700 font-bold text-sm">4</span>
+            </div>
+            <h3 class="font-bold text-gray-900" data-i18n="guide_region_gaster">Gastro (addome)</h3>
+          </div>
+          <ul class="space-y-1.5 text-sm text-gray-600">
+            <li data-i18n="guide_gaster_acidopore">Acidoporo: apertura circolare con setole (tipico delle Formicinae)</li>
+            <li data-i18n="guide_gaster_sting">Pungiglione: presente nelle Ponerinae e Myrmicinae</li>
+          </ul>
+        </div>
+      </div>
 
-    <h2>Come usare la chiave interattiva</h2>
-    <ol>
-      <li>Vai alla pagina <a href="/identifica">Identifica</a></li>
-      <li>Seleziona la regione geografica (opzionale, restringe i risultati)</li>
-      <li>Osserva il carattere <strong>consigliato</strong> (evidenziato con ★) — quello che separa meglio i generi rimasti</li>
-      <li>Seleziona lo stato del carattere osservato nel tuo campione</li>
-      <li>I generi compatibili vengono filtrati in tempo reale</li>
-      <li>Se non sei sicuro di un'osservazione, aumenta la <strong>tolleranza errori</strong> (default: 1)</li>
-      <li>Continua fino a restringere i risultati a pochi generi</li>
-    </ol>
+      <div class="mt-6 sm:hidden">
+        <a href="/anatomia" class="inline-flex items-center text-sm text-forest-600 hover:underline font-medium">
+          <span data-i18n="guide_anatomy_link">Glossario anatomico</span> &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <h2>Consigli pratici</h2>
-    <ul>
-      <li>Raccogli sempre <strong>operaie</strong> (le forme più comuni nel nido), non regine o maschi</li>
-      <li>Conserva il campione in alcool con una etichetta chiara (località, data, habitat)</li>
-      <li>Se possibile, raccogli più esemplari dalla stessa colonia</li>
-      <li>Fotografa il campione da tre angolazioni: testa (frontale), profilo, dorsale</li>
-    </ul>
-  </article>
+  <!-- Come usare la chiave -->
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-gray-900 mb-8" data-i18n="guide_howto_title">Come usare la chiave interattiva</h2>
+      <div class="space-y-4 max-w-3xl">
+        <div class="flex items-start gap-3">
+          <div class="w-8 h-8 rounded-full bg-forest-100 flex items-center justify-center flex-shrink-0">
+            <span class="text-sm font-bold text-forest-700">1</span>
+          </div>
+          <p class="text-gray-700 pt-1" data-i18n="guide_step1">Vai alla pagina Identifica</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="w-8 h-8 rounded-full bg-forest-100 flex items-center justify-center flex-shrink-0">
+            <span class="text-sm font-bold text-forest-700">2</span>
+          </div>
+          <p class="text-gray-700 pt-1" data-i18n="guide_step2">Seleziona la regione geografica (opzionale — restringe i risultati)</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="w-8 h-8 rounded-full bg-forest-100 flex items-center justify-center flex-shrink-0">
+            <span class="text-sm font-bold text-forest-700">3</span>
+          </div>
+          <p class="text-gray-700 pt-1" data-i18n="guide_step3">Osserva il carattere consigliato (evidenziato con ★) — quello che separa meglio i generi rimasti</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="w-8 h-8 rounded-full bg-forest-100 flex items-center justify-center flex-shrink-0">
+            <span class="text-sm font-bold text-forest-700">4</span>
+          </div>
+          <p class="text-gray-700 pt-1" data-i18n="guide_step4">Seleziona lo stato del carattere osservato nel tuo campione</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="w-8 h-8 rounded-full bg-forest-100 flex items-center justify-center flex-shrink-0">
+            <span class="text-sm font-bold text-forest-700">5</span>
+          </div>
+          <p class="text-gray-700 pt-1" data-i18n="guide_step5">I generi compatibili vengono filtrati in tempo reale</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="w-8 h-8 rounded-full bg-forest-100 flex items-center justify-center flex-shrink-0">
+            <span class="text-sm font-bold text-forest-700">6</span>
+          </div>
+          <p class="text-gray-700 pt-1" data-i18n="guide_step6">Se non sei sicuro, aumenta la tolleranza errori (default: 1)</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="w-8 h-8 rounded-full bg-forest-100 flex items-center justify-center flex-shrink-0">
+            <span class="text-sm font-bold text-forest-700">7</span>
+          </div>
+          <p class="text-gray-700 pt-1" data-i18n="guide_step7">Continua fino a restringere i risultati a pochi generi</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consigli pratici -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-gray-900 mb-8" data-i18n="guide_tips_title">Consigli pratici</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="flex items-start gap-3 bg-white rounded-xl p-5 border border-gray-200">
+          <svg class="w-5 h-5 text-forest-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          <p class="text-sm text-gray-700" data-i18n="guide_tip_workers">Raccogli sempre <strong>operaie</strong> (le forme più comuni), non regine o maschi alati</p>
+        </div>
+        <div class="flex items-start gap-3 bg-white rounded-xl p-5 border border-gray-200">
+          <svg class="w-5 h-5 text-forest-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          <p class="text-sm text-gray-700" data-i18n="guide_tip_preserve">Conserva in alcool con etichetta chiara (località, data, habitat)</p>
+        </div>
+        <div class="flex items-start gap-3 bg-white rounded-xl p-5 border border-gray-200">
+          <svg class="w-5 h-5 text-forest-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          <p class="text-sm text-gray-700" data-i18n="guide_tip_multiple">Se possibile, raccogli <strong>più esemplari</strong> dalla stessa colonia</p>
+        </div>
+        <div class="flex items-start gap-3 bg-white rounded-xl p-5 border border-gray-200">
+          <svg class="w-5 h-5 text-forest-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          <p class="text-sm text-gray-700" data-i18n="guide_tip_photos">Fotografa da <strong>3 angolazioni</strong>: testa (frontale), profilo, dorsale</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-gradient-to-br from-forest-600 to-forest-800">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-2xl font-bold text-white" data-i18n="guide_cta_title">Pronto a identificare?</h2>
+      <p class="mt-3 text-forest-100" data-i18n="guide_cta_desc">La chiave interattiva ti guida passo dopo passo.</p>
+      <a href="/identifica" class="inline-flex items-center justify-center mt-6 px-6 py-3 rounded-xl bg-white text-forest-700 font-semibold hover:bg-forest-50 transition-colors" data-i18n="guide_cta_button">
+        Apri la chiave
+      </a>
+    </div>
+  </section>
+
 </BaseLayout>

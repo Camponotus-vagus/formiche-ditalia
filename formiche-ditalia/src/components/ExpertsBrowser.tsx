@@ -51,14 +51,18 @@ export default function ExpertsBrowser({ experts }: Props) {
   return (
     <div>
       <div className="flex flex-col sm:flex-row gap-3 mb-8">
+        <label className="sr-only" htmlFor="experts-search">{t('experts_search', lang)}</label>
         <input
+          id="experts-search"
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder={t('experts_search', lang)}
           className="flex-1 px-4 py-2.5 rounded-lg border border-gray-300 focus:border-forest-400 focus:ring-2 focus:ring-forest-200 outline-none transition-all text-sm"
         />
+        <label className="sr-only" htmlFor="region-filter">{t('experts_filter_region', lang)}</label>
         <select
+          id="region-filter"
           value={regionFilter}
           onChange={(e) => setRegionFilter(e.target.value)}
           className="px-4 py-2.5 rounded-lg border border-gray-300 focus:border-forest-400 focus:ring-2 focus:ring-forest-200 outline-none transition-all text-sm bg-white"

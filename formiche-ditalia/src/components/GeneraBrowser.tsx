@@ -16,6 +16,13 @@ interface Genus {
   photo_urls: string[];
 }
 
+interface Species {
+  id: string;
+  scientific_name: string;
+  genus_id: string;
+  photo_urls: string[];
+}
+
 interface Subfamily {
   id: string;
   name: string;
@@ -24,9 +31,10 @@ interface Subfamily {
 interface Props {
   genera: Genus[];
   subfamilies: Subfamily[];
+  species?: Species[];
 }
 
-export default function GeneraBrowser({ genera, subfamilies }: Props) {
+export default function GeneraBrowser({ genera, subfamilies, species = [] }: Props) {
   const [search, setSearch] = useState('');
   const [subfamilyFilter, setSubfamilyFilter] = useState('');
   const [lang, setLang] = useState<Lang>('it');
@@ -46,17 +54,27 @@ export default function GeneraBrowser({ genera, subfamilies }: Props) {
     });
   }, [genera, search, subfamilyFilter]);
 
+  const filteredSpecies = useMemo(() => {
+    if (!search || search.length < 2 || !species.length) return [];
+    const q = search.toLowerCase();
+    return species.filter((s) => s.scientific_name.toLowerCase().includes(q)).slice(0, 12);
+  }, [species, search]);
+
   return (
     <div>
       <div className="flex flex-col sm:flex-row gap-3 mb-8">
+        <label className="sr-only" htmlFor="genera-search">{t('genera_search', lang)}</label>
         <input
+          id="genera-search"
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder={t('genera_search', lang)}
           className="flex-1 px-4 py-2.5 rounded-lg border border-gray-300 focus:border-forest-400 focus:ring-2 focus:ring-forest-200 outline-none transition-all text-sm"
         />
+        <label className="sr-only" htmlFor="subfamily-filter">{t('genera_filter_subfamily', lang)}</label>
         <select
+          id="subfamily-filter"
           value={subfamilyFilter}
           onChange={(e) => setSubfamilyFilter(e.target.value)}
           className="px-4 py-2.5 rounded-lg border border-gray-300 focus:border-forest-400 focus:ring-2 focus:ring-forest-200 outline-none transition-all text-sm bg-white"
@@ -99,8 +117,41 @@ export default function GeneraBrowser({ genera, subfamilies }: Props) {
         ))}
       </div>
 
-      {filtered.length === 0 && (
+      {filtered.length === 0 && filteredSpecies.length === 0 && (
         <p className="text-center text-gray-400 py-12">{t('genera_no_results', lang)}</p>
+      )}
+
+      {filteredSpecies.length > 0 && (
+        <div className="mt-10">
+          <h2 className="text-lg font-semibold text-gray-700 mb-4">
+            {t('genera_matching_species', lang)}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {filteredSpecies.map((sp) => (
+              <a
+                key={sp.id}
+                href={`/specie/${sp.id}`}
+                className="group flex items-center gap-3 rounded-xl border border-gray-200 hover:border-brand-400 hover:shadow-md p-3 transition-all"
+              >
+                <div className="w-14 h-14 rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">
+                  <img
+                    src={sp.photo_urls?.[0] || '/images/placeholder-ant.svg'}
+                    alt={sp.scientific_name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    onError={(e) => { (e.target as HTMLImageElement).src = '/images/placeholder-ant.svg'; }}
+                  />
+                </div>
+                <div>
+                  <p className="font-semibold italic text-gray-900 group-hover:text-brand-600 transition-colors text-sm">
+                    {sp.scientific_name}
+                  </p>
+                  <p className="text-xs text-gray-500 capitalize">{sp.genus_id}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
       )}
     </div>
   );

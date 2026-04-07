@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Privacy Policy" description="Informativa sulla privacy di Formiche d'Italia ai sensi del Regolamento UE 2016/679 (GDPR).">
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-forest-50 via-white to-brand-50">
+    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-forest-100/40 blur-3xl"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 relative">
+      <h1 class="font-display text-4xl sm:text-5xl font-bold text-forest-900 tracking-tight" data-i18n="privacy_title">Privacy Policy</h1>
+      <p class="mt-4 text-lg text-gray-600 max-w-2xl leading-relaxed" data-i18n="privacy_subtitle">
+        Informativa sul trattamento dei dati personali ai sensi del Regolamento UE 2016/679 (GDPR).
+      </p>
+      <p class="mt-2 text-sm text-gray-500" data-i18n="privacy_updated">Ultimo aggiornamento: 7 aprile 2026</p>
+    </div>
+  </section>
+
+  <!-- Titolare -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="text-xs font-semibold uppercase tracking-wider text-forest-600" data-i18n="privacy_label_gdpr">Art. 13 GDPR</span>
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-gray-900 mt-2" data-i18n="privacy_controller_title">Titolare del trattamento</h2>
+      <div class="mt-6 bg-forest-50 rounded-xl p-5 border border-forest-100 max-w-xl">
+        <p class="text-sm text-gray-700 leading-relaxed">
+          <strong>Francesco Simone Mensa</strong><br />
+          Progetto Formiche d'Italia<br />
+          Email: <a href="mailto:info@formicheditalia.it" class="text-forest-600 hover:underline">info@formicheditalia.it</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dati raccolti -->
+  <section class="py-16 sm:py-20 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="text-xs font-semibold uppercase tracking-wider text-brand-600" data-i18n="privacy_label_data">Cosa raccogliamo</span>
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-gray-900 mt-2" data-i18n="privacy_data_title">Dati personali trattati</h2>
+
+      <div class="grid sm:grid-cols-2 gap-5 mt-8">
+        <!-- Form contatti -->
+        <div class="bg-white rounded-xl p-5 border border-gray-200">
+          <h3 class="font-semibold text-gray-900 mb-3" data-i18n="privacy_form_title">Modulo di contatto</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3" data-i18n="privacy_form_desc">
+            Quando invii un messaggio tramite il modulo in <a href="/contatti" class="text-forest-600 hover:underline">/contatti</a>, raccogliamo:
+          </p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li class="flex items-start gap-2">
+              <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-500 flex-shrink-0"></span>
+              <span data-i18n="privacy_form_item_name">Nome</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-500 flex-shrink-0"></span>
+              <span data-i18n="privacy_form_item_email">Indirizzo email</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-500 flex-shrink-0"></span>
+              <span data-i18n="privacy_form_item_message">Tipo di messaggio e contenuto</span>
+            </li>
+          </ul>
+          <p class="text-sm text-gray-600 leading-relaxed mt-3" data-i18n="privacy_form_web3forms">
+            I dati vengono inviati tramite il servizio <strong>Web3Forms</strong> (web3forms.com) e recapitati via email al titolare.
+            Web3Forms agisce come responsabile del trattamento.
+            <a href="https://web3forms.com/privacy" target="_blank" rel="noopener" class="text-forest-600 hover:underline">Privacy policy di Web3Forms</a>.
+          </p>
+          <p class="text-sm text-gray-600 mt-2" data-i18n="privacy_form_legal">
+            <strong>Base giuridica</strong>: consenso (art. 6.1.a GDPR), espresso al momento dell'invio del modulo.<br />
+            <strong>Conservazione</strong>: i dati vengono conservati solo per il tempo necessario a rispondere alla richiesta.
+          </p>
+        </div>
+
+        <!-- localStorage -->
+        <div class="bg-white rounded-xl p-5 border border-gray-200">
+          <h3 class="font-semibold text-gray-900 mb-3" data-i18n="privacy_lang_title">Preferenza di lingua</h3>
+          <p class="text-sm text-gray-600 leading-relaxed" data-i18n="privacy_lang_desc">
+            Il sito salva la tua preferenza di lingua (italiano/inglese) nella memoria locale del browser (<code class="bg-gray-100 px-1.5 py-0.5 rounded text-xs font-mono">localStorage</code>).
+          </p>
+          <p class="text-sm text-gray-600 leading-relaxed mt-3" data-i18n="privacy_lang_local_intro">
+            Questo dato:
+          </p>
+          <ul class="text-sm text-gray-600 space-y-1 mt-1">
+            <li class="flex items-start gap-2">
+              <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-forest-500 flex-shrink-0"></span>
+              <span data-i18n="privacy_lang_local_1">Non lascia mai il tuo dispositivo</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-forest-500 flex-shrink-0"></span>
+              <span data-i18n="privacy_lang_local_2">Non viene condiviso con terzi</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-forest-500 flex-shrink-0"></span>
+              <span data-i18n="privacy_lang_local_3">Puoi cancellarlo in qualsiasi momento dalle impostazioni del browser</span>
+            </li>
+          </ul>
+          <p class="text-sm text-gray-600 mt-3" data-i18n="privacy_lang_legal">
+            <strong>Base giuridica</strong>: strettamente necessario per il funzionamento del sito (art. 5.3 Direttiva ePrivacy; esente da consenso).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cookie e tracciamento -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="text-xs font-semibold uppercase tracking-wider text-forest-600" data-i18n="privacy_label_cookies">Trasparenza</span>
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-gray-900 mt-2" data-i18n="privacy_cookies_title">Cookie e tracciamento</h2>
+      <div class="mt-6 bg-forest-50 rounded-xl p-6 border border-forest-100 max-w-3xl">
+        <div class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-forest-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <div>
+            <p class="text-sm text-gray-700 font-semibold" data-i18n="privacy_no_cookies">Questo sito non utilizza cookie.</p>
+            <p class="text-sm text-gray-600 mt-2" data-i18n="privacy_no_tracking">
+              Non utilizziamo cookie di profilazione, cookie di terze parti, strumenti di analytics (Google Analytics, Matomo, ecc.)
+              o altri sistemi di tracciamento. Non viene effettuata alcuna profilazione degli utenti.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="font-semibold text-gray-900 mt-8 mb-3" data-i18n="privacy_sw_title">Service worker</h3>
+      <p class="text-sm text-gray-600 leading-relaxed max-w-3xl" data-i18n="privacy_sw_desc">
+        Il sito utilizza un service worker per consentire l'uso offline della chiave di identificazione.
+        Il service worker memorizza nella cache del browser le risorse della pagina (HTML, CSS, immagini).
+        Non raccoglie ne trasmette alcun dato personale.
+      </p>
+    </div>
+  </section>
+
+  <!-- Diritti -->
+  <section class="py-16 sm:py-20 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="text-xs font-semibold uppercase tracking-wider text-brand-600" data-i18n="privacy_label_rights">I tuoi diritti</span>
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-gray-900 mt-2" data-i18n="privacy_rights_title">Diritti dell'interessato</h2>
+      <p class="mt-4 text-gray-600 leading-relaxed max-w-3xl" data-i18n="privacy_rights_intro">
+        Ai sensi degli articoli 15-22 del GDPR, hai diritto di:
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+        <div class="bg-white rounded-xl p-4 border border-gray-200">
+          <p class="text-sm font-semibold text-gray-800" data-i18n="privacy_right_access">Accesso</p>
+          <p class="text-xs text-gray-600 mt-1" data-i18n="privacy_right_access_desc">Ottenere conferma dell'esistenza dei tuoi dati e una copia (art. 15)</p>
+        </div>
+        <div class="bg-white rounded-xl p-4 border border-gray-200">
+          <p class="text-sm font-semibold text-gray-800" data-i18n="privacy_right_rectification">Rettifica</p>
+          <p class="text-xs text-gray-600 mt-1" data-i18n="privacy_right_rectification_desc">Correggere dati inesatti o integrarli (art. 16)</p>
+        </div>
+        <div class="bg-white rounded-xl p-4 border border-gray-200">
+          <p class="text-sm font-semibold text-gray-800" data-i18n="privacy_right_erasure">Cancellazione</p>
+          <p class="text-xs text-gray-600 mt-1" data-i18n="privacy_right_erasure_desc">Ottenere la cancellazione dei tuoi dati (art. 17)</p>
+        </div>
+        <div class="bg-white rounded-xl p-4 border border-gray-200">
+          <p class="text-sm font-semibold text-gray-800" data-i18n="privacy_right_restriction">Limitazione</p>
+          <p class="text-xs text-gray-600 mt-1" data-i18n="privacy_right_restriction_desc">Limitare il trattamento in determinati casi (art. 18)</p>
+        </div>
+        <div class="bg-white rounded-xl p-4 border border-gray-200">
+          <p class="text-sm font-semibold text-gray-800" data-i18n="privacy_right_portability">Portabilita</p>
+          <p class="text-xs text-gray-600 mt-1" data-i18n="privacy_right_portability_desc">Ricevere i tuoi dati in formato strutturato (art. 20)</p>
+        </div>
+        <div class="bg-white rounded-xl p-4 border border-gray-200">
+          <p class="text-sm font-semibold text-gray-800" data-i18n="privacy_right_objection">Opposizione</p>
+          <p class="text-xs text-gray-600 mt-1" data-i18n="privacy_right_objection_desc">Opporti al trattamento per motivi legittimi (art. 21)</p>
+        </div>
+      </div>
+      <p class="mt-6 text-sm text-gray-600" data-i18n="privacy_rights_contact">
+        Per esercitare i tuoi diritti, scrivi a <a href="mailto:info@formicheditalia.it" class="text-forest-600 hover:underline font-medium">info@formicheditalia.it</a>.
+        Hai inoltre il diritto di proporre reclamo al <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener" class="text-forest-600 hover:underline">Garante per la protezione dei dati personali</a>.
+      </p>
+    </div>
+  </section>
+
+</BaseLayout>

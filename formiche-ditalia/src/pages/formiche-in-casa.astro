@@ -3,70 +3,175 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Formiche in casa: identificazione e gestione" description="Hai trovato formiche in casa? Scopri come identificare la specie e gestire la presenza in modo informato. Guida alle specie italiane domestiche.">
-  <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 prose prose-gray">
-    <h1 class="font-display">Formiche in casa</h1>
 
-    <p>
-      Hai trovato formiche in casa? Prima di agire, è utile capire <strong>quale specie</strong>
-      hai di fronte. L'identificazione corretta aiuta a capire il comportamento della colonia
-      e a scegliere la strategia più efficace.
-    </p>
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-forest-50 via-white to-brand-50">
+    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-brand-100/40 blur-3xl"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 relative">
+      <h1 class="font-display text-4xl sm:text-5xl font-bold text-forest-900 tracking-tight" data-i18n="pests_title">Formiche in casa</h1>
+      <p class="mt-4 text-lg text-gray-600 max-w-2xl leading-relaxed" data-i18n="pests_subtitle">
+        Hai trovato formiche in casa? Prima di agire, è utile capire <strong class="text-forest-700">quale specie</strong> hai di fronte.
+        L'identificazione corretta aiuta a scegliere la strategia più efficace.
+      </p>
+    </div>
+  </section>
 
-    <h2>Le specie più comuni nelle case italiane</h2>
+  <!-- Specie comuni -->
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-gray-900 mb-8" data-i18n="pests_common_title">Le specie più comuni nelle case italiane</h2>
+      <div class="grid sm:grid-cols-2 gap-6">
 
-    <h3><em>Lasius</em> (formiche nere del giardino)</h3>
-    <p>
-      Le più comuni in ambienti domestici. Formano colonie nel terreno vicino alle fondamenta
-      e entrano in casa alla ricerca di cibo dolce. Generalmente innocue.
-    </p>
+        <a href="/generi/lasius" class="group bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-forest-300 hover:shadow-md transition-all">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-lg bg-forest-100 flex items-center justify-center">
+              <svg class="w-5 h-5 text-forest-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-900 italic group-hover:text-forest-600 transition-colors">Lasius</h3>
+              <p class="text-xs text-gray-500" data-i18n="pests_lasius_sub">Formiche nere del giardino · 2-5 mm</p>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 leading-relaxed" data-i18n="pests_lasius_desc">Le più comuni in ambienti domestici. Colonie nel terreno vicino alle fondamenta, entrano in casa cercando cibo dolce. Generalmente innocue.</p>
+        </a>
 
-    <h3><em>Monomorium pharaonis</em> (formica faraone)</h3>
-    <p>
-      Specie esotica di piccole dimensioni (2mm), color miele. Forma colonie multiple
-      nelle strutture riscaldate. Difficile da eradicare perché le colonie si frammentano.
-    </p>
+        <a href="/specie/monomorium-pharaonis" class="group bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-brand-300 hover:shadow-md transition-all">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
+              <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-900 group-hover:text-brand-600 transition-colors"><em>Monomorium pharaonis</em></h3>
+              <p class="text-xs text-gray-500" data-i18n="pests_pharaonis_sub">Formica faraone · 1-2 mm · Esotica</p>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 leading-relaxed" data-i18n="pests_pharaonis_desc">Specie esotica color miele, forma colonie multiple in strutture riscaldate. Difficile da eradicare perché le colonie si frammentano.</p>
+        </a>
 
-    <h3><em>Tapinoma</em></h3>
-    <p>
-      Piccole formiche scure che si muovono rapidamente. Nidificano in fessure e interstizi.
-      Emettono un odore sgradevole se schiacciate.
-    </p>
+        <a href="/generi/tapinoma" class="group bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-forest-300 hover:shadow-md transition-all">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-lg bg-gray-200 flex items-center justify-center">
+              <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-900 italic group-hover:text-forest-600 transition-colors">Tapinoma</h3>
+              <p class="text-xs text-gray-500" data-i18n="pests_tapinoma_sub">Formiche veloci e scure · 2-5 mm</p>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 leading-relaxed" data-i18n="pests_tapinoma_desc">Piccole formiche scure molto rapide. Nidificano in fessure e interstizi. Emettono un odore sgradevole se schiacciate.</p>
+        </a>
 
-    <h3><em>Camponotus</em> (formiche carpentiere)</h3>
-    <p>
-      Formiche grandi (6-14mm) che nidificano nel legno. Non mangiano il legno ma scavano
-      gallerie per il nido. Possono indicare problemi di umidità strutturale.
-    </p>
+        <a href="/generi/camponotus" class="group bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-forest-300 hover:shadow-md transition-all">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center">
+              <svg class="w-5 h-5 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-900 italic group-hover:text-forest-600 transition-colors">Camponotus</h3>
+              <p class="text-xs text-gray-500" data-i18n="pests_camponotus_sub">Formiche carpentiere · 6-14 mm</p>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 leading-relaxed" data-i18n="pests_camponotus_desc">Le più grandi. Nidificano nel legno scavando gallerie (non lo mangiano). Possono indicare problemi di umidità strutturale.</p>
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <h2>Cosa fare</h2>
-    <ol>
-      <li><strong>Identifica la specie</strong> — usa la nostra <a href="/identifica">chiave di identificazione</a> o consulta le <a href="/generi">schede dei generi</a></li>
-      <li><strong>Trova il percorso di ingresso</strong> — segui le file di operaie fino al punto di entrata</li>
-      <li><strong>Rimuovi le fonti di cibo</strong> — conserva gli alimenti in contenitori chiusi</li>
-      <li><strong>Sigilla le fessure</strong> — chiudi i punti di ingresso con silicone o stucco</li>
-      <li><strong>Evita pesticidi generici</strong> — spesso inefficaci e dannosi per l'ambiente</li>
-    </ol>
+  <!-- Cosa fare -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-gray-900 mb-8" data-i18n="pests_steps_title">Cosa fare: 5 passi</h2>
+      <div class="space-y-4">
+        <div class="flex items-start gap-4 bg-white rounded-xl p-5 border border-gray-200">
+          <div class="w-10 h-10 rounded-full bg-forest-100 flex items-center justify-center flex-shrink-0">
+            <span class="text-lg font-bold text-forest-700">1</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900" data-i18n="pests_step1_title">Identifica la specie</h3>
+            <p class="text-sm text-gray-600 mt-0.5" data-i18n="pests_step1_desc">Usa la chiave di identificazione o consulta le schede dei generi.</p>
+            <a href="/identifica" class="text-sm text-forest-600 hover:underline mt-1 inline-block"><span data-i18n="pests_step1_link">Apri la chiave</span> &rarr;</a>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-white rounded-xl p-5 border border-gray-200">
+          <div class="w-10 h-10 rounded-full bg-forest-100 flex items-center justify-center flex-shrink-0">
+            <span class="text-lg font-bold text-forest-700">2</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900" data-i18n="pests_step2_title">Trova il percorso di ingresso</h3>
+            <p class="text-sm text-gray-600 mt-0.5" data-i18n="pests_step2_desc">Segui le file di operaie fino al punto di entrata nella casa.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-white rounded-xl p-5 border border-gray-200">
+          <div class="w-10 h-10 rounded-full bg-forest-100 flex items-center justify-center flex-shrink-0">
+            <span class="text-lg font-bold text-forest-700">3</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900" data-i18n="pests_step3_title">Rimuovi le fonti di cibo</h3>
+            <p class="text-sm text-gray-600 mt-0.5" data-i18n="pests_step3_desc">Conserva gli alimenti in contenitori chiusi, pulisci briciole e residui zuccherini.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-white rounded-xl p-5 border border-gray-200">
+          <div class="w-10 h-10 rounded-full bg-forest-100 flex items-center justify-center flex-shrink-0">
+            <span class="text-lg font-bold text-forest-700">4</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900" data-i18n="pests_step4_title">Sigilla le fessure</h3>
+            <p class="text-sm text-gray-600 mt-0.5" data-i18n="pests_step4_desc">Chiudi i punti di ingresso con silicone o stucco.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-white rounded-xl p-5 border border-gray-200">
+          <div class="w-10 h-10 rounded-full bg-forest-100 flex items-center justify-center flex-shrink-0">
+            <span class="text-lg font-bold text-forest-700">5</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900" data-i18n="pests_step5_title">Evita pesticidi generici</h3>
+            <p class="text-sm text-gray-600 mt-0.5" data-i18n="pests_step5_desc">Spesso inefficaci e dannosi per l'ambiente. Contatta un professionista se necessario.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <h2>Quando preoccuparsi</h2>
-    <p>
-      La maggior parte delle formiche domestiche è innocua. Contatta un professionista se:
-    </p>
-    <ul>
-      <li>Vedi grandi formiche nere (<em>Camponotus</em>) che escono dal legno della struttura</li>
-      <li>L'infestazione persiste nonostante la rimozione delle fonti di cibo</li>
-      <li>Si tratta di formiche molto piccole e giallastre (<em>Monomorium pharaonis</em>)</li>
-    </ul>
+  <!-- Quando preoccuparsi -->
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-red-50 rounded-2xl p-6 sm:p-8 border border-red-100">
+        <h2 class="font-display text-xl font-bold text-red-800 mb-4" data-i18n="pests_warning_title">Quando contattare un professionista</h2>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2 text-sm text-red-700">
+            <svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+            <span data-i18n="pests_warn_camponotus">Grandi formiche nere (<em>Camponotus</em>) che escono dal legno della struttura</span>
+          </li>
+          <li class="flex items-start gap-2 text-sm text-red-700">
+            <svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+            <span data-i18n="pests_warn_persistent">Infestazione persistente nonostante rimozione delle fonti di cibo</span>
+          </li>
+          <li class="flex items-start gap-2 text-sm text-red-700">
+            <svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+            <span data-i18n="pests_warn_pharaonis">Formiche molto piccole e giallastre (<em>Monomorium pharaonis</em>)</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <h2>Perché le formiche sono importanti</h2>
-    <p>
-      Le formiche svolgono un ruolo ecologico fondamentale: arieggiamento del suolo,
-      dispersione dei semi, controllo di altri insetti. In Italia sono presenti oltre
-      <strong>267 specie</strong> di formiche, la maggior parte delle quali vive esclusivamente
-      in ambienti naturali.
-    </p>
-    <p>
-      <a href="/generi">Esplora il catalogo dei generi</a> per scoprire la diversità
-      mirmecologica italiana.
-    </p>
-  </article>
+  <!-- Importanza ecologica + CTA -->
+  <section class="py-16 bg-gradient-to-br from-forest-600 to-forest-800">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-2xl font-bold text-white" data-i18n="pests_eco_title">Le formiche sono importanti</h2>
+      <p class="mt-4 text-forest-100 leading-relaxed" data-i18n="pests_eco_desc">
+        Le formiche arieggiano il suolo, disperdono semi e controllano altri insetti.
+        In Italia vivono oltre <strong class="text-white">267 specie</strong>, la maggior parte esclusivamente in ambienti naturali.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/identifica" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white text-forest-700 font-semibold hover:bg-forest-50 transition-colors" data-i18n="pests_cta_identify">
+          Identifica la tua formica
+        </a>
+        <a href="/generi" class="inline-flex items-center justify-center px-6 py-3 rounded-xl border-2 border-white/30 text-white font-semibold hover:bg-white/10 transition-colors" data-i18n="pests_cta_browse">
+          Esplora il catalogo
+        </a>
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>

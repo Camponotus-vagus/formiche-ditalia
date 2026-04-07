@@ -1,0 +1,42 @@
+{
+  "title": "Formiche d'Italia: Interactive multi-access identification key for Italian ant genera",
+  "description": "The first Italian platform for ant identification, featuring a Shannon entropy-weighted multi-access key for 39 genera (7 subfamilies), a catalog of 75 species documented in Rome, an expert directory, and an interactive anatomy glossary. Built as a static Astro site with React islands.",
+  "creators": [
+    {
+      "name": "Mensa, Francesco Simone",
+      "orcid": "0000-0002-7374-4591"
+    }
+  ],
+  "keywords": [
+    "taxonomy",
+    "Formicidae",
+    "ants",
+    "identification key",
+    "multi-access key",
+    "Shannon entropy",
+    "Italy",
+    "interactive key",
+    "myrmecology",
+    "biodiversity"
+  ],
+  "license": "GPL-3.0-or-later",
+  "upload_type": "software",
+  "access_right": "open",
+  "related_identifiers": [
+    {
+      "identifier": "https://formicheditalia.it",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://www.researchgate.net/publication/330994606",
+      "relation": "isSourceOf",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.21426/b637155803",
+      "relation": "references",
+      "scheme": "doi"
+    }
+  ]
+}

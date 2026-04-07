@@ -20,6 +20,9 @@ export interface Genus {
   distribution_notes: string | null;
   distribution_regions: string[];
   diagnostic_characters: string | null;
+  diagnostic_characters_it: string | null;
+  diagnostic_characters_en: string | null;
+  body_length: string | null;
   photo_urls: string[];
   similar_genera: string[];
   references: string[];
@@ -40,6 +43,7 @@ export interface Species {
   synonyms: string[];
   description_it: string | null;
   description_en: string | null;
+  body_length: string | null;
   antweb_url: string | null;
   antcat_url: string | null;
   gbif_id: string | null;

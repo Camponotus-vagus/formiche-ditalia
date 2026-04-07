@@ -3,11 +3,25 @@ Formiche/
 TESI FORMICHE/
 TESI FORMICHE (Dropbox)/
 
+# Draft article (not ready for public)
+Mensa_FormicheDItalia_MyrmecolNews_DRAFT.docx
+
+# Personal docs
+docs/bozza-mail-esperti.md
+docs/mail-esperti-personalizzate.md
+docs/Dynadot_invoice_*.pdf
+docs/superpowers/
+
 # macOS
 .DS_Store
+
+# Python
+__pycache__/
+*.pyc
 
 # Misc
 copy_tesi.sh
 formiche_ditalia_roadmap.docx
-__pycache__/
-*.pyc
+
+# Claude Code
+.claude/

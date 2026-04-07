@@ -3,13 +3,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import GeneraBrowser from '../../components/GeneraBrowser.tsx';
 import genera from '../../data/genera.json';
 import subfamilies from '../../data/subfamilies.json';
+import species from '../../data/species.json';
 
 const pageTitle = "Generi di formiche italiane";
 ---
 
 <BaseLayout title={pageTitle} description="Esplora tutti i generi di formiche presenti in Italia, organizzati per sottofamiglia.">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <h1 class="font-display text-3xl font-bold text-gray-900 mb-8" data-i18n="genera_title">{pageTitle}</h1>
-    <GeneraBrowser client:load genera={genera} subfamilies={subfamilies} />
+  <section class="relative overflow-hidden bg-gradient-to-br from-forest-50 via-white to-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+      <h1 class="font-display text-3xl sm:text-4xl font-bold text-forest-900 tracking-tight" data-i18n="genera_title">{pageTitle}</h1>
+      <p class="mt-2 text-gray-600">39 generi italiani e 75 specie di Roma. Cerca per nome del genere o della specie.</p>
+    </div>
+  </section>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <GeneraBrowser client:load genera={genera} subfamilies={subfamilies} species={species} />
   </div>
 </BaseLayout>

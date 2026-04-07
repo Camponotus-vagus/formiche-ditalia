@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.tsx';
+---
+
+<BaseLayout title="Contatti" description="Contatta il team di Formiche d'Italia per segnalazioni, suggerimenti o per rivendicare il tuo profilo esperto.">
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-forest-50 via-white to-brand-50">
+    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-forest-100/40 blur-3xl"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 relative">
+      <h1 class="font-display text-4xl sm:text-5xl font-bold text-forest-900 tracking-tight" data-i18n="contact_title">Contattaci</h1>
+      <p class="mt-4 text-lg text-gray-600 max-w-2xl leading-relaxed" data-i18n="contact_subtitle">
+        Hai trovato un errore, vuoi suggerire un miglioramento o sei un esperto che desidera rivendicare il proprio profilo? Scrivici.
+      </p>
+    </div>
+  </section>
+
+  <!-- Form + sidebar -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-10">
+
+        <!-- Form -->
+        <div class="md:col-span-2">
+          <ContactForm client:load />
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="space-y-6">
+          <!-- Email diretta -->
+          <div class="rounded-xl bg-forest-50 p-5 border border-forest-100">
+            <h3 class="font-display text-lg font-bold text-forest-900 mb-2" data-i18n="contact_direct_email">Email diretta</h3>
+            <p class="text-sm text-gray-600 mb-3" data-i18n="contact_direct_email_desc">Preferisci scrivere direttamente?</p>
+            <a href="mailto:info@formicheditalia.it" class="text-forest-600 hover:text-forest-800 font-medium text-sm underline">
+              info@formicheditalia.it
+            </a>
+          </div>
+
+          <!-- Rivendicazione profilo -->
+          <div class="rounded-xl bg-brand-50 p-5 border border-brand-100">
+            <h3 class="font-display text-lg font-bold text-brand-900 mb-2" data-i18n="contact_claim_title">Sei un esperto?</h3>
+            <p class="text-sm text-gray-600 mb-3" data-i18n="contact_claim_desc">
+              Se il tuo profilo compare nella nostra directory, puoi rivendicarlo selezionando "Rivendicazione profilo" nel modulo, oppure direttamente dalla tua pagina esperto.
+            </p>
+            <a href="/esperti" class="text-brand-600 hover:text-brand-800 font-medium text-sm underline" data-i18n="contact_claim_link">
+              Vai alla directory esperti
+            </a>
+          </div>
+
+          <!-- Tempi di risposta -->
+          <div class="rounded-xl bg-gray-50 p-5 border border-gray-200">
+            <h3 class="font-display text-lg font-bold text-gray-900 mb-2" data-i18n="contact_response_title">Tempi di risposta</h3>
+            <p class="text-sm text-gray-600" data-i18n="contact_response_desc">
+              Rispondiamo generalmente entro 48 ore. Per le rivendicazioni profilo, verificheremo la tua identità tramite l'indirizzo email istituzionale.
+            </p>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

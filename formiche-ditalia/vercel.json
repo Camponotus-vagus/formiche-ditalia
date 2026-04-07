@@ -1,4 +1,7 @@
 {
+  "redirects": [
+    { "source": "/roadmap", "destination": "/sviluppi", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -29,7 +32,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://api.web3forms.com; frame-ancestors 'none'"
         }
       ]
     }

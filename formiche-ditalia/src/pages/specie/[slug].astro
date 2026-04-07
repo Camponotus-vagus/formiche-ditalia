@@ -66,9 +66,46 @@ const structuredData = {
       <div class="mb-8">
         <ImageLightbox
           client:load
-          images={species.photo_urls.map((url) => ({ src: url, alt: `${species.scientific_name} specimen` }))}
+          images={species.photo_urls.map((url, i) => {
+            const views = ['vista frontale (testa)', 'vista laterale (profilo)', 'vista dorsale'];
+            return { src: url, alt: `${species.scientific_name}, ${views[i] || 'specimen'}` };
+          })}
         />
       </div>
+    )}
+
+    <!-- Info card compatta -->
+    {((species as any).body_length || species.status || genus) && (
+      <section class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+        {genus && (
+          <a href={`/generi/${genus.id}`} class="bg-forest-50 rounded-xl p-4 border border-forest-100 hover:border-forest-300 transition-colors">
+            <p class="text-xs text-gray-500 uppercase tracking-wider" data-i18n="genus_subfamily_label">Sottofamiglia</p>
+            <p class="text-sm font-semibold text-forest-700 capitalize mt-1">{genus.subfamily_id}</p>
+          </a>
+        )}
+        {genus && (
+          <a href={`/generi/${genus.id}`} class="bg-forest-50 rounded-xl p-4 border border-forest-100 hover:border-forest-300 transition-colors">
+            <p class="text-xs text-gray-500 uppercase tracking-wider" data-i18n="species_genus_label">Genere</p>
+            <p class="text-sm font-semibold text-forest-700 italic mt-1">{genus.scientific_name}</p>
+          </a>
+        )}
+        {(species as any).body_length && (
+          <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
+            <p class="text-xs text-gray-500 uppercase tracking-wider" data-i18n="species_body_length">Lunghezza</p>
+            <p class="text-sm font-semibold text-gray-800 mt-1">{(species as any).body_length}</p>
+          </div>
+        )}
+        <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
+          <p class="text-xs text-gray-500 uppercase tracking-wider" data-i18n="species_status_label">Status</p>
+          <p class={`text-sm font-semibold mt-1 ${
+            species.status === 'endemic' ? 'text-brand-700' :
+            species.status === 'exotic' ? 'text-red-700' :
+            'text-forest-700'
+          }`}>
+            <span data-i18n={`species_status_${species.status}`}>{species.status === 'native' ? 'Nativa' : species.status === 'exotic' ? 'Esotica' : 'Endemica'}</span>
+          </p>
+        </div>
+      </section>
     )}
 
     {(species.description_it || species.description_en) && (

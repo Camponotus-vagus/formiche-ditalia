@@ -2,12 +2,12 @@
   {
     "id": "enrico-schifani",
     "name": "Enrico Schifani",
-    "affiliation": "Universita di Parma",
+    "affiliation": "Institute of Evolutionary Biology, Barcelona (CSIC-UPF)",
     "role": "Researcher",
     "email": null,
     "website": null,
     "orcid": "https://orcid.org/0000-0003-0684-6229",
-    "region": "Emilia-Romagna",
+    "region": null,
     "specializations": [
       "taxonomy",
       "checklist",
@@ -398,6 +398,32 @@
     "bio_it": "Ricercatore presso il laboratorio di mirmecologia dell'Universita di Parma. Studi innovativi sulle interazioni formiche-patogeni, l'uso delle formiche come bioindicatori di parassiti, e esperimenti con droni per lo studio dei voli nuziali.",
     "bio_en": "Research fellow at the myrmecology lab, University of Parma. Innovative studies on ant-pathogen interactions, using ants as biological indicators of parasites, and drone experiments to study nuptial flights.",
     "profile_photo_url": "/images/esperti/daniele-giannetti.jpg",
+    "h_index": null,
+    "claimed": false
+  },
+  {
+    "id": "elia-nalini",
+    "name": "Elia Nalini",
+    "affiliation": "Eurac Research, Bolzano",
+    "role": "PhD Student",
+    "email": null,
+    "website": "https://www.eurac.edu/en/people/elia-nalini",
+    "orcid": null,
+    "region": "Trentino-Alto Adige",
+    "specializations": [
+      "myrmecology",
+      "ecology",
+      "conservation",
+      "monitoring"
+    ],
+    "genera_of_interest": [
+      "Formica",
+      "Strumigenys"
+    ],
+    "key_publications": [],
+    "bio_it": "Dottorando presso Eurac Research (Bolzano), studia l'ecologia delle Formica del gruppo rufa (formiche rosse dei boschi), le interazioni con i mirmecofili e la conservazione. Coinvolto nel progetto europeo MonitAnt per il monitoraggio delle formiche dei boschi.",
+    "bio_en": "PhD student at Eurac Research (Bolzano), studying the ecology of Formica red wood ants, myrmecophile interactions, and conservation. Involved in the European MonitAnt project for monitoring wood ants.",
+    "profile_photo_url": "/images/esperti/elia-nalini.jpg",
     "h_index": null,
     "claimed": false
   },

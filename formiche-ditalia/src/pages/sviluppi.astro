@@ -2,13 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Roadmap" description="La roadmap di Formiche d'Italia: cosa è stato fatto, cosa stiamo sviluppando e cosa arriverà in futuro.">
+<BaseLayout title="Sviluppi futuri" description="Gli sviluppi di Formiche d'Italia: cosa è stato fatto, cosa stiamo sviluppando e cosa arriverà in futuro.">
 
   <!-- Hero -->
   <section class="relative overflow-hidden bg-gradient-to-br from-forest-50 via-white to-brand-50">
     <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-brand-100/30 blur-3xl"></div>
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 relative">
-      <h1 class="font-display text-4xl sm:text-5xl font-bold text-forest-900 tracking-tight" data-i18n="roadmap_title">Roadmap</h1>
+      <h1 class="font-display text-4xl sm:text-5xl font-bold text-forest-900 tracking-tight" data-i18n="roadmap_title">Sviluppi futuri</h1>
       <p class="mt-4 text-lg text-gray-600 max-w-2xl leading-relaxed" data-i18n="roadmap_subtitle">
         Formiche d'Italia è un progetto in continua evoluzione. Ecco dove siamo e dove stiamo andando.
       </p>
@@ -33,7 +33,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <span class="text-sm text-forest-600 font-medium" data-i18n="roadmap_v1_status">Completato</span>
             </div>
             <h2 class="font-display text-2xl font-bold text-gray-900 mb-4" data-i18n="roadmap_v1_title">Lancio della piattaforma</h2>
-            <div class="grid sm:grid-cols-2 gap-3">
+
+            <!-- Identificazione -->
+            <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2 mt-4" data-i18n="roadmap_label_identification">Identificazione</p>
+            <div class="grid sm:grid-cols-2 gap-3 mb-4">
               <div class="flex items-start gap-3 bg-forest-50 rounded-xl p-4 border border-forest-100">
                 <svg class="w-5 h-5 text-forest-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                 <div>
@@ -41,6 +44,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v1_key_desc">Scoring pesato, tolleranza errori, suggerimento caratteri</p>
                 </div>
               </div>
+              <div class="flex items-start gap-3 bg-forest-50 rounded-xl p-4 border border-forest-100">
+                <svg class="w-5 h-5 text-forest-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v1_glossary">Glossario visuale</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v1_glossary_desc">25 termini morfologici con definizioni e tooltip</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Catalogo -->
+            <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2" data-i18n="roadmap_label_catalog">Catalogo</p>
+            <div class="grid sm:grid-cols-2 gap-3 mb-4">
               <div class="flex items-start gap-3 bg-forest-50 rounded-xl p-4 border border-forest-100">
                 <svg class="w-5 h-5 text-forest-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                 <div>
@@ -52,14 +67,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <svg class="w-5 h-5 text-forest-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                 <div>
                   <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v1_experts">Directory esperti</p>
-                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v1_experts_desc">9 mirmecologi con profilo accademico e pubblicazioni</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v1_experts_desc">11 mirmecologi con profilo accademico e pubblicazioni</p>
                 </div>
               </div>
+            </div>
+
+            <!-- Piattaforma -->
+            <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2" data-i18n="roadmap_label_platform">Piattaforma</p>
+            <div class="grid sm:grid-cols-2 gap-3">
               <div class="flex items-start gap-3 bg-forest-50 rounded-xl p-4 border border-forest-100">
                 <svg class="w-5 h-5 text-forest-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                 <div>
                   <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v1_i18n">Bilingue IT/EN</p>
-                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v1_i18n_desc">133 chiavi di traduzione, switch in tempo reale</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v1_i18n_desc">200+ chiavi di traduzione, switch in tempo reale</p>
                 </div>
               </div>
               <div class="flex items-start gap-3 bg-forest-50 rounded-xl p-4 border border-forest-100">
@@ -72,8 +92,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <div class="flex items-start gap-3 bg-forest-50 rounded-xl p-4 border border-forest-100">
                 <svg class="w-5 h-5 text-forest-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                 <div>
-                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v1_glossary">Glossario visuale</p>
-                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v1_glossary_desc">25 termini morfologici con definizioni e tooltip</p>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v11_domain">Dominio personalizzato</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v11_domain_desc">formicheditalia.it con certificato SSL e Google Search Console</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-forest-50 rounded-xl p-4 border border-forest-100">
+                <svg class="w-5 h-5 text-forest-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v1_anatomy">Anatomia interattiva</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v1_anatomy_desc">Glossario anatomico con 31 strutture e illustrazioni originali</p>
                 </div>
               </div>
             </div>
@@ -93,7 +120,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <span class="text-sm text-brand-600 font-medium" data-i18n="roadmap_v11_status">In lavorazione</span>
             </div>
             <h2 class="font-display text-2xl font-bold text-gray-900 mb-4" data-i18n="roadmap_v11_title">Consolidamento e crescita</h2>
-            <div class="space-y-3">
+
+            <!-- Espansione dati -->
+            <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2 mt-4" data-i18n="roadmap_label_data_expansion">Espansione dati</p>
+            <div class="space-y-3 mb-4">
               <div class="flex items-start gap-3 bg-brand-50 rounded-xl p-4 border border-brand-100">
                 <div class="w-5 h-5 rounded-full border-2 border-brand-400 flex-shrink-0 mt-0.5"></div>
                 <div>
@@ -104,10 +134,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <div class="flex items-start gap-3 bg-brand-50 rounded-xl p-4 border border-brand-100">
                 <div class="w-5 h-5 rounded-full border-2 border-brand-400 flex-shrink-0 mt-0.5"></div>
                 <div>
-                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v11_domain">Dominio personalizzato</p>
-                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v11_domain_desc">formicheditalia.it con certificato SSL</p>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v11_lazio">Espansione a specie del Lazio</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v11_lazio_desc">Da 75 specie (Roma) a circa 100-130 (Lazio), come step intermedio verso l'intera fauna italiana</p>
                 </div>
               </div>
+              <div class="flex items-start gap-3 bg-brand-50 rounded-xl p-4 border border-brand-100">
+                <div class="w-5 h-5 rounded-full border-2 border-brand-400 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v11_new_records">Nuovi record italiani</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v11_new_records_desc">Aggiungere Nylanderia vividula, Brachyponera chinensis e le nuove Temnothorax post-2022</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chiave -->
+            <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2" data-i18n="roadmap_label_key_improvements">Miglioramenti chiave</p>
+            <div class="space-y-3">
               <div class="flex items-start gap-3 bg-brand-50 rounded-xl p-4 border border-brand-100">
                 <div class="w-5 h-5 rounded-full border-2 border-brand-400 flex-shrink-0 mt-0.5"></div>
                 <div>
@@ -132,14 +174,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <span class="text-sm text-gray-500 font-medium" data-i18n="roadmap_v2_status">Prossimamente</span>
             </div>
             <h2 class="font-display text-2xl font-bold text-gray-900 mb-4" data-i18n="roadmap_v2_title">Funzionalità avanzate</h2>
-            <div class="space-y-3">
-              <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-200">
-                <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0 mt-0.5"></div>
-                <div>
-                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v2_compare">Confronto side-by-side</p>
-                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v2_compare_desc">Deep-zoom sulle immagini per confrontare due generi candidati</p>
-                </div>
-              </div>
+
+            <!-- Strumenti di identificazione -->
+            <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2 mt-4" data-i18n="roadmap_label_advanced_id">Identificazione avanzata</p>
+            <div class="space-y-3 mb-4">
               <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0 mt-0.5"></div>
                 <div>
@@ -150,15 +188,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0 mt-0.5"></div>
                 <div>
-                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v2_ai">Pre-filtro AI da foto</p>
-                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v2_ai_desc">Carica una foto per restringere i candidati prima della chiave morfologica</p>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v2_caste">Gestione caste</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v2_caste_desc">Operaia, regina o maschio come filtro iniziale</p>
                 </div>
               </div>
               <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0 mt-0.5"></div>
                 <div>
-                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v2_caste">Gestione caste</p>
-                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v2_caste_desc">Operaia, regina o maschio come filtro iniziale</p>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v2_ai">Pre-filtro AI da foto</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v2_ai_desc">Carica una foto per restringere i candidati prima della chiave morfologica</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Strumenti visivi -->
+            <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2" data-i18n="roadmap_label_visual_tools">Strumenti visivi</p>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-200">
+                <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v2_compare">Confronto side-by-side</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v2_compare_desc">Deep-zoom sulle immagini per confrontare due generi candidati</p>
                 </div>
               </div>
             </div>
@@ -178,14 +228,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <span class="text-sm text-gray-400 font-medium" data-i18n="roadmap_v3_status">Futuro</span>
             </div>
             <h2 class="font-display text-2xl font-bold text-gray-900 mb-4" data-i18n="roadmap_v3_title">La visione</h2>
-            <div class="space-y-3">
-              <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
-                <div class="w-5 h-5 rounded-full border-2 border-gray-200 flex-shrink-0 mt-0.5"></div>
-                <div>
-                  <p class="text-sm font-semibold text-gray-700" data-i18n="roadmap_v3_mobile">App mobile nativa</p>
-                  <p class="text-xs text-gray-400 mt-0.5" data-i18n="roadmap_v3_mobile_desc">Per l'identificazione direttamente sul campo</p>
-                </div>
-              </div>
+
+            <!-- Community -->
+            <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2 mt-4" data-i18n="roadmap_label_community">Community</p>
+            <div class="space-y-3 mb-4">
               <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
                 <div class="w-5 h-5 rounded-full border-2 border-gray-200 flex-shrink-0 mt-0.5"></div>
                 <div>
@@ -193,6 +239,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <p class="text-xs text-gray-400 mt-0.5" data-i18n="roadmap_v3_community_desc">Gli utenti caricano segnalazioni con foto e posizione</p>
                 </div>
               </div>
+              <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                <div class="w-5 h-5 rounded-full border-2 border-gray-200 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-700" data-i18n="roadmap_v3_mobile">App mobile nativa</p>
+                  <p class="text-xs text-gray-400 mt-0.5" data-i18n="roadmap_v3_mobile_desc">Per l'identificazione direttamente sul campo</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Integrazioni -->
+            <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2" data-i18n="roadmap_label_integrations">Integrazioni e interoperabilità</p>
+            <div class="space-y-3">
               <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
                 <div class="w-5 h-5 rounded-full border-2 border-gray-200 flex-shrink-0 mt-0.5"></div>
                 <div>
@@ -220,7 +278,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="font-display text-2xl font-bold text-white" data-i18n="roadmap_cta_title">Hai un'idea o un suggerimento?</h2>
       <p class="mt-3 text-forest-100" data-i18n="roadmap_cta_desc">Aiutaci a migliorare Formiche d'Italia — ogni contributo conta.</p>
-      <a href="mailto:formicheditalia@gmail.com?subject=Suggerimento%20per%20Formiche%20d'Italia" class="inline-flex items-center justify-center mt-6 px-6 py-3 rounded-xl bg-white text-forest-700 font-semibold hover:bg-forest-50 transition-colors" data-i18n="roadmap_cta_button">
+      <a href="/contatti" class="inline-flex items-center justify-center mt-6 px-6 py-3 rounded-xl bg-white text-forest-700 font-semibold hover:bg-forest-50 transition-colors" data-i18n="roadmap_cta_button">
         Scrivici
       </a>
     </div>

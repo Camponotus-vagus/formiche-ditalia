@@ -378,8 +378,98 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     antennae: lang === 'it' ? 'Antenne' : 'Antennae',
   };
 
+  // Renders the progress + diagnosis panels (shared between mobile top and desktop sidebar)
+  const renderStatusPanels = () => (
+    <>
+      {/* Component C: Progress bar */}
+      <div className="mb-4 p-4 rounded-xl border border-gray-200 bg-gray-50">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+            {lang === 'it' ? 'Progresso' : 'Progress'}
+            <InfoTip text={lang === 'it' ? 'Indica quanto l\'identificazione è avanzata in base ai caratteri selezionati e ai generi rimasti.' : 'Shows how far the identification has progressed based on selected characters and remaining genera.'} />
+          </span>
+          <span className="text-sm font-medium text-gray-700">{Math.round(progressInfo.progress * 100)}%</span>
+        </div>
+        <div className="w-full h-2.5 bg-gray-200 rounded-full overflow-hidden mb-2">
+          <div
+            className="h-full bg-forest-500 rounded-full transition-all duration-500"
+            style={{ width: `${Math.round(progressInfo.progress * 100)}%` }}
+          />
+        </div>
+        <div className="flex items-center justify-between">
+          <span className="text-sm text-gray-600">{progressInfo.progressLabel}</span>
+          <span className="text-xs text-gray-500">
+            {progressInfo.topCandidates} {lang === 'it' ? 'candidati probabili su' : 'likely candidates out of'} {progressInfo.totalGenera}
+          </span>
+        </div>
+      </div>
+
+      {/* Component B: Diagnosis panel */}
+      {selectedStates.length > 0 && (
+        <div className="mb-4 p-4 rounded-xl border border-gray-200 bg-white">
+          <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 block mb-2">
+            {lang === 'it' ? 'Diagnosi' : 'Diagnosis'}
+            <InfoTip text={lang === 'it' ? 'Mostra quanto è sicura l\'identificazione e suggerisce il prossimo carattere da osservare.' : 'Shows how confident the identification is and suggests the next character to observe.'} />
+          </span>
+          <div className="flex items-start gap-2 mb-2">
+            <span className={`inline-block w-3 h-3 rounded-full mt-0.5 flex-shrink-0 ${
+              gapInfo.confidenceLevel === 'high' ? 'bg-green-500' :
+              gapInfo.confidenceLevel === 'medium' ? 'bg-yellow-500' : 'bg-red-500'
+            }`} />
+            <p className="text-sm text-gray-700">
+              {scoredGenera.length < 2 ? (
+                lang === 'it'
+                  ? 'Un solo genere rimasto — identificazione completa!'
+                  : 'Only one genus remaining — identification complete!'
+              ) : gapInfo.confidenceLevel === 'high' ? (
+                lang === 'it'
+                  ? <><button type="button" className="font-semibold italic text-forest-600 hover:underline cursor-pointer" onClick={() => { const el = document.getElementById(`genus-card-${gapInfo.top?.id}`); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }}>{gapInfo.top?.scientific_name}</button> è il candidato più probabile (distacco: {Math.round(gapInfo.gap * 100)}%)</>
+                  : <><button type="button" className="font-semibold italic text-forest-600 hover:underline cursor-pointer" onClick={() => { const el = document.getElementById(`genus-card-${gapInfo.top?.id}`); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }}>{gapInfo.top?.scientific_name}</button> is the most likely candidate (gap: {Math.round(gapInfo.gap * 100)}%)</>
+              ) : gapInfo.confidenceLevel === 'medium' ? (
+                lang === 'it'
+                  ? <>Alcuni generi ancora in competizione — seleziona altri caratteri</>
+                  : <>Several genera still competing — select more characters</>
+              ) : (
+                lang === 'it'
+                  ? <>Molti generi ancora compatibili — continua a selezionare caratteri</>
+                  : <>Many genera still compatible — keep selecting characters</>
+              )}
+            </p>
+          </div>
+          {suggestedCharDetail && scoredGenera.length >= 2 && (
+            <button
+              onClick={() => {
+                const el = document.getElementById(`char-${bestCharacterId}`);
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+              }}
+              className="text-sm text-forest-600 hover:text-forest-800 hover:underline text-left mt-1 cursor-pointer"
+            >
+              {lang === 'it' ? '→ Prossimo passo:' : '→ Next step:'}{' '}
+              <span className="font-medium">{suggestedCharDetail.charName}</span>
+              {suggestedCharDetail.genus1 && suggestedCharDetail.genus2 && (
+                <>
+                  {' '}{lang === 'it' ? '(distingue' : '(distinguishes'}{' '}
+                  <button type="button" className="italic text-forest-600 hover:underline cursor-pointer" onClick={(e) => { e.stopPropagation(); const el = document.getElementById(`genus-card-${scoredGenera[0]?.genus.id}`); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }}>{suggestedCharDetail.genus1}</button>
+                  {' '}{lang === 'it' ? 'da' : 'from'}{' '}
+                  <button type="button" className="italic text-forest-600 hover:underline cursor-pointer" onClick={(e) => { e.stopPropagation(); const el = document.getElementById(`genus-card-${scoredGenera[1]?.genus.id}`); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }}>{suggestedCharDetail.genus2}</button>)
+                </>
+              )}
+            </button>
+          )}
+        </div>
+      )}
+    </>
+  );
+
   return (
     <div className="flex flex-col lg:flex-row gap-8">
+      {/* Mobile: show status panels at top, before characters */}
+      <div className="lg:hidden">
+        {renderStatusPanels()}
+      </div>
+
       {/* Character selector panel */}
       <div className="lg:w-1/2">
         <div className="mb-6">
@@ -536,85 +626,10 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
 
       {/* Results panel */}
       <div className="lg:w-1/2">
-        {/* Component C: Progress bar */}
-        <div className="mb-4 p-4 rounded-xl border border-gray-200 bg-gray-50">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">
-              {lang === 'it' ? 'Progresso' : 'Progress'}
-              <InfoTip text={lang === 'it' ? 'Indica quanto l\'identificazione è avanzata in base ai caratteri selezionati e ai generi rimasti.' : 'Shows how far the identification has progressed based on selected characters and remaining genera.'} />
-            </span>
-            <span className="text-sm font-medium text-gray-700">{Math.round(progressInfo.progress * 100)}%</span>
-          </div>
-          <div className="w-full h-2.5 bg-gray-200 rounded-full overflow-hidden mb-2">
-            <div
-              className="h-full bg-forest-500 rounded-full transition-all duration-500"
-              style={{ width: `${Math.round(progressInfo.progress * 100)}%` }}
-            />
-          </div>
-          <div className="flex items-center justify-between">
-            <span className="text-sm text-gray-600">{progressInfo.progressLabel}</span>
-            <span className="text-xs text-gray-500">
-              {progressInfo.topCandidates} {lang === 'it' ? 'candidati probabili su' : 'likely candidates out of'} {progressInfo.totalGenera}
-            </span>
-          </div>
+        {/* Desktop: show status panels here */}
+        <div className="hidden lg:block">
+          {renderStatusPanels()}
         </div>
-
-        {/* Component B: Diagnosis panel */}
-        {selectedStates.length > 0 && (
-          <div className="mb-4 p-4 rounded-xl border border-gray-200 bg-white">
-            <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 block mb-2">
-              {lang === 'it' ? 'Diagnosi' : 'Diagnosis'}
-              <InfoTip text={lang === 'it' ? 'Mostra quanto è sicura l\'identificazione e suggerisce il prossimo carattere da osservare.' : 'Shows how confident the identification is and suggests the next character to observe.'} />
-            </span>
-            <div className="flex items-start gap-2 mb-2">
-              <span className={`inline-block w-3 h-3 rounded-full mt-0.5 flex-shrink-0 ${
-                gapInfo.confidenceLevel === 'high' ? 'bg-green-500' :
-                gapInfo.confidenceLevel === 'medium' ? 'bg-yellow-500' : 'bg-red-500'
-              }`} />
-              <p className="text-sm text-gray-700">
-                {scoredGenera.length < 2 ? (
-                  lang === 'it'
-                    ? 'Un solo genere rimasto — identificazione completa!'
-                    : 'Only one genus remaining — identification complete!'
-                ) : gapInfo.confidenceLevel === 'high' ? (
-                  lang === 'it'
-                    ? <><span className="font-semibold italic">{gapInfo.top?.scientific_name}</span> è il candidato più probabile (distacco: {Math.round(gapInfo.gap * 100)}%)</>
-                    : <><span className="font-semibold italic">{gapInfo.top?.scientific_name}</span> is the most likely candidate (gap: {Math.round(gapInfo.gap * 100)}%)</>
-                ) : gapInfo.confidenceLevel === 'medium' ? (
-                  lang === 'it'
-                    ? <>Alcuni generi ancora in competizione — seleziona altri caratteri</>
-                    : <>Several genera still competing — select more characters</>
-                ) : (
-                  lang === 'it'
-                    ? <>Molti generi ancora compatibili — continua a selezionare caratteri</>
-                    : <>Many genera still compatible — keep selecting characters</>
-                )}
-              </p>
-            </div>
-            {suggestedCharDetail && scoredGenera.length >= 2 && (
-              <button
-                onClick={() => {
-                  const el = document.getElementById(`char-${bestCharacterId}`);
-                  if (el) {
-                    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                  }
-                }}
-                className="text-sm text-forest-600 hover:text-forest-800 hover:underline text-left mt-1 cursor-pointer"
-              >
-                {lang === 'it' ? '→ Prossimo passo:' : '→ Next step:'}{' '}
-                <span className="font-medium">{suggestedCharDetail.charName}</span>
-                {suggestedCharDetail.genus1 && suggestedCharDetail.genus2 && (
-                  <>
-                    {' '}{lang === 'it' ? '(distingue' : '(distinguishes'}{' '}
-                    <span className="italic">{suggestedCharDetail.genus1}</span>
-                    {' '}{lang === 'it' ? 'da' : 'from'}{' '}
-                    <span className="italic">{suggestedCharDetail.genus2}</span>)
-                  </>
-                )}
-              </button>
-            )}
-          </div>
-        )}
 
         {scoredGenera.length === 0 ? (
           <div className="text-center py-12 text-gray-500">
@@ -636,6 +651,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
             {scoredGenera.map(({ genus, score, mismatches }) => (
               <a
                 key={genus.id}
+                id={`genus-card-${genus.id}`}
                 href={`/generi/${genus.id}`}
                 className="group block p-4 rounded-xl border border-gray-200 hover:border-forest-400 hover:shadow-md transition-all"
               >

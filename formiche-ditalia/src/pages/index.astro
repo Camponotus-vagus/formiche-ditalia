@@ -53,8 +53,22 @@ const carouselGenera = generaWithPhotos
             </a>
           </div>
         </div>
+        <!-- Desktop: carousel interattivo -->
         <div class="hidden lg:block pb-10">
           <HeroCarousel client:load genera={carouselGenera} intervalMs={4000} />
+        </div>
+        <!-- Mobile/tablet: griglia statica di specimen -->
+        <div class="lg:hidden mt-8">
+          <div class="grid grid-cols-3 gap-2 max-w-sm mx-auto">
+            {carouselGenera.slice(0, 6).map((g: any) => (
+              <a href={`/generi/${g.id}`} class="relative rounded-xl overflow-hidden aspect-square shadow-md hover:shadow-lg transition-shadow">
+                <img src={g.photo_url} alt={g.scientific_name} class="w-full h-full object-cover" loading="lazy" />
+                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-1.5">
+                  <p class="text-[10px] font-medium text-white italic truncate">{g.scientific_name}</p>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -100,7 +114,7 @@ const carouselGenera = generaWithPhotos
             <svg class="w-7 h-7 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
           </div>
           <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="home_card_experts_title">Esperti</h3>
-          <p class="text-gray-600 leading-relaxed" data-i18n="home_card_experts_desc">Rete di 9 mirmecologi italiani con profilo accademico, pubblicazioni e aree di specializzazione.</p>
+          <p class="text-gray-600 leading-relaxed" data-i18n="home_card_experts_desc">Rete di 11 mirmecologi italiani con profilo accademico, pubblicazioni e aree di specializzazione.</p>
           <span class="inline-flex items-center text-sm font-semibold text-gray-600 mt-4 group-hover:gap-2 transition-all">
             <span data-i18n="home_card_experts_cta">Scopri gli esperti</span>
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
@@ -136,7 +150,7 @@ const carouselGenera = generaWithPhotos
             </div>
             <div class="p-4">
               <h3 class="text-lg font-bold text-gray-900 italic">{genus.scientific_name}</h3>
-              <p class="text-sm text-gray-500 mt-0.5">{genus.species_count_italy} {genus.species_count_italy === 1 ? 'specie' : 'specie'} a Roma</p>
+              <p class="text-sm text-gray-500 mt-0.5">{genus.species_count_italy} specie in Italia</p>
             </div>
           </a>
         ))}
@@ -184,6 +198,21 @@ const carouselGenera = generaWithPhotos
           <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="home_step3_title">Identifica il genere</h3>
           <p class="text-gray-600 leading-relaxed" data-i18n="home_step3_desc">I generi compatibili vengono ordinati per punteggio. Anche con qualche errore, il risultato corretto resta in evidenza.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ BANNER ESPANSIONE SPECIE ═══════ -->
+  <section class="py-6 bg-brand-50 border-y border-brand-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+        </div>
+        <p class="text-sm text-gray-700" data-i18n="home_expansion_notice">
+          <strong class="text-brand-700">Il catalogo cresce!</strong> Attualmente copriamo le 75 specie di Roma. Stiamo lavorando per includere tutte le 267+ specie italiane dalla checklist Schifani 2022.
+        </p>
+        <a href="/sviluppi" class="text-sm text-brand-600 font-medium hover:text-brand-700 whitespace-nowrap" data-i18n="home_expansion_link">Scopri di piu</a>
       </div>
     </div>
   </section>

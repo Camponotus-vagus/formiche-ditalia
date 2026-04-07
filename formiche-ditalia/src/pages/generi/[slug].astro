@@ -63,7 +63,10 @@ const structuredData = {
       <div class="mb-8">
         <ImageLightbox
           client:load
-          images={genus.photo_urls.map((url) => ({ src: url, alt: `${genus.scientific_name} specimen` }))}
+          images={genus.photo_urls.map((url, i) => {
+            const views = ['vista frontale (testa)', 'vista laterale (profilo)', 'vista dorsale'];
+            return { src: url, alt: `${genus.scientific_name}, ${views[i] || 'specimen'}` };
+          })}
         />
       </div>
     )}
@@ -99,7 +102,7 @@ const structuredData = {
       {genus.diagnostic_characters && (
         <div class="bg-gray-50 rounded-lg p-4">
           <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1" data-i18n="genus_diagnostic">Caratteri diagnostici</h3>
-          <p class="text-gray-700">{genus.diagnostic_characters}</p>
+          <p class="text-gray-700" data-i18n-field="diagnostic_characters" data-it={(genus as any).diagnostic_characters_it} data-en={(genus as any).diagnostic_characters_en || genus.diagnostic_characters}>{(genus as any).diagnostic_characters_it || genus.diagnostic_characters}</p>
         </div>
       )}
     </div>

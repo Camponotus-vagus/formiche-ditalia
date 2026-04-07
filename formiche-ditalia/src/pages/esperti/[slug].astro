@@ -123,7 +123,7 @@ const expertGenera = generaData.filter((g: any) =>
           <span data-i18n="experts_verified">Profilo verificato</span>
         </span>
       ) : (
-        <a href={`mailto:formicheditalia@gmail.com?subject=${encodeURIComponent('Rivendica profilo: ' + expert.name)}&body=${encodeURIComponent('Salve,\n\nvorrei rivendicare il mio profilo su Formiche d\'Italia.\n\nNome: ' + expert.name + '\nPagina: https://formiche-ditalia.vercel.app/esperti/' + expert.id + '\n\nGrazie')}`} class="inline-flex items-center px-4 py-2 rounded-lg bg-brand-600 text-white font-medium hover:bg-brand-700 transition-colors">
+        <a href={`mailto:info@formicheditalia.it?subject=${encodeURIComponent('Rivendica profilo: ' + expert.name)}&body=${encodeURIComponent('Salve,\n\nvorrei rivendicare il mio profilo su Formiche d\'Italia.\n\nNome: ' + expert.name + '\nPagina: https://formicheditalia.it/esperti/' + expert.id + '\n\nGrazie')}`} class="inline-flex items-center px-4 py-2 rounded-lg bg-brand-600 text-white font-medium hover:bg-brand-700 transition-colors">
           <span data-i18n="experts_claim">Rivendica il tuo profilo</span>
         </a>
       )}
