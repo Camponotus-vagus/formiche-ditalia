@@ -1,5 +1,9 @@
 # Formiche d'Italia
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.PLACEHOLDER.svg)](https://doi.org/10.5281/zenodo.PLACEHOLDER)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fformicheditalia.it)](https://formicheditalia.it)
+
 The first Italian platform for ant identification. Live at **[formicheditalia.it](https://formicheditalia.it)**
 
 ## Features
