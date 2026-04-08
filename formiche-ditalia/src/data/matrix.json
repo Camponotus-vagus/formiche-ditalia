@@ -3395,5 +3395,194 @@
     "state_values": [
       "0"
     ]
+  },
+  {
+    "genus_id": "nylanderia",
+    "character_id": "gen-33",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "nylanderia",
+    "character_id": "gen-34",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "nylanderia",
+    "character_id": "gen-35",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "nylanderia",
+    "character_id": "gen-36",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "nylanderia",
+    "character_id": "gen-37",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "nylanderia",
+    "character_id": "gen-38",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "nylanderia",
+    "character_id": "gen-39",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "nylanderia",
+    "character_id": "gen-40",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "paratrechina",
+    "character_id": "gen-33",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "paratrechina",
+    "character_id": "gen-34",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "paratrechina",
+    "character_id": "gen-35",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "paratrechina",
+    "character_id": "gen-36",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "paratrechina",
+    "character_id": "gen-37",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "paratrechina",
+    "character_id": "gen-38",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "paratrechina",
+    "character_id": "gen-39",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "paratrechina",
+    "character_id": "gen-40",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "dorylus",
+    "character_id": "gen-3",
+    "state_values": [
+      "4"
+    ]
+  },
+  {
+    "genus_id": "dorylus",
+    "character_id": "gen-4",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "dorylus",
+    "character_id": "gen-6",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "dorylus",
+    "character_id": "gen-7",
+    "state_values": [
+      "3"
+    ]
+  },
+  {
+    "genus_id": "dorylus",
+    "character_id": "gen-13",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "dorylus",
+    "character_id": "gen-14",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "brachyponera",
+    "character_id": "gen-21",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "brachyponera",
+    "character_id": "gen-22",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "brachyponera",
+    "character_id": "gen-23",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "brachyponera",
+    "character_id": "gen-24",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "brachyponera",
+    "character_id": "gen-25",
+    "state_values": [
+      "0"
+    ]
   }
 ]
