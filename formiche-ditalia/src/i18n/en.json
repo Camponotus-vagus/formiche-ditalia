@@ -114,7 +114,7 @@
   "anatomy_cta_title": "Ready to try the key?",
   "anatomy_cta_desc": "Use the characters you've learned to identify an ant genus.",
   "anatomy_cta_button": "Open the key",
-  "home_expansion_notice": "The catalog is growing! We currently cover the 75 species from Rome. We're working to include all 267+ Italian species from the Schifani 2022 checklist.",
+  "home_expansion_notice": "The catalog is growing! We currently cover 80 species from Rome. We're working to include all 267+ Italian species from the Schifani 2022 checklist.",
   "home_expansion_link": "Learn more",
   "lang_switch": "Italiano",
   "footer_cite": "To cite: Mensa F.S. (2026). Formiche d'Italia. formicheditalia.it",
@@ -271,7 +271,7 @@
   "methods_images_desc": "Specimens from AntWeb.org (California Academy of Sciences, CC BY-SA 3.0). Anatomical illustrations by Maurizio Mei.",
   "methods_label_matrix": "The data",
   "methods_matrix_title": "Character matrix",
-  "methods_matrix_desc": "The key uses a matrix of <strong class=\"text-gray-800\">40 morphological characters</strong> for 43 genera. Each character is classified by:",
+  "methods_matrix_desc": "The key uses a matrix of <strong class=\"text-gray-800\">39 morphological characters</strong> for 43 genera. Each character is classified by:",
   "methods_matrix_region": "<strong class=\"text-gray-800\">Body region</strong>: head, thorax (mesosoma), petiole, gaster, legs, antennae",
   "methods_matrix_difficulty": "<strong class=\"text-gray-800\">Observation difficulty</strong>: easy, medium, hard",
   "methods_matrix_scope": "<strong class=\"text-gray-800\">Taxonomic scope</strong>: some characters are specific to a single subfamily",
@@ -445,7 +445,7 @@
   "roadmap_v1_anatomy": "Interactive anatomy",
   "roadmap_v1_anatomy_desc": "Anatomy glossary with 31 structures and original illustrations",
   "roadmap_v11_lazio": "Expansion to Lazio species",
-  "roadmap_v11_lazio_desc": "From 75 species (Rome) to approximately 100-130 (Lazio), as an intermediate step toward the full Italian fauna",
+  "roadmap_v11_lazio_desc": "From 80 species (Rome) to approximately 100-130 (Lazio), as an intermediate step toward the full Italian fauna",
   "roadmap_v11_new_records": "New Italian records",
   "roadmap_v11_new_records_desc": "Add Nylanderia vividula, Brachyponera chinensis and new post-2022 Temnothorax"
 }

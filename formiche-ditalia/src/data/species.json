@@ -1819,7 +1819,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/nylanderia-jaegerskioeldi/head.jpg",
+      "/images/specie/nylanderia-jaegerskioeldi/profile.jpg",
+      "/images/specie/nylanderia-jaegerskioeldi/dorsal.jpg"
+    ],
     "synonyms": [
       "Prenolepis jaegerskioeldi"
     ],
@@ -1841,7 +1845,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/nylanderia-vividula/head.jpg",
+      "/images/specie/nylanderia-vividula/profile.jpg",
+      "/images/specie/nylanderia-vividula/dorsal.jpg"
+    ],
     "synonyms": [
       "Prenolepis vividula"
     ],
@@ -1863,7 +1871,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/paratrechina-longicornis/head.jpg",
+      "/images/specie/paratrechina-longicornis/profile.jpg",
+      "/images/specie/paratrechina-longicornis/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Paratrechina&species=longicornis&rank=species",
     "antcat_url": null,
@@ -1883,7 +1895,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/dorylus-fulvus/head.jpg",
+      "/images/specie/dorylus-fulvus/profile.jpg",
+      "/images/specie/dorylus-fulvus/dorsal.jpg"
+    ],
     "synonyms": [],
     "antweb_url": "https://www.antweb.org/browse.do?genus=Dorylus&species=fulvus&rank=species",
     "antcat_url": null,
@@ -1903,7 +1919,11 @@
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
-    "photo_urls": [],
+    "photo_urls": [
+      "/images/specie/brachyponera-chinensis/head.jpg",
+      "/images/specie/brachyponera-chinensis/profile.jpg",
+      "/images/specie/brachyponera-chinensis/dorsal.jpg"
+    ],
     "synonyms": [
       "Pachycondyla chinensis"
     ],

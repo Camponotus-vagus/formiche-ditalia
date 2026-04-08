@@ -114,7 +114,7 @@
   "anatomy_cta_title": "Pronto a provare la chiave?",
   "anatomy_cta_desc": "Usa i caratteri che hai imparato per identificare un genere di formica.",
   "anatomy_cta_button": "Apri la chiave",
-  "home_expansion_notice": "Il catalogo cresce! Attualmente copriamo le 75 specie di Roma. Stiamo lavorando per includere tutte le 267+ specie italiane dalla checklist Schifani 2022.",
+  "home_expansion_notice": "Il catalogo cresce! Attualmente copriamo 80 specie di Roma. Stiamo lavorando per includere tutte le 267+ specie italiane dalla checklist Schifani 2022.",
   "home_expansion_link": "Scopri di più",
   "lang_switch": "English",
   "footer_cite": "Per citare: Mensa F.S. (2026). Formiche d'Italia. formicheditalia.it",
@@ -271,7 +271,7 @@
   "methods_images_desc": "Specimen da AntWeb.org (California Academy of Sciences, CC BY-SA 3.0). Illustrazioni anatomiche di Maurizio Mei.",
   "methods_label_matrix": "I dati",
   "methods_matrix_title": "Matrice di caratteri",
-  "methods_matrix_desc": "La chiave utilizza una matrice a <strong class=\"text-gray-800\">40 caratteri morfologici</strong> per 43 generi. Ogni carattere è classificato per:",
+  "methods_matrix_desc": "La chiave utilizza una matrice a <strong class=\"text-gray-800\">39 caratteri morfologici</strong> per 43 generi. Ogni carattere è classificato per:",
   "methods_matrix_region": "<strong class=\"text-gray-800\">Regione del corpo</strong>: testa, torace (mesosoma), peziolo, gastro, zampe, antenne",
   "methods_matrix_difficulty": "<strong class=\"text-gray-800\">Difficoltà di osservazione</strong>: facile, medio, difficile",
   "methods_matrix_scope": "<strong class=\"text-gray-800\">Ambito tassonomico</strong>: alcuni caratteri sono specifici per una sottofamiglia",
@@ -445,7 +445,7 @@
   "roadmap_v1_anatomy": "Anatomia interattiva",
   "roadmap_v1_anatomy_desc": "Glossario anatomico con 31 strutture e illustrazioni originali",
   "roadmap_v11_lazio": "Espansione a specie del Lazio",
-  "roadmap_v11_lazio_desc": "Da 75 specie (Roma) a circa 100-130 (Lazio), come step intermedio verso l'intera fauna italiana",
+  "roadmap_v11_lazio_desc": "Da 80 specie (Roma) a circa 100-130 (Lazio), come step intermedio verso l'intera fauna italiana",
   "roadmap_v11_new_records": "Nuovi record italiani",
   "roadmap_v11_new_records_desc": "Aggiungere Nylanderia vividula, Brachyponera chinensis e le nuove Temnothorax post-2022"
 }
