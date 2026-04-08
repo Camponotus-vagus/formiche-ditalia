@@ -8,13 +8,15 @@ The first Italian platform for ant identification. Live at **[formicheditalia.it
 
 ## Features
 
-- **Interactive multi-access key** for 39 Italian ant genera (7 subfamilies) with Shannon entropy-weighted scoring
-- **Species catalog** of 75 species documented in Rome (expanding to 267+ Italian species)
+- **Interactive multi-access key** for 43 Italian ant genera (8 subfamilies) with Shannon entropy-weighted scoring
+- **Species catalog** of 80 species documented in Rome (75 from thesis + 5 additions; expanding to 267+ Italian species)
 - **Expert directory** of 11 Italian myrmecologists
 - **Interactive anatomy glossary** with 31 clickable terms and original illustrations
-- **Bilingual** (Italian/English) with 200+ translation keys
+- **Bilingual** (Italian/English) with 441 translation keys
 - **PWA** with offline identification key support
 - **100% specimen photo coverage** from AntWeb.org (CC BY-SA 3.0)
+- **Contact form** with Web3Forms integration and honeypot spam protection
+- **GDPR-compliant** privacy policy and cookie banner
 
 ## The identification algorithm
 
@@ -51,7 +53,7 @@ docs/                   # Research documentation
 cd formiche-ditalia
 npm install
 npm run dev             # Dev server at localhost:4321
-npm run build           # Static build (138 pages)
+npm run build           # Static build (147 pages)
 ```
 
 ## Data provenance
@@ -65,7 +67,7 @@ npm run build           # Static build (138 pages)
 
 ```
 Mensa, F.S. (2026). Formiche d'Italia — Interactive platform for the identification
-of Italian ant genera. https://formicheditalia.it
+of Italian ant genera. https://formicheditalia.it. DOI: 10.5281/zenodo.19455116
 ```
 
 ## License
