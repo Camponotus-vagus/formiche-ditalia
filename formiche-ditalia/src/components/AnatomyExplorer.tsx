@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { getLang, type Lang } from '../i18n';
+import AnatomyView from './AnatomyView';
+import type { AnatomyPathsData, AnatomyViewId } from '../types';
 
 interface AnatomyTerm {
   id: string;
   label_it: string;
   label_en: string;
-  image: string;
 }
 
 interface KeyCharacter {
@@ -29,22 +30,22 @@ const REGIONS: BodyRegion[] = [
     label_it: 'Capo',
     label_en: 'Head',
     terms: [
-      { id: 'antenna', label_it: 'Antenna', label_en: 'Antenna', image: 'antenna.png' },
-      { id: 'antennal-club', label_it: 'Clava antennale', label_en: 'Antennal club', image: 'antennal-club.png' },
-      { id: 'antennal-socket', label_it: 'Torulo antennale', label_en: 'Antennal socket', image: 'antennal-socket.png' },
-      { id: 'clypeus', label_it: 'Clipeo', label_en: 'Clypeus', image: 'clypeus.png' },
-      { id: 'clypeal-socket', label_it: 'Fossetta clipeale', label_en: 'Clypeal socket', image: 'clypeal-socket.png' },
-      { id: 'compound-eye', label_it: 'Occhio composto', label_en: 'Compound eye', image: 'compound-eye.png' },
-      { id: 'frontal-carina', label_it: 'Carena frontale', label_en: 'Frontal carina', image: 'frontal-carina.png' },
-      { id: 'frontal-lobe', label_it: 'Lobo frontale', label_en: 'Frontal lobe', image: 'frontal-lobe.png' },
-      { id: 'frontal-triangle', label_it: 'Triangolo frontale', label_en: 'Frontal triangle', image: 'frontal-triangle.png' },
-      { id: 'funiculus', label_it: 'Funicolo', label_en: 'Funiculus', image: 'funiculus.png' },
-      { id: 'mandible', label_it: 'Mandibola', label_en: 'Mandible', image: 'mandible.png' },
-      { id: 'labial-palp', label_it: 'Palpo labiale', label_en: 'Labial palp', image: 'labial-palp.png' },
-      { id: 'maxillary-palp', label_it: 'Palpo mascellare', label_en: 'Maxillary palp', image: 'maxillary-palp.png' },
-      { id: 'ocelli', label_it: 'Ocelli', label_en: 'Ocelli', image: 'ocelli.png' },
-      { id: 'scape', label_it: 'Scapo', label_en: 'Scape', image: 'scape.png' },
-      { id: 'scrobe', label_it: 'Scrobo antennale', label_en: 'Scrobe', image: 'scrobe.png' },
+      { id: 'antenna', label_it: 'Antenna', label_en: 'Antenna' },
+      { id: 'antennal-club', label_it: 'Clava antennale', label_en: 'Antennal club' },
+      { id: 'antennal-socket', label_it: 'Torulo antennale', label_en: 'Antennal socket' },
+      { id: 'clypeus', label_it: 'Clipeo', label_en: 'Clypeus' },
+      { id: 'clypeal-socket', label_it: 'Fossetta clipeale', label_en: 'Clypeal socket' },
+      { id: 'compound-eye', label_it: 'Occhio composto', label_en: 'Compound eye' },
+      { id: 'frontal-carina', label_it: 'Carena frontale', label_en: 'Frontal carina' },
+      { id: 'frontal-lobe', label_it: 'Lobo frontale', label_en: 'Frontal lobe' },
+      { id: 'frontal-triangle', label_it: 'Triangolo frontale', label_en: 'Frontal triangle' },
+      { id: 'funiculus', label_it: 'Funicolo', label_en: 'Funiculus' },
+      { id: 'mandible', label_it: 'Mandibola', label_en: 'Mandible' },
+      { id: 'labial-palp', label_it: 'Palpo labiale', label_en: 'Labial palp' },
+      { id: 'maxillary-palp', label_it: 'Palpo mascellare', label_en: 'Maxillary palp' },
+      { id: 'ocelli', label_it: 'Ocelli', label_en: 'Ocelli' },
+      { id: 'scape', label_it: 'Scapo', label_en: 'Scape' },
+      { id: 'scrobe', label_it: 'Scrobo antennale', label_en: 'Scrobe' },
     ],
     characters: [],
   },
@@ -53,16 +54,16 @@ const REGIONS: BodyRegion[] = [
     label_it: 'Mesosoma (torace)',
     label_en: 'Mesosoma (thorax)',
     terms: [
-      { id: 'mesosoma', label_it: 'Mesosoma', label_en: 'Mesosoma', image: 'mesosoma.png' },
-      { id: 'pronotum', label_it: 'Pronoto', label_en: 'Pronotum', image: 'pronotum.png' },
-      { id: 'mesonotum', label_it: 'Mesonoto', label_en: 'Mesonotum', image: 'mesonotum.png' },
-      { id: 'metanotum', label_it: 'Metanoto', label_en: 'Metanotum', image: 'metanotum.png' },
-      { id: 'metanotal-impression', label_it: 'Impressione metanotale', label_en: 'Metanotal impression', image: 'metanotal-impression.png' },
-      { id: 'propodeum', label_it: 'Propodeo', label_en: 'Propodeum', image: 'propodeum.png' },
-      { id: 'propodeal-spine', label_it: 'Spina propodeale', label_en: 'Propodeal spine', image: 'propodeal-spine.png' },
-      { id: 'propodeal-lobe', label_it: 'Lobo propodeale', label_en: 'Propodeal lobe', image: 'propodeal-lobe.png' },
-      { id: 'metapleural-gland', label_it: 'Orifizio ghiandola metapleurale', label_en: 'Orifice of metapleural gland', image: 'orifice-of-metapleural-gland.png' },
-      { id: 'apical-spur', label_it: 'Sperone apicale della tibia', label_en: 'Apical spur of tibia', image: 'apical-spur-of-tibia.png' },
+      { id: 'mesosoma', label_it: 'Mesosoma', label_en: 'Mesosoma' },
+      { id: 'pronotum', label_it: 'Pronoto', label_en: 'Pronotum' },
+      { id: 'mesonotum', label_it: 'Mesonoto', label_en: 'Mesonotum' },
+      { id: 'metanotum', label_it: 'Metanoto', label_en: 'Metanotum' },
+      { id: 'metanotal-impression', label_it: 'Impressione metanotale', label_en: 'Metanotal impression' },
+      { id: 'propodeum', label_it: 'Propodeo', label_en: 'Propodeum' },
+      { id: 'propodeal-spine', label_it: 'Spina propodeale', label_en: 'Propodeal spine' },
+      { id: 'propodeal-lobe', label_it: 'Lobo propodeale', label_en: 'Propodeal lobe' },
+      { id: 'metapleural-gland', label_it: 'Orifizio ghiandola metapleurale', label_en: 'Orifice of metapleural gland' },
+      { id: 'apical-spur', label_it: 'Sperone apicale della tibia', label_en: 'Apical spur of tibia' },
     ],
     characters: [],
   },
@@ -71,8 +72,8 @@ const REGIONS: BodyRegion[] = [
     label_it: 'Vita (peziolo)',
     label_en: 'Waist (petiole)',
     terms: [
-      { id: 'petiole', label_it: 'Peziolo', label_en: 'Petiole', image: 'petiole.png' },
-      { id: 'postpetiole', label_it: 'Postpeziolo', label_en: 'Postpetiole', image: 'postpetiole.png' },
+      { id: 'petiole', label_it: 'Peziolo', label_en: 'Petiole' },
+      { id: 'postpetiole', label_it: 'Postpeziolo', label_en: 'Postpetiole' },
     ],
     characters: [],
   },
@@ -81,9 +82,9 @@ const REGIONS: BodyRegion[] = [
     label_it: 'Gastro',
     label_en: 'Gaster',
     terms: [
-      { id: 'gaster', label_it: 'Gastro', label_en: 'Gaster', image: 'gaster.png' },
-      { id: 'cloacal-orifice', label_it: 'Orifizio cloacale', label_en: 'Cloacal orifice', image: 'cloacal-orifice.png' },
-      { id: 'sting', label_it: 'Pungiglione', label_en: 'Sting', image: 'sting.png' },
+      { id: 'gaster', label_it: 'Gastro', label_en: 'Gaster' },
+      { id: 'cloacal-orifice', label_it: 'Orifizio cloacale', label_en: 'Cloacal orifice' },
+      { id: 'sting', label_it: 'Pungiglione', label_en: 'Sting' },
     ],
     characters: [],
   },
@@ -97,14 +98,23 @@ const REGION_COLORS: Record<string, { bg: string; border: string; text: string; 
   gaster: { bg: 'bg-rose-50', border: 'border-rose-200', text: 'text-rose-800', activeBg: 'bg-rose-100' },
 };
 
+const viewRegionColors = {
+  head: { fill: 'rgba(16,185,129,0.25)', stroke: 'rgb(16,185,129)' },
+  mesosoma: { fill: 'rgba(56,189,248,0.25)', stroke: 'rgb(56,189,248)' },
+  waist: { fill: 'rgba(245,158,11,0.25)', stroke: 'rgb(245,158,11)' },
+  gaster: { fill: 'rgba(244,63,94,0.25)', stroke: 'rgb(244,63,94)' },
+};
+
 interface Props {
   characters?: { name_it: string; name_en: string; body_region: string; difficulty: string; states: { label_it: string }[] }[];
+  paths: AnatomyPathsData;
 }
 
-export default function AnatomyExplorer({ characters = [] }: Props) {
+export default function AnatomyExplorer({ characters = [], paths }: Props) {
   const [lang, setLang] = useState<Lang>('it');
-  const [activeTerm, setActiveTerm] = useState<AnatomyTerm | null>(null);
   const [openRegion, setOpenRegion] = useState<string | null>('head');
+  const [activeTerm, setActiveTerm] = useState<string | null>(null);
+  const [hoveredTerm, setHoveredTerm] = useState<string | null>(null);
 
   useEffect(() => {
     setLang(getLang());
@@ -132,10 +142,53 @@ export default function AnatomyExplorer({ characters = [] }: Props) {
       })),
   }));
 
+  const profileRef = useRef<HTMLDivElement>(null);
+  const headRef = useRef<HTMLDivElement>(null);
+  const dorsalRef = useRef<HTMLDivElement>(null);
+  const viewRefs: Record<AnatomyViewId, React.RefObject<HTMLDivElement | null>> = {
+    profile: profileRef,
+    head: headRef,
+    dorsal: dorsalRef,
+  };
+
+  const handleTermClick = useCallback((termId: string) => {
+    if (!termId || termId === activeTerm) {
+      setActiveTerm(null);
+      return;
+    }
+    setActiveTerm(termId);
+
+    // Auto-expand region in panel if collapsed
+    const region = paths[termId]?.region;
+    if (region && openRegion !== region) {
+      setOpenRegion(region);
+    }
+
+    // Mobile scroll-to-view
+    const termViews = Object.keys(paths[termId]?.views || {}) as AnatomyViewId[];
+    if (termViews.length > 0 && window.innerWidth < 1024) {
+      const primaryView = termViews.includes('profile') ? 'profile' : termViews[0];
+      viewRefs[primaryView]?.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, [activeTerm, paths, openRegion, viewRefs]);
+
+  const termLabels = useMemo(() => {
+    const map: Record<string, { it: string; en: string }> = {};
+    REGIONS.forEach(r => r.terms.forEach(t => {
+      map[t.id] = { it: t.label_it, en: t.label_en };
+    }));
+    return map;
+  }, []);
+
+  const activeViews = useMemo(() => {
+    if (!activeTerm || !paths[activeTerm]) return new Set<AnatomyViewId>();
+    return new Set(Object.keys(paths[activeTerm].views) as AnatomyViewId[]);
+  }, [activeTerm, paths]);
+
   return (
     <div className="flex flex-col lg:flex-row gap-6">
       {/* Left: Region cards with terms */}
-      <div className="lg:w-1/2 space-y-3">
+      <div className="lg:w-[40%] space-y-3">
         <p className="text-sm text-gray-500 mb-2">
           {lang === 'it'
             ? 'Clicca su un termine morfologico per vedere la parte evidenziata nell\'illustrazione.'
@@ -176,11 +229,11 @@ export default function AnatomyExplorer({ characters = [] }: Props) {
                       {region.terms.map(term => (
                         <button
                           key={term.id}
-                          onMouseEnter={() => setActiveTerm(term)}
-                          onMouseLeave={() => { if (activeTerm?.id === term.id) setActiveTerm(null); }}
-                          onClick={() => setActiveTerm(prev => prev?.id === term.id ? null : term)}
+                          onClick={() => handleTermClick(term.id)}
+                          onMouseEnter={() => setHoveredTerm(term.id)}
+                          onMouseLeave={() => setHoveredTerm(null)}
                           className={`text-xs px-3 py-1.5 rounded-lg border transition-all cursor-pointer ${
-                            activeTerm?.id === term.id
+                            activeTerm === term.id
                               ? `${colors.activeBg} ${colors.border} ${colors.text} font-semibold shadow-sm`
                               : 'border-gray-200 text-gray-600 hover:border-gray-300 hover:bg-gray-50'
                           }`}
@@ -226,37 +279,57 @@ export default function AnatomyExplorer({ characters = [] }: Props) {
         </div>
       </div>
 
-      {/* Right: Sticky image panel */}
-      <div className="lg:w-1/2 lg:sticky lg:top-20 lg:self-start">
-        <div className="bg-gray-50 rounded-2xl border border-gray-200 p-4 sm:p-6">
-          {activeTerm ? (
-            <>
-              <div className="mb-3 flex items-center gap-2">
-                <span className="text-sm font-bold text-forest-700">
-                  {lang === 'it' ? activeTerm.label_it : activeTerm.label_en}
-                </span>
-                <span className="text-xs text-gray-400">
-                  ({lang === 'it' ? activeTerm.label_en : activeTerm.label_it})
-                </span>
-              </div>
-              <img
-                src={`/images/anatomy/${activeTerm.image}`}
-                alt={`${lang === 'it' ? activeTerm.label_it : activeTerm.label_en} - evidenziato in rosso`}
-                className="w-full h-auto rounded-lg"
-              />
-            </>
-          ) : (
-            <>
-              <p className="text-xs text-gray-400 mb-3">
-                {lang === 'it' ? 'Seleziona un termine per evidenziare la struttura' : 'Select a term to highlight the structure'}
-              </p>
-              <img
-                src="/images/anatomy/profile.png"
-                alt={lang === 'it' ? 'Profilo di formica operaia con etichette anatomiche' : 'Worker ant profile with anatomical labels'}
-                className="w-full h-auto rounded-lg"
-              />
-            </>
-          )}
+      {/* Right: 3-view SVG overlay panel */}
+      <div className="lg:w-[60%] lg:sticky lg:top-20 lg:self-start space-y-3">
+        <div ref={profileRef}>
+          <AnatomyView
+            viewId="profile"
+            imageSrc="/images/anatomy/view-profile.png"
+            alt="Lateral profile"
+            paths={paths}
+            activeTerm={activeTerm}
+            hoveredTerm={hoveredTerm}
+            regionColors={viewRegionColors}
+            lang={lang}
+            termLabels={termLabels}
+            dimmed={activeTerm !== null && !activeViews.has('profile')}
+            onTermClick={handleTermClick}
+            onTermHover={setHoveredTerm}
+          />
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          <div ref={headRef}>
+            <AnatomyView
+              viewId="head"
+              imageSrc="/images/anatomy/view-head.png"
+              alt="Frontal head"
+              paths={paths}
+              activeTerm={activeTerm}
+              hoveredTerm={hoveredTerm}
+              regionColors={viewRegionColors}
+              lang={lang}
+              termLabels={termLabels}
+              dimmed={activeTerm !== null && !activeViews.has('head')}
+              onTermClick={handleTermClick}
+              onTermHover={setHoveredTerm}
+            />
+          </div>
+          <div ref={dorsalRef}>
+            <AnatomyView
+              viewId="dorsal"
+              imageSrc="/images/anatomy/view-dorsal.png"
+              alt="Dorsal view"
+              paths={paths}
+              activeTerm={activeTerm}
+              hoveredTerm={hoveredTerm}
+              regionColors={viewRegionColors}
+              lang={lang}
+              termLabels={termLabels}
+              dimmed={activeTerm !== null && !activeViews.has('dorsal')}
+              onTermClick={handleTermClick}
+              onTermHover={setHoveredTerm}
+            />
+          </div>
         </div>
       </div>
     </div>
