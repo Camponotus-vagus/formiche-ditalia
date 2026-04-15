@@ -723,6 +723,7 @@ canvasArea.addEventListener('mousedown', (e) => {
 
   // Drag a point
   if (target.classList.contains('trace-point') && target.dataset.term === currentTermId) {
+    pushUndo();
     draggingPointIdx = parseInt(target.dataset.idx);
     target.classList.add('dragging');
     e.preventDefault();
@@ -731,6 +732,7 @@ canvasArea.addEventListener('mousedown', (e) => {
 
   // Drag a label anchor
   if (target.classList.contains('label-anchor') && target.dataset.term === currentTermId) {
+    pushUndo();
     draggingLabel = true;
     e.preventDefault();
     return;
@@ -835,12 +837,10 @@ canvasArea.addEventListener('mouseup', (e) => {
     canvasContainer.classList.remove('panning');
   }
   if (draggingPointIdx >= 0) {
-    pushUndo();
     draggingPointIdx = -1;
     saveToLocalStorage();
   }
   if (draggingLabel) {
-    pushUndo();
     draggingLabel = false;
     saveToLocalStorage();
   }
@@ -848,6 +848,23 @@ canvasArea.addEventListener('mouseup', (e) => {
 
 canvasArea.addEventListener('contextmenu', (e) => {
   e.preventDefault();
+});
+
+// Clean up drag state if mouseup happens outside canvasArea
+document.addEventListener('mouseup', (e) => {
+  if (isPanning) {
+    isPanning = false;
+    panStart = null;
+    canvasContainer.classList.remove('panning');
+  }
+  if (draggingPointIdx >= 0) {
+    draggingPointIdx = -1;
+    render();
+  }
+  if (draggingLabel) {
+    draggingLabel = false;
+    render();
+  }
 });
 
 // Zoom with mouse wheel
@@ -1098,10 +1115,14 @@ function importJSON(data) {
       const points = parseSVGPath(viewData.path);
       if (points.length < 3) continue;
       if (!paths[termId]) paths[termId] = {};
+      let label = viewData.label || null;
+      if (label && !['start', 'middle', 'end'].includes(label.anchor)) {
+        label = { ...label, anchor: 'start' };
+      }
       paths[termId][viewId] = {
         points,
         closed: true,
-        label: viewData.label || null,
+        label,
       };
     }
   }
@@ -1134,9 +1155,9 @@ function saveToLocalStorage() {
       paths,
       images: {},
     };
-    // Save image metadata (not data URLs — too big for some cases)
+    // Save image metadata only (no data URLs — they hit localStorage quota)
     for (const [k, v] of Object.entries(images)) {
-      state.images[k] = { name: v.name, naturalWidth: v.naturalWidth, naturalHeight: v.naturalHeight, src: v.src };
+      state.images[k] = { name: v.name, naturalWidth: v.naturalWidth, naturalHeight: v.naturalHeight };
     }
     localStorage.setItem(LS_KEY, JSON.stringify(state));
     dirty = false;
@@ -1152,11 +1173,8 @@ function loadFromLocalStorage() {
     if (!raw) return;
     const state = JSON.parse(raw);
     if (state.paths) paths = state.paths;
-    if (state.images) {
-      for (const [k, v] of Object.entries(state.images)) {
-        images[k] = v;
-      }
-    }
+    // Images are not restored from localStorage (no data URLs saved).
+    // Only path data is restored — the user reloads images when resuming.
   } catch (e) {
     console.warn('Could not load from localStorage:', e);
   }
