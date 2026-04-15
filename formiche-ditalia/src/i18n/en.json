@@ -255,7 +255,7 @@
   "error_404_desc": "The page you are looking for does not exist or has been moved.",
   "error_404_home": "Back to homepage",
   "error_404_identify": "Identify an ant",
-  "anatomy_attribution": "Illustrations by Maurizio Mei, from the thesis <a href=\"https://www.researchgate.net/publication/330994606_Chiave_interattiva_per_il_riconoscimento_dei_generi_di_Formicidae_italiani_e_delle_specie_della_citta_di_Roma\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-forest-600 hover:underline\">\"Chiave interattiva per il riconoscimento dei generi di Formicidae italiani e delle specie della città di Roma\"</a> (Mensa, 2017). Highlighted parts in red.",
+  "anatomy_attribution": "Original illustrations by Francesco Simone Mensa, from the thesis <a href=\"https://www.researchgate.net/publication/330994606_Chiave_interattiva_per_il_riconoscimento_dei_generi_di_Formicidae_italiani_e_delle_specie_della_citta_di_Roma\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-forest-600 hover:underline\">\"Interactive key for the identification of Italian Formicidae genera and the species of the city of Rome\"</a> (Mensa, 2017).",
 
   "methods_title": "Methods",
   "methods_subtitle": "Technical documentation of the identification algorithm, data sources, and methodology underlying the platform.",

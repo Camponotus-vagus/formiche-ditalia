@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AnatomyExplorer from '../components/AnatomyExplorer.tsx';
 import characters from '../data/characters.json';
+import paths from '../data/anatomy-paths.json';
 ---
 
 <BaseLayout title="Anatomia della formica" description="Guida visuale all'anatomia della formica: le regioni del corpo e i caratteri morfologici usati per l'identificazione.">
@@ -19,17 +20,17 @@ import characters from '../data/characters.json';
   <!-- Glossario anatomico interattivo -->
   <section class="py-12 bg-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <AnatomyExplorer client:load characters={characters} />
+      <AnatomyExplorer client:load characters={characters} paths={paths} />
       <p class="text-center text-sm text-gray-400 mt-8" data-i18n="anatomy_attribution">
-        Illustrazioni di Maurizio Mei, dalla tesi
-        <a
-          href="https://www.researchgate.net/publication/330994606_Chiave_interattiva_per_il_riconoscimento_dei_generi_di_Formicidae_italiani_e_delle_specie_della_citta_di_Roma"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-forest-600 hover:underline"
-        >"Chiave interattiva per il riconoscimento dei generi di Formicidae italiani e delle specie della città di Roma"</a>
-        (Mensa, 2017). Parti evidenziate in rosso.
-      </p>
+  Illustrazioni originali di Francesco Simone Mensa, dalla tesi
+  <a
+    href="https://www.researchgate.net/publication/330994606_Chiave_interattiva_per_il_riconoscimento_dei_generi_di_Formicidae_italiani_e_delle_specie_della_citta_di_Roma"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="text-forest-600 hover:underline"
+  >"Chiave interattiva per il riconoscimento dei generi di Formicidae italiani e delle specie della città di Roma"</a>
+  (Mensa, 2017).
+</p>
     </div>
   </section>
 

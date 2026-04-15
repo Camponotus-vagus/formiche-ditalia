@@ -255,7 +255,7 @@
   "error_404_desc": "La pagina che stai cercando non esiste o è stata spostata.",
   "error_404_home": "Torna alla homepage",
   "error_404_identify": "Identifica una formica",
-  "anatomy_attribution": "Illustrazioni di Maurizio Mei, dalla tesi <a href=\"https://www.researchgate.net/publication/330994606_Chiave_interattiva_per_il_riconoscimento_dei_generi_di_Formicidae_italiani_e_delle_specie_della_citta_di_Roma\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-forest-600 hover:underline\">\"Chiave interattiva per il riconoscimento dei generi di Formicidae italiani e delle specie della città di Roma\"</a> (Mensa, 2017). Parti evidenziate in rosso.",
+  "anatomy_attribution": "Illustrazioni originali di Francesco Simone Mensa, dalla tesi <a href=\"https://www.researchgate.net/publication/330994606_Chiave_interattiva_per_il_riconoscimento_dei_generi_di_Formicidae_italiani_e_delle_specie_della_citta_di_Roma\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-forest-600 hover:underline\">\"Chiave interattiva per il riconoscimento dei generi di Formicidae italiani e delle specie della città di Roma\"</a> (Mensa, 2017).",
 
   "methods_title": "Metodi",
   "methods_subtitle": "Documentazione tecnica dell'algoritmo di identificazione, delle fonti dei dati e della metodologia alla base della piattaforma.",
