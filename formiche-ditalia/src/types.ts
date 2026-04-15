@@ -100,3 +100,23 @@ export interface Expert {
   h_index: number | null;
   claimed: boolean;
 }
+
+export interface AnatomyLabelPosition {
+  x: number;
+  y: number;
+  anchor: 'start' | 'middle' | 'end';
+}
+
+export interface AnatomyViewPath {
+  path: string;
+  label: AnatomyLabelPosition;
+}
+
+export type AnatomyViewId = 'profile' | 'head' | 'dorsal';
+
+export interface AnatomyTermPaths {
+  region: 'head' | 'mesosoma' | 'waist' | 'gaster';
+  views: Partial<Record<AnatomyViewId, AnatomyViewPath>>;
+}
+
+export type AnatomyPathsData = Record<string, AnatomyTermPaths>;

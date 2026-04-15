@@ -1,0 +1,11 @@
+{
+  "antenna": {
+    "region": "head",
+    "views": {
+      "profile": {
+        "path": "M 100,50 L 120,30 L 140,25 L 160,30 L 150,50 L 130,55 Z",
+        "label": { "x": 170, "y": 25, "anchor": "start" }
+      }
+    }
+  }
+}
