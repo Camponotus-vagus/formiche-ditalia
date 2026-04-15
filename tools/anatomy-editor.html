@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anatomy Path Tracing Editor — Formiche d'Italia</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0f172a; --bg2: #1e293b; --bg3: #334155;
+    --fg: #e2e8f0; --fg2: #94a3b8; --fg3: #64748b;
+    --accent: #38bdf8; --border: #475569;
+    --head: rgb(16,185,129); --mesosoma: rgb(56,189,248);
+    --waist: rgb(245,158,11); --gaster: rgb(244,63,94);
+  }
+  html, body { height: 100%; overflow: hidden; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--fg); display: flex; flex-direction: column; }
+  /* Toolbar */
+  #toolbar { display: flex; align-items: center; gap: 8px; padding: 6px 12px; background: var(--bg2); border-bottom: 1px solid var(--border); flex-shrink: 0; flex-wrap: wrap; }
+  #toolbar label { font-size: 12px; color: var(--fg2); }
+  #toolbar select, #toolbar button { font-size: 13px; padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border); background: var(--bg3); color: var(--fg); cursor: pointer; }
+  #toolbar select:focus, #toolbar button:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+  #toolbar button:hover { background: #475569; }
+  .toolbar-sep { width: 1px; height: 24px; background: var(--border); margin: 0 4px; }
+  /* Main layout */
+  #main { display: flex; flex: 1; overflow: hidden; }
+  /* Canvas area */
+  #canvas-area { flex: 1; position: relative; overflow: hidden; background: #0a0f1a; display: flex; align-items: center; justify-content: center; }
+  #canvas-container { position: relative; transform-origin: 0 0; cursor: crosshair; }
+  #canvas-container.panning { cursor: grab; }
+  #canvas-container img { display: block; width: 100%; height: 100%; user-select: none; -webkit-user-drag: none; }
+  #svg-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+  #svg-overlay * { pointer-events: auto; }
+  #drop-zone { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--fg2); font-size: 18px; gap: 12px; pointer-events: none; }
+  #drop-zone.has-image { display: none; }
+  #drop-zone-icon { font-size: 48px; opacity: 0.4; }
+  .drag-over #drop-zone { background: rgba(56,189,248,0.1); border: 2px dashed var(--accent); pointer-events: auto; }
+  /* Sidebar */
+  #sidebar { width: 280px; background: var(--bg2); border-left: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; flex-shrink: 0; }
+  #sidebar-header { padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 13px; font-weight: 600; }
+  #sidebar-header span { color: var(--accent); }
+  #sidebar-list { flex: 1; overflow-y: auto; padding: 4px 0; }
+  .region-group { margin-bottom: 2px; }
+  .region-label { padding: 6px 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; display: flex; align-items: center; gap: 6px; user-select: none; }
+  .region-label .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .region-label .arrow { font-size: 10px; transition: transform 0.15s; }
+  .region-label .arrow.collapsed { transform: rotate(-90deg); }
+  .region-items { }
+  .region-items.collapsed { display: none; }
+  .term-item { padding: 5px 12px 5px 28px; font-size: 12px; cursor: pointer; display: flex; align-items: center; gap: 6px; border-left: 3px solid transparent; }
+  .term-item:hover { background: var(--bg3); }
+  .term-item.active { background: rgba(56,189,248,0.12); border-left-color: var(--accent); }
+  .term-item .check { color: #22c55e; font-size: 14px; min-width: 16px; }
+  .term-item .views-badges { margin-left: auto; display: flex; gap: 2px; }
+  .term-item .view-badge { font-size: 9px; padding: 1px 3px; border-radius: 2px; background: var(--bg); color: var(--fg3); font-weight: 600; }
+  .term-item .view-badge.has-path { color: var(--accent); background: rgba(56,189,248,0.15); }
+  /* Status bar */
+  #statusbar { display: flex; align-items: center; gap: 16px; padding: 4px 12px; background: var(--bg2); border-top: 1px solid var(--border); font-size: 11px; color: var(--fg2); flex-shrink: 0; }
+  #statusbar .sep { width: 1px; height: 14px; background: var(--border); }
+  .mode-pill { padding: 2px 6px; border-radius: 3px; font-weight: 600; }
+  .mode-pill.tracing { background: rgba(56,189,248,0.2); color: var(--accent); }
+  .mode-pill.label-mode { background: rgba(245,158,11,0.2); color: var(--waist); }
+  .mode-pill.idle { background: var(--bg3); color: var(--fg3); }
+  /* Hidden file inputs */
+  .hidden-input { position: absolute; width: 0; height: 0; opacity: 0; pointer-events: none; }
+  /* SVG styles */
+  .trace-point { cursor: grab; }
+  .trace-point:hover { filter: brightness(1.3); }
+  .trace-point.dragging { cursor: grabbing; }
+  .label-anchor { cursor: move; }
+  .label-pill { pointer-events: none; }
+</style>
+</head>
+<body>
+
+<!-- Toolbar -->
+<div id="toolbar">
+  <label>View:</label>
+  <select id="view-select">
+    <option value="profile">Profile</option>
+    <option value="head">Head</option>
+    <option value="dorsal">Dorsal</option>
+  </select>
+  <label>Term:</label>
+  <select id="term-select"></select>
+  <div class="toolbar-sep"></div>
+  <button id="btn-load-image" title="Load image for current view">Load Image</button>
+  <button id="btn-place-label" disabled title="Place label for current term">Place Label</button>
+  <button id="btn-close-poly" disabled title="Close current polygon (or double-click)">Close Polygon</button>
+  <div class="toolbar-sep"></div>
+  <button id="btn-clear" title="Clear current term's path for this view">Clear Current</button>
+  <button id="btn-undo" title="Ctrl+Z">Undo</button>
+  <button id="btn-redo" title="Ctrl+Shift+Z">Redo</button>
+  <div class="toolbar-sep"></div>
+  <button id="btn-reset-zoom" title="Reset zoom to fit">Reset Zoom</button>
+  <div class="toolbar-sep"></div>
+  <button id="btn-import">Import JSON</button>
+  <button id="btn-export">Export JSON</button>
+  <input type="file" id="file-image" accept="image/*" class="hidden-input">
+  <input type="file" id="file-import" accept=".json,application/json" class="hidden-input">
+</div>
+
+<!-- Main area -->
+<div id="main">
+  <div id="canvas-area">
+    <div id="canvas-container">
+      <img id="canvas-image" style="display:none;">
+      <svg id="svg-overlay" xmlns="http://www.w3.org/2000/svg" style="display:none;"></svg>
+    </div>
+    <div id="drop-zone">
+      <div id="drop-zone-icon">&#128443;</div>
+      <div>Drop an image here or click "Load Image"</div>
+      <div style="font-size:13px; color:var(--fg3);">PNG/JPG of profile, head, or dorsal view</div>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <div id="sidebar-header">Terms <span id="progress-count">0/31</span></div>
+    <div id="sidebar-list"></div>
+  </div>
+</div>
+
+<!-- Status bar -->
+<div id="statusbar">
+  <span>Mode: <span id="status-mode" class="mode-pill idle">Idle</span></span>
+  <span class="sep"></span>
+  <span>Points: <span id="status-points">0</span></span>
+  <span class="sep"></span>
+  <span>Zoom: <span id="status-zoom">100%</span></span>
+  <span class="sep"></span>
+  <span id="status-coords">-</span>
+  <span style="margin-left:auto; font-size:10px; color:var(--fg3);">Ctrl+Z undo &middot; Ctrl+Shift+Z redo &middot; Scroll zoom &middot; Space+drag pan</span>
+</div>
+
+<script>
+// ==========================================================================
+// DATA
+// ==========================================================================
+const TERMS = {
+  head: [
+    { id: 'antenna', label_it: 'Antenna', label_en: 'Antenna' },
+    { id: 'antennal-club', label_it: 'Clava antennale', label_en: 'Antennal club' },
+    { id: 'antennal-socket', label_it: 'Torulo antennale', label_en: 'Antennal socket' },
+    { id: 'clypeus', label_it: 'Clipeo', label_en: 'Clypeus' },
+    { id: 'clypeal-socket', label_it: 'Fossetta clipeale', label_en: 'Clypeal socket' },
+    { id: 'compound-eye', label_it: 'Occhio composto', label_en: 'Compound eye' },
+    { id: 'frontal-carina', label_it: 'Carena frontale', label_en: 'Frontal carina' },
+    { id: 'frontal-lobe', label_it: 'Lobo frontale', label_en: 'Frontal lobe' },
+    { id: 'frontal-triangle', label_it: 'Triangolo frontale', label_en: 'Frontal triangle' },
+    { id: 'funiculus', label_it: 'Funicolo', label_en: 'Funiculus' },
+    { id: 'mandible', label_it: 'Mandibola', label_en: 'Mandible' },
+    { id: 'labial-palp', label_it: 'Palpo labiale', label_en: 'Labial palp' },
+    { id: 'maxillary-palp', label_it: 'Palpo mascellare', label_en: 'Maxillary palp' },
+    { id: 'ocelli', label_it: 'Ocelli', label_en: 'Ocelli' },
+    { id: 'scape', label_it: 'Scapo', label_en: 'Scape' },
+    { id: 'scrobe', label_it: 'Scrobo antennale', label_en: 'Scrobe' },
+  ],
+  mesosoma: [
+    { id: 'mesosoma', label_it: 'Mesosoma', label_en: 'Mesosoma' },
+    { id: 'pronotum', label_it: 'Pronoto', label_en: 'Pronotum' },
+    { id: 'mesonotum', label_it: 'Mesonoto', label_en: 'Mesonotum' },
+    { id: 'metanotum', label_it: 'Metanoto', label_en: 'Metanotum' },
+    { id: 'metanotal-impression', label_it: 'Impressione metanotale', label_en: 'Metanotal impression' },
+    { id: 'propodeum', label_it: 'Propodeo', label_en: 'Propodeum' },
+    { id: 'propodeal-spine', label_it: 'Spina propodeale', label_en: 'Propodeal spine' },
+    { id: 'propodeal-lobe', label_it: 'Lobo propodeale', label_en: 'Propodeal lobe' },
+    { id: 'metapleural-gland', label_it: 'Orifizio ghiandola metapleurale', label_en: 'Orifice of metapleural gland' },
+    { id: 'apical-spur', label_it: 'Sperone apicale della tibia', label_en: 'Apical spur of tibia' },
+  ],
+  waist: [
+    { id: 'petiole', label_it: 'Peziolo', label_en: 'Petiole' },
+    { id: 'postpetiole', label_it: 'Postpeziolo', label_en: 'Postpetiole' },
+  ],
+  gaster: [
+    { id: 'gaster', label_it: 'Gastro', label_en: 'Gaster' },
+    { id: 'cloacal-orifice', label_it: 'Orifizio cloacale', label_en: 'Cloacal orifice' },
+    { id: 'sting', label_it: 'Pungiglione', label_en: 'Sting' },
+  ],
+};
+
+const REGION_COLORS = {
+  head: { fill: 'rgba(16,185,129,0.25)', stroke: 'rgb(16,185,129)' },
+  mesosoma: { fill: 'rgba(56,189,248,0.25)', stroke: 'rgb(56,189,248)' },
+  waist: { fill: 'rgba(245,158,11,0.25)', stroke: 'rgb(245,158,11)' },
+  gaster: { fill: 'rgba(244,63,94,0.25)', stroke: 'rgb(244,63,94)' },
+};
+
+const REGION_LABELS = { head: 'Head', mesosoma: 'Mesosoma', waist: 'Waist', gaster: 'Gaster' };
+
+// Build flat lookup
+const ALL_TERMS = [];
+const TERM_MAP = {};
+for (const [region, terms] of Object.entries(TERMS)) {
+  for (const t of terms) {
+    const entry = { ...t, region };
+    ALL_TERMS.push(entry);
+    TERM_MAP[t.id] = entry;
+  }
+}
+
+// ==========================================================================
+// STATE
+// ==========================================================================
+let currentView = 'profile';
+let currentTermId = ALL_TERMS[0].id;
+let mode = 'idle'; // idle | tracing | label
+let paths = {}; // paths[termId][viewId] = { points: [{x,y},...], closed: bool, label: {x,y,anchor}|null }
+let images = {}; // images[viewId] = { src: dataURL, naturalWidth, naturalHeight }
+let zoom = 1;
+let panX = 0, panY = 0;
+let isPanning = false;
+let panStart = null;
+let spaceDown = false;
+let currentPoints = []; // working points while tracing (before close)
+let draggingPointIdx = -1;
+let draggingLabel = false;
+let mouseImageCoords = null;
+let dirty = false;
+
+// Undo/Redo
+let undoStack = [];
+let redoStack = [];
+const MAX_UNDO = 50;
+
+// ==========================================================================
+// DOM REFS
+// ==========================================================================
+const viewSelect = document.getElementById('view-select');
+const termSelect = document.getElementById('term-select');
+const btnLoadImage = document.getElementById('btn-load-image');
+const btnPlaceLabel = document.getElementById('btn-place-label');
+const btnClosePoly = document.getElementById('btn-close-poly');
+const btnClear = document.getElementById('btn-clear');
+const btnUndo = document.getElementById('btn-undo');
+const btnRedo = document.getElementById('btn-redo');
+const btnResetZoom = document.getElementById('btn-reset-zoom');
+const btnImport = document.getElementById('btn-import');
+const btnExport = document.getElementById('btn-export');
+const fileImage = document.getElementById('file-image');
+const fileImport = document.getElementById('file-import');
+const canvasArea = document.getElementById('canvas-area');
+const canvasContainer = document.getElementById('canvas-container');
+const canvasImage = document.getElementById('canvas-image');
+const svgOverlay = document.getElementById('svg-overlay');
+const dropZone = document.getElementById('drop-zone');
+const sidebarList = document.getElementById('sidebar-list');
+const progressCount = document.getElementById('progress-count');
+const statusMode = document.getElementById('status-mode');
+const statusPoints = document.getElementById('status-points');
+const statusZoom = document.getElementById('status-zoom');
+const statusCoords = document.getElementById('status-coords');
+
+// ==========================================================================
+// TERM SELECT POPULATE
+// ==========================================================================
+function populateTermSelect() {
+  termSelect.innerHTML = '';
+  for (const [region, terms] of Object.entries(TERMS)) {
+    const group = document.createElement('optgroup');
+    group.label = REGION_LABELS[region];
+    for (const t of terms) {
+      const opt = document.createElement('option');
+      opt.value = t.id;
+      opt.textContent = `${t.label_en} — ${t.label_it}`;
+      group.appendChild(opt);
+    }
+    termSelect.appendChild(group);
+  }
+  termSelect.value = currentTermId;
+}
+
+// ==========================================================================
+// SIDEBAR
+// ==========================================================================
+function buildSidebar() {
+  sidebarList.innerHTML = '';
+  for (const [region, terms] of Object.entries(TERMS)) {
+    const group = document.createElement('div');
+    group.className = 'region-group';
+
+    const label = document.createElement('div');
+    label.className = 'region-label';
+    label.innerHTML = `<span class="arrow">&#9660;</span><span class="dot" style="background:${REGION_COLORS[region].stroke}"></span>${REGION_LABELS[region]}`;
+    label.addEventListener('click', () => {
+      const items = group.querySelector('.region-items');
+      const arrow = label.querySelector('.arrow');
+      items.classList.toggle('collapsed');
+      arrow.classList.toggle('collapsed');
+    });
+    group.appendChild(label);
+
+    const items = document.createElement('div');
+    items.className = 'region-items';
+    for (const t of terms) {
+      const item = document.createElement('div');
+      item.className = 'term-item';
+      item.dataset.termId = t.id;
+      item.addEventListener('click', () => selectTerm(t.id));
+      items.appendChild(item);
+    }
+    group.appendChild(items);
+    sidebarList.appendChild(group);
+  }
+  updateSidebar();
+}
+
+function updateSidebar() {
+  let traced = 0;
+  for (const t of ALL_TERMS) {
+    const item = sidebarList.querySelector(`.term-item[data-term-id="${t.id}"]`);
+    if (!item) continue;
+    const hasSomePath = hasAnyPath(t.id);
+    if (hasSomePath) traced++;
+
+    const views = ['profile', 'head', 'dorsal'];
+    const badges = views.map(v => {
+      const letter = v[0].toUpperCase();
+      const has = hasPathForView(t.id, v);
+      return `<span class="view-badge ${has ? 'has-path' : ''}">${letter}</span>`;
+    }).join('');
+
+    item.innerHTML = `
+      <span class="check">${hasSomePath ? '&#10003;' : ''}</span>
+      <span>${t.label_en}</span>
+      <span class="views-badges">${badges}</span>
+    `;
+    item.classList.toggle('active', t.id === currentTermId);
+  }
+  progressCount.textContent = `${traced}/31`;
+}
+
+function hasAnyPath(termId) {
+  const tp = paths[termId];
+  if (!tp) return false;
+  return Object.values(tp).some(d => d.points.length >= 3 && d.closed);
+}
+
+function hasPathForView(termId, viewId) {
+  const tp = paths[termId];
+  if (!tp || !tp[viewId]) return false;
+  return tp[viewId].points.length >= 3 && tp[viewId].closed;
+}
+
+// ==========================================================================
+// COORD UTILS
+// ==========================================================================
+function toImageCoords(e) {
+  const rect = canvasImage.getBoundingClientRect();
+  const scaleX = canvasImage.naturalWidth / rect.width;
+  const scaleY = canvasImage.naturalHeight / rect.height;
+  return {
+    x: Math.round((e.clientX - rect.left) * scaleX),
+    y: Math.round((e.clientY - rect.top) * scaleY),
+  };
+}
+
+function getPolygonCentroid(pts) {
+  if (pts.length === 0) return { x: 0, y: 0 };
+  const cx = pts.reduce((s, p) => s + p.x, 0) / pts.length;
+  const cy = pts.reduce((s, p) => s + p.y, 0) / pts.length;
+  return { x: Math.round(cx), y: Math.round(cy) };
+}
+
+// ==========================================================================
+// UNDO / REDO
+// ==========================================================================
+function pushUndo() {
+  undoStack.push(JSON.stringify(paths));
+  if (undoStack.length > MAX_UNDO) undoStack.shift();
+  redoStack = [];
+  dirty = true;
+}
+
+function undo() {
+  if (undoStack.length === 0) return;
+  redoStack.push(JSON.stringify(paths));
+  paths = JSON.parse(undoStack.pop());
+  syncCurrentToWorking();
+  render();
+}
+
+function redo() {
+  if (redoStack.length === 0) return;
+  undoStack.push(JSON.stringify(paths));
+  paths = JSON.parse(redoStack.pop());
+  syncCurrentToWorking();
+  render();
+}
+
+function syncCurrentToWorking() {
+  // If we had a working tracing session, abandon it — undo restores saved state
+  const pd = getPathData();
+  if (pd && !pd.closed) {
+    currentPoints = [...pd.points];
+    mode = 'tracing';
+  } else {
+    currentPoints = [];
+    if (mode === 'tracing') mode = 'idle';
+  }
+}
+
+// ==========================================================================
+// PATH DATA ACCESS
+// ==========================================================================
+function getPathData(termId, viewId) {
+  termId = termId || currentTermId;
+  viewId = viewId || currentView;
+  return paths[termId]?.[viewId] || null;
+}
+
+function ensurePathData(termId, viewId) {
+  termId = termId || currentTermId;
+  viewId = viewId || currentView;
+  if (!paths[termId]) paths[termId] = {};
+  if (!paths[termId][viewId]) paths[termId][viewId] = { points: [], closed: false, label: null };
+  return paths[termId][viewId];
+}
+
+// ==========================================================================
+// IMAGE LOADING
+// ==========================================================================
+function loadImageFile(file) {
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    const img = new Image();
+    img.onload = () => {
+      images[currentView] = { src: ev.target.result, naturalWidth: img.naturalWidth, naturalHeight: img.naturalHeight, name: file.name };
+      displayImage();
+      saveToLocalStorage();
+    };
+    img.src = ev.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function displayImage() {
+  const imgData = images[currentView];
+  if (!imgData) {
+    canvasImage.style.display = 'none';
+    svgOverlay.style.display = 'none';
+    dropZone.classList.remove('has-image');
+    mode = 'idle';
+    updateStatus();
+    return;
+  }
+  canvasImage.src = imgData.src;
+  canvasImage.style.display = 'block';
+  svgOverlay.style.display = 'block';
+  dropZone.classList.add('has-image');
+
+  canvasImage.onload = () => {
+    svgOverlay.setAttribute('viewBox', `0 0 ${imgData.naturalWidth} ${imgData.naturalHeight}`);
+    resetZoom();
+    render();
+  };
+}
+
+function resetZoom() {
+  const imgData = images[currentView];
+  if (!imgData) return;
+  const areaRect = canvasArea.getBoundingClientRect();
+  const margin = 40;
+  const scaleX = (areaRect.width - margin * 2) / imgData.naturalWidth;
+  const scaleY = (areaRect.height - margin * 2) / imgData.naturalHeight;
+  zoom = Math.min(scaleX, scaleY, 1);
+  panX = 0;
+  panY = 0;
+  applyTransform();
+}
+
+function applyTransform() {
+  const imgData = images[currentView];
+  if (!imgData) return;
+  const areaRect = canvasArea.getBoundingClientRect();
+  const displayW = imgData.naturalWidth * zoom;
+  const displayH = imgData.naturalHeight * zoom;
+  const cx = (areaRect.width - displayW) / 2 + panX;
+  const cy = (areaRect.height - displayH) / 2 + panY;
+  canvasContainer.style.width = displayW + 'px';
+  canvasContainer.style.height = displayH + 'px';
+  canvasContainer.style.position = 'absolute';
+  canvasContainer.style.left = cx + 'px';
+  canvasContainer.style.top = cy + 'px';
+  statusZoom.textContent = Math.round(zoom * 100) + '%';
+}
+
+// ==========================================================================
+// RENDER SVG
+// ==========================================================================
+function render() {
+  if (!images[currentView]) { svgOverlay.innerHTML = ''; updateStatus(); updateSidebar(); return; }
+
+  const imgData = images[currentView];
+  // Point radius in image coords — roughly 8px at current zoom
+  const ptRadius = Math.max(4, Math.round(8 / zoom));
+  const strokeW = Math.max(1, Math.round(2 / zoom));
+  const labelFontSize = Math.max(10, Math.round(14 / zoom));
+
+  let svgContent = '';
+
+  // Render all completed paths for this view
+  for (const [termId, viewsObj] of Object.entries(paths)) {
+    for (const [viewId, data] of Object.entries(viewsObj)) {
+      if (viewId !== currentView) continue;
+      if (!data.closed || data.points.length < 3) continue;
+      const term = TERM_MAP[termId];
+      if (!term) continue;
+      const colors = REGION_COLORS[term.region];
+      const isActive = termId === currentTermId;
+      const opacity = isActive ? 1 : 0.4;
+
+      // Polygon fill
+      const pathD = data.points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x},${p.y}`).join(' ') + ' Z';
+      svgContent += `<path d="${pathD}" fill="${colors.fill}" stroke="${colors.stroke}" stroke-width="${strokeW}" opacity="${opacity}" data-term="${termId}" class="completed-poly"/>`;
+
+      // Points (only for active term)
+      if (isActive) {
+        for (let i = 0; i < data.points.length; i++) {
+          const p = data.points[i];
+          svgContent += `<circle cx="${p.x}" cy="${p.y}" r="${ptRadius}" fill="${colors.stroke}" stroke="#fff" stroke-width="${Math.max(1, strokeW/2)}" class="trace-point" data-term="${termId}" data-idx="${i}" opacity="0.9"/>`;
+        }
+      }
+
+      // Label
+      if (data.label && isActive) {
+        const centroid = getPolygonCentroid(data.points);
+        const lx = data.label.x;
+        const ly = data.label.y;
+        // Leader line
+        svgContent += `<line x1="${centroid.x}" y1="${centroid.y}" x2="${lx}" y2="${ly}" stroke="${colors.stroke}" stroke-width="${Math.max(1, strokeW/2)}" stroke-dasharray="${ptRadius},${ptRadius}" opacity="0.7"/>`;
+        // Label pill background
+        const textIt = term.label_it;
+        const textEn = term.label_en;
+        const pillW = Math.max(textIt.length, textEn.length) * labelFontSize * 0.55 + labelFontSize;
+        const pillH = labelFontSize * 2.6;
+        const anchor = data.label.anchor || 'start';
+        let pillX = lx;
+        if (anchor === 'middle') pillX = lx - pillW / 2;
+        else if (anchor === 'end') pillX = lx - pillW;
+        svgContent += `<rect x="${pillX}" y="${ly - pillH/2}" width="${pillW}" height="${pillH}" rx="${labelFontSize/2}" fill="rgba(15,23,42,0.85)" stroke="${colors.stroke}" stroke-width="${Math.max(1, strokeW/2)}"/>`;
+        svgContent += `<text x="${pillX + labelFontSize/2}" y="${ly - labelFontSize*0.15}" font-size="${labelFontSize}" fill="${colors.stroke}" font-weight="600" font-family="sans-serif">${textIt}</text>`;
+        svgContent += `<text x="${pillX + labelFontSize/2}" y="${ly + labelFontSize*0.95}" font-size="${labelFontSize * 0.8}" fill="#94a3b8" font-family="sans-serif">${textEn}</text>`;
+        // Label anchor handle
+        svgContent += `<circle cx="${lx}" cy="${ly}" r="${ptRadius}" fill="${colors.stroke}" stroke="#fff" stroke-width="${Math.max(1, strokeW/2)}" class="label-anchor" data-term="${termId}" opacity="0.9"/>`;
+      }
+    }
+  }
+
+  // Render current tracing in progress (unclosed)
+  if (mode === 'tracing' && currentPoints.length > 0) {
+    const term = TERM_MAP[currentTermId];
+    const colors = REGION_COLORS[term.region];
+    // Lines between points
+    for (let i = 0; i < currentPoints.length - 1; i++) {
+      svgContent += `<line x1="${currentPoints[i].x}" y1="${currentPoints[i].y}" x2="${currentPoints[i+1].x}" y2="${currentPoints[i+1].y}" stroke="${colors.stroke}" stroke-width="${strokeW}"/>`;
+    }
+    // Dashed line from last point to mouse
+    if (mouseImageCoords && currentPoints.length > 0) {
+      const last = currentPoints[currentPoints.length - 1];
+      svgContent += `<line x1="${last.x}" y1="${last.y}" x2="${mouseImageCoords.x}" y2="${mouseImageCoords.y}" stroke="${colors.stroke}" stroke-width="${strokeW}" stroke-dasharray="${ptRadius*2},${ptRadius}"/>`;
+    }
+    // Points
+    for (let i = 0; i < currentPoints.length; i++) {
+      const p = currentPoints[i];
+      svgContent += `<circle cx="${p.x}" cy="${p.y}" r="${ptRadius}" fill="${colors.stroke}" stroke="#fff" stroke-width="${Math.max(1, strokeW/2)}" class="trace-point" data-term="${currentTermId}" data-idx="${i}" opacity="0.9"/>`;
+    }
+  }
+
+  svgOverlay.innerHTML = svgContent;
+
+  // Update status
+  updateStatus();
+  updateSidebar();
+  updateButtons();
+}
+
+function updateStatus() {
+  if (mode === 'tracing') {
+    statusMode.textContent = 'Tracing';
+    statusMode.className = 'mode-pill tracing';
+  } else if (mode === 'label') {
+    statusMode.textContent = 'Label';
+    statusMode.className = 'mode-pill label-mode';
+  } else {
+    statusMode.textContent = 'Idle';
+    statusMode.className = 'mode-pill idle';
+  }
+
+  const pd = getPathData();
+  if (mode === 'tracing') {
+    statusPoints.textContent = currentPoints.length;
+  } else if (pd) {
+    statusPoints.textContent = pd.points.length;
+  } else {
+    statusPoints.textContent = '0';
+  }
+
+  if (mouseImageCoords) {
+    statusCoords.textContent = `${mouseImageCoords.x}, ${mouseImageCoords.y}`;
+  } else {
+    statusCoords.textContent = '-';
+  }
+}
+
+function updateButtons() {
+  const pd = getPathData();
+  const hasClosedPoly = pd && pd.closed && pd.points.length >= 3;
+  btnPlaceLabel.disabled = !hasClosedPoly;
+  btnClosePoly.disabled = !(mode === 'tracing' && currentPoints.length >= 3);
+}
+
+// ==========================================================================
+// INTERACTIONS — TRACING
+// ==========================================================================
+function startTracing() {
+  if (!images[currentView]) return;
+  const pd = getPathData();
+  if (pd && pd.closed) {
+    // Already has a closed polygon — editing mode, not tracing
+    return;
+  }
+  mode = 'tracing';
+  if (!pd) {
+    currentPoints = [];
+  } else {
+    currentPoints = [...pd.points];
+  }
+  render();
+}
+
+function addPoint(pt) {
+  if (mode !== 'tracing') return;
+  pushUndo();
+  currentPoints.push(pt);
+  const d = ensurePathData();
+  d.points = [...currentPoints];
+  d.closed = false;
+  render();
+}
+
+function closePolygon() {
+  if (currentPoints.length < 3) return;
+  pushUndo();
+  const d = ensurePathData();
+  d.points = [...currentPoints];
+  d.closed = true;
+  currentPoints = [];
+  mode = 'idle';
+  render();
+  saveToLocalStorage();
+}
+
+function deletePoint(termId, idx) {
+  const pd = paths[termId]?.[currentView];
+  if (!pd) return;
+  pushUndo();
+  pd.points.splice(idx, 1);
+  if (pd.points.length < 3 && pd.closed) {
+    pd.closed = false;
+    mode = 'tracing';
+    currentPoints = [...pd.points];
+  }
+  if (pd.closed === false && termId === currentTermId) {
+    currentPoints = [...pd.points];
+    mode = 'tracing';
+  }
+  render();
+}
+
+// ==========================================================================
+// INTERACTIONS — LABEL
+// ==========================================================================
+function enterLabelMode() {
+  const pd = getPathData();
+  if (!pd || !pd.closed) return;
+  mode = 'label';
+  render();
+}
+
+function placeLabel(pt) {
+  if (mode !== 'label') return;
+  pushUndo();
+  const pd = ensurePathData();
+  pd.label = { x: pt.x, y: pt.y, anchor: 'start' };
+  mode = 'idle';
+  render();
+  saveToLocalStorage();
+}
+
+// ==========================================================================
+// MOUSE EVENTS ON CANVAS
+// ==========================================================================
+let lastClickTime = 0;
+
+canvasArea.addEventListener('mousedown', (e) => {
+  if (!images[currentView]) return;
+
+  // Space + drag = pan
+  if (spaceDown || e.button === 1) {
+    isPanning = true;
+    panStart = { x: e.clientX - panX, y: e.clientY - panY };
+    canvasContainer.classList.add('panning');
+    e.preventDefault();
+    return;
+  }
+
+  // Right click on point = delete
+  if (e.button === 2) {
+    const target = e.target;
+    if (target.classList.contains('trace-point')) {
+      e.preventDefault();
+      const termId = target.dataset.term;
+      const idx = parseInt(target.dataset.idx);
+      deletePoint(termId, idx);
+    }
+    return;
+  }
+
+  if (e.button !== 0) return;
+
+  const target = e.target;
+
+  // Drag a point
+  if (target.classList.contains('trace-point') && target.dataset.term === currentTermId) {
+    draggingPointIdx = parseInt(target.dataset.idx);
+    target.classList.add('dragging');
+    e.preventDefault();
+    return;
+  }
+
+  // Drag a label anchor
+  if (target.classList.contains('label-anchor') && target.dataset.term === currentTermId) {
+    draggingLabel = true;
+    e.preventDefault();
+    return;
+  }
+
+  // Click on completed polygon to select that term
+  if (target.classList.contains('completed-poly') && target.dataset.term !== currentTermId) {
+    selectTerm(target.dataset.term);
+    e.preventDefault();
+    return;
+  }
+
+  // Double-click detection for polygon close
+  const now = Date.now();
+  if (now - lastClickTime < 350 && mode === 'tracing' && currentPoints.length >= 3) {
+    // Remove the point added by the first click of the double-click
+    undo();
+    closePolygon();
+    lastClickTime = 0;
+    e.preventDefault();
+    return;
+  }
+  lastClickTime = now;
+
+  // Normal click
+  const pt = toImageCoords(e);
+  if (!isInsideImage(pt)) return;
+
+  if (mode === 'label') {
+    placeLabel(pt);
+    return;
+  }
+
+  // Start or continue tracing
+  if (mode === 'idle') {
+    const pd = getPathData();
+    if (pd && pd.closed) {
+      // Already closed — don't start new trace, user can clear first
+      return;
+    }
+    startTracing();
+  }
+  if (mode === 'tracing') {
+    addPoint(pt);
+  }
+});
+
+canvasArea.addEventListener('mousemove', (e) => {
+  if (!images[currentView]) return;
+
+  // Panning
+  if (isPanning && panStart) {
+    panX = e.clientX - panStart.x;
+    panY = e.clientY - panStart.y;
+    applyTransform();
+    return;
+  }
+
+  // Point drag
+  if (draggingPointIdx >= 0) {
+    const pt = toImageCoords(e);
+    const pd = getPathData();
+    if (pd && pd.points[draggingPointIdx]) {
+      pd.points[draggingPointIdx] = pt;
+      if (!pd.closed && currentTermId) {
+        currentPoints = [...pd.points];
+      }
+      render();
+    }
+    return;
+  }
+
+  // Label drag
+  if (draggingLabel) {
+    const pt = toImageCoords(e);
+    const pd = getPathData();
+    if (pd && pd.label) {
+      pd.label.x = pt.x;
+      pd.label.y = pt.y;
+      render();
+    }
+    return;
+  }
+
+  // Track mouse for dashed line
+  if (e.target === canvasImage || e.target.closest('#svg-overlay')) {
+    mouseImageCoords = toImageCoords(e);
+    statusCoords.textContent = `${mouseImageCoords.x}, ${mouseImageCoords.y}`;
+    if (mode === 'tracing') {
+      render();
+    }
+  } else {
+    mouseImageCoords = null;
+    statusCoords.textContent = '-';
+  }
+});
+
+canvasArea.addEventListener('mouseup', (e) => {
+  if (isPanning) {
+    isPanning = false;
+    panStart = null;
+    canvasContainer.classList.remove('panning');
+  }
+  if (draggingPointIdx >= 0) {
+    pushUndo();
+    draggingPointIdx = -1;
+    saveToLocalStorage();
+  }
+  if (draggingLabel) {
+    pushUndo();
+    draggingLabel = false;
+    saveToLocalStorage();
+  }
+});
+
+canvasArea.addEventListener('contextmenu', (e) => {
+  e.preventDefault();
+});
+
+// Zoom with mouse wheel
+canvasArea.addEventListener('wheel', (e) => {
+  if (!images[currentView]) return;
+  e.preventDefault();
+  const rect = canvasArea.getBoundingClientRect();
+  const mx = e.clientX - rect.left;
+  const my = e.clientY - rect.top;
+
+  const oldZoom = zoom;
+  const delta = e.deltaY > 0 ? 0.9 : 1.1;
+  zoom = Math.max(0.5, Math.min(4, zoom * delta));
+
+  // Adjust pan to zoom toward cursor
+  const imgData = images[currentView];
+  const oldW = imgData.naturalWidth * oldZoom;
+  const oldH = imgData.naturalHeight * oldZoom;
+  const newW = imgData.naturalWidth * zoom;
+  const newH = imgData.naturalHeight * zoom;
+  const oldCx = (rect.width - oldW) / 2 + panX;
+  const oldCy = (rect.height - oldH) / 2 + panY;
+  const imgMx = (mx - oldCx) / oldZoom;
+  const imgMy = (my - oldCy) / oldZoom;
+  const newCx = mx - imgMx * zoom;
+  const newCy = my - imgMy * zoom;
+  panX = newCx - (rect.width - newW) / 2;
+  panY = newCy - (rect.height - newH) / 2;
+
+  applyTransform();
+  render();
+}, { passive: false });
+
+function isInsideImage(pt) {
+  const imgData = images[currentView];
+  if (!imgData) return false;
+  return pt.x >= 0 && pt.x <= imgData.naturalWidth && pt.y >= 0 && pt.y <= imgData.naturalHeight;
+}
+
+// ==========================================================================
+// KEYBOARD
+// ==========================================================================
+document.addEventListener('keydown', (e) => {
+  if (e.code === 'Space' && !e.repeat) {
+    spaceDown = true;
+    canvasContainer.classList.add('panning');
+    e.preventDefault();
+  }
+  if (e.key === 'z' && (e.ctrlKey || e.metaKey) && !e.shiftKey) {
+    e.preventDefault();
+    undo();
+  }
+  if (e.key === 'z' && (e.ctrlKey || e.metaKey) && e.shiftKey) {
+    e.preventDefault();
+    redo();
+  }
+  if (e.key === 'Z' && (e.ctrlKey || e.metaKey)) {
+    e.preventDefault();
+    redo();
+  }
+  if (e.key === 'Escape') {
+    if (mode === 'tracing' && currentPoints.length > 0) {
+      // Cancel current tracing
+      pushUndo();
+      const pd = getPathData();
+      if (pd) { pd.points = []; pd.closed = false; }
+      currentPoints = [];
+      mode = 'idle';
+      render();
+    } else if (mode === 'label') {
+      mode = 'idle';
+      render();
+    }
+  }
+});
+
+document.addEventListener('keyup', (e) => {
+  if (e.code === 'Space') {
+    spaceDown = false;
+    if (!isPanning) canvasContainer.classList.remove('panning');
+  }
+});
+
+// ==========================================================================
+// DRAG & DROP
+// ==========================================================================
+canvasArea.addEventListener('dragover', (e) => {
+  e.preventDefault();
+  canvasArea.classList.add('drag-over');
+});
+canvasArea.addEventListener('dragleave', () => {
+  canvasArea.classList.remove('drag-over');
+});
+canvasArea.addEventListener('drop', (e) => {
+  e.preventDefault();
+  canvasArea.classList.remove('drag-over');
+  const file = e.dataTransfer?.files?.[0];
+  if (file && file.type.startsWith('image/')) {
+    loadImageFile(file);
+  }
+});
+
+// ==========================================================================
+// TOOLBAR ACTIONS
+// ==========================================================================
+viewSelect.addEventListener('change', () => {
+  // Save any in-progress tracing
+  if (mode === 'tracing' && currentPoints.length > 0) {
+    const d = ensurePathData();
+    d.points = [...currentPoints];
+    d.closed = false;
+  }
+  currentView = viewSelect.value;
+  currentPoints = [];
+  mode = 'idle';
+  displayImage();
+  // Restore working state for new view
+  const pd = getPathData();
+  if (pd && !pd.closed && pd.points.length > 0) {
+    currentPoints = [...pd.points];
+    mode = 'tracing';
+  }
+  render();
+});
+
+termSelect.addEventListener('change', () => {
+  selectTerm(termSelect.value);
+});
+
+function selectTerm(termId) {
+  // Save current in-progress
+  if (mode === 'tracing' && currentPoints.length > 0) {
+    const d = ensurePathData();
+    d.points = [...currentPoints];
+    d.closed = false;
+  }
+  currentTermId = termId;
+  termSelect.value = termId;
+  currentPoints = [];
+  mode = 'idle';
+  // Restore working state
+  const pd = getPathData();
+  if (pd && !pd.closed && pd.points.length > 0) {
+    currentPoints = [...pd.points];
+    mode = 'tracing';
+  }
+  render();
+}
+
+btnLoadImage.addEventListener('click', () => fileImage.click());
+fileImage.addEventListener('change', () => {
+  if (fileImage.files[0]) loadImageFile(fileImage.files[0]);
+  fileImage.value = '';
+});
+
+btnPlaceLabel.addEventListener('click', () => enterLabelMode());
+
+btnClosePoly.addEventListener('click', () => {
+  if (mode === 'tracing' && currentPoints.length >= 3) closePolygon();
+});
+
+btnClear.addEventListener('click', () => {
+  const pd = getPathData();
+  if (!pd) return;
+  pushUndo();
+  delete paths[currentTermId][currentView];
+  currentPoints = [];
+  mode = 'idle';
+  render();
+  saveToLocalStorage();
+});
+
+btnUndo.addEventListener('click', undo);
+btnRedo.addEventListener('click', redo);
+btnResetZoom.addEventListener('click', resetZoom);
+
+// ==========================================================================
+// EXPORT
+// ==========================================================================
+function findTerm(termId) { return TERM_MAP[termId]; }
+
+function pointsToSVGPath(points) {
+  return points.map((p, i) =>
+    `${i === 0 ? 'M' : 'L'} ${p.x},${p.y}`
+  ).join(' ') + ' Z';
+}
+
+function exportJSON() {
+  const output = {};
+  for (const [termId, views] of Object.entries(paths)) {
+    const term = findTerm(termId);
+    if (!term) continue;
+    const viewEntries = {};
+    for (const [viewId, data] of Object.entries(views)) {
+      if (data.points.length < 3 || !data.closed) continue;
+      viewEntries[viewId] = {
+        path: pointsToSVGPath(data.points),
+        label: data.label || { x: 0, y: 0, anchor: 'start' },
+      };
+    }
+    if (Object.keys(viewEntries).length > 0) {
+      output[termId] = { region: term.region, views: viewEntries };
+    }
+  }
+  return JSON.stringify(output, null, 2);
+}
+
+btnExport.addEventListener('click', () => {
+  const json = exportJSON();
+  const blob = new Blob([json], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'anatomy-paths.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  dirty = false;
+});
+
+// ==========================================================================
+// IMPORT
+// ==========================================================================
+btnImport.addEventListener('click', () => fileImport.click());
+fileImport.addEventListener('change', () => {
+  const file = fileImport.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    try {
+      const data = JSON.parse(ev.target.result);
+      importJSON(data);
+    } catch (err) {
+      alert('Invalid JSON: ' + err.message);
+    }
+  };
+  reader.readAsText(file);
+  fileImport.value = '';
+});
+
+function importJSON(data) {
+  pushUndo();
+  for (const [termId, termData] of Object.entries(data)) {
+    if (!TERM_MAP[termId]) continue;
+    if (!termData.views) continue;
+    for (const [viewId, viewData] of Object.entries(termData.views)) {
+      if (!['profile', 'head', 'dorsal'].includes(viewId)) continue;
+      // Parse SVG path back to points
+      const points = parseSVGPath(viewData.path);
+      if (points.length < 3) continue;
+      if (!paths[termId]) paths[termId] = {};
+      paths[termId][viewId] = {
+        points,
+        closed: true,
+        label: viewData.label || null,
+      };
+    }
+  }
+  render();
+  saveToLocalStorage();
+}
+
+function parseSVGPath(d) {
+  if (!d) return [];
+  const points = [];
+  const parts = d.match(/[ML]\s*[\d.]+,[\d.]+/g);
+  if (!parts) return [];
+  for (const part of parts) {
+    const m = part.match(/([\d.]+),([\d.]+)/);
+    if (m) {
+      points.push({ x: Math.round(parseFloat(m[1])), y: Math.round(parseFloat(m[2])) });
+    }
+  }
+  return points;
+}
+
+// ==========================================================================
+// LOCAL STORAGE
+// ==========================================================================
+const LS_KEY = 'anatomy-editor-state';
+
+function saveToLocalStorage() {
+  try {
+    const state = {
+      paths,
+      images: {},
+    };
+    // Save image metadata (not data URLs — too big for some cases)
+    for (const [k, v] of Object.entries(images)) {
+      state.images[k] = { name: v.name, naturalWidth: v.naturalWidth, naturalHeight: v.naturalHeight, src: v.src };
+    }
+    localStorage.setItem(LS_KEY, JSON.stringify(state));
+    dirty = false;
+  } catch (e) {
+    // localStorage might be full with large images
+    console.warn('Could not save to localStorage:', e);
+  }
+}
+
+function loadFromLocalStorage() {
+  try {
+    const raw = localStorage.getItem(LS_KEY);
+    if (!raw) return;
+    const state = JSON.parse(raw);
+    if (state.paths) paths = state.paths;
+    if (state.images) {
+      for (const [k, v] of Object.entries(state.images)) {
+        images[k] = v;
+      }
+    }
+  } catch (e) {
+    console.warn('Could not load from localStorage:', e);
+  }
+}
+
+// Warn before closing if unsaved
+window.addEventListener('beforeunload', (e) => {
+  if (dirty) {
+    e.preventDefault();
+    e.returnValue = '';
+  }
+});
+
+// ==========================================================================
+// INIT
+// ==========================================================================
+function init() {
+  populateTermSelect();
+  buildSidebar();
+  loadFromLocalStorage();
+  if (images[currentView]) {
+    displayImage();
+  }
+  render();
+}
+
+init();
+</script>
+</body>
+</html>
