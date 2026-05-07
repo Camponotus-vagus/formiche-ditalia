@@ -136,6 +136,13 @@
     ]
   },
   {
+    "genus_id": "aphaenogaster",
+    "character_id": "gen-20",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
     "genus_id": "cardiocondyla",
     "character_id": "gen-1",
     "state_values": [
@@ -264,6 +271,13 @@
   {
     "genus_id": "cardiocondyla",
     "character_id": "gen-19",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "cardiocondyla",
+    "character_id": "gen-20",
     "state_values": [
       "0"
     ]
@@ -404,6 +418,13 @@
     ]
   },
   {
+    "genus_id": "crematogaster",
+    "character_id": "gen-20",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
     "genus_id": "formicoxenus",
     "character_id": "gen-1",
     "state_values": [
@@ -538,6 +559,13 @@
     ]
   },
   {
+    "genus_id": "formicoxenus",
+    "character_id": "gen-20",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
     "genus_id": "harpagoxenus",
     "character_id": "gen-1",
     "state_values": [
@@ -672,6 +700,13 @@
     ]
   },
   {
+    "genus_id": "harpagoxenus",
+    "character_id": "gen-20",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
     "genus_id": "leptothorax",
     "character_id": "gen-1",
     "state_values": [
@@ -806,6 +841,13 @@
     ]
   },
   {
+    "genus_id": "leptothorax",
+    "character_id": "gen-20",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
     "genus_id": "manica",
     "character_id": "gen-1",
     "state_values": [
@@ -939,6 +981,13 @@
     ]
   },
   {
+    "genus_id": "manica",
+    "character_id": "gen-20",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
     "genus_id": "messor",
     "character_id": "gen-1",
     "state_values": [
@@ -1069,6 +1118,14 @@
     "character_id": "gen-19",
     "state_values": [
       "0"
+    ]
+  },
+  {
+    "genus_id": "messor",
+    "character_id": "gen-20",
+    "state_values": [
+      "0",
+      "1"
     ]
   },
   {
@@ -1200,6 +1257,13 @@
   {
     "genus_id": "monomorium",
     "character_id": "gen-19",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "monomorium",
+    "character_id": "gen-20",
     "state_values": [
       "0"
     ]
@@ -1333,6 +1397,13 @@
   {
     "genus_id": "myrmecina",
     "character_id": "gen-19",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "myrmecina",
+    "character_id": "gen-20",
     "state_values": [
       "0"
     ]
@@ -1473,6 +1544,13 @@
     ]
   },
   {
+    "genus_id": "myrmica",
+    "character_id": "gen-20",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
     "genus_id": "oxyopomyrmex",
     "character_id": "gen-1",
     "state_values": [
@@ -1603,6 +1681,13 @@
     "character_id": "gen-19",
     "state_values": [
       "?"
+    ]
+  },
+  {
+    "genus_id": "oxyopomyrmex",
+    "character_id": "gen-20",
+    "state_values": [
+      "0"
     ]
   },
   {
@@ -1740,6 +1825,13 @@
     ]
   },
   {
+    "genus_id": "pheidole",
+    "character_id": "gen-20",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
     "genus_id": "solenopsis",
     "character_id": "gen-1",
     "state_values": [
@@ -1868,6 +1960,13 @@
   {
     "genus_id": "solenopsis",
     "character_id": "gen-19",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "solenopsis",
+    "character_id": "gen-20",
     "state_values": [
       "0"
     ]
@@ -2006,6 +2105,13 @@
     ]
   },
   {
+    "genus_id": "stenamma",
+    "character_id": "gen-20",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
     "genus_id": "strongylognathus",
     "character_id": "gen-1",
     "state_values": [
@@ -2139,6 +2245,13 @@
     ]
   },
   {
+    "genus_id": "strongylognathus",
+    "character_id": "gen-20",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
     "genus_id": "strumigenys",
     "character_id": "gen-1",
     "state_values": [
@@ -2271,6 +2384,13 @@
   {
     "genus_id": "strumigenys",
     "character_id": "gen-19",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "strumigenys",
+    "character_id": "gen-20",
     "state_values": [
       "0"
     ]
@@ -2411,6 +2531,13 @@
     ]
   },
   {
+    "genus_id": "temnothorax",
+    "character_id": "gen-20",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
     "genus_id": "tetramorium",
     "character_id": "gen-1",
     "state_values": [
@@ -2545,6 +2672,13 @@
     ]
   },
   {
+    "genus_id": "tetramorium",
+    "character_id": "gen-20",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
     "genus_id": "stigmatomma",
     "character_id": "gen-1",
     "state_values": [
@@ -2675,6 +2809,13 @@
     "character_id": "gen-19",
     "state_values": [
       "?"
+    ]
+  },
+  {
+    "genus_id": "stigmatomma",
+    "character_id": "gen-20",
+    "state_values": [
+      "0"
     ]
   },
   {
@@ -2811,6 +2952,13 @@
     ]
   },
   {
+    "genus_id": "proceratium",
+    "character_id": "gen-20",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
     "genus_id": "leptanilla",
     "character_id": "gen-1",
     "state_values": [
@@ -2944,6 +3092,13 @@
     ]
   },
   {
+    "genus_id": "leptanilla",
+    "character_id": "gen-20",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
     "genus_id": "dorylus",
     "character_id": "gen-1",
     "state_values": [
@@ -3077,10 +3232,10 @@
     ]
   },
   {
-    "genus_id": "cryptopone",
+    "genus_id": "dorylus",
     "character_id": "gen-20",
     "state_values": [
-      "0"
+      "1"
     ]
   },
   {
@@ -3101,19 +3256,33 @@
     "genus_id": "cryptopone",
     "character_id": "gen-23",
     "state_values": [
-      "1"
+      "0"
     ]
   },
   {
     "genus_id": "cryptopone",
     "character_id": "gen-24",
     "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "cryptopone",
+    "character_id": "gen-25",
+    "state_values": [
       "0"
     ]
   },
   {
+    "genus_id": "cryptopone",
+    "character_id": "gen-26",
+    "state_values": [
+      "2"
+    ]
+  },
+  {
     "genus_id": "hypoponera",
-    "character_id": "gen-20",
+    "character_id": "gen-21",
     "state_values": [
       "0",
       "1"
@@ -3121,13 +3290,6 @@
   },
   {
     "genus_id": "hypoponera",
-    "character_id": "gen-21",
-    "state_values": [
-      "1"
-    ]
-  },
-  {
-    "genus_id": "hypoponera",
     "character_id": "gen-22",
     "state_values": [
       "1"
@@ -3137,7 +3299,7 @@
     "genus_id": "hypoponera",
     "character_id": "gen-23",
     "state_values": [
-      "0"
+      "1"
     ]
   },
   {
@@ -3148,8 +3310,23 @@
     ]
   },
   {
+    "genus_id": "hypoponera",
+    "character_id": "gen-25",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "hypoponera",
+    "character_id": "gen-26",
+    "state_values": [
+      "1",
+      "2"
+    ]
+  },
+  {
     "genus_id": "ponera",
-    "character_id": "gen-20",
+    "character_id": "gen-21",
     "state_values": [
       "0",
       "1"
@@ -3157,13 +3334,6 @@
   },
   {
     "genus_id": "ponera",
-    "character_id": "gen-21",
-    "state_values": [
-      "1"
-    ]
-  },
-  {
-    "genus_id": "ponera",
     "character_id": "gen-22",
     "state_values": [
       "1"
@@ -3173,19 +3343,26 @@
     "genus_id": "ponera",
     "character_id": "gen-23",
     "state_values": [
-      "0"
+      "1"
     ]
   },
   {
     "genus_id": "ponera",
     "character_id": "gen-24",
     "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "ponera",
+    "character_id": "gen-25",
+    "state_values": [
       "1"
     ]
   },
   {
-    "genus_id": "brachyponera",
-    "character_id": "gen-20",
+    "genus_id": "ponera",
+    "character_id": "gen-26",
     "state_values": [
       "1"
     ]
@@ -3208,19 +3385,33 @@
     "genus_id": "brachyponera",
     "character_id": "gen-23",
     "state_values": [
-      "0"
+      "1"
     ]
   },
   {
     "genus_id": "brachyponera",
     "character_id": "gen-24",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "brachyponera",
+    "character_id": "gen-25",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "brachyponera",
+    "character_id": "gen-26",
     "state_values": [
       "0"
     ]
   },
   {
     "genus_id": "bothriomyrmex",
-    "character_id": "gen-25",
+    "character_id": "gen-27",
     "state_values": [
       "0",
       "2"
@@ -3228,20 +3419,6 @@
   },
   {
     "genus_id": "bothriomyrmex",
-    "character_id": "gen-26",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "bothriomyrmex",
-    "character_id": "gen-27",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "bothriomyrmex",
     "character_id": "gen-28",
     "state_values": [
       "0"
@@ -3269,210 +3446,210 @@
     ]
   },
   {
-    "genus_id": "dolichoderus",
-    "character_id": "gen-25",
-    "state_values": [
-      "1"
-    ]
-  },
-  {
-    "genus_id": "dolichoderus",
-    "character_id": "gen-26",
-    "state_values": [
-      "1"
-    ]
-  },
-  {
-    "genus_id": "dolichoderus",
-    "character_id": "gen-27",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "dolichoderus",
-    "character_id": "gen-28",
-    "state_values": [
-      "1"
-    ]
-  },
-  {
-    "genus_id": "dolichoderus",
-    "character_id": "gen-29",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "dolichoderus",
-    "character_id": "gen-30",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "dolichoderus",
-    "character_id": "gen-31",
-    "state_values": [
-      "1"
-    ]
-  },
-  {
-    "genus_id": "linepithema",
-    "character_id": "gen-25",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "linepithema",
-    "character_id": "gen-26",
-    "state_values": [
-      "1"
-    ]
-  },
-  {
-    "genus_id": "linepithema",
-    "character_id": "gen-27",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "linepithema",
-    "character_id": "gen-28",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "linepithema",
-    "character_id": "gen-29",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "linepithema",
-    "character_id": "gen-30",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "linepithema",
-    "character_id": "gen-31",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "liometopum",
-    "character_id": "gen-25",
-    "state_values": [
-      "1"
-    ]
-  },
-  {
-    "genus_id": "liometopum",
-    "character_id": "gen-26",
-    "state_values": [
-      "1"
-    ]
-  },
-  {
-    "genus_id": "liometopum",
-    "character_id": "gen-27",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "liometopum",
-    "character_id": "gen-28",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "liometopum",
-    "character_id": "gen-29",
-    "state_values": [
-      "1"
-    ]
-  },
-  {
-    "genus_id": "liometopum",
-    "character_id": "gen-30",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "liometopum",
-    "character_id": "gen-31",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "tapinoma",
-    "character_id": "gen-25",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "tapinoma",
-    "character_id": "gen-26",
-    "state_values": [
-      "1"
-    ]
-  },
-  {
-    "genus_id": "tapinoma",
-    "character_id": "gen-27",
-    "state_values": [
-      "1"
-    ]
-  },
-  {
-    "genus_id": "tapinoma",
-    "character_id": "gen-28",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "tapinoma",
-    "character_id": "gen-29",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "tapinoma",
-    "character_id": "gen-30",
-    "state_values": [
-      "1"
-    ]
-  },
-  {
-    "genus_id": "tapinoma",
-    "character_id": "gen-31",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "camponotus",
+    "genus_id": "bothriomyrmex",
     "character_id": "gen-32",
     "state_values": [
       "0"
     ]
   },
   {
-    "genus_id": "camponotus",
+    "genus_id": "bothriomyrmex",
+    "character_id": "gen-33",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "dolichoderus",
+    "character_id": "gen-27",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "dolichoderus",
+    "character_id": "gen-28",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "dolichoderus",
+    "character_id": "gen-29",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "dolichoderus",
+    "character_id": "gen-30",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "dolichoderus",
+    "character_id": "gen-31",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "dolichoderus",
+    "character_id": "gen-32",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "dolichoderus",
+    "character_id": "gen-33",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "linepithema",
+    "character_id": "gen-27",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "linepithema",
+    "character_id": "gen-28",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "linepithema",
+    "character_id": "gen-29",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "linepithema",
+    "character_id": "gen-30",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "linepithema",
+    "character_id": "gen-31",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "linepithema",
+    "character_id": "gen-32",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "linepithema",
+    "character_id": "gen-33",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "liometopum",
+    "character_id": "gen-27",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "liometopum",
+    "character_id": "gen-28",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "liometopum",
+    "character_id": "gen-29",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "liometopum",
+    "character_id": "gen-30",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "liometopum",
+    "character_id": "gen-31",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "liometopum",
+    "character_id": "gen-32",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "liometopum",
+    "character_id": "gen-33",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "tapinoma",
+    "character_id": "gen-27",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "tapinoma",
+    "character_id": "gen-28",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "tapinoma",
+    "character_id": "gen-29",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "tapinoma",
+    "character_id": "gen-30",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "tapinoma",
+    "character_id": "gen-31",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "tapinoma",
+    "character_id": "gen-32",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "tapinoma",
     "character_id": "gen-33",
     "state_values": [
       "0"
@@ -3495,6 +3672,20 @@
   {
     "genus_id": "camponotus",
     "character_id": "gen-36",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "camponotus",
+    "character_id": "gen-37",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "camponotus",
+    "character_id": "gen-38",
     "state_values": [
       "1",
       "2"
@@ -3502,44 +3693,38 @@
   },
   {
     "genus_id": "camponotus",
-    "character_id": "gen-37",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "camponotus",
-    "character_id": "gen-38",
-    "state_values": [
-      "1"
-    ]
-  },
-  {
-    "genus_id": "camponotus",
     "character_id": "gen-39",
     "state_values": [
       "0"
     ]
   },
   {
-    "genus_id": "cataglyphis",
-    "character_id": "gen-32",
+    "genus_id": "camponotus",
+    "character_id": "gen-40",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "camponotus",
+    "character_id": "gen-41",
     "state_values": [
       "0"
     ]
   },
   {
-    "genus_id": "cataglyphis",
-    "character_id": "gen-33",
+    "genus_id": "camponotus",
+    "character_id": "gen-42",
     "state_values": [
-      "0"
+      "0",
+      "1"
     ]
   },
   {
     "genus_id": "cataglyphis",
     "character_id": "gen-34",
     "state_values": [
-      "1"
+      "0"
     ]
   },
   {
@@ -3560,7 +3745,7 @@
     "genus_id": "cataglyphis",
     "character_id": "gen-37",
     "state_values": [
-      "1"
+      "0"
     ]
   },
   {
@@ -3574,19 +3759,26 @@
     "genus_id": "cataglyphis",
     "character_id": "gen-39",
     "state_values": [
-      "0"
+      "1"
     ]
   },
   {
-    "genus_id": "colobopsis",
-    "character_id": "gen-32",
+    "genus_id": "cataglyphis",
+    "character_id": "gen-40",
     "state_values": [
       "1"
     ]
   },
   {
-    "genus_id": "colobopsis",
-    "character_id": "gen-33",
+    "genus_id": "cataglyphis",
+    "character_id": "gen-41",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "cataglyphis",
+    "character_id": "gen-42",
     "state_values": [
       "0"
     ]
@@ -3595,7 +3787,7 @@
     "genus_id": "colobopsis",
     "character_id": "gen-34",
     "state_values": [
-      "0"
+      "1"
     ]
   },
   {
@@ -3609,7 +3801,7 @@
     "genus_id": "colobopsis",
     "character_id": "gen-36",
     "state_values": [
-      "1"
+      "0"
     ]
   },
   {
@@ -3634,15 +3826,36 @@
     ]
   },
   {
+    "genus_id": "colobopsis",
+    "character_id": "gen-40",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "colobopsis",
+    "character_id": "gen-41",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "colobopsis",
+    "character_id": "gen-42",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
     "genus_id": "formica",
-    "character_id": "gen-32",
+    "character_id": "gen-34",
     "state_values": [
       "0"
     ]
   },
   {
     "genus_id": "formica",
-    "character_id": "gen-33",
+    "character_id": "gen-35",
     "state_values": [
       "0",
       "2"
@@ -3650,56 +3863,49 @@
   },
   {
     "genus_id": "formica",
-    "character_id": "gen-34",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "formica",
-    "character_id": "gen-35",
-    "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "formica",
     "character_id": "gen-36",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "formica",
+    "character_id": "gen-37",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "formica",
+    "character_id": "gen-38",
     "state_values": [
       "2"
     ]
   },
   {
     "genus_id": "formica",
-    "character_id": "gen-37",
-    "state_values": [
-      "1"
-    ]
-  },
-  {
-    "genus_id": "formica",
-    "character_id": "gen-38",
-    "state_values": [
-      "1"
-    ]
-  },
-  {
-    "genus_id": "formica",
     "character_id": "gen-39",
     "state_values": [
-      "0"
+      "1"
     ]
   },
   {
-    "genus_id": "lasius",
-    "character_id": "gen-32",
+    "genus_id": "formica",
+    "character_id": "gen-40",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "formica",
+    "character_id": "gen-41",
     "state_values": [
       "0"
     ]
   },
   {
-    "genus_id": "lasius",
-    "character_id": "gen-33",
+    "genus_id": "formica",
+    "character_id": "gen-42",
     "state_values": [
       "0"
     ]
@@ -3721,43 +3927,50 @@
   {
     "genus_id": "lasius",
     "character_id": "gen-36",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "lasius",
+    "character_id": "gen-37",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "lasius",
+    "character_id": "gen-38",
     "state_values": [
       "2"
     ]
   },
   {
     "genus_id": "lasius",
-    "character_id": "gen-37",
+    "character_id": "gen-39",
     "state_values": [
       "1"
     ]
   },
   {
     "genus_id": "lasius",
-    "character_id": "gen-38",
+    "character_id": "gen-40",
     "state_values": [
       "1"
     ]
   },
   {
     "genus_id": "lasius",
-    "character_id": "gen-39",
+    "character_id": "gen-41",
     "state_values": [
       "0"
     ]
   },
   {
-    "genus_id": "lepisiota",
-    "character_id": "gen-32",
+    "genus_id": "lasius",
+    "character_id": "gen-42",
     "state_values": [
-      "0"
-    ]
-  },
-  {
-    "genus_id": "lepisiota",
-    "character_id": "gen-33",
-    "state_values": [
-      "0"
+      "1"
     ]
   },
   {
@@ -3778,40 +3991,47 @@
     "genus_id": "lepisiota",
     "character_id": "gen-36",
     "state_values": [
-      "1"
+      "0"
     ]
   },
   {
     "genus_id": "lepisiota",
     "character_id": "gen-37",
-    "state_values": [
-      "1"
-    ]
-  },
-  {
-    "genus_id": "lepisiota",
-    "character_id": "gen-38",
     "state_values": [
       "0"
     ]
   },
   {
     "genus_id": "lepisiota",
+    "character_id": "gen-38",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "lepisiota",
     "character_id": "gen-39",
     "state_values": [
       "1"
     ]
   },
   {
-    "genus_id": "plagiolepis",
-    "character_id": "gen-32",
+    "genus_id": "lepisiota",
+    "character_id": "gen-40",
     "state_values": [
       "0"
     ]
   },
   {
-    "genus_id": "plagiolepis",
-    "character_id": "gen-33",
+    "genus_id": "lepisiota",
+    "character_id": "gen-41",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "lepisiota",
+    "character_id": "gen-42",
     "state_values": [
       "0"
     ]
@@ -3834,41 +4054,49 @@
     "genus_id": "plagiolepis",
     "character_id": "gen-36",
     "state_values": [
-      "1"
+      "0"
     ]
   },
   {
     "genus_id": "plagiolepis",
     "character_id": "gen-37",
-    "state_values": [
-      "1"
-    ]
-  },
-  {
-    "genus_id": "plagiolepis",
-    "character_id": "gen-38",
     "state_values": [
       "0"
     ]
   },
   {
     "genus_id": "plagiolepis",
+    "character_id": "gen-38",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "plagiolepis",
     "character_id": "gen-39",
     "state_values": [
-      "0"
+      "1"
     ]
   },
   {
-    "genus_id": "polyergus",
-    "character_id": "gen-32",
+    "genus_id": "plagiolepis",
+    "character_id": "gen-40",
     "state_values": [
       "0"
     ]
   },
   {
-    "genus_id": "polyergus",
-    "character_id": "gen-33",
+    "genus_id": "plagiolepis",
+    "character_id": "gen-41",
     "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "plagiolepis",
+    "character_id": "gen-42",
+    "state_values": [
+      "0",
       "1"
     ]
   },
@@ -3904,26 +4132,33 @@
     "genus_id": "polyergus",
     "character_id": "gen-38",
     "state_values": [
-      "1"
+      "0"
     ]
   },
   {
     "genus_id": "polyergus",
     "character_id": "gen-39",
     "state_values": [
-      "0"
+      "1"
     ]
   },
   {
-    "genus_id": "prenolepis",
-    "character_id": "gen-32",
+    "genus_id": "polyergus",
+    "character_id": "gen-40",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "polyergus",
+    "character_id": "gen-41",
     "state_values": [
       "0"
     ]
   },
   {
-    "genus_id": "prenolepis",
-    "character_id": "gen-33",
+    "genus_id": "polyergus",
+    "character_id": "gen-42",
     "state_values": [
       "0"
     ]
@@ -3946,14 +4181,14 @@
     "genus_id": "prenolepis",
     "character_id": "gen-36",
     "state_values": [
-      "1"
+      "0"
     ]
   },
   {
     "genus_id": "prenolepis",
     "character_id": "gen-37",
     "state_values": [
-      "1"
+      "0"
     ]
   },
   {
@@ -3967,21 +4202,29 @@
     "genus_id": "prenolepis",
     "character_id": "gen-39",
     "state_values": [
-      "0"
+      "1"
     ]
   },
   {
-    "genus_id": "nylanderia",
-    "character_id": "gen-32",
+    "genus_id": "prenolepis",
+    "character_id": "gen-40",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "prenolepis",
+    "character_id": "gen-41",
     "state_values": [
       "0"
     ]
   },
   {
-    "genus_id": "nylanderia",
-    "character_id": "gen-33",
+    "genus_id": "prenolepis",
+    "character_id": "gen-42",
     "state_values": [
-      "0"
+      "0",
+      "1"
     ]
   },
   {
@@ -4002,14 +4245,14 @@
     "genus_id": "nylanderia",
     "character_id": "gen-36",
     "state_values": [
-      "1"
+      "0"
     ]
   },
   {
     "genus_id": "nylanderia",
     "character_id": "gen-37",
     "state_values": [
-      "1"
+      "0"
     ]
   },
   {
@@ -4023,21 +4266,28 @@
     "genus_id": "nylanderia",
     "character_id": "gen-39",
     "state_values": [
-      "0"
+      "1"
     ]
   },
   {
-    "genus_id": "paratrechina",
-    "character_id": "gen-32",
+    "genus_id": "nylanderia",
+    "character_id": "gen-40",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "nylanderia",
+    "character_id": "gen-41",
     "state_values": [
       "0"
     ]
   },
   {
-    "genus_id": "paratrechina",
-    "character_id": "gen-33",
+    "genus_id": "nylanderia",
+    "character_id": "gen-42",
     "state_values": [
-      "0"
+      "1"
     ]
   },
   {
@@ -4058,14 +4308,14 @@
     "genus_id": "paratrechina",
     "character_id": "gen-36",
     "state_values": [
-      "1"
+      "0"
     ]
   },
   {
     "genus_id": "paratrechina",
     "character_id": "gen-37",
     "state_values": [
-      "1"
+      "0"
     ]
   },
   {
@@ -4079,7 +4329,28 @@
     "genus_id": "paratrechina",
     "character_id": "gen-39",
     "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "paratrechina",
+    "character_id": "gen-40",
+    "state_values": [
+      "1"
+    ]
+  },
+  {
+    "genus_id": "paratrechina",
+    "character_id": "gen-41",
+    "state_values": [
       "0"
+    ]
+  },
+  {
+    "genus_id": "paratrechina",
+    "character_id": "gen-42",
+    "state_values": [
+      "1"
     ]
   }
 ]

@@ -12,10 +12,10 @@
 
 | Profondità minima per identificazione univoca | Numero di generi |
 |---|---|
-| 1 carattere ⇒ univoco | 18 |
-| 2 caratteri ⇒ univoco (1 non basta) | 13 |
-| 3 caratteri ⇒ univoco (1–2 non bastano) | 5 |
-| **NON raggiungibili univocamente** (anche con 5 caratteri) | **7** |
+| 1 carattere ⇒ univoco | 19 |
+| 2 caratteri ⇒ univoco (1 non basta) | 15 |
+| 3 caratteri ⇒ univoco (1–2 non bastano) | 4 |
+| **NON raggiungibili univocamente** (anche con 5 caratteri) | **5** |
 | **Totale** | **43** |
 
 ### Generi non raggiungibili univocamente
@@ -24,19 +24,23 @@ Questi generi **non possono mai essere posti come unico vincitore** della chiave
 
 | Genere | Sottofamiglia | "Bloccato da" | Motivo strutturale |
 |---|---|---|---|
-| _Prenolepis_ | formicinae | nylanderia, paratrechina | Profili **identici**: Prenolepis, Nylanderia e Paratrechina hanno la stessa identica matrice di stati per tutti gli 8 caratteri formicinae. Sono **completamente indistinguibili** dalla chiave attuale. |
-| _Nylanderia_ | formicinae | prenolepis, paratrechina | Profili identici (vedi Prenolepis). |
-| _Paratrechina_ | formicinae | prenolepis, nylanderia | Profili identici (vedi Prenolepis). |
-| _Lasius_ | formicinae | formica | Profilo dominato: Lasius differisce da Formica solo per `gen-33` ("Formula palpale", scope formicinae) dove Lasius=`0` e Formica=`{0,2}`. Ogni stato compatibile con Lasius è compatibile anche con Formica. |
-| _Stenamma_ | myrmicinae | pheidole | Profilo dominato: Stenamma differisce da Pheidole solo per `gen-11` ("Lati del pronoto") dove Stenamma=`1` e Pheidole=`{0,1}`. Ogni stato compatibile con Stenamma è compatibile anche con Pheidole. |
-| _Brachyponera_ | ponerinae | hypoponera | Profilo dominato: Brachyponera differisce da Hypoponera solo per `gen-20` ("Colore", scope ponerinae) dove Brachyponera=`1` e Hypoponera=`{0,1}`. Ogni stato compatibile con Brachyponera è compatibile anche con Hypoponera. |
-| _Leptanilla_ | leptanillinae | aphaenogaster | Profilo ridotto e dominato: Leptanilla ha dati per soli 5 caratteri myrmicinae; per ognuno i suoi stati sono sottoinsieme di quelli di Aphaenogaster. Manca un carattere diagnostico univoco (assenza di occhi composti, lobi frontali ridotti — non codificati nella chiave attuale). |
+| _Nylanderia_ | formicinae | paratrechina | Profili **identici**: Nylanderia e Paratrechina hanno la stessa identica matrice di stati per tutti i 9 caratteri formicinae attuali (incluso il nuovo "Ocelli" da Step 1.1). Sono **indistinguibili** dalla chiave attuale. Lo Step 4 affronterà questo trio con literature review (LaPolla 2010, Williams & LaPolla). |
+| _Paratrechina_ | formicinae | nylanderia | Profili identici (vedi Nylanderia). |
+| _Leptanilla_ | leptanillinae | aphaenogaster | Profilo ridotto e dominato: Leptanilla ha dati per soli 5 caratteri myrmicinae; per ognuno i suoi stati sono sottoinsieme di quelli di Aphaenogaster. Manca un carattere diagnostico univoco (assenza di occhi composti, lobi frontali ridotti — non codificati nella chiave attuale; pianificato per Step 2: introduzione di caratteri scope=leptanillinae). |
 
 ### Anomalie strutturali rilevate
 
 1. **Le 4 sottofamiglie monotipiche** (Amblyoponinae, Proceratiinae, Leptanillinae, Dorylinae) **non hanno caratteri propri**: i loro generi (_Stigmatomma, Proceratium, Leptanilla, Dorylus_) usano caratteri della scope myrmicinae. Conseguenza: la "subfamily-aware penalization" funziona solo per le 4 sottofamiglie con caratteri scoped, mentre i generi monotipici concorrono come "out-of-scope" rispetto alla penalizzazione anche quando l'utente sta selezionando i loro caratteri.
 2. **Coppie/triple di profili identici o dominati**: vedi sezione "Generi non raggiungibili univocamente". Ogni coppia dominata richiede l'aggiunta di almeno un nuovo carattere (o stato) per essere risolvibile.
 3. **Caratteri inter-sottofamiglia mancanti**: nessun carattere della matrice è "globale". Quindi la chiave **non può mai distinguere genericamente** tra (es.) un Myrmicinae e un Ponerinae sulla base di caratteri base come "numero di segmenti del peziolo": questo è gestito implicitamente dalla subfamily-scope.
+
+### Sblocchi dallo Step 1 (3 nuovi caratteri)
+
+Step 1 ha aggiunto 3 nuovi caratteri sourced (con citazione esatta da letteratura) per sbloccare 3 dei 6 generi rimasti unreachable post-Step-0:
+
+1. **Step 1.1 — `gen-41 Ocelli`** (scope formicinae): _Lasius_ ha "ocelli vestigiali" (Excel R52 fonte Mei) vs _Formica_ "ocelli ben sviluppati" (Excel R30 fonte Mei). _Lasius_ era unreachable, ora 3-char.
+2. **Step 1.2 — `gen-20 Casta soldato (operaia major)`** (scope myrmicinae): _Pheidole_ "specie molto polimorfe; nelle operaie medie e massime il capo è massiccio e quadrato" (Excel R297 fonte Mei) vs _Stenamma_ "specie monomorfe" (Excel R35 fonte Mei). _Stenamma_ era unreachable, ora 4-char. Bonus: _Pheidole_ passa da 3-char a 2-char.
+3. **Step 1.3 — `gen-26 Sviluppo degli occhi`** (scope ponerinae, 3 stati): _Brachyponera_ "Eye medium in size" (Chen et al. 2025) vs _Hypoponera_ "Eyes absent or present; when present always small (generally of 1 to about 20 ommatidia)" (Bolton & Fisher 2011). _Brachyponera_ era unreachable, ora **1-char**. Bonus: _Cryptopone_ ("vestigial to absent" per Schmidt & Shattuck 2014) e _Ponera_ (5-7 ommatidi) ora distinti tra loro.
 
 ### Anomalie risolte dallo Step 0 di restauro
 
@@ -69,7 +73,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Cardiocondyla_
 
 - **ID:** `cardiocondyla`
-- **Caratteri con dato:** 18 su 39
+- **Caratteri con dato:** 19 su 42
 - **Profondità minima per identificazione univoca:** 1 carattere/i
 - **Identificazione con 1 carattere — opzioni univoche** (1):
   - **Setole erette sul mesosoma** = _assente_  (gap dal 2°: 0.800, generi rimasti in lista: 43)
@@ -77,7 +81,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Crematogaster_
 
 - **ID:** `crematogaster`
-- **Caratteri con dato:** 18 su 39
+- **Caratteri con dato:** 19 su 42
 - **Profondità minima per identificazione univoca:** 1 carattere/i
 - **Identificazione con 1 carattere — opzioni univoche** (2):
   - **Articolazione del postpeziolo** = _articolato con la faccia superiore del primo segmento gastrale_  (gap dal 2°: 0.800, generi rimasti in lista: 43)
@@ -86,7 +90,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Harpagoxenus_
 
 - **ID:** `harpagoxenus`
-- **Caratteri con dato:** 17 su 39
+- **Caratteri con dato:** 18 su 42
 - **Profondità minima per identificazione univoca:** 1 carattere/i
 - **Identificazione con 1 carattere — opzioni univoche** (1):
   - **Dentatura mandibolare** = _assente o solo con dente apicale_  (gap dal 2°: 0.500, generi rimasti in lista: 43)
@@ -94,7 +98,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Monomorium_
 
 - **ID:** `monomorium`
-- **Caratteri con dato:** 19 su 39
+- **Caratteri con dato:** 20 su 42
 - **Profondità minima per identificazione univoca:** 1 carattere/i
 - **Identificazione con 1 carattere — opzioni univoche** (1):
   - **Dentatura mandibolare** = _4_  (gap dal 2°: 0.500, generi rimasti in lista: 43)
@@ -102,7 +106,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Oxyopomyrmex_
 
 - **ID:** `oxyopomyrmex`
-- **Caratteri con dato:** 17 su 39
+- **Caratteri con dato:** 18 su 42
 - **Profondità minima per identificazione univoca:** 1 carattere/i
 - **Identificazione con 1 carattere — opzioni univoche** (1):
   - **Occhi composti** = _allungato, rastremato verso il basso_  (gap dal 2°: 0.800, generi rimasti in lista: 43)
@@ -110,7 +114,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Solenopsis_
 
 - **ID:** `solenopsis`
-- **Caratteri con dato:** 18 su 39
+- **Caratteri con dato:** 19 su 42
 - **Profondità minima per identificazione univoca:** 1 carattere/i
 - **Identificazione con 1 carattere — opzioni univoche** (1):
   - **Numero di segmenti antennali** = _10_  (gap dal 2°: 0.800, generi rimasti in lista: 43)
@@ -118,7 +122,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Strumigenys_
 
 - **ID:** `strumigenys`
-- **Caratteri con dato:** 18 su 39
+- **Caratteri con dato:** 19 su 42
 - **Profondità minima per identificazione univoca:** 1 carattere/i
 - **Identificazione con 1 carattere — opzioni univoche** (5):
   - **Forma del capo** = _triangolare_  (gap dal 2°: 0.800, generi rimasti in lista: 43)
@@ -130,7 +134,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Aphaenogaster_
 
 - **ID:** `aphaenogaster`
-- **Caratteri con dato:** 19 su 39
+- **Caratteri con dato:** 20 su 42
 - **Profondità minima per identificazione univoca:** 2 carattere/i
 - **Nessun singolo carattere lo identifica.** Coppie minime che lo identificano univocamente (prime 8 su 12 totali trovate):
   - **Segmenti della clava antennale** = _4_ AND **Dentatura mandibolare** = _tra 6 e 9_  (gap: 0.400)
@@ -145,7 +149,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Formicoxenus_
 
 - **ID:** `formicoxenus`
-- **Caratteri con dato:** 18 su 39
+- **Caratteri con dato:** 19 su 42
 - **Profondità minima per identificazione univoca:** 2 carattere/i
 - **Nessun singolo carattere lo identifica.** Coppie minime che lo identificano univocamente (prime 1 su 1 totali trovate):
   - **Dentatura mandibolare** = _tra 6 e 9_ AND **Superficie ventrale del peziolo e postpeziolo** = _con dente o lobo ben sviluppato_  (gap: 0.150)
@@ -153,7 +157,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Manica_
 
 - **ID:** `manica`
-- **Caratteri con dato:** 18 su 39
+- **Caratteri con dato:** 19 su 42
 - **Profondità minima per identificazione univoca:** 2 carattere/i
 - **Nessun singolo carattere lo identifica.** Coppie minime che lo identificano univocamente (prime 4 su 4 totali trovate):
   - **Segmenti della clava antennale** = _5_ AND **Formula palpale** = _6,4_  (gap: 0.500)
@@ -164,9 +168,9 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Messor_
 
 - **ID:** `messor`
-- **Caratteri con dato:** 19 su 39
+- **Caratteri con dato:** 20 su 42
 - **Profondità minima per identificazione univoca:** 2 carattere/i
-- **Nessun singolo carattere lo identifica.** Coppie minime che lo identificano univocamente (prime 8 su 15 totali trovate):
+- **Nessun singolo carattere lo identifica.** Coppie minime che lo identificano univocamente (prime 8 su 17 totali trovate):
   - **Setole erette sul mesosoma** = _presente_ AND **Segmenti della clava antennale** = _indistinta_  (gap: 0.400)
   - **Forma del capo** = _non triangolare_ AND **Segmenti della clava antennale** = _indistinta_  (gap: 0.400)
   - **Segmenti della clava antennale** = _indistinta_ AND **Occhi composti** = _ovale_  (gap: 0.400)
@@ -179,7 +183,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Myrmecina_
 
 - **ID:** `myrmecina`
-- **Caratteri con dato:** 19 su 39
+- **Caratteri con dato:** 20 su 42
 - **Profondità minima per identificazione univoca:** 2 carattere/i
 - **Nessun singolo carattere lo identifica.** Coppie minime che lo identificano univocamente (prime 5 su 5 totali trovate):
   - **Formula palpale** = _da 1,2 a 5,3_ AND **Forma del peziolo e postpeziolo** = _cubico_  (gap: 0.150)
@@ -191,7 +195,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Myrmica_
 
 - **ID:** `myrmica`
-- **Caratteri con dato:** 19 su 39
+- **Caratteri con dato:** 20 su 42
 - **Profondità minima per identificazione univoca:** 2 carattere/i
 - **Nessun singolo carattere lo identifica.** Coppie minime che lo identificano univocamente (prime 8 su 10 totali trovate):
   - **Segmenti della clava antennale** = _3_ AND **Formula palpale** = _6,4_  (gap: 0.400)
@@ -203,10 +207,19 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
   - **Lati del pronoto** = _arrotondato, vista dorsale_ AND **Forma del peziolo e postpeziolo** = _cubico_  (gap: 0.150)
   - **Propodeo** = _con denti o spine_ AND **Speroni delle tibie medie e posteriori** = _pettinato_  (gap: 0.500)
 
+#### _Pheidole_
+
+- **ID:** `pheidole`
+- **Caratteri con dato:** 20 su 42
+- **Profondità minima per identificazione univoca:** 2 carattere/i
+- **Nessun singolo carattere lo identifica.** Coppie minime che lo identificano univocamente (prime 2 su 2 totali trovate):
+  - **Segmenti della clava antennale** = _3_ AND **Casta soldato (operaia major)** = _presente, capo ipertrofico_  (gap: 0.500)
+  - **Propodeo** = _con denti o spine_ AND **Casta soldato (operaia major)** = _presente, capo ipertrofico_  (gap: 0.500)
+
 #### _Strongylognathus_
 
 - **ID:** `strongylognathus`
-- **Caratteri con dato:** 18 su 39
+- **Caratteri con dato:** 19 su 42
 - **Profondità minima per identificazione univoca:** 2 carattere/i
 - **Nessun singolo carattere lo identifica.** Coppie minime che lo identificano univocamente (prime 8 su 11 totali trovate):
   - **Forma del capo** = _non triangolare_ AND **Forma delle mandibole** = _stretto e allungato, a sciabola_  (gap: 0.400)
@@ -221,7 +234,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Temnothorax_
 
 - **ID:** `temnothorax`
-- **Caratteri con dato:** 19 su 39
+- **Caratteri con dato:** 20 su 42
 - **Profondità minima per identificazione univoca:** 2 carattere/i
 - **Nessun singolo carattere lo identifica.** Coppie minime che lo identificano univocamente (prime 2 su 2 totali trovate):
   - **Numero di segmenti antennali** = _12_ AND **Dentatura mandibolare** = _5_  (gap: 0.150)
@@ -230,7 +243,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Tetramorium_
 
 - **ID:** `tetramorium`
-- **Caratteri con dato:** 19 su 39
+- **Caratteri con dato:** 20 su 42
 - **Profondità minima per identificazione univoca:** 2 carattere/i
 - **Nessun singolo carattere lo identifica.** Coppie minime che lo identificano univocamente (prime 8 su 10 totali trovate):
   - **Forma delle mandibole** = _triangolare_ AND **Porzioni laterali del clipeo** = _rialzato a cresta davanti alle inserzioni antennali_  (gap: 0.400)
@@ -245,36 +258,23 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Leptothorax_
 
 - **ID:** `leptothorax`
-- **Caratteri con dato:** 18 su 39
+- **Caratteri con dato:** 19 su 42
 - **Profondità minima per identificazione univoca:** 3 carattere/i
 - **Nessun singolo carattere o coppia lo identifica.** Triple minime trovate (prime 2 di 2):
   - **Numero di segmenti antennali** = _11_ AND **Dentatura mandibolare** = _tra 6 e 9_ AND **Superficie ventrale del peziolo e postpeziolo** = _al massimo con un piccolo dente o lobo_  (gap: 0.100)
   - **Numero di segmenti antennali** = _11_ AND **Dentatura mandibolare** = _tra 6 e 9_ AND **Pungiglione** = _...senza appendice apico-dorsale_  (gap: 0.100)
 
-#### _Pheidole_
-
-- **ID:** `pheidole`
-- **Caratteri con dato:** 19 su 39
-- **Profondità minima per identificazione univoca:** 3 carattere/i
-- **Nessun singolo carattere o coppia lo identifica.** Triple minime trovate (prime 1 di 1):
-  - **Segmenti della clava antennale** = _3_ AND **Dentatura mandibolare** = _tra 6 e 9_ AND **Propodeo** = _senza denti o spine_  (gap: 0.100)
-
 #### _Stenamma_
 
 - **ID:** `stenamma`
-- **Caratteri con dato:** 19 su 39
-- **Profondità minima per identificazione univoca:** — (non raggiungibile)
-- **Stato:** ⚠️ **NON RAGGIUNGIBILE UNIVOCAMENTE** — vedi sommario.
-- **Genere/i che lo "bloccano":** pheidole
-
-  **Pari merito persistente con il profilo completo:** _Pheidole_, _Stenamma_.
-
+- **Caratteri con dato:** 20 su 42
+- **Profondità minima per identificazione univoca:** 4 carattere/i
 ### Sottofamiglia Formicinae
 
 #### _Cataglyphis_
 
 - **ID:** `cataglyphis`
-- **Caratteri con dato:** 8 su 39
+- **Caratteri con dato:** 9 su 42
 - **Profondità minima per identificazione univoca:** 1 carattere/i
 - **Identificazione con 1 carattere — opzioni univoche** (1):
   - **4° articolo del palpo mascellare** = _...circa il doppio del 5o_  (gap dal 2°: 0.800, generi rimasti in lista: 43)
@@ -282,7 +282,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Colobopsis_
 
 - **ID:** `colobopsis`
-- **Caratteri con dato:** 8 su 39
+- **Caratteri con dato:** 9 su 42
 - **Profondità minima per identificazione univoca:** 1 carattere/i
 - **Identificazione con 1 carattere — opzioni univoche** (1):
   - **Casta soldato con capo troncato** = _presente_  (gap dal 2°: 0.800, generi rimasti in lista: 43)
@@ -290,7 +290,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Formica_
 
 - **ID:** `formica`
-- **Caratteri con dato:** 8 su 39
+- **Caratteri con dato:** 9 su 42
 - **Profondità minima per identificazione univoca:** 1 carattere/i
 - **Identificazione con 1 carattere — opzioni univoche** (1):
   - **Formula palpale** = _5,4_  (gap dal 2°: 0.800, generi rimasti in lista: 43)
@@ -298,7 +298,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Lepisiota_
 
 - **ID:** `lepisiota`
-- **Caratteri con dato:** 8 su 39
+- **Caratteri con dato:** 9 su 42
 - **Profondità minima per identificazione univoca:** 1 carattere/i
 - **Identificazione con 1 carattere — opzioni univoche** (1):
   - **Propodeo** = _armato con 2 denti_  (gap dal 2°: 0.800, generi rimasti in lista: 43)
@@ -306,7 +306,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Polyergus_
 
 - **ID:** `polyergus`
-- **Caratteri con dato:** 8 su 39
+- **Caratteri con dato:** 9 su 42
 - **Profondità minima per identificazione univoca:** 1 carattere/i
 - **Identificazione con 1 carattere — opzioni univoche** (3):
   - **Formula palpale** = _4,2_  (gap dal 2°: 0.800, generi rimasti in lista: 43)
@@ -316,57 +316,52 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Camponotus_
 
 - **ID:** `camponotus`
-- **Caratteri con dato:** 8 su 39
+- **Caratteri con dato:** 9 su 42
 - **Profondità minima per identificazione univoca:** 2 carattere/i
-- **Nessun singolo carattere lo identifica.** Coppie minime che lo identificano univocamente (prime 2 su 2 totali trovate):
+- **Nessun singolo carattere lo identifica.** Coppie minime che lo identificano univocamente (prime 3 su 3 totali trovate):
   - **Casta soldato con capo troncato** = _assente_ AND **Inserzione delle antenne** = _distante dal margine posteriore del clipeo_  (gap: 0.500)
   - **Denti mandibolari** = _>=7_ AND **Inserzione delle antenne** = _distante dal margine posteriore del clipeo_  (gap: 0.500)
+  - **Inserzione delle antenne** = _distante dal margine posteriore del clipeo_ AND **Ocelli** = _ben sviluppati_  (gap: 0.500)
 
 #### _Plagiolepis_
 
 - **ID:** `plagiolepis`
-- **Caratteri con dato:** 8 su 39
+- **Caratteri con dato:** 9 su 42
 - **Profondità minima per identificazione univoca:** 2 carattere/i
-- **Nessun singolo carattere lo identifica.** Coppie minime che lo identificano univocamente (prime 1 su 1 totali trovate):
+- **Nessun singolo carattere lo identifica.** Coppie minime che lo identificano univocamente (prime 2 su 2 totali trovate):
   - **Numero di segmenti antennali** = _11_ AND **Propodeo** = _arrotondato_  (gap: 0.500)
+  - **Numero di segmenti antennali** = _11_ AND **Ocelli** = _vestigiali o assenti_  (gap: 0.500)
 
 #### _Lasius_
 
 - **ID:** `lasius`
-- **Caratteri con dato:** 8 su 39
-- **Profondità minima per identificazione univoca:** — (non raggiungibile)
-- **Stato:** ⚠️ **NON RAGGIUNGIBILE UNIVOCAMENTE** — vedi sommario.
-- **Genere/i che lo "bloccano":** formica
+- **Caratteri con dato:** 9 su 42
+- **Profondità minima per identificazione univoca:** 3 carattere/i
+- **Nessun singolo carattere o coppia lo identifica.** Triple minime trovate (prime 1 di 1):
+  - **Denti mandibolari** = _>=7_ AND **Inserzione delle antenne** = _molto vicino al margine posteriore del clipeo_ AND **Ocelli** = _vestigiali o assenti_  (gap: 0.333)
 
-  **Pari merito persistente con il profilo completo:** _Formica_, _Lasius_.
+#### _Prenolepis_
 
+- **ID:** `prenolepis`
+- **Caratteri con dato:** 9 su 42
+- **Profondità minima per identificazione univoca:** 5 carattere/i
 #### _Nylanderia_
 
 - **ID:** `nylanderia`
-- **Caratteri con dato:** 8 su 39
+- **Caratteri con dato:** 9 su 42
 - **Profondità minima per identificazione univoca:** — (non raggiungibile)
 - **Stato:** ⚠️ **NON RAGGIUNGIBILE UNIVOCAMENTE** — vedi sommario.
-- **Genere/i che lo "bloccano":** prenolepis, paratrechina
+- **Genere/i che lo "bloccano":** paratrechina
 
   **Pari merito persistente con il profilo completo:** _Nylanderia_, _Paratrechina_, _Prenolepis_.
 
 #### _Paratrechina_
 
 - **ID:** `paratrechina`
-- **Caratteri con dato:** 8 su 39
+- **Caratteri con dato:** 9 su 42
 - **Profondità minima per identificazione univoca:** — (non raggiungibile)
 - **Stato:** ⚠️ **NON RAGGIUNGIBILE UNIVOCAMENTE** — vedi sommario.
-- **Genere/i che lo "bloccano":** prenolepis, nylanderia
-
-  **Pari merito persistente con il profilo completo:** _Nylanderia_, _Paratrechina_, _Prenolepis_.
-
-#### _Prenolepis_
-
-- **ID:** `prenolepis`
-- **Caratteri con dato:** 8 su 39
-- **Profondità minima per identificazione univoca:** — (non raggiungibile)
-- **Stato:** ⚠️ **NON RAGGIUNGIBILE UNIVOCAMENTE** — vedi sommario.
-- **Genere/i che lo "bloccano":** nylanderia, paratrechina
+- **Genere/i che lo "bloccano":** nylanderia
 
   **Pari merito persistente con il profilo completo:** _Nylanderia_, _Paratrechina_, _Prenolepis_.
 
@@ -375,7 +370,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Bothriomyrmex_
 
 - **ID:** `bothriomyrmex`
-- **Caratteri con dato:** 7 su 39
+- **Caratteri con dato:** 7 su 42
 - **Profondità minima per identificazione univoca:** 1 carattere/i
 - **Identificazione con 1 carattere — opzioni univoche** (2):
   - **Colore** = _bicolore senza parti rosse o rossastre_  (gap dal 2°: 0.800, generi rimasti in lista: 43)
@@ -384,7 +379,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Dolichoderus_
 
 - **ID:** `dolichoderus`
-- **Caratteri con dato:** 7 su 39
+- **Caratteri con dato:** 7 su 42
 - **Profondità minima per identificazione univoca:** 1 carattere/i
 - **Identificazione con 1 carattere — opzioni univoche** (2):
   - **Tegumento del capo e del mesosoma** = _spesso e con scultura marcata_  (gap dal 2°: 0.800, generi rimasti in lista: 43)
@@ -393,7 +388,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Liometopum_
 
 - **ID:** `liometopum`
-- **Caratteri con dato:** 7 su 39
+- **Caratteri con dato:** 7 su 42
 - **Profondità minima per identificazione univoca:** 1 carattere/i
 - **Identificazione con 1 carattere — opzioni univoche** (1):
   - **Peli eretti sul pronoto** = _presente_  (gap dal 2°: 0.800, generi rimasti in lista: 43)
@@ -401,7 +396,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Tapinoma_
 
 - **ID:** `tapinoma`
-- **Caratteri con dato:** 7 su 39
+- **Caratteri con dato:** 7 su 42
 - **Profondità minima per identificazione univoca:** 1 carattere/i
 - **Identificazione con 1 carattere — opzioni univoche** (2):
   - **Margine anteriore del clipeo** = _distintamente inciso medialmente_  (gap dal 2°: 0.800, generi rimasti in lista: 43)
@@ -410,7 +405,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Linepithema_
 
 - **ID:** `linepithema`
-- **Caratteri con dato:** 7 su 39
+- **Caratteri con dato:** 7 su 42
 - **Profondità minima per identificazione univoca:** 3 carattere/i
 - **Nessun singolo carattere o coppia lo identifica.** Triple minime trovate (prime 2 di 2):
   - **Colore** = _uniformemente da bruno a nero_ AND **Formula palpale** = _6,4_ AND **Margine anteriore del clipeo** = _intero_  (gap: 0.333)
@@ -418,10 +413,18 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 
 ### Sottofamiglia Ponerinae
 
+#### _Brachyponera_
+
+- **ID:** `brachyponera`
+- **Caratteri con dato:** 6 su 42
+- **Profondità minima per identificazione univoca:** 1 carattere/i
+- **Identificazione con 1 carattere — opzioni univoche** (1):
+  - **Sviluppo degli occhi** = _ben sviluppati (medi-grandi, ≥8 ommatidi)_  (gap dal 2°: 0.800, generi rimasti in lista: 43)
+
 #### _Cryptopone_
 
 - **ID:** `cryptopone`
-- **Caratteri con dato:** 5 su 39
+- **Caratteri con dato:** 6 su 42
 - **Profondità minima per identificazione univoca:** 1 carattere/i
 - **Identificazione con 1 carattere — opzioni univoche** (3):
   - **Margine masticatorio della mandibola** = _con circa 7-9 denti separati_  (gap dal 2°: 0.800, generi rimasti in lista: 43)
@@ -431,7 +434,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Ponera_
 
 - **ID:** `ponera`
-- **Caratteri con dato:** 5 su 39
+- **Caratteri con dato:** 6 su 42
 - **Profondità minima per identificazione univoca:** 1 carattere/i
 - **Identificazione con 1 carattere — opzioni univoche** (1):
   - **Processo subpeziale** = _con una macchia circolare translucida sottile anteriormente e posteriormente a forma di dente_  (gap dal 2°: 0.800, generi rimasti in lista: 43)
@@ -439,29 +442,21 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Hypoponera_
 
 - **ID:** `hypoponera`
-- **Caratteri con dato:** 5 su 39
-- **Profondità minima per identificazione univoca:** 3 carattere/i
-- **Nessun singolo carattere o coppia lo identifica.** Triple minime trovate (prime 3 di 3):
-  - **Colore** = _testaceo_ AND **Margine masticatorio della mandibola** = _pochi denti ben definiti, il margine restante per lo piu finemente seghettato_ AND **Processo subpeziale** = _a lobo_  (gap: 0.333)
-  - **Colore** = _testaceo_ AND **Speroni della tibia posteriore** = _un singolo sperone pettinato_ AND **Processo subpeziale** = _a lobo_  (gap: 0.333)
-  - **Colore** = _testaceo_ AND **Tibia media** = _senza setole spiniformi sulla superficie esterna_ AND **Processo subpeziale** = _a lobo_  (gap: 0.333)
-
-#### _Brachyponera_
-
-- **ID:** `brachyponera`
-- **Caratteri con dato:** 5 su 39
-- **Profondità minima per identificazione univoca:** — (non raggiungibile)
-- **Stato:** ⚠️ **NON RAGGIUNGIBILE UNIVOCAMENTE** — vedi sommario.
-- **Genere/i che lo "bloccano":** hypoponera
-
-  **Pari merito persistente con il profilo completo:** _Brachyponera_, _Hypoponera_.
+- **Caratteri con dato:** 6 su 42
+- **Profondità minima per identificazione univoca:** 2 carattere/i
+- **Nessun singolo carattere lo identifica.** Coppie minime che lo identificano univocamente (prime 5 su 5 totali trovate):
+  - **Colore** = _piceo_ AND **Sviluppo degli occhi** = _vestigiali o assenti (0-1 ommatidio)_  (gap: 0.500)
+  - **Margine masticatorio della mandibola** = _pochi denti ben definiti, il margine restante per lo piu finemente seghettato_ AND **Sviluppo degli occhi** = _vestigiali o assenti (0-1 ommatidio)_  (gap: 0.500)
+  - **Speroni della tibia posteriore** = _un singolo sperone pettinato_ AND **Sviluppo degli occhi** = _vestigiali o assenti (0-1 ommatidio)_  (gap: 0.500)
+  - **Tibia media** = _senza setole spiniformi sulla superficie esterna_ AND **Sviluppo degli occhi** = _vestigiali o assenti (0-1 ommatidio)_  (gap: 0.500)
+  - **Processo subpeziale** = _a lobo_ AND **Sviluppo degli occhi** = _piccoli (2-7 ommatidi)_  (gap: 0.500)
 
 ### Sottofamiglia Amblyoponinae
 
 #### _Stigmatomma_
 
 - **ID:** `stigmatomma`
-- **Caratteri con dato:** 6 su 39
+- **Caratteri con dato:** 7 su 42
 - **Profondità minima per identificazione univoca:** 2 carattere/i
 - **Nessun singolo carattere lo identifica.** Coppie minime che lo identificano univocamente (prime 2 su 2 totali trovate):
   - **Forma delle mandibole** = _stretto e allungato, a sciabola_ AND **Dentatura mandibolare** = _tra 6 e 9_  (gap: 0.150)
@@ -472,7 +467,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Proceratium_
 
 - **ID:** `proceratium`
-- **Caratteri con dato:** 7 su 39
+- **Caratteri con dato:** 8 su 42
 - **Profondità minima per identificazione univoca:** 3 carattere/i
 - **Nessun singolo carattere o coppia lo identifica.** Triple minime trovate (prime 1 di 1):
   - **Segmenti della clava antennale** = _3_ AND **Propodeo** = _senza denti o spine_ AND **Speroni delle tibie medie e posteriori** = _pettinato_  (gap: 0.267)
@@ -482,7 +477,7 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Leptanilla_
 
 - **ID:** `leptanilla`
-- **Caratteri con dato:** 5 su 39
+- **Caratteri con dato:** 6 su 42
 - **Profondità minima per identificazione univoca:** — (non raggiungibile)
 - **Stato:** ⚠️ **NON RAGGIUNGIBILE UNIVOCAMENTE** — vedi sommario.
 - **Genere/i che lo "bloccano":** aphaenogaster
@@ -494,11 +489,12 @@ Il punteggio è calcolato esattamente come in `IdentificationKey.tsx`: pesi entr
 #### _Dorylus_
 
 - **ID:** `dorylus`
-- **Caratteri con dato:** 6 su 39
+- **Caratteri con dato:** 7 su 42
 - **Profondità minima per identificazione univoca:** 2 carattere/i
-- **Nessun singolo carattere lo identifica.** Coppie minime che lo identificano univocamente (prime 2 su 2 totali trovate):
+- **Nessun singolo carattere lo identifica.** Coppie minime che lo identificano univocamente (prime 3 su 3 totali trovate):
   - **Segmenti della clava antennale** = _indistinta_ AND **Dentatura mandibolare** = _tra 6 e 9_  (gap: 0.400)
   - **Segmenti della clava antennale** = _indistinta_ AND **Speroni delle tibie medie e posteriori** = _pettinato_  (gap: 0.400)
+  - **Speroni delle tibie medie e posteriori** = _pettinato_ AND **Casta soldato (operaia major)** = _presente, capo ipertrofico_  (gap: 0.500)
 
 ---
 
