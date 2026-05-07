@@ -34,7 +34,7 @@
     ],
     "bio_it": "Autore della checklist 2022 delle formiche italiane.",
     "bio_en": "Author of the 2022 Italian ant checklist.",
-    "profile_photo_url": "/images/esperti/enrico-schifani.jpg",
+    "profile_photo_url": "/images/esperti/enrico-schifani.webp",
     "h_index": 16,
     "claimed": false
   },
@@ -59,7 +59,7 @@
     "key_publications": [],
     "bio_it": "Direttore del laboratorio di mirmecologia, Universita di Parma.",
     "bio_en": "Director of the myrmecology lab, University of Parma.",
-    "profile_photo_url": "/images/esperti/donato-andrea-grasso.jpg",
+    "profile_photo_url": "/images/esperti/donato-andrea-grasso.webp",
     "h_index": null,
     "claimed": false
   },
@@ -99,7 +99,7 @@
     ],
     "bio_it": "Autore della guida alle formiche del Veneto.",
     "bio_en": "Author of the Veneto ant handbook.",
-    "profile_photo_url": "/images/esperti/antonio-scupola.jpg",
+    "profile_photo_url": "/images/esperti/antonio-scupola.webp",
     "h_index": 4,
     "claimed": false
   },
@@ -164,7 +164,7 @@
     ],
     "bio_it": "Specialista in specie endemiche siciliane.",
     "bio_en": "Specialist in Sicilian endemic species.",
-    "profile_photo_url": "/images/esperti/antonio-alicata.jpg",
+    "profile_photo_url": "/images/esperti/antonio-alicata.webp",
     "h_index": 8,
     "claimed": false
   },
@@ -228,7 +228,7 @@
     ],
     "bio_it": "Ricercatrice presso il laboratorio di mirmecologia di Parma.",
     "bio_en": "Researcher at the Parma myrmecology lab.",
-    "profile_photo_url": "/images/esperti/cristina-castracani.jpg",
+    "profile_photo_url": "/images/esperti/cristina-castracani.webp",
     "h_index": 17,
     "claimed": false
   },
@@ -252,7 +252,7 @@
     "key_publications": [],
     "bio_it": "Specialista in parassitismo sociale nelle formiche.",
     "bio_en": "Specialist in social parasitism in ants.",
-    "profile_photo_url": "/images/esperti/alessandra-mori.jpg",
+    "profile_photo_url": "/images/esperti/alessandra-mori.webp",
     "h_index": null,
     "claimed": false
   },
@@ -313,7 +313,7 @@
     ],
     "bio_it": "Curatore e contributore AntWeb. Ha validato le matrici FormiKey.",
     "bio_en": "Museum curator and AntWeb contributor. Validated the FormiKey matrices.",
-    "profile_photo_url": "/images/esperti/fabrizio-rigato.jpg",
+    "profile_photo_url": "/images/esperti/fabrizio-rigato.webp",
     "h_index": 6,
     "claimed": false
   },
@@ -371,7 +371,7 @@
     ],
     "bio_it": "Creatore del progetto Formiche d'Italia e della chiave FormiKey.",
     "bio_en": "Creator of Formiche d'Italia and the FormiKey identification key.",
-    "profile_photo_url": "/images/esperti/francesco-mensa.jpg",
+    "profile_photo_url": "/images/esperti/francesco-mensa.webp",
     "h_index": 1,
     "claimed": true
   },
@@ -397,7 +397,7 @@
     "key_publications": [],
     "bio_it": "Ricercatore presso il laboratorio di mirmecologia dell'Universita di Parma. Studi innovativi sulle interazioni formiche-patogeni, l'uso delle formiche come bioindicatori di parassiti, e esperimenti con droni per lo studio dei voli nuziali.",
     "bio_en": "Research fellow at the myrmecology lab, University of Parma. Innovative studies on ant-pathogen interactions, using ants as biological indicators of parasites, and drone experiments to study nuptial flights.",
-    "profile_photo_url": "/images/esperti/daniele-giannetti.jpg",
+    "profile_photo_url": "/images/esperti/daniele-giannetti.webp",
     "h_index": null,
     "claimed": false
   },
@@ -423,7 +423,7 @@
     "key_publications": [],
     "bio_it": "Dottorando presso Eurac Research (Bolzano), studia l'ecologia delle Formica del gruppo rufa (formiche rosse dei boschi), le interazioni con i mirmecofili e la conservazione. Coinvolto nel progetto europeo MonitAnt per il monitoraggio delle formiche dei boschi.",
     "bio_en": "PhD student at Eurac Research (Bolzano), studying the ecology of Formica red wood ants, myrmecophile interactions, and conservation. Involved in the European MonitAnt project for monitoring wood ants.",
-    "profile_photo_url": "/images/esperti/elia-nalini.jpg",
+    "profile_photo_url": "/images/esperti/elia-nalini.webp",
     "h_index": null,
     "claimed": false
   },
@@ -449,7 +449,7 @@
     "key_publications": [],
     "bio_it": "Mirmecologo e biologo evoluzionista italiano. Il suo lavoro si concentra sulla mappatura genetica delle formiche europee. Nel 2023 ha confermato, insieme a Schifani e Alicata, l'arrivo della formica di fuoco (Solenopsis invicta) in Europa, in Sicilia.",
     "bio_en": "Italian myrmecologist and evolutionary biologist. His work focuses on genetic mapping of European ants. In 2023, together with Schifani and Alicata, he confirmed the arrival of the fire ant (Solenopsis invicta) in Europe, in Sicily.",
-    "profile_photo_url": "/images/esperti/mattia-menchetti.jpg",
+    "profile_photo_url": "/images/esperti/mattia-menchetti.webp",
     "h_index": null,
     "claimed": false
   }
