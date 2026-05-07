@@ -3,8 +3,8 @@
     "genus": "aphaenogaster",
     "subfamily": "myrmicinae",
     "scientific_name": "Aphaenogaster",
-    "profileSize": 22,
-    "distinctCharCount": 19,
+    "profileSize": 23,
+    "distinctCharCount": 20,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -106,6 +106,8 @@
       }
     ],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "aphaenogaster",
       "topScore": 1,
@@ -117,13 +119,8 @@
           "mismatches": 0
         },
         {
-          "id": "pheidole",
-          "score": 0.9473684210526315,
-          "mismatches": 1
-        },
-        {
           "id": "leptanilla",
-          "score": 0.41052631578947363,
+          "score": 0.43999999999999995,
           "mismatches": 0
         },
         {
@@ -135,6 +132,11 @@
           "id": "brachyponera",
           "score": 0.2,
           "mismatches": 0
+        },
+        {
+          "id": "camponotus",
+          "score": 0.2,
+          "mismatches": 0
         }
       ]
     }
@@ -143,8 +145,8 @@
     "genus": "cardiocondyla",
     "subfamily": "myrmicinae",
     "scientific_name": "Cardiocondyla",
-    "profileSize": 18,
-    "distinctCharCount": 18,
+    "profileSize": 19,
+    "distinctCharCount": 19,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -157,6 +159,8 @@
     ],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "cardiocondyla",
       "topScore": 1,
@@ -194,8 +198,8 @@
     "genus": "crematogaster",
     "subfamily": "myrmicinae",
     "scientific_name": "Crematogaster",
-    "profileSize": 20,
-    "distinctCharCount": 18,
+    "profileSize": 21,
+    "distinctCharCount": 19,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -215,6 +219,8 @@
     ],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "crematogaster",
       "topScore": 1,
@@ -252,8 +258,8 @@
     "genus": "formicoxenus",
     "subfamily": "myrmicinae",
     "scientific_name": "Formicoxenus",
-    "profileSize": 19,
-    "distinctCharCount": 18,
+    "profileSize": 20,
+    "distinctCharCount": 19,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -267,6 +273,8 @@
       }
     ],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "formicoxenus",
       "topScore": 1,
@@ -284,12 +292,12 @@
         },
         {
           "id": "harpagoxenus",
-          "score": 0.9277777777777777,
+          "score": 0.9315789473684211,
           "mismatches": 1
         },
         {
           "id": "leptothorax",
-          "score": 0.9277777777777777,
+          "score": 0.9315789473684211,
           "mismatches": 1
         },
         {
@@ -304,8 +312,8 @@
     "genus": "harpagoxenus",
     "subfamily": "myrmicinae",
     "scientific_name": "Harpagoxenus",
-    "profileSize": 18,
-    "distinctCharCount": 17,
+    "profileSize": 19,
+    "distinctCharCount": 18,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -318,6 +326,8 @@
     ],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "harpagoxenus",
       "topScore": 1,
@@ -330,12 +340,12 @@
         },
         {
           "id": "formicoxenus",
-          "score": 0.9411764705882353,
+          "score": 0.9444444444444444,
           "mismatches": 1
         },
         {
           "id": "temnothorax",
-          "score": 0.9411764705882353,
+          "score": 0.9444444444444444,
           "mismatches": 1
         },
         {
@@ -355,8 +365,8 @@
     "genus": "leptothorax",
     "subfamily": "myrmicinae",
     "scientific_name": "Leptothorax",
-    "profileSize": 19,
-    "distinctCharCount": 18,
+    "profileSize": 20,
+    "distinctCharCount": 19,
     "discriminationDepth": 3,
     "uniqueSingles": [],
     "pairs": [],
@@ -380,6 +390,8 @@
         "passingCount": 38
       }
     ],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "leptothorax",
       "topScore": 1,
@@ -397,7 +409,7 @@
         },
         {
           "id": "formicoxenus",
-          "score": 0.9277777777777777,
+          "score": 0.9315789473684211,
           "mismatches": 1
         },
         {
@@ -417,8 +429,8 @@
     "genus": "manica",
     "subfamily": "myrmicinae",
     "scientific_name": "Manica",
-    "profileSize": 18,
-    "distinctCharCount": 18,
+    "profileSize": 19,
+    "distinctCharCount": 19,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -456,6 +468,8 @@
       }
     ],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "manica",
       "topScore": 1,
@@ -468,7 +482,7 @@
         },
         {
           "id": "proceratium",
-          "score": 0.4555555555555555,
+          "score": 0.4842105263157894,
           "mismatches": 1
         },
         {
@@ -493,8 +507,8 @@
     "genus": "messor",
     "subfamily": "myrmicinae",
     "scientific_name": "Messor",
-    "profileSize": 19,
-    "distinctCharCount": 19,
+    "profileSize": 21,
+    "distinctCharCount": 20,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -617,9 +631,27 @@
         ],
         "gap": "0.400",
         "passingCount": 40
+      },
+      {
+        "sels": [
+          "Segmenti della clava antennale=indistinta",
+          "Casta soldato (operaia major)=assente o polimorfismo continuo"
+        ],
+        "gap": "0.400",
+        "passingCount": 42
+      },
+      {
+        "sels": [
+          "Dentatura mandibolare=10 o piu",
+          "Casta soldato (operaia major)=presente, capo ipertrofico"
+        ],
+        "gap": "0.500",
+        "passingCount": 35
       }
     ],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "messor",
       "topScore": 1,
@@ -632,12 +664,12 @@
         },
         {
           "id": "aphaenogaster",
-          "score": 0.9473684210526315,
+          "score": 0.95,
           "mismatches": 1
         },
         {
           "id": "leptanilla",
-          "score": 0.3578947368421052,
+          "score": 0.38999999999999996,
           "mismatches": 1
         },
         {
@@ -657,8 +689,8 @@
     "genus": "monomorium",
     "subfamily": "myrmicinae",
     "scientific_name": "Monomorium",
-    "profileSize": 19,
-    "distinctCharCount": 19,
+    "profileSize": 20,
+    "distinctCharCount": 20,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -671,6 +703,8 @@
     ],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "monomorium",
       "topScore": 1,
@@ -682,22 +716,22 @@
           "mismatches": 0
         },
         {
-          "id": "pheidole",
-          "score": 0.9473684210526315,
-          "mismatches": 1
-        },
-        {
           "id": "proceratium",
-          "score": 0.44210526315789467,
+          "score": 0.4699999999999999,
           "mismatches": 1
         },
         {
           "id": "leptanilla",
-          "score": 0.3578947368421052,
+          "score": 0.38999999999999996,
           "mismatches": 1
         },
         {
           "id": "bothriomyrmex",
+          "score": 0.2,
+          "mismatches": 0
+        },
+        {
+          "id": "brachyponera",
           "score": 0.2,
           "mismatches": 0
         }
@@ -708,8 +742,8 @@
     "genus": "myrmecina",
     "subfamily": "myrmicinae",
     "scientific_name": "Myrmecina",
-    "profileSize": 19,
-    "distinctCharCount": 19,
+    "profileSize": 20,
+    "distinctCharCount": 20,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -755,6 +789,8 @@
       }
     ],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "myrmecina",
       "topScore": 1,
@@ -792,8 +828,8 @@
     "genus": "myrmica",
     "subfamily": "myrmicinae",
     "scientific_name": "Myrmica",
-    "profileSize": 21,
-    "distinctCharCount": 19,
+    "profileSize": 22,
+    "distinctCharCount": 20,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -879,6 +915,8 @@
       }
     ],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "myrmica",
       "topScore": 1,
@@ -891,7 +929,7 @@
         },
         {
           "id": "proceratium",
-          "score": 0.44210526315789467,
+          "score": 0.4699999999999999,
           "mismatches": 1
         },
         {
@@ -916,8 +954,8 @@
     "genus": "oxyopomyrmex",
     "subfamily": "myrmicinae",
     "scientific_name": "Oxyopomyrmex",
-    "profileSize": 17,
-    "distinctCharCount": 17,
+    "profileSize": 18,
+    "distinctCharCount": 18,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -930,6 +968,8 @@
     ],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "oxyopomyrmex",
       "topScore": 1,
@@ -967,22 +1007,31 @@
     "genus": "pheidole",
     "subfamily": "myrmicinae",
     "scientific_name": "Pheidole",
-    "profileSize": 20,
-    "distinctCharCount": 19,
-    "discriminationDepth": 3,
+    "profileSize": 21,
+    "distinctCharCount": 20,
+    "discriminationDepth": 2,
     "uniqueSingles": [],
-    "pairs": [],
-    "triples": [
+    "pairs": [
       {
         "sels": [
           "Segmenti della clava antennale=3",
-          "Dentatura mandibolare=tra 6 e 9",
-          "Propodeo=senza denti o spine"
+          "Casta soldato (operaia major)=presente, capo ipertrofico"
         ],
-        "gap": "0.100",
-        "passingCount": 39
+        "gap": "0.500",
+        "passingCount": 38
+      },
+      {
+        "sels": [
+          "Propodeo=con denti o spine",
+          "Casta soldato (operaia major)=presente, capo ipertrofico"
+        ],
+        "gap": "0.500",
+        "passingCount": 36
       }
     ],
+    "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "pheidole",
       "topScore": 1,
@@ -994,24 +1043,24 @@
           "mismatches": 0
         },
         {
-          "id": "aphaenogaster",
-          "score": 0.9473684210526315,
-          "mismatches": 1
+          "id": "bothriomyrmex",
+          "score": 0.2,
+          "mismatches": 0
         },
         {
-          "id": "monomorium",
-          "score": 0.9473684210526315,
-          "mismatches": 1
+          "id": "brachyponera",
+          "score": 0.2,
+          "mismatches": 0
         },
         {
-          "id": "stenamma",
-          "score": 0.9473684210526315,
-          "mismatches": 1
+          "id": "camponotus",
+          "score": 0.2,
+          "mismatches": 0
         },
         {
-          "id": "proceratium",
-          "score": 0.44210526315789467,
-          "mismatches": 1
+          "id": "cataglyphis",
+          "score": 0.2,
+          "mismatches": 0
         }
       ]
     }
@@ -1020,8 +1069,8 @@
     "genus": "solenopsis",
     "subfamily": "myrmicinae",
     "scientific_name": "Solenopsis",
-    "profileSize": 18,
-    "distinctCharCount": 18,
+    "profileSize": 19,
+    "distinctCharCount": 19,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -1034,6 +1083,8 @@
     ],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "solenopsis",
       "topScore": 1,
@@ -1071,22 +1122,30 @@
     "genus": "stenamma",
     "subfamily": "myrmicinae",
     "scientific_name": "Stenamma",
-    "profileSize": 19,
-    "distinctCharCount": 19,
-    "discriminationDepth": null,
+    "profileSize": 20,
+    "distinctCharCount": 20,
+    "discriminationDepth": 4,
     "uniqueSingles": [],
     "pairs": [],
     "triples": [],
+    "quadruples": [
+      {
+        "sels": [
+          "Segmenti della clava antennale=3",
+          "Dentatura mandibolare=tra 6 e 9",
+          "Profilo del mesosoma=promesonoto a livello piu alto del propodeo",
+          "Casta soldato (operaia major)=assente o polimorfismo continuo"
+        ],
+        "gap": "0.075",
+        "passingCount": 37
+      }
+    ],
+    "quintuples": [],
     "fullProfileResult": {
-      "topGenus": "pheidole",
+      "topGenus": "stenamma",
       "topScore": 1,
-      "uniqueTop": false,
+      "uniqueTop": true,
       "top5": [
-        {
-          "id": "pheidole",
-          "score": 1,
-          "mismatches": 0
-        },
         {
           "id": "stenamma",
           "score": 1,
@@ -1094,7 +1153,12 @@
         },
         {
           "id": "aphaenogaster",
-          "score": 0.9473684210526315,
+          "score": 0.95,
+          "mismatches": 1
+        },
+        {
+          "id": "pheidole",
+          "score": 0.95,
           "mismatches": 1
         },
         {
@@ -1114,8 +1178,8 @@
     "genus": "strongylognathus",
     "subfamily": "myrmicinae",
     "scientific_name": "Strongylognathus",
-    "profileSize": 18,
-    "distinctCharCount": 18,
+    "profileSize": 19,
+    "distinctCharCount": 19,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -1209,6 +1273,8 @@
       }
     ],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "strongylognathus",
       "topScore": 1,
@@ -1221,7 +1287,7 @@
         },
         {
           "id": "stigmatomma",
-          "score": 0.36666666666666664,
+          "score": 0.39999999999999997,
           "mismatches": 1
         },
         {
@@ -1246,8 +1312,8 @@
     "genus": "strumigenys",
     "subfamily": "myrmicinae",
     "scientific_name": "Strumigenys",
-    "profileSize": 22,
-    "distinctCharCount": 18,
+    "profileSize": 23,
+    "distinctCharCount": 19,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -1288,6 +1354,8 @@
     ],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "strumigenys",
       "topScore": 1,
@@ -1325,8 +1393,8 @@
     "genus": "temnothorax",
     "subfamily": "myrmicinae",
     "scientific_name": "Temnothorax",
-    "profileSize": 21,
-    "distinctCharCount": 19,
+    "profileSize": 22,
+    "distinctCharCount": 20,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -1348,6 +1416,8 @@
       }
     ],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "temnothorax",
       "topScore": 1,
@@ -1360,12 +1430,12 @@
         },
         {
           "id": "leptothorax",
-          "score": 0.9842105263157894,
+          "score": 0.985,
           "mismatches": 0
         },
         {
           "id": "formicoxenus",
-          "score": 0.9315789473684211,
+          "score": 0.9349999999999999,
           "mismatches": 1
         },
         {
@@ -1385,8 +1455,8 @@
     "genus": "tetramorium",
     "subfamily": "myrmicinae",
     "scientific_name": "Tetramorium",
-    "profileSize": 20,
-    "distinctCharCount": 19,
+    "profileSize": 21,
+    "distinctCharCount": 20,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -1472,6 +1542,8 @@
       }
     ],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "tetramorium",
       "topScore": 1,
@@ -1509,26 +1581,26 @@
     "genus": "cryptopone",
     "subfamily": "ponerinae",
     "scientific_name": "Cryptopone",
-    "profileSize": 5,
-    "distinctCharCount": 5,
+    "profileSize": 6,
+    "distinctCharCount": 6,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
-        "char": "gen-21",
+        "char": "gen-22",
         "val": "0",
         "label": "Margine masticatorio della mandibola=con circa 7-9 denti separati",
         "gap": "0.800",
         "passingCount": 43
       },
       {
-        "char": "gen-22",
+        "char": "gen-23",
         "val": "0",
         "label": "Speroni della tibia posteriore=due speroni: uno semplice, uno pettinato",
         "gap": "0.800",
         "passingCount": 43
       },
       {
-        "char": "gen-23",
+        "char": "gen-24",
         "val": "1",
         "label": "Tibia media=con setole spiniformi sulla superficie esterna",
         "gap": "0.800",
@@ -1537,6 +1609,8 @@
     ],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "cryptopone",
       "topScore": 1,
@@ -1574,40 +1648,55 @@
     "genus": "hypoponera",
     "subfamily": "ponerinae",
     "scientific_name": "Hypoponera",
-    "profileSize": 6,
-    "distinctCharCount": 5,
-    "discriminationDepth": 3,
+    "profileSize": 8,
+    "distinctCharCount": 6,
+    "discriminationDepth": 2,
     "uniqueSingles": [],
-    "pairs": [],
-    "triples": [
+    "pairs": [
       {
         "sels": [
-          "Colore=testaceo",
+          "Colore=piceo",
+          "Sviluppo degli occhi=vestigiali o assenti (0-1 ommatidio)"
+        ],
+        "gap": "0.500",
+        "passingCount": 43
+      },
+      {
+        "sels": [
           "Margine masticatorio della mandibola=pochi denti ben definiti, il margine restante per lo piu finemente seghettato",
-          "Processo subpeziale=a lobo"
+          "Sviluppo degli occhi=vestigiali o assenti (0-1 ommatidio)"
         ],
-        "gap": "0.333",
+        "gap": "0.500",
         "passingCount": 43
       },
       {
         "sels": [
-          "Colore=testaceo",
           "Speroni della tibia posteriore=un singolo sperone pettinato",
-          "Processo subpeziale=a lobo"
+          "Sviluppo degli occhi=vestigiali o assenti (0-1 ommatidio)"
         ],
-        "gap": "0.333",
+        "gap": "0.500",
         "passingCount": 43
       },
       {
         "sels": [
-          "Colore=testaceo",
           "Tibia media=senza setole spiniformi sulla superficie esterna",
-          "Processo subpeziale=a lobo"
+          "Sviluppo degli occhi=vestigiali o assenti (0-1 ommatidio)"
         ],
-        "gap": "0.333",
+        "gap": "0.500",
+        "passingCount": 43
+      },
+      {
+        "sels": [
+          "Processo subpeziale=a lobo",
+          "Sviluppo degli occhi=piccoli (2-7 ommatidi)"
+        ],
+        "gap": "0.500",
         "passingCount": 43
       }
     ],
+    "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "hypoponera",
       "topScore": 1,
@@ -1619,13 +1708,8 @@
           "mismatches": 0
         },
         {
-          "id": "brachyponera",
-          "score": 0.8,
-          "mismatches": 1
-        },
-        {
           "id": "ponera",
-          "score": 0.8,
+          "score": 0.8333333333333334,
           "mismatches": 1
         },
         {
@@ -1637,6 +1721,11 @@
           "id": "bothriomyrmex",
           "score": 0.2,
           "mismatches": 0
+        },
+        {
+          "id": "camponotus",
+          "score": 0.2,
+          "mismatches": 0
         }
       ]
     }
@@ -1645,12 +1734,12 @@
     "genus": "ponera",
     "subfamily": "ponerinae",
     "scientific_name": "Ponera",
-    "profileSize": 6,
-    "distinctCharCount": 5,
+    "profileSize": 7,
+    "distinctCharCount": 6,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
-        "char": "gen-24",
+        "char": "gen-25",
         "val": "1",
         "label": "Processo subpeziale=con una macchia circolare translucida sottile anteriormente e posteriormente a forma di dente",
         "gap": "0.800",
@@ -1659,6 +1748,8 @@
     ],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "ponera",
       "topScore": 1,
@@ -1671,7 +1762,7 @@
         },
         {
           "id": "hypoponera",
-          "score": 0.8,
+          "score": 0.8333333333333334,
           "mismatches": 1
         },
         {
@@ -1701,14 +1792,14 @@
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
-        "char": "gen-25",
+        "char": "gen-27",
         "val": "2",
         "label": "Colore=bicolore senza parti rosse o rossastre",
         "gap": "0.800",
         "passingCount": 43
       },
       {
-        "char": "gen-26",
+        "char": "gen-28",
         "val": "0",
         "label": "Formula palpale=4,3",
         "gap": "0.800",
@@ -1717,6 +1808,8 @@
     ],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "bothriomyrmex",
       "topScore": 1,
@@ -1759,14 +1852,14 @@
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
-        "char": "gen-28",
+        "char": "gen-30",
         "val": "1",
         "label": "Tegumento del capo e del mesosoma=spesso e con scultura marcata",
         "gap": "0.800",
         "passingCount": 43
       },
       {
-        "char": "gen-31",
+        "char": "gen-33",
         "val": "1",
         "label": "Macchie gialle sul gastro=presente, sui primi 2 tergiti",
         "gap": "0.800",
@@ -1775,6 +1868,8 @@
     ],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "dolichoderus",
       "topScore": 1,
@@ -1837,6 +1932,8 @@
         "passingCount": 43
       }
     ],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "linepithema",
       "topScore": 1,
@@ -1879,7 +1976,7 @@
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
-        "char": "gen-29",
+        "char": "gen-31",
         "val": "1",
         "label": "Peli eretti sul pronoto=presente",
         "gap": "0.800",
@@ -1888,6 +1985,8 @@
     ],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "liometopum",
       "topScore": 1,
@@ -1930,14 +2029,14 @@
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
-        "char": "gen-27",
+        "char": "gen-29",
         "val": "1",
         "label": "Margine anteriore del clipeo=distintamente inciso medialmente",
         "gap": "0.800",
         "passingCount": 43
       },
       {
-        "char": "gen-30",
+        "char": "gen-32",
         "val": "1",
         "label": "Squama peziolare=virtualmente assente",
         "gap": "0.800",
@@ -1946,6 +2045,8 @@
     ],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "tapinoma",
       "topScore": 1,
@@ -1983,8 +2084,8 @@
     "genus": "camponotus",
     "subfamily": "formicinae",
     "scientific_name": "Camponotus",
-    "profileSize": 9,
-    "distinctCharCount": 8,
+    "profileSize": 11,
+    "distinctCharCount": 9,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -2003,9 +2104,19 @@
         ],
         "gap": "0.500",
         "passingCount": 36
+      },
+      {
+        "sels": [
+          "Inserzione delle antenne=distante dal margine posteriore del clipeo",
+          "Ocelli=ben sviluppati"
+        ],
+        "gap": "0.500",
+        "passingCount": 40
       }
     ],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "camponotus",
       "topScore": 1,
@@ -2017,24 +2128,24 @@
           "mismatches": 0
         },
         {
-          "id": "colobopsis",
-          "score": 0.875,
-          "mismatches": 1
-        },
-        {
-          "id": "nylanderia",
-          "score": 0.875,
-          "mismatches": 1
-        },
-        {
-          "id": "paratrechina",
-          "score": 0.875,
-          "mismatches": 1
-        },
-        {
           "id": "prenolepis",
-          "score": 0.875,
+          "score": 0.8888888888888888,
           "mismatches": 1
+        },
+        {
+          "id": "aphaenogaster",
+          "score": 0.2,
+          "mismatches": 0
+        },
+        {
+          "id": "bothriomyrmex",
+          "score": 0.2,
+          "mismatches": 0
+        },
+        {
+          "id": "brachyponera",
+          "score": 0.2,
+          "mismatches": 0
         }
       ]
     }
@@ -2043,12 +2154,12 @@
     "genus": "cataglyphis",
     "subfamily": "formicinae",
     "scientific_name": "Cataglyphis",
-    "profileSize": 8,
-    "distinctCharCount": 8,
+    "profileSize": 9,
+    "distinctCharCount": 9,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
-        "char": "gen-34",
+        "char": "gen-36",
         "val": "1",
         "label": "4° articolo del palpo mascellare=...circa il doppio del 5o",
         "gap": "0.800",
@@ -2057,6 +2168,8 @@
     ],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "cataglyphis",
       "topScore": 1,
@@ -2068,22 +2181,22 @@
           "mismatches": 0
         },
         {
-          "id": "nylanderia",
-          "score": 0.875,
-          "mismatches": 1
-        },
-        {
-          "id": "paratrechina",
-          "score": 0.875,
-          "mismatches": 1
-        },
-        {
           "id": "prenolepis",
-          "score": 0.875,
+          "score": 0.8888888888888888,
           "mismatches": 1
         },
         {
           "id": "aphaenogaster",
+          "score": 0.2,
+          "mismatches": 0
+        },
+        {
+          "id": "bothriomyrmex",
+          "score": 0.2,
+          "mismatches": 0
+        },
+        {
+          "id": "brachyponera",
           "score": 0.2,
           "mismatches": 0
         }
@@ -2094,12 +2207,12 @@
     "genus": "colobopsis",
     "subfamily": "formicinae",
     "scientific_name": "Colobopsis",
-    "profileSize": 8,
-    "distinctCharCount": 8,
+    "profileSize": 9,
+    "distinctCharCount": 9,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
-        "char": "gen-32",
+        "char": "gen-34",
         "val": "1",
         "label": "Casta soldato con capo troncato=presente",
         "gap": "0.800",
@@ -2108,6 +2221,8 @@
     ],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "colobopsis",
       "topScore": 1,
@@ -2120,7 +2235,7 @@
         },
         {
           "id": "camponotus",
-          "score": 0.875,
+          "score": 0.8888888888888888,
           "mismatches": 1
         },
         {
@@ -2145,12 +2260,12 @@
     "genus": "formica",
     "subfamily": "formicinae",
     "scientific_name": "Formica",
-    "profileSize": 9,
-    "distinctCharCount": 8,
+    "profileSize": 10,
+    "distinctCharCount": 9,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
-        "char": "gen-33",
+        "char": "gen-35",
         "val": "2",
         "label": "Formula palpale=5,4",
         "gap": "0.800",
@@ -2159,10 +2274,12 @@
     ],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "formica",
       "topScore": 1,
-      "uniqueTop": false,
+      "uniqueTop": true,
       "top5": [
         {
           "id": "formica",
@@ -2170,24 +2287,24 @@
           "mismatches": 0
         },
         {
-          "id": "lasius",
-          "score": 1,
-          "mismatches": 0
-        },
-        {
           "id": "camponotus",
-          "score": 0.875,
+          "score": 0.8888888888888888,
           "mismatches": 1
         },
         {
-          "id": "nylanderia",
-          "score": 0.875,
+          "id": "lasius",
+          "score": 0.8888888888888888,
           "mismatches": 1
         },
         {
-          "id": "paratrechina",
-          "score": 0.875,
+          "id": "prenolepis",
+          "score": 0.8888888888888888,
           "mismatches": 1
+        },
+        {
+          "id": "aphaenogaster",
+          "score": 0.2,
+          "mismatches": 0
         }
       ]
     }
@@ -2196,22 +2313,29 @@
     "genus": "lasius",
     "subfamily": "formicinae",
     "scientific_name": "Lasius",
-    "profileSize": 8,
-    "distinctCharCount": 8,
-    "discriminationDepth": null,
+    "profileSize": 9,
+    "distinctCharCount": 9,
+    "discriminationDepth": 3,
     "uniqueSingles": [],
     "pairs": [],
-    "triples": [],
+    "triples": [
+      {
+        "sels": [
+          "Denti mandibolari=>=7",
+          "Inserzione delle antenne=molto vicino al margine posteriore del clipeo",
+          "Ocelli=vestigiali o assenti"
+        ],
+        "gap": "0.333",
+        "passingCount": 39
+      }
+    ],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
-      "topGenus": "formica",
+      "topGenus": "lasius",
       "topScore": 1,
-      "uniqueTop": false,
+      "uniqueTop": true,
       "top5": [
-        {
-          "id": "formica",
-          "score": 1,
-          "mismatches": 0
-        },
         {
           "id": "lasius",
           "score": 1,
@@ -2219,17 +2343,22 @@
         },
         {
           "id": "camponotus",
-          "score": 0.875,
+          "score": 0.8888888888888888,
+          "mismatches": 1
+        },
+        {
+          "id": "formica",
+          "score": 0.8888888888888888,
           "mismatches": 1
         },
         {
           "id": "nylanderia",
-          "score": 0.875,
+          "score": 0.8888888888888888,
           "mismatches": 1
         },
         {
           "id": "paratrechina",
-          "score": 0.875,
+          "score": 0.8888888888888888,
           "mismatches": 1
         }
       ]
@@ -2239,12 +2368,12 @@
     "genus": "lepisiota",
     "subfamily": "formicinae",
     "scientific_name": "Lepisiota",
-    "profileSize": 8,
-    "distinctCharCount": 8,
+    "profileSize": 9,
+    "distinctCharCount": 9,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
-        "char": "gen-39",
+        "char": "gen-41",
         "val": "1",
         "label": "Propodeo=armato con 2 denti",
         "gap": "0.800",
@@ -2253,6 +2382,8 @@
     ],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "lepisiota",
       "topScore": 1,
@@ -2265,7 +2396,7 @@
         },
         {
           "id": "plagiolepis",
-          "score": 0.875,
+          "score": 0.8888888888888888,
           "mismatches": 1
         },
         {
@@ -2290,8 +2421,8 @@
     "genus": "plagiolepis",
     "subfamily": "formicinae",
     "scientific_name": "Plagiolepis",
-    "profileSize": 8,
-    "distinctCharCount": 8,
+    "profileSize": 10,
+    "distinctCharCount": 9,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -2302,9 +2433,19 @@
         ],
         "gap": "0.500",
         "passingCount": 43
+      },
+      {
+        "sels": [
+          "Numero di segmenti antennali=11",
+          "Ocelli=vestigiali o assenti"
+        ],
+        "gap": "0.500",
+        "passingCount": 40
       }
     ],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "plagiolepis",
       "topScore": 1,
@@ -2317,23 +2458,23 @@
         },
         {
           "id": "lepisiota",
-          "score": 0.875,
-          "mismatches": 1
-        },
-        {
-          "id": "nylanderia",
-          "score": 0.875,
-          "mismatches": 1
-        },
-        {
-          "id": "paratrechina",
-          "score": 0.875,
+          "score": 0.8888888888888888,
           "mismatches": 1
         },
         {
           "id": "prenolepis",
-          "score": 0.875,
+          "score": 0.8888888888888888,
           "mismatches": 1
+        },
+        {
+          "id": "aphaenogaster",
+          "score": 0.2,
+          "mismatches": 0
+        },
+        {
+          "id": "bothriomyrmex",
+          "score": 0.2,
+          "mismatches": 0
         }
       ]
     }
@@ -2342,26 +2483,26 @@
     "genus": "polyergus",
     "subfamily": "formicinae",
     "scientific_name": "Polyergus",
-    "profileSize": 8,
-    "distinctCharCount": 8,
+    "profileSize": 9,
+    "distinctCharCount": 9,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
-        "char": "gen-33",
+        "char": "gen-35",
         "val": "1",
         "label": "Formula palpale=4,2",
         "gap": "0.800",
         "passingCount": 43
       },
       {
-        "char": "gen-35",
+        "char": "gen-37",
         "val": "1",
         "label": "Forma delle mandibole=falciforme",
         "gap": "0.800",
         "passingCount": 43
       },
       {
-        "char": "gen-36",
+        "char": "gen-38",
         "val": "0",
         "label": "Denti mandibolari=solo dente apicale",
         "gap": "0.800",
@@ -2370,6 +2511,8 @@
     ],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "polyergus",
       "topScore": 1,
@@ -2407,27 +2550,31 @@
     "genus": "prenolepis",
     "subfamily": "formicinae",
     "scientific_name": "Prenolepis",
-    "profileSize": 8,
-    "distinctCharCount": 8,
-    "discriminationDepth": null,
+    "profileSize": 10,
+    "distinctCharCount": 9,
+    "discriminationDepth": 5,
     "uniqueSingles": [],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [
+      {
+        "sels": [
+          "4° articolo del palpo mascellare=...un poco piu lungo del 5o",
+          "Denti mandibolari=4-6",
+          "Inserzione delle antenne=molto vicino al margine posteriore del clipeo",
+          "Numero di segmenti antennali=12",
+          "Ocelli=ben sviluppati"
+        ],
+        "gap": "0.200",
+        "passingCount": 41
+      }
+    ],
     "fullProfileResult": {
-      "topGenus": "nylanderia",
+      "topGenus": "prenolepis",
       "topScore": 1,
-      "uniqueTop": false,
+      "uniqueTop": true,
       "top5": [
-        {
-          "id": "nylanderia",
-          "score": 1,
-          "mismatches": 0
-        },
-        {
-          "id": "paratrechina",
-          "score": 1,
-          "mismatches": 0
-        },
         {
           "id": "prenolepis",
           "score": 1,
@@ -2435,12 +2582,22 @@
         },
         {
           "id": "camponotus",
-          "score": 0.875,
+          "score": 0.8888888888888888,
           "mismatches": 1
         },
         {
           "id": "cataglyphis",
-          "score": 0.875,
+          "score": 0.8888888888888888,
+          "mismatches": 1
+        },
+        {
+          "id": "formica",
+          "score": 0.8888888888888888,
+          "mismatches": 1
+        },
+        {
+          "id": "nylanderia",
+          "score": 0.8888888888888888,
           "mismatches": 1
         }
       ]
@@ -2450,8 +2607,8 @@
     "genus": "stigmatomma",
     "subfamily": "amblyoponinae",
     "scientific_name": "Stigmatomma",
-    "profileSize": 6,
-    "distinctCharCount": 6,
+    "profileSize": 7,
+    "distinctCharCount": 7,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -2473,6 +2630,8 @@
       }
     ],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "stigmatomma",
       "topScore": 1,
@@ -2485,21 +2644,21 @@
         },
         {
           "id": "strongylognathus",
-          "score": 0.7833333333333333,
-          "mismatches": 1
-        },
-        {
-          "id": "dorylus",
-          "score": 0.7000000000000001,
+          "score": 0.8142857142857143,
           "mismatches": 1
         },
         {
           "id": "proceratium",
-          "score": 0.7000000000000001,
+          "score": 0.7428571428571429,
           "mismatches": 1
         },
         {
           "id": "bothriomyrmex",
+          "score": 0.2,
+          "mismatches": 0
+        },
+        {
+          "id": "brachyponera",
           "score": 0.2,
           "mismatches": 0
         }
@@ -2510,8 +2669,8 @@
     "genus": "proceratium",
     "subfamily": "proceratiinae",
     "scientific_name": "Proceratium",
-    "profileSize": 7,
-    "distinctCharCount": 7,
+    "profileSize": 8,
+    "distinctCharCount": 8,
     "discriminationDepth": 3,
     "uniqueSingles": [],
     "pairs": [],
@@ -2526,6 +2685,8 @@
         "passingCount": 28
       }
     ],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "proceratium",
       "topScore": 1,
@@ -2538,22 +2699,22 @@
         },
         {
           "id": "manica",
-          "score": 0.8571428571428571,
+          "score": 0.875,
           "mismatches": 1
         },
         {
           "id": "monomorium",
-          "score": 0.8571428571428571,
+          "score": 0.875,
           "mismatches": 1
         },
         {
           "id": "myrmica",
-          "score": 0.8571428571428571,
+          "score": 0.875,
           "mismatches": 1
         },
         {
-          "id": "pheidole",
-          "score": 0.8571428571428571,
+          "id": "stigmatomma",
+          "score": 0.675,
           "mismatches": 1
         }
       ]
@@ -2563,12 +2724,14 @@
     "genus": "leptanilla",
     "subfamily": "leptanillinae",
     "scientific_name": "Leptanilla",
-    "profileSize": 5,
-    "distinctCharCount": 5,
+    "profileSize": 6,
+    "distinctCharCount": 6,
     "discriminationDepth": null,
     "uniqueSingles": [],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "aphaenogaster",
       "topScore": 1,
@@ -2586,18 +2749,18 @@
         },
         {
           "id": "messor",
-          "score": 0.8,
+          "score": 0.8333333333333334,
           "mismatches": 1
         },
         {
           "id": "monomorium",
-          "score": 0.8,
+          "score": 0.8333333333333334,
           "mismatches": 1
         },
         {
-          "id": "pheidole",
-          "score": 0.8,
-          "mismatches": 1
+          "id": "bothriomyrmex",
+          "score": 0.2,
+          "mismatches": 0
         }
       ]
     }
@@ -2606,12 +2769,14 @@
     "genus": "nylanderia",
     "subfamily": "formicinae",
     "scientific_name": "Nylanderia",
-    "profileSize": 8,
-    "distinctCharCount": 8,
+    "profileSize": 9,
+    "distinctCharCount": 9,
     "discriminationDepth": null,
     "uniqueSingles": [],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "nylanderia",
       "topScore": 1,
@@ -2634,12 +2799,12 @@
         },
         {
           "id": "camponotus",
-          "score": 0.875,
+          "score": 0.8888888888888888,
           "mismatches": 1
         },
         {
-          "id": "cataglyphis",
-          "score": 0.875,
+          "id": "lasius",
+          "score": 0.8888888888888888,
           "mismatches": 1
         }
       ]
@@ -2649,12 +2814,14 @@
     "genus": "paratrechina",
     "subfamily": "formicinae",
     "scientific_name": "Paratrechina",
-    "profileSize": 8,
-    "distinctCharCount": 8,
+    "profileSize": 9,
+    "distinctCharCount": 9,
     "discriminationDepth": null,
     "uniqueSingles": [],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "nylanderia",
       "topScore": 1,
@@ -2677,12 +2844,12 @@
         },
         {
           "id": "camponotus",
-          "score": 0.875,
+          "score": 0.8888888888888888,
           "mismatches": 1
         },
         {
-          "id": "cataglyphis",
-          "score": 0.875,
+          "id": "lasius",
+          "score": 0.8888888888888888,
           "mismatches": 1
         }
       ]
@@ -2692,8 +2859,8 @@
     "genus": "dorylus",
     "subfamily": "dorylinae",
     "scientific_name": "Dorylus",
-    "profileSize": 6,
-    "distinctCharCount": 6,
+    "profileSize": 7,
+    "distinctCharCount": 7,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -2712,9 +2879,19 @@
         ],
         "gap": "0.400",
         "passingCount": 26
+      },
+      {
+        "sels": [
+          "Speroni delle tibie medie e posteriori=pettinato",
+          "Casta soldato (operaia major)=presente, capo ipertrofico"
+        ],
+        "gap": "0.500",
+        "passingCount": 27
       }
     ],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "dorylus",
       "topScore": 1,
@@ -2726,22 +2903,22 @@
           "mismatches": 0
         },
         {
-          "id": "proceratium",
-          "score": 0.7000000000000001,
-          "mismatches": 1
-        },
-        {
-          "id": "stigmatomma",
-          "score": 0.7000000000000001,
-          "mismatches": 1
-        },
-        {
           "id": "bothriomyrmex",
           "score": 0.2,
           "mismatches": 0
         },
         {
           "id": "brachyponera",
+          "score": 0.2,
+          "mismatches": 0
+        },
+        {
+          "id": "camponotus",
+          "score": 0.2,
+          "mismatches": 0
+        },
+        {
+          "id": "cataglyphis",
           "score": 0.2,
           "mismatches": 0
         }
@@ -2752,16 +2929,26 @@
     "genus": "brachyponera",
     "subfamily": "ponerinae",
     "scientific_name": "Brachyponera",
-    "profileSize": 5,
-    "distinctCharCount": 5,
-    "discriminationDepth": null,
-    "uniqueSingles": [],
+    "profileSize": 6,
+    "distinctCharCount": 6,
+    "discriminationDepth": 1,
+    "uniqueSingles": [
+      {
+        "char": "gen-26",
+        "val": "0",
+        "label": "Sviluppo degli occhi=ben sviluppati (medi-grandi, ≥8 ommatidi)",
+        "gap": "0.800",
+        "passingCount": 43
+      }
+    ],
     "pairs": [],
     "triples": [],
+    "quadruples": [],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "brachyponera",
       "topScore": 1,
-      "uniqueTop": false,
+      "uniqueTop": true,
       "top5": [
         {
           "id": "brachyponera",
@@ -2770,12 +2957,7 @@
         },
         {
           "id": "hypoponera",
-          "score": 1,
-          "mismatches": 0
-        },
-        {
-          "id": "ponera",
-          "score": 0.8,
+          "score": 0.8333333333333334,
           "mismatches": 1
         },
         {
@@ -2785,6 +2967,11 @@
         },
         {
           "id": "bothriomyrmex",
+          "score": 0.2,
+          "mismatches": 0
+        },
+        {
+          "id": "camponotus",
           "score": 0.2,
           "mismatches": 0
         }

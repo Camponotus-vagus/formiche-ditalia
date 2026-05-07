@@ -97,16 +97,12 @@ md += `| Genere | Sottofamiglia | "Bloccato da" | Motivo strutturale |\n`;
 md += `|---|---|---|---|\n`;
 
 const stuckMap = {
-  'stenamma': { dominator: 'pheidole', reason: 'Profilo dominato: Stenamma differisce da Pheidole solo per `gen-11` ("Lati del pronoto") dove Stenamma=`1` e Pheidole=`{0,1}`. Ogni stato compatibile con Stenamma è compatibile anche con Pheidole.' },
-  'lasius': { dominator: 'formica', reason: 'Profilo dominato: Lasius differisce da Formica solo per `gen-33` ("Formula palpale", scope formicinae) dove Lasius=`0` e Formica=`{0,2}`. Ogni stato compatibile con Lasius è compatibile anche con Formica.' },
-  'brachyponera': { dominator: 'hypoponera', reason: 'Profilo dominato: Brachyponera differisce da Hypoponera solo per `gen-20` ("Colore", scope ponerinae) dove Brachyponera=`1` e Hypoponera=`{0,1}`. Ogni stato compatibile con Brachyponera è compatibile anche con Hypoponera.' },
-  'leptanilla': { dominator: 'aphaenogaster', reason: 'Profilo ridotto e dominato: Leptanilla ha dati per soli 5 caratteri myrmicinae; per ognuno i suoi stati sono sottoinsieme di quelli di Aphaenogaster. Manca un carattere diagnostico univoco (assenza di occhi composti, lobi frontali ridotti — non codificati nella chiave attuale).' },
-  'prenolepis': { dominator: 'nylanderia, paratrechina', reason: 'Profili **identici**: Prenolepis, Nylanderia e Paratrechina hanno la stessa identica matrice di stati per tutti gli 8 caratteri formicinae. Sono **completamente indistinguibili** dalla chiave attuale.' },
-  'nylanderia': { dominator: 'prenolepis, paratrechina', reason: 'Profili identici (vedi Prenolepis).' },
-  'paratrechina': { dominator: 'prenolepis, nylanderia', reason: 'Profili identici (vedi Prenolepis).' },
+  'leptanilla': { dominator: 'aphaenogaster', reason: 'Profilo ridotto e dominato: Leptanilla ha dati per soli 5 caratteri myrmicinae; per ognuno i suoi stati sono sottoinsieme di quelli di Aphaenogaster. Manca un carattere diagnostico univoco (assenza di occhi composti, lobi frontali ridotti — non codificati nella chiave attuale; pianificato per Step 2: introduzione di caratteri scope=leptanillinae).' },
+  'nylanderia': { dominator: 'paratrechina', reason: 'Profili **identici**: Nylanderia e Paratrechina hanno la stessa identica matrice di stati per tutti i 9 caratteri formicinae attuali (incluso il nuovo "Ocelli" da Step 1.1). Sono **indistinguibili** dalla chiave attuale. Lo Step 4 affronterà questo trio con literature review (LaPolla 2010, Williams & LaPolla).' },
+  'paratrechina': { dominator: 'nylanderia', reason: 'Profili identici (vedi Nylanderia).' },
 };
 
-const stuckOrder = ['prenolepis', 'nylanderia', 'paratrechina', 'lasius', 'stenamma', 'brachyponera', 'leptanilla'];
+const stuckOrder = ['nylanderia', 'paratrechina', 'leptanilla'];
 for (const id of stuckOrder) {
   const g = genera.find(x => x.id === id);
   const info = stuckMap[id];
@@ -118,6 +114,11 @@ md += `### Anomalie strutturali rilevate\n\n`;
 md += `1. **Le 4 sottofamiglie monotipiche** (Amblyoponinae, Proceratiinae, Leptanillinae, Dorylinae) **non hanno caratteri propri**: i loro generi (_Stigmatomma, Proceratium, Leptanilla, Dorylus_) usano caratteri della scope myrmicinae. Conseguenza: la "subfamily-aware penalization" funziona solo per le 4 sottofamiglie con caratteri scoped, mentre i generi monotipici concorrono come "out-of-scope" rispetto alla penalizzazione anche quando l'utente sta selezionando i loro caratteri.\n`;
 md += `2. **Coppie/triple di profili identici o dominati**: vedi sezione "Generi non raggiungibili univocamente". Ogni coppia dominata richiede l'aggiunta di almeno un nuovo carattere (o stato) per essere risolvibile.\n`;
 md += `3. **Caratteri inter-sottofamiglia mancanti**: nessun carattere della matrice è "globale". Quindi la chiave **non può mai distinguere genericamente** tra (es.) un Myrmicinae e un Ponerinae sulla base di caratteri base come "numero di segmenti del peziolo": questo è gestito implicitamente dalla subfamily-scope.\n\n`;
+md += `### Sblocchi dallo Step 1 (3 nuovi caratteri)\n\n`;
+md += `Step 1 ha aggiunto 3 nuovi caratteri sourced (con citazione esatta da letteratura) per sbloccare 3 dei 6 generi rimasti unreachable post-Step-0:\n\n`;
+md += `1. **Step 1.1 — \`gen-41 Ocelli\`** (scope formicinae): _Lasius_ ha "ocelli vestigiali" (Excel R52 fonte Mei) vs _Formica_ "ocelli ben sviluppati" (Excel R30 fonte Mei). _Lasius_ era unreachable, ora 3-char.\n`;
+md += `2. **Step 1.2 — \`gen-20 Casta soldato (operaia major)\`** (scope myrmicinae): _Pheidole_ "specie molto polimorfe; nelle operaie medie e massime il capo è massiccio e quadrato" (Excel R297 fonte Mei) vs _Stenamma_ "specie monomorfe" (Excel R35 fonte Mei). _Stenamma_ era unreachable, ora 4-char. Bonus: _Pheidole_ passa da 3-char a 2-char.\n`;
+md += `3. **Step 1.3 — \`gen-26 Sviluppo degli occhi\`** (scope ponerinae, 3 stati): _Brachyponera_ "Eye medium in size" (Chen et al. 2025) vs _Hypoponera_ "Eyes absent or present; when present always small (generally of 1 to about 20 ommatidia)" (Bolton & Fisher 2011). _Brachyponera_ era unreachable, ora **1-char**. Bonus: _Cryptopone_ ("vestigial to absent" per Schmidt & Shattuck 2014) e _Ponera_ (5-7 ommatidi) ora distinti tra loro.\n\n`;
 md += `### Anomalie risolte dallo Step 0 di restauro\n\n`;
 md += `1. **Bug del parser NEXUS** (\`re.split\` non rispettava i quote): produceva un carattere fantasma \`gen-9\` e shiftava tutti i dati matrice myrmicinae da \`gen-10\` in poi rispetto alle loro etichette. **209 punti dati su 19 generi avevano label sbagliata.** Risolto: la regex è ora quote-aware, gli ID sono sequenziali \`gen-1..gen-39\`.\n`;
 md += `2. **Carattere \`gen-2\` ("Forma del capo") senza dati**: era un effetto collaterale del bug del parser (i dati venivano "rubati" dal carattere fantasma). Risolto: ora ha 19 entry per i Myrmicines.\n`;

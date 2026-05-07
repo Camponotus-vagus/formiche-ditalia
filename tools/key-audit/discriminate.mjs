@@ -68,31 +68,33 @@ function pairPaths(targetId, opts = {}) {
   return out;
 }
 
-// --- 3. Triple paths (only if pair didn't work) ---
-function triplePaths(targetId, opts = {}) {
+// --- 3. K-tuple paths (k=3,4,5) ---
+function* kCombosByChar(arr, k) {
+  if (k === 0) { yield []; return; }
+  for (let i = 0; i <= arr.length - k; i++) {
+    for (const rest of kCombosByChar(arr.slice(i + 1), k - 1)) {
+      if (rest.some(r => r.characterId === arr[i].characterId)) continue;
+      yield [arr[i], ...rest];
+    }
+  }
+}
+
+function kPaths(targetId, k, opts = {}) {
   const limit = opts.limit ?? 5;
   const sels = compat[targetId];
   const out = [];
-  for (let i = 0; i < sels.length; i++) {
-    for (let j = i + 1; j < sels.length; j++) {
-      if (sels[i].characterId === sels[j].characterId) continue;
-      for (let k = j + 1; k < sels.length; k++) {
-        if (sels[k].characterId === sels[i].characterId || sels[k].characterId === sels[j].characterId) continue;
-        const trial = [
-          { ...sels[i], weight: 1 },
-          { ...sels[j], weight: 1 },
-          { ...sels[k], weight: 1 },
-        ];
-        const info = topInfo(targetId, trial);
-        if (info.unique) {
-          out.push({ sels: [sels[i], sels[j], sels[k]], topScore: info.topScore, gap: info.gap, passingCount: info.passingCount });
-          if (out.length >= limit) return out;
-        }
-      }
+  for (const combo of kCombosByChar(sels, k)) {
+    const trial = combo.map(s => ({ ...s, weight: 1 }));
+    const info = topInfo(targetId, trial);
+    if (info.unique) {
+      out.push({ sels: combo, topScore: info.topScore, gap: info.gap, passingCount: info.passingCount });
+      if (out.length >= limit) return out;
     }
   }
   return out;
 }
+
+const triplePaths = (targetId, opts) => kPaths(targetId, 3, opts);
 
 // --- 4. Per-genus full report ---
 const report = [];
@@ -101,6 +103,8 @@ for (const g of genera) {
   const uniqueSingles = single.filter(s => s.uniqueTop);
   let pair = [];
   let triple = [];
+  let quadruple = [];
+  let quintuple = [];
   let depth = uniqueSingles.length > 0 ? 1 : null;
 
   if (uniqueSingles.length === 0) {
@@ -109,6 +113,14 @@ for (const g of genera) {
     else {
       triple = triplePaths(g.id, { limit: 20 });
       if (triple.length > 0) depth = 3;
+      else {
+        quadruple = kPaths(g.id, 4, { limit: 10 });
+        if (quadruple.length > 0) depth = 4;
+        else {
+          quintuple = kPaths(g.id, 5, { limit: 5 });
+          if (quintuple.length > 0) depth = 5;
+        }
+      }
     }
   }
 
@@ -149,6 +161,16 @@ for (const g of genera) {
       gap: p.gap.toFixed(3),
       passingCount: p.passingCount,
     })),
+    quadruples: quadruple.slice(0, 5).map(p => ({
+      sels: p.sels.map(s => selectionToString(s, charById)),
+      gap: p.gap.toFixed(3),
+      passingCount: p.passingCount,
+    })),
+    quintuples: quintuple.slice(0, 3).map(p => ({
+      sels: p.sels.map(s => selectionToString(s, charById)),
+      gap: p.gap.toFixed(3),
+      passingCount: p.passingCount,
+    })),
     fullProfileResult: {
       topGenus: fullTop?.genus.id,
       topScore: fullTop?.score,
@@ -163,17 +185,18 @@ console.log('Wrote report-data.json');
 
 // Console summary
 console.log('\n=== SUMMARY ===');
-const byDepth = { 1: [], 2: [], 3: [], unreachable: [] };
+const byDepth = { 1: [], 2: [], 3: [], 4: [], 5: [], unreachable: [] };
 for (const r of report) {
-  if (r.discriminationDepth === 1) byDepth[1].push(r.genus);
-  else if (r.discriminationDepth === 2) byDepth[2].push(r.genus);
-  else if (r.discriminationDepth === 3) byDepth[3].push(r.genus);
+  const d = r.discriminationDepth;
+  if (d && d <= 5) byDepth[d].push(r.genus);
   else byDepth.unreachable.push(r.genus);
 }
 console.log(`Reachable with 1 character: ${byDepth[1].length} -> ${byDepth[1].join(', ')}`);
-console.log(`Reachable with 2 chars (not 1): ${byDepth[2].length} -> ${byDepth[2].join(', ')}`);
-console.log(`Reachable only with 3+ chars: ${byDepth[3].length} -> ${byDepth[3].join(', ')}`);
-console.log(`UNREACHABLE within 3 chars: ${byDepth.unreachable.length} -> ${byDepth.unreachable.join(', ')}`);
+console.log(`Reachable with 2 chars: ${byDepth[2].length} -> ${byDepth[2].join(', ')}`);
+console.log(`Reachable with 3 chars: ${byDepth[3].length} -> ${byDepth[3].join(', ')}`);
+console.log(`Reachable with 4 chars: ${byDepth[4].length} -> ${byDepth[4].join(', ')}`);
+console.log(`Reachable with 5 chars: ${byDepth[5].length} -> ${byDepth[5].join(', ')}`);
+console.log(`UNREACHABLE within 5 chars: ${byDepth.unreachable.length} -> ${byDepth.unreachable.join(', ')}`);
 
 console.log('\n=== FULL-PROFILE CHECK (selecting all genus characters) ===');
 for (const r of report) {
