@@ -242,13 +242,13 @@
     "subfamily_scope": "myrmicinae"
   },
   {
-    "id": "gen-10",
+    "id": "gen-9",
     "name_it": "Porzioni laterali del clipeo",
     "name_en": "Lateral portions of the clypeus",
     "description_it": "",
     "body_region": "head",
     "difficulty": "hard",
-    "display_order": 10,
+    "display_order": 9,
     "illustration_url": null,
     "states": [
       {
@@ -266,13 +266,13 @@
     "subfamily_scope": "myrmicinae"
   },
   {
-    "id": "gen-11",
+    "id": "gen-10",
     "name_it": "Profilo del mesosoma",
     "name_en": "Mesosoma profile",
     "description_it": "",
     "body_region": "thorax",
     "difficulty": "medium",
-    "display_order": 11,
+    "display_order": 10,
     "illustration_url": null,
     "states": [
       {
@@ -290,13 +290,13 @@
     "subfamily_scope": "myrmicinae"
   },
   {
-    "id": "gen-12",
+    "id": "gen-11",
     "name_it": "Lati del pronoto",
     "name_en": "Lateral sides of the pronotum",
     "description_it": "",
     "body_region": "thorax",
     "difficulty": "medium",
-    "display_order": 12,
+    "display_order": 11,
     "illustration_url": null,
     "states": [
       {
@@ -314,13 +314,13 @@
     "subfamily_scope": "myrmicinae"
   },
   {
-    "id": "gen-13",
+    "id": "gen-12",
     "name_it": "Propodeo",
     "name_en": "Propodeum",
     "description_it": "",
     "body_region": "thorax",
     "difficulty": "medium",
-    "display_order": 13,
+    "display_order": 12,
     "illustration_url": null,
     "states": [
       {
@@ -338,13 +338,13 @@
     "subfamily_scope": "myrmicinae"
   },
   {
-    "id": "gen-14",
+    "id": "gen-13",
     "name_it": "Speroni delle tibie medie e posteriori",
     "name_en": "Spur of middle and hind tibiae",
     "description_it": "",
     "body_region": "legs",
     "difficulty": "hard",
-    "display_order": 14,
+    "display_order": 13,
     "illustration_url": null,
     "states": [
       {
@@ -362,13 +362,13 @@
     "subfamily_scope": "myrmicinae"
   },
   {
-    "id": "gen-15",
+    "id": "gen-14",
     "name_it": "Forma del peziolo e postpeziolo",
     "name_en": "Petiole and postpetiole shape",
     "description_it": "",
     "body_region": "petiole",
     "difficulty": "medium",
-    "display_order": 15,
+    "display_order": 14,
     "illustration_url": null,
     "states": [
       {
@@ -391,13 +391,13 @@
     "subfamily_scope": "myrmicinae"
   },
   {
-    "id": "gen-16",
+    "id": "gen-15",
     "name_it": "Superficie ventrale del peziolo e postpeziolo",
     "name_en": "Ventral surface of petiole and postpetiole",
     "description_it": "",
     "body_region": "petiole",
     "difficulty": "hard",
-    "display_order": 16,
+    "display_order": 15,
     "illustration_url": null,
     "states": [
       {
@@ -415,13 +415,13 @@
     "subfamily_scope": "myrmicinae"
   },
   {
-    "id": "gen-17",
+    "id": "gen-16",
     "name_it": "Postpeziolo, vista dorsale",
     "name_en": "Postpetiole, dorsal view",
     "description_it": "",
     "body_region": "petiole",
     "difficulty": "medium",
-    "display_order": 17,
+    "display_order": 16,
     "illustration_url": null,
     "states": [
       {
@@ -439,13 +439,13 @@
     "subfamily_scope": "myrmicinae"
   },
   {
-    "id": "gen-18",
+    "id": "gen-17",
     "name_it": "Articolazione del postpeziolo",
     "name_en": "Postpetiole",
     "description_it": "",
     "body_region": "petiole",
     "difficulty": "hard",
-    "display_order": 18,
+    "display_order": 17,
     "illustration_url": null,
     "states": [
       {
@@ -463,13 +463,13 @@
     "subfamily_scope": "myrmicinae"
   },
   {
-    "id": "gen-19",
+    "id": "gen-18",
     "name_it": "Forma del gastro",
     "name_en": "Gaster shape",
     "description_it": "",
     "body_region": "gaster",
     "difficulty": "easy",
-    "display_order": 19,
+    "display_order": 18,
     "illustration_url": null,
     "states": [
       {
@@ -487,13 +487,13 @@
     "subfamily_scope": "myrmicinae"
   },
   {
-    "id": "gen-20",
+    "id": "gen-19",
     "name_it": "Pungiglione",
     "name_en": "Sting",
     "description_it": "",
     "body_region": "gaster",
     "difficulty": "hard",
-    "display_order": 20,
+    "display_order": 19,
     "illustration_url": null,
     "states": [
       {
@@ -511,13 +511,13 @@
     "subfamily_scope": "myrmicinae"
   },
   {
-    "id": "gen-21",
+    "id": "gen-20",
     "name_it": "Colore",
     "name_en": "Colour",
     "description_it": "",
     "body_region": "gaster",
     "difficulty": "easy",
-    "display_order": 21,
+    "display_order": 20,
     "illustration_url": null,
     "states": [
       {
@@ -535,13 +535,13 @@
     "subfamily_scope": "ponerinae"
   },
   {
-    "id": "gen-22",
+    "id": "gen-21",
     "name_it": "Margine masticatorio della mandibola",
     "name_en": "Mandibular masticatory margin",
     "description_it": "",
     "body_region": "head",
     "difficulty": "hard",
-    "display_order": 22,
+    "display_order": 21,
     "illustration_url": null,
     "states": [
       {
@@ -559,13 +559,13 @@
     "subfamily_scope": "ponerinae"
   },
   {
-    "id": "gen-23",
+    "id": "gen-22",
     "name_it": "Speroni della tibia posteriore",
     "name_en": "Hind tibia spur(s)",
     "description_it": "",
     "body_region": "legs",
     "difficulty": "hard",
-    "display_order": 23,
+    "display_order": 22,
     "illustration_url": null,
     "states": [
       {
@@ -583,13 +583,13 @@
     "subfamily_scope": "ponerinae"
   },
   {
-    "id": "gen-24",
+    "id": "gen-23",
     "name_it": "Tibia media",
     "name_en": "Mid tibia",
     "description_it": "",
     "body_region": "legs",
     "difficulty": "hard",
-    "display_order": 24,
+    "display_order": 23,
     "illustration_url": null,
     "states": [
       {
@@ -607,13 +607,13 @@
     "subfamily_scope": "ponerinae"
   },
   {
-    "id": "gen-25",
+    "id": "gen-24",
     "name_it": "Processo subpeziale",
     "name_en": "Subpetiolar process",
     "description_it": "",
     "body_region": "petiole",
     "difficulty": "hard",
-    "display_order": 25,
+    "display_order": 24,
     "illustration_url": null,
     "states": [
       {
@@ -631,13 +631,13 @@
     "subfamily_scope": "ponerinae"
   },
   {
-    "id": "gen-26",
+    "id": "gen-25",
     "name_it": "Colore",
     "name_en": "Colour",
     "description_it": "",
     "body_region": "gaster",
     "difficulty": "easy",
-    "display_order": 26,
+    "display_order": 25,
     "illustration_url": null,
     "states": [
       {
@@ -660,13 +660,13 @@
     "subfamily_scope": "dolichoderinae"
   },
   {
-    "id": "gen-27",
+    "id": "gen-26",
     "name_it": "Formula palpale",
     "name_en": "Palpal formula",
     "description_it": "",
     "body_region": "head",
     "difficulty": "hard",
-    "display_order": 27,
+    "display_order": 26,
     "illustration_url": null,
     "states": [
       {
@@ -684,13 +684,13 @@
     "subfamily_scope": "dolichoderinae"
   },
   {
-    "id": "gen-28",
+    "id": "gen-27",
     "name_it": "Margine anteriore del clipeo",
     "name_en": "Anterior margin of the clypeus",
     "description_it": "",
     "body_region": "head",
     "difficulty": "medium",
-    "display_order": 28,
+    "display_order": 27,
     "illustration_url": null,
     "states": [
       {
@@ -708,13 +708,13 @@
     "subfamily_scope": "dolichoderinae"
   },
   {
-    "id": "gen-29",
+    "id": "gen-28",
     "name_it": "Tegumento del capo e del mesosoma",
     "name_en": "Head and mesosoma integument",
     "description_it": "",
     "body_region": "head",
     "difficulty": "hard",
-    "display_order": 29,
+    "display_order": 28,
     "illustration_url": null,
     "states": [
       {
@@ -732,13 +732,13 @@
     "subfamily_scope": "dolichoderinae"
   },
   {
-    "id": "gen-30",
+    "id": "gen-29",
     "name_it": "Peli eretti sul pronoto",
     "name_en": "Erect hairs on the pronotum",
     "description_it": "",
     "body_region": "thorax",
     "difficulty": "hard",
-    "display_order": 30,
+    "display_order": 29,
     "illustration_url": null,
     "states": [
       {
@@ -756,13 +756,13 @@
     "subfamily_scope": "dolichoderinae"
   },
   {
-    "id": "gen-31",
+    "id": "gen-30",
     "name_it": "Squama peziolare",
     "name_en": "Petiolar scale",
     "description_it": "",
     "body_region": "petiole",
     "difficulty": "medium",
-    "display_order": 31,
+    "display_order": 30,
     "illustration_url": null,
     "states": [
       {
@@ -780,13 +780,13 @@
     "subfamily_scope": "dolichoderinae"
   },
   {
-    "id": "gen-32",
+    "id": "gen-31",
     "name_it": "Macchie gialle sul gastro",
     "name_en": "Yellow dots on the gaster",
     "description_it": "",
     "body_region": "gaster",
     "difficulty": "easy",
-    "display_order": 32,
+    "display_order": 31,
     "illustration_url": null,
     "states": [
       {
@@ -804,13 +804,13 @@
     "subfamily_scope": "dolichoderinae"
   },
   {
-    "id": "gen-33",
+    "id": "gen-32",
     "name_it": "Casta soldato con capo troncato",
     "name_en": "Soldier caste with truncated head",
     "description_it": "",
     "body_region": "head",
     "difficulty": "easy",
-    "display_order": 33,
+    "display_order": 32,
     "illustration_url": null,
     "states": [
       {
@@ -828,13 +828,13 @@
     "subfamily_scope": "formicinae"
   },
   {
-    "id": "gen-34",
+    "id": "gen-33",
     "name_it": "Formula palpale",
     "name_en": "Palpal formula",
     "description_it": "",
     "body_region": "head",
     "difficulty": "hard",
-    "display_order": 34,
+    "display_order": 33,
     "illustration_url": null,
     "states": [
       {
@@ -857,13 +857,13 @@
     "subfamily_scope": "formicinae"
   },
   {
-    "id": "gen-35",
+    "id": "gen-34",
     "name_it": "4° articolo del palpo mascellare",
     "name_en": "4th article of the maxillary palp",
     "description_it": "",
     "body_region": "head",
     "difficulty": "hard",
-    "display_order": 35,
+    "display_order": 34,
     "illustration_url": null,
     "states": [
       {
@@ -881,13 +881,13 @@
     "subfamily_scope": "formicinae"
   },
   {
-    "id": "gen-36",
+    "id": "gen-35",
     "name_it": "Forma delle mandibole",
     "name_en": "Mandibular shape",
     "description_it": "",
     "body_region": "head",
     "difficulty": "medium",
-    "display_order": 36,
+    "display_order": 35,
     "illustration_url": null,
     "states": [
       {
@@ -905,13 +905,13 @@
     "subfamily_scope": "formicinae"
   },
   {
-    "id": "gen-37",
+    "id": "gen-36",
     "name_it": "Denti mandibolari",
     "name_en": "Mandibular teeth",
     "description_it": "",
     "body_region": "head",
     "difficulty": "medium",
-    "display_order": 37,
+    "display_order": 36,
     "illustration_url": null,
     "states": [
       {
@@ -934,13 +934,13 @@
     "subfamily_scope": "formicinae"
   },
   {
-    "id": "gen-38",
+    "id": "gen-37",
     "name_it": "Inserzione delle antenne",
     "name_en": "Antennal insertion",
     "description_it": "",
     "body_region": "head",
     "difficulty": "medium",
-    "display_order": 38,
+    "display_order": 37,
     "illustration_url": null,
     "states": [
       {
@@ -958,13 +958,13 @@
     "subfamily_scope": "formicinae"
   },
   {
-    "id": "gen-39",
+    "id": "gen-38",
     "name_it": "Numero di segmenti antennali",
     "name_en": "Antennal segments",
     "description_it": "",
     "body_region": "antennae",
     "difficulty": "medium",
-    "display_order": 39,
+    "display_order": 38,
     "illustration_url": null,
     "states": [
       {
@@ -982,13 +982,13 @@
     "subfamily_scope": "formicinae"
   },
   {
-    "id": "gen-40",
+    "id": "gen-39",
     "name_it": "Propodeo",
     "name_en": "Propodeum",
     "description_it": "",
     "body_region": "thorax",
     "difficulty": "medium",
-    "display_order": 40,
+    "display_order": 39,
     "illustration_url": null,
     "states": [
       {

@@ -1,0 +1,5 @@
+# Snapshots and backups produced during the Step 0 restoration.
+# These contain copies of TESI FORMICHE NEXUS files (gitignored at root)
+# and pre-Step-0 JSON snapshots that are not part of the live audit toolkit.
+backup-pre-step0/
+expected-from-nexus/
