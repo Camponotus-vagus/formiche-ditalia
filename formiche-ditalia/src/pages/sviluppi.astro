@@ -28,9 +28,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
           </div>
           <div class="flex-1">
-            <div class="flex items-center gap-3 mb-4">
+            <div class="flex items-center gap-3 mb-4 flex-wrap">
               <span class="text-xs font-bold uppercase tracking-wider text-white bg-forest-600 px-3 py-1 rounded-full">v1.0</span>
               <span class="text-sm text-forest-600 font-medium" data-i18n="roadmap_v1_status">Completato</span>
+              <span class="text-xs text-gray-400" data-i18n="roadmap_v1_when">aprile 2026</span>
             </div>
             <h2 class="font-display text-2xl font-bold text-gray-900 mb-4" data-i18n="roadmap_v1_title">Lancio della piattaforma</h2>
 
@@ -92,8 +93,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <div class="flex items-start gap-3 bg-forest-50 rounded-xl p-4 border border-forest-100">
                 <svg class="w-5 h-5 text-forest-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                 <div>
-                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v11_domain">Dominio personalizzato</p>
-                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v11_domain_desc">formicheditalia.it con certificato SSL e Google Search Console</p>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v1_domain">Dominio personalizzato</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v1_domain_desc">formicheditalia.it con certificato SSL e Google Search Console</p>
                 </div>
               </div>
               <div class="flex items-start gap-3 bg-forest-50 rounded-xl p-4 border border-forest-100">
@@ -108,53 +109,47 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
 
-      <!-- v2.0 — In lavorazione -->
+      <!-- v1.1 — In lavorazione -->
       <div class="relative mb-16">
         <div class="flex items-start gap-6">
           <div class="hidden sm:flex w-16 h-16 rounded-full bg-brand-500 text-white items-center justify-center flex-shrink-0 z-10 shadow-lg animate-pulse">
             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           </div>
           <div class="flex-1">
-            <div class="flex items-center gap-3 mb-4">
-              <span class="text-xs font-bold uppercase tracking-wider text-white bg-brand-500 px-3 py-1 rounded-full">v2.0</span>
+            <div class="flex items-center gap-3 mb-4 flex-wrap">
+              <span class="text-xs font-bold uppercase tracking-wider text-white bg-brand-500 px-3 py-1 rounded-full">v1.1</span>
               <span class="text-sm text-brand-600 font-medium" data-i18n="roadmap_v11_status">In lavorazione</span>
+              <span class="text-xs text-gray-400" data-i18n="roadmap_v11_when">giugno – luglio 2026</span>
             </div>
-            <h2 class="font-display text-2xl font-bold text-gray-900 mb-4" data-i18n="roadmap_v11_title">Consolidamento e crescita</h2>
+            <h2 class="font-display text-2xl font-bold text-gray-900 mb-4" data-i18n="roadmap_v11_title">Miglioramenti UX della chiave</h2>
 
-            <!-- Espansione dati -->
-            <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2 mt-4" data-i18n="roadmap_label_data_expansion">Espansione dati</p>
-            <div class="space-y-3 mb-4">
-              <div class="flex items-start gap-3 bg-brand-50 rounded-xl p-4 border border-brand-100">
-                <div class="w-5 h-5 rounded-full border-2 border-brand-400 flex-shrink-0 mt-0.5"></div>
-                <div>
-                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v11_species">Espansione a 267 specie</p>
-                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v11_species_desc">Dalla checklist completa Schifani 2022</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3 bg-brand-50 rounded-xl p-4 border border-brand-100">
-                <div class="w-5 h-5 rounded-full border-2 border-brand-400 flex-shrink-0 mt-0.5"></div>
-                <div>
-                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v11_lazio">Espansione a specie del Lazio</p>
-                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v11_lazio_desc">Da 80 specie (Roma) a circa 100-130 (Lazio), come step intermedio verso l'intera fauna italiana</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3 bg-brand-50 rounded-xl p-4 border border-brand-100">
-                <div class="w-5 h-5 rounded-full border-2 border-brand-400 flex-shrink-0 mt-0.5"></div>
-                <div>
-                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v11_new_records">Nuovi record italiani</p>
-                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v11_new_records_desc">Aggiungere Nylanderia vividula, Brachyponera chinensis e le nuove Temnothorax post-2022</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Chiave -->
-            <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2" data-i18n="roadmap_label_key_improvements">Miglioramenti chiave</p>
             <div class="space-y-3">
               <div class="flex items-start gap-3 bg-brand-50 rounded-xl p-4 border border-brand-100">
                 <div class="w-5 h-5 rounded-full border-2 border-brand-400 flex-shrink-0 mt-0.5"></div>
                 <div>
-                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v11_matrix">Matrice cross-sottofamiglia</p>
-                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v11_matrix_desc">Caratteri universali per discriminare prima la sottofamiglia</p>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v11_hide_char">Nascondi caratteri non riconoscibili</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v11_hide_char_desc">Possibilità di escludere dalla chiave i caratteri che l'utente non riesce a osservare sul campione, con re-tarazione automatica dello scoring</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-brand-50 rounded-xl p-4 border border-brand-100">
+                <div class="w-5 h-5 rounded-full border-2 border-brand-400 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v11_skip_suggested">Skip del carattere suggerito</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v11_skip_suggested_desc">Se il carattere consigliato non è osservabile (campione rovinato, parte mancante, poco visibile) il sistema propone il successivo più discriminante</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-brand-50 rounded-xl p-4 border border-brand-100">
+                <div class="w-5 h-5 rounded-full border-2 border-brand-400 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v11_persist">Persistenza dei progressi</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v11_persist_desc">I progressi dell'identificazione restano salvati anche cambiando tab o pagina, finché non si conclude o si ricomincia</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-brand-50 rounded-xl p-4 border border-brand-100">
+                <div class="w-5 h-5 rounded-full border-2 border-brand-400 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v11_analytics">Analytics privacy-first</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v11_analytics_desc">Plausible o equivalente per capire come viene usato il sito senza tracciare gli utenti</p>
                 </div>
               </div>
             </div>
@@ -162,27 +157,74 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
 
-      <!-- v3.0 — Prossimamente -->
+      <!-- v1.2 — Espansione Lazio + filtro regione -->
       <div class="relative mb-16">
         <div class="flex items-start gap-6">
-          <div class="hidden sm:flex w-16 h-16 rounded-full bg-gray-300 text-gray-600 items-center justify-center flex-shrink-0 z-10 shadow-lg">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+          <div class="hidden sm:flex w-16 h-16 rounded-full bg-brand-400 text-white items-center justify-center flex-shrink-0 z-10 shadow-lg">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>
           </div>
           <div class="flex-1">
-            <div class="flex items-center gap-3 mb-4">
-              <span class="text-xs font-bold uppercase tracking-wider text-white bg-gray-400 px-3 py-1 rounded-full">v3.0</span>
-              <span class="text-sm text-gray-500 font-medium" data-i18n="roadmap_v2_status">Prossimamente</span>
+            <div class="flex items-center gap-3 mb-4 flex-wrap">
+              <span class="text-xs font-bold uppercase tracking-wider text-white bg-brand-400 px-3 py-1 rounded-full">v1.2</span>
+              <span class="text-sm text-brand-500 font-medium" data-i18n="roadmap_v12_status">Prossimo step</span>
+              <span class="text-xs text-gray-400" data-i18n="roadmap_v12_when">settembre – novembre 2026</span>
             </div>
-            <h2 class="font-display text-2xl font-bold text-gray-900 mb-4" data-i18n="roadmap_v2_title">Funzionalità avanzate</h2>
+            <h2 class="font-display text-2xl font-bold text-gray-900 mb-4" data-i18n="roadmap_v12_title">Espansione al Lazio e filtro per regione</h2>
 
-            <!-- Strumenti di identificazione -->
-            <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2 mt-4" data-i18n="roadmap_label_advanced_id">Identificazione avanzata</p>
-            <div class="space-y-3 mb-4">
+            <div class="space-y-3">
+              <div class="flex items-start gap-3 bg-brand-50 rounded-xl p-4 border border-brand-100">
+                <div class="w-5 h-5 rounded-full border-2 border-brand-400 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v12_lazio">Espansione a specie del Lazio</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v12_lazio_desc">Da 80 specie (Roma) a circa 100-130 (Lazio), come step intermedio verso la fauna italiana completa</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-brand-50 rounded-xl p-4 border border-brand-100">
+                <div class="w-5 h-5 rounded-full border-2 border-brand-400 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v12_region">Filtro per regione geografica</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v12_region_desc">Restringi i candidati nella chiave in base alla regione di osservazione, sfruttando i dati di distribuzione</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-brand-50 rounded-xl p-4 border border-brand-100">
+                <div class="w-5 h-5 rounded-full border-2 border-brand-400 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v12_new_records">Nuovi record italiani</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v12_new_records_desc">Aggiunta di Nylanderia vividula, Brachyponera chinensis e nuove Temnothorax descritte dopo il 2022</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- v2.0 — Chiave specie + caste -->
+      <div class="relative mb-16">
+        <div class="flex items-start gap-6">
+          <div class="hidden sm:flex w-16 h-16 rounded-full bg-gray-400 text-white items-center justify-center flex-shrink-0 z-10 shadow-lg">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-4 flex-wrap">
+              <span class="text-xs font-bold uppercase tracking-wider text-white bg-gray-400 px-3 py-1 rounded-full">v2.0</span>
+              <span class="text-sm text-gray-500 font-medium" data-i18n="roadmap_v2_status">Prossimamente</span>
+              <span class="text-xs text-gray-400" data-i18n="roadmap_v2_when">dicembre 2026 – Q1 2027</span>
+            </div>
+            <h2 class="font-display text-2xl font-bold text-gray-900 mb-4" data-i18n="roadmap_v2_title">Chiave a livello di specie</h2>
+
+            <div class="space-y-3">
+              <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-200">
+                <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v2_species_key">Chiave morfologica per le specie</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v2_species_key_desc">Estensione della chiave dal livello di genere al livello di specie, partendo dalle ~130 del Lazio</p>
+                </div>
+              </div>
               <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0 mt-0.5"></div>
                 <div>
                   <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v2_modes">Doppia modalità</p>
-                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v2_modes_desc">Semplificata per principianti e completa per esperti</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v2_modes_desc">Versione semplificata per principianti e completa per esperti</p>
                 </div>
               </div>
               <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-200">
@@ -192,23 +234,45 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v2_caste_desc">Operaia, regina o maschio come filtro iniziale</p>
                 </div>
               </div>
-              <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-200">
-                <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0 mt-0.5"></div>
-                <div>
-                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v2_ai">Pre-filtro AI da foto</p>
-                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v2_ai_desc">Carica una foto per restringere i candidati prima della chiave morfologica</p>
-                </div>
-              </div>
             </div>
+          </div>
+        </div>
+      </div>
 
-            <!-- Strumenti visivi -->
-            <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2" data-i18n="roadmap_label_visual_tools">Strumenti visivi</p>
+      <!-- v2.1 — AI pre-filtro specie -->
+      <div class="relative mb-16">
+        <div class="flex items-start gap-6">
+          <div class="hidden sm:flex w-16 h-16 rounded-full bg-gray-300 text-gray-700 items-center justify-center flex-shrink-0 z-10 shadow-lg">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7l9-4 9 4M3 7v10l9 4 9-4V7M3 7l9 4m0 0l9-4m-9 4v10" /></svg>
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-4 flex-wrap">
+              <span class="text-xs font-bold uppercase tracking-wider text-white bg-gray-400 px-3 py-1 rounded-full">v2.1</span>
+              <span class="text-sm text-gray-500 font-medium" data-i18n="roadmap_v21_status">Prossimamente</span>
+              <span class="text-xs text-gray-400" data-i18n="roadmap_v21_when">Q1 – Q2 2027</span>
+            </div>
+            <h2 class="font-display text-2xl font-bold text-gray-900 mb-4" data-i18n="roadmap_v21_title">Pre-filtro AI da foto</h2>
+
             <div class="space-y-3">
               <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0 mt-0.5"></div>
                 <div>
-                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v2_compare">Confronto side-by-side</p>
-                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v2_compare_desc">Deep-zoom sulle immagini per confrontare due generi candidati</p>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v21_model">Modello ML per identificazione di specie</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v21_model_desc">Deploy del modello v2.5 (227 specie italiane, val_top1 ~78%) come pre-filtro che restringe i candidati prima della chiave morfologica. Output: top-5 specie con confidenze</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-200">
+                <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v21_iteration">Iterazione del modello in background</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v21_iteration_desc">Nuove versioni del modello vengono addestrate offline e sostituite silenziosamente quando migliorano la val_acc</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-200">
+                <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v21_compare">Confronto side-by-side</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v21_compare_desc">Deep-zoom sulle immagini per confrontare due specie candidate fianco a fianco</p>
                 </div>
               </div>
             </div>
@@ -216,20 +280,54 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
 
-      <!-- v4.0+ — Futuro -->
+      <!-- v2.2 — Espansione completa Italia -->
+      <div class="relative mb-16">
+        <div class="flex items-start gap-6">
+          <div class="hidden sm:flex w-16 h-16 rounded-full bg-gray-300 text-gray-700 items-center justify-center flex-shrink-0 z-10 shadow-lg">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-4 flex-wrap">
+              <span class="text-xs font-bold uppercase tracking-wider text-white bg-gray-400 px-3 py-1 rounded-full">v2.2</span>
+              <span class="text-sm text-gray-500 font-medium" data-i18n="roadmap_v22_status">Prossimamente</span>
+              <span class="text-xs text-gray-400" data-i18n="roadmap_v22_when">Q2 – Q3 2027</span>
+            </div>
+            <h2 class="font-display text-2xl font-bold text-gray-900 mb-4" data-i18n="roadmap_v22_title">Espansione completa alla fauna italiana</h2>
+
+            <div class="space-y-3">
+              <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-200">
+                <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v22_species">Espansione alle 267 specie italiane</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v22_species_desc">Copertura completa della checklist Schifani 2022 (267 specie in 8 sottofamiglie)</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-200">
+                <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900" data-i18n="roadmap_v22_matrix">Matrice cross-sottofamiglia</p>
+                  <p class="text-xs text-gray-500 mt-0.5" data-i18n="roadmap_v22_matrix_desc">Caratteri universali per discriminare prima la sottofamiglia, poi il genere</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- v3.0 — Community e visione -->
       <div class="relative">
         <div class="flex items-start gap-6">
           <div class="hidden sm:flex w-16 h-16 rounded-full bg-gray-200 text-gray-400 items-center justify-center flex-shrink-0 z-10 shadow-lg">
             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
           </div>
           <div class="flex-1">
-            <div class="flex items-center gap-3 mb-4">
-              <span class="text-xs font-bold uppercase tracking-wider text-gray-500 bg-gray-200 px-3 py-1 rounded-full">v4.0+</span>
-              <span class="text-sm text-gray-400 font-medium" data-i18n="roadmap_v3_status">Futuro</span>
+            <div class="flex items-center gap-3 mb-4 flex-wrap">
+              <span class="text-xs font-bold uppercase tracking-wider text-gray-500 bg-gray-200 px-3 py-1 rounded-full">v3.0</span>
+              <span class="text-sm text-gray-400 font-medium" data-i18n="roadmap_v3_status">Visione futura</span>
+              <span class="text-xs text-gray-400" data-i18n="roadmap_v3_when">2028+</span>
             </div>
-            <h2 class="font-display text-2xl font-bold text-gray-900 mb-4" data-i18n="roadmap_v3_title">La visione</h2>
+            <h2 class="font-display text-2xl font-bold text-gray-900 mb-4" data-i18n="roadmap_v3_title">Community e interoperabilità</h2>
 
-            <!-- Community -->
             <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2 mt-4" data-i18n="roadmap_label_community">Community</p>
             <div class="space-y-3 mb-4">
               <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
@@ -248,7 +346,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </div>
             </div>
 
-            <!-- Integrazioni -->
             <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2" data-i18n="roadmap_label_integrations">Integrazioni e interoperabilità</p>
             <div class="space-y-3">
               <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">

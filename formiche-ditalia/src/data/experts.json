@@ -36,7 +36,8 @@
     "bio_en": "Author of the 2022 Italian ant checklist.",
     "profile_photo_url": "/images/esperti/enrico-schifani.webp",
     "h_index": 16,
-    "claimed": false
+    "claimed": false,
+    "has_phd": true
   },
   {
     "id": "donato-andrea-grasso",
@@ -61,7 +62,8 @@
     "bio_en": "Director of the myrmecology lab, University of Parma.",
     "profile_photo_url": "/images/esperti/donato-andrea-grasso.webp",
     "h_index": null,
-    "claimed": false
+    "claimed": false,
+    "has_phd": true
   },
   {
     "id": "antonio-scupola",
@@ -101,7 +103,8 @@
     "bio_en": "Author of the Veneto ant handbook.",
     "profile_photo_url": "/images/esperti/antonio-scupola.webp",
     "h_index": 4,
-    "claimed": false
+    "claimed": false,
+    "has_phd": false
   },
   {
     "id": "antonio-alicata",
@@ -166,7 +169,8 @@
     "bio_en": "Specialist in Sicilian endemic species.",
     "profile_photo_url": "/images/esperti/antonio-alicata.webp",
     "h_index": 8,
-    "claimed": false
+    "claimed": false,
+    "has_phd": true
   },
   {
     "id": "cristina-castracani",
@@ -230,7 +234,8 @@
     "bio_en": "Researcher at the Parma myrmecology lab.",
     "profile_photo_url": "/images/esperti/cristina-castracani.webp",
     "h_index": 17,
-    "claimed": false
+    "claimed": false,
+    "has_phd": true
   },
   {
     "id": "alessandra-mori",
@@ -254,7 +259,8 @@
     "bio_en": "Specialist in social parasitism in ants.",
     "profile_photo_url": "/images/esperti/alessandra-mori.webp",
     "h_index": null,
-    "claimed": false
+    "claimed": false,
+    "has_phd": true
   },
   {
     "id": "fabrizio-rigato",
@@ -315,7 +321,8 @@
     "bio_en": "Museum curator and AntWeb contributor. Validated the FormiKey matrices.",
     "profile_photo_url": "/images/esperti/fabrizio-rigato.webp",
     "h_index": 6,
-    "claimed": false
+    "claimed": false,
+    "has_phd": false
   },
   {
     "id": "francesco-mensa",
@@ -373,7 +380,8 @@
     "bio_en": "Creator of Formiche d'Italia and the FormiKey identification key.",
     "profile_photo_url": "/images/esperti/francesco-mensa.webp",
     "h_index": 1,
-    "claimed": true
+    "claimed": true,
+    "has_phd": true
   },
   {
     "id": "daniele-giannetti",
@@ -399,7 +407,8 @@
     "bio_en": "Research fellow at the myrmecology lab, University of Parma. Innovative studies on ant-pathogen interactions, using ants as biological indicators of parasites, and drone experiments to study nuptial flights.",
     "profile_photo_url": "/images/esperti/daniele-giannetti.webp",
     "h_index": null,
-    "claimed": false
+    "claimed": false,
+    "has_phd": true
   },
   {
     "id": "elia-nalini",
@@ -425,7 +434,8 @@
     "bio_en": "PhD student at Eurac Research (Bolzano), studying the ecology of Formica red wood ants, myrmecophile interactions, and conservation. Involved in the European MonitAnt project for monitoring wood ants.",
     "profile_photo_url": "/images/esperti/elia-nalini.webp",
     "h_index": null,
-    "claimed": false
+    "claimed": false,
+    "has_phd": false
   },
   {
     "id": "mattia-menchetti",
@@ -451,6 +461,7 @@
     "bio_en": "Italian myrmecologist and evolutionary biologist. His work focuses on genetic mapping of European ants. In 2023, together with Schifani and Alicata, he confirmed the arrival of the fire ant (Solenopsis invicta) in Europe, in Sicily.",
     "profile_photo_url": "/images/esperti/mattia-menchetti.webp",
     "h_index": null,
-    "claimed": false
+    "claimed": false,
+    "has_phd": true
   }
 ]

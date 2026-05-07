@@ -99,6 +99,7 @@ export interface Expert {
   profile_photo_url: string | null;
   h_index: number | null;
   claimed: boolean;
+  has_phd?: boolean;
 }
 
 export interface AnatomyLabelPosition {

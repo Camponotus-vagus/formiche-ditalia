@@ -36,6 +36,7 @@ const expertGenera = generaData.filter((g: any) =>
       <div>
         <div class="flex items-center gap-3">
           <h1 class="font-display text-3xl font-bold text-gray-900">{expert.name}</h1>
+          {expert.has_phd && <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">PhD</span>}
           {expert.claimed && <span class="text-xs bg-forest-100 text-forest-700 px-2 py-1 rounded-full" data-i18n="experts_verified">Verificato</span>}
         </div>
         {expert.role && <p class="text-gray-600 mt-1">{expert.role}</p>}
