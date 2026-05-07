@@ -27,6 +27,9 @@ const { expert } = Astro.props;
         <h3 class="font-semibold text-gray-900 group-hover:text-brand-600 transition-colors truncate">
           {expert.name}
         </h3>
+        {expert.has_phd && (
+          <span class="text-xs bg-gray-100 text-gray-700 px-1.5 py-0.5 rounded-full font-medium">PhD</span>
+        )}
         {expert.claimed && (
           <span class="text-xs bg-forest-100 text-forest-700 px-1.5 py-0.5 rounded-full" data-i18n="experts_verified">Verificato</span>
         )}
