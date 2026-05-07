@@ -155,7 +155,7 @@
   "about_cta_desc": "Formiche d'Italia is a growing project. If you're an Italian ant expert and want to contribute, claim your profile or contact us to suggest corrections.",
   "about_cta_experts": "Expert directory",
   "about_cta_contact": "Contact us",
-  "about_formikey_p3": "The thesis covers the 41 genera and 7 subfamilies present in the Italian peninsula, with a focus on the 75 species of the city of Rome, representing 30% of Italian species. Formiche d'Italia is the digital evolution of this research work.",
+  "about_formikey_p3": "Formiche d'Italia extends the original thesis work (41 genera and 75 species) to cover the 43 genera and 8 subfamilies currently present in the Italian peninsula, with a focus on the 80 species documented in the city of Rome.",
   "about_thesis_link": "Read the thesis on ResearchGate",
   "nav_sviluppi": "Future developments",
   "roadmap_title": "Future developments",
@@ -205,7 +205,6 @@
   "roadmap_cta_title": "Have an idea or suggestion?",
   "roadmap_cta_desc": "Help us improve Formiche d'Italia — every contribution counts.",
   "roadmap_cta_button": "Write to us",
-
   "contact_title": "Contact us",
   "contact_subtitle": "Found an error, want to suggest an improvement, or are you an expert wishing to claim your profile? Write to us.",
   "contact_name": "Name",
@@ -237,7 +236,6 @@
   "contact_response_desc": "We generally respond within 48 hours. For profile claims, we will verify your identity through your institutional email address.",
   "nav_contact": "Contact",
   "nav_privacy": "Privacy",
-
   "privacy_title": "Privacy Policy",
   "privacy_subtitle": "Information on the processing of personal data pursuant to EU Regulation 2016/679 (GDPR).",
   "privacy_updated": "Last updated: April 7, 2026",
@@ -250,20 +248,18 @@
   "privacy_banner_text": "This site does not use profiling cookies. We only save your language preference in your browser.",
   "privacy_banner_link": "Privacy policy",
   "privacy_banner_ok": "Got it",
-
   "error_404_title": "Page not found",
   "error_404_desc": "The page you are looking for does not exist or has been moved.",
   "error_404_home": "Back to homepage",
   "error_404_identify": "Identify an ant",
   "anatomy_attribution": "Original illustrations by Francesco Simone Mensa, from the thesis <a href=\"https://www.researchgate.net/publication/330994606_Chiave_interattiva_per_il_riconoscimento_dei_generi_di_Formicidae_italiani_e_delle_specie_della_citta_di_Roma\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-forest-600 hover:underline\">\"Interactive key for the identification of Italian Formicidae genera and the species of the city of Rome\"</a> (Mensa, 2017).",
-
   "methods_title": "Methods",
   "methods_subtitle": "Technical documentation of the identification algorithm, data sources, and methodology underlying the platform.",
   "methods_label_data": "Foundations",
   "methods_origin_title": "Data provenance",
   "methods_origin_desc": "The taxonomic and morphological data underlying the key derive from the master's thesis of Francesco Simone Mensa (Roma Tre, 2016-2017). The matrices were validated by Dr. Fabrizio Rigato (MSNM, 2015).",
   "methods_thesis_title": "FormiKey thesis",
-  "methods_thesis_desc": "Character matrices built with Mesquite in NEXUS format for 39 genera and 75 species from the city of Rome.",
+  "methods_thesis_desc": "Character matrices built with Mesquite in NEXUS format for 43 genera and 80 species from the city of Rome.",
   "methods_thesis_link": "Read on ResearchGate →",
   "methods_checklist_title": "Schifani 2022 checklist",
   "methods_checklist_desc": "Primary taxonomic reference: 267 Italian species across 7 subfamilies and 42 genera.",
@@ -319,7 +315,6 @@
   "methods_cta_title": "Try the key",
   "methods_cta_desc": "Use the algorithm described above to identify an ant genus.",
   "methods_cta_button": "Open the key",
-
   "privacy_label_gdpr": "Art. 13 GDPR",
   "privacy_label_data": "What we collect",
   "privacy_form_title": "Contact form",
@@ -354,7 +349,6 @@
   "privacy_right_objection": "Objection",
   "privacy_right_objection_desc": "Object to processing on legitimate grounds (Art. 21)",
   "privacy_rights_contact": "To exercise your rights, write to <a href=\"mailto:info@formicheditalia.it\" class=\"text-forest-600 hover:underline font-medium\">info@formicheditalia.it</a>. You also have the right to lodge a complaint with the <a href=\"https://www.garanteprivacy.it\" target=\"_blank\" rel=\"noopener\" class=\"text-forest-600 hover:underline\">Italian Data Protection Authority (Garante)</a>.",
-
   "guide_title": "How to identify ants",
   "guide_subtitle": "A practical guide to observing morphological characters and using the <a href=\"/identifica\" class=\"text-forest-600 hover:underline font-medium\">interactive identification key</a>.",
   "guide_tools_title": "Required tools",
@@ -400,7 +394,6 @@
   "guide_cta_title": "Ready to identify?",
   "guide_cta_desc": "The interactive key guides you step by step.",
   "guide_cta_button": "Open the key",
-
   "pests_title": "Ants in your house",
   "pests_subtitle": "Found ants in your house? Before taking action, it helps to understand <strong class=\"text-forest-700\">which species</strong> you are dealing with. Correct identification helps choose the most effective strategy.",
   "pests_common_title": "The most common species in Italian homes",
@@ -432,7 +425,6 @@
   "pests_eco_desc": "Ants aerate the soil, disperse seeds, and control other insects. Over <strong class=\"text-white\">267 species</strong> live in Italy, most of them exclusively in natural habitats.",
   "pests_cta_identify": "Identify your ant",
   "pests_cta_browse": "Browse the catalog",
-
   "roadmap_label_identification": "Identification",
   "roadmap_label_catalog": "Catalog",
   "roadmap_label_platform": "Platform",

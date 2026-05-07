@@ -155,7 +155,7 @@
   "about_cta_desc": "Formiche d'Italia è un progetto in crescita. Se sei un esperto di formiche italiane e vuoi contribuire, rivendica il tuo profilo o contattaci per proporre correzioni.",
   "about_cta_experts": "Directory esperti",
   "about_cta_contact": "Contattaci",
-  "about_formikey_p3": "La tesi copre i 41 generi e 7 sottofamiglie presenti nella penisola italiana, con un approfondimento sulle 75 specie della città di Roma, che rappresentano il 30% delle specie italiane. Il sito Formiche d'Italia è l'evoluzione digitale di questo lavoro di ricerca.",
+  "about_formikey_p3": "Il sito Formiche d'Italia estende il lavoro originale della tesi (41 generi e 75 specie) per coprire i 43 generi e 8 sottofamiglie attualmente presenti nella penisola italiana, con un approfondimento sulle 80 specie documentate nella città di Roma.",
   "about_thesis_link": "Leggi la tesi su ResearchGate",
   "nav_sviluppi": "Sviluppi futuri",
   "roadmap_title": "Sviluppi futuri",
@@ -205,7 +205,6 @@
   "roadmap_cta_title": "Hai un'idea o un suggerimento?",
   "roadmap_cta_desc": "Aiutaci a migliorare Formiche d'Italia — ogni contributo conta.",
   "roadmap_cta_button": "Scrivici",
-
   "contact_title": "Contattaci",
   "contact_subtitle": "Hai trovato un errore, vuoi suggerire un miglioramento o sei un esperto che desidera rivendicare il proprio profilo? Scrivici.",
   "contact_name": "Nome",
@@ -237,7 +236,6 @@
   "contact_response_desc": "Rispondiamo generalmente entro 48 ore. Per le rivendicazioni profilo, verificheremo la tua identità tramite l'indirizzo email istituzionale.",
   "nav_contact": "Contatti",
   "nav_privacy": "Privacy",
-
   "privacy_title": "Privacy Policy",
   "privacy_subtitle": "Informativa sul trattamento dei dati personali ai sensi del Regolamento UE 2016/679 (GDPR).",
   "privacy_updated": "Ultimo aggiornamento: 7 aprile 2026",
@@ -250,20 +248,18 @@
   "privacy_banner_text": "Questo sito non usa cookie di profilazione. Salviamo solo la preferenza di lingua nel tuo browser.",
   "privacy_banner_link": "Informativa",
   "privacy_banner_ok": "Ho capito",
-
   "error_404_title": "Pagina non trovata",
   "error_404_desc": "La pagina che stai cercando non esiste o è stata spostata.",
   "error_404_home": "Torna alla homepage",
   "error_404_identify": "Identifica una formica",
   "anatomy_attribution": "Illustrazioni originali di Francesco Simone Mensa, dalla tesi <a href=\"https://www.researchgate.net/publication/330994606_Chiave_interattiva_per_il_riconoscimento_dei_generi_di_Formicidae_italiani_e_delle_specie_della_citta_di_Roma\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-forest-600 hover:underline\">\"Chiave interattiva per il riconoscimento dei generi di Formicidae italiani e delle specie della città di Roma\"</a> (Mensa, 2017).",
-
   "methods_title": "Metodi",
   "methods_subtitle": "Documentazione tecnica dell'algoritmo di identificazione, delle fonti dei dati e della metodologia alla base della piattaforma.",
   "methods_label_data": "Le basi",
   "methods_origin_title": "Origine dei dati",
   "methods_origin_desc": "I dati tassonomici e morfologici alla base della chiave derivano dalla tesi di laurea magistrale di Francesco Simone Mensa (Roma Tre, 2016-2017). Le matrici sono state validate dal Dr. Fabrizio Rigato (MSNM, 2015).",
   "methods_thesis_title": "Tesi FormiKey",
-  "methods_thesis_desc": "Matrici di caratteri costruite con Mesquite in formato NEXUS per 39 generi e 75 specie della città di Roma.",
+  "methods_thesis_desc": "Matrici di caratteri costruite con Mesquite in formato NEXUS per 43 generi e 80 specie della città di Roma.",
   "methods_thesis_link": "Leggi su ResearchGate →",
   "methods_checklist_title": "Checklist Schifani 2022",
   "methods_checklist_desc": "Riferimento tassonomico principale: 267 specie italiane in 7 sottofamiglie e 42 generi.",
@@ -319,7 +315,6 @@
   "methods_cta_title": "Prova la chiave",
   "methods_cta_desc": "Usa l'algoritmo descritto sopra per identificare un genere di formica.",
   "methods_cta_button": "Apri la chiave",
-
   "privacy_label_gdpr": "Art. 13 GDPR",
   "privacy_label_data": "Cosa raccogliamo",
   "privacy_form_title": "Modulo di contatto",
@@ -354,7 +349,6 @@
   "privacy_right_objection": "Opposizione",
   "privacy_right_objection_desc": "Opporti al trattamento per motivi legittimi (art. 21)",
   "privacy_rights_contact": "Per esercitare i tuoi diritti, scrivi a <a href=\"mailto:info@formicheditalia.it\" class=\"text-forest-600 hover:underline font-medium\">info@formicheditalia.it</a>. Hai inoltre il diritto di proporre reclamo al <a href=\"https://www.garanteprivacy.it\" target=\"_blank\" rel=\"noopener\" class=\"text-forest-600 hover:underline\">Garante per la protezione dei dati personali</a>.",
-
   "guide_title": "Come identificare le formiche",
   "guide_subtitle": "Guida pratica per osservare i caratteri morfologici e usare la <a href=\"/identifica\" class=\"text-forest-600 hover:underline font-medium\">chiave di identificazione interattiva</a>.",
   "guide_tools_title": "Strumenti necessari",
@@ -400,7 +394,6 @@
   "guide_cta_title": "Pronto a identificare?",
   "guide_cta_desc": "La chiave interattiva ti guida passo dopo passo.",
   "guide_cta_button": "Apri la chiave",
-
   "pests_title": "Formiche in casa",
   "pests_subtitle": "Hai trovato formiche in casa? Prima di agire, è utile capire <strong class=\"text-forest-700\">quale specie</strong> hai di fronte. L'identificazione corretta aiuta a scegliere la strategia più efficace.",
   "pests_common_title": "Le specie più comuni nelle case italiane",
@@ -432,7 +425,6 @@
   "pests_eco_desc": "Le formiche arieggiano il suolo, disperdono semi e controllano altri insetti. In Italia vivono oltre <strong class=\"text-white\">267 specie</strong>, la maggior parte esclusivamente in ambienti naturali.",
   "pests_cta_identify": "Identifica la tua formica",
   "pests_cta_browse": "Esplora il catalogo",
-
   "roadmap_label_identification": "Identificazione",
   "roadmap_label_catalog": "Catalogo",
   "roadmap_label_platform": "Piattaforma",
