@@ -26,6 +26,7 @@ export interface Genus {
   photo_urls: string[];
   similar_genera: string[];
   references: string[];
+  species_key_status?: 'monospecific' | 'polyspecific_pending' | 'polyspecific_available';
 }
 
 export interface Species {

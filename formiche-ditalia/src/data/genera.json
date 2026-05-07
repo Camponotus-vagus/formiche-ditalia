@@ -26,7 +26,8 @@
       "Aphaenogaster_profilo"
     ],
     "diagnostic_characters_en": "These ants can usually be easily distinguished by their elongate, slender habitus (general appearance). Their head is usually longer than broad, eye large, convex and placed at the middle of the head. The mesonotum of the worker is elongate and depressed, the propodeum usually has a pair of spines or small teeth. The workers could be confused with the minor workers of Pheidole, but differ in usually being much larger (over 3 mm total length, usually less than 3 mm in Pheidole), and that the antennal club is poorly defined and consists of four segments (well defined in Pheidole and usually consisting of three segments). (From Mackay and Mackay, 2002).",
-    "diagnostic_characters_it": "Queste formiche si distinguono generalmente con facilità per l'habitus allungato e slanciato. Il capo è di solito più lungo che largo, con occhi grandi, convessi e posizionati a metà della lunghezza del capo. Il mesonoto dell'operaia è allungato e depresso; il propodeo presenta di norma un paio di spine o piccoli denti. Le operaie potrebbero essere confuse con le operaie minori di Pheidole, ma si differenziano per le dimensioni generalmente maggiori (lunghezza totale superiore a 3 mm, mentre in Pheidole è di solito inferiore a 3 mm) e per la clava antennale poco definita e composta da quattro segmenti (ben definita in Pheidole e di solito composta da tre segmenti). (Da Mackay e Mackay, 2002)."
+    "diagnostic_characters_it": "Queste formiche si distinguono generalmente con facilità per l'habitus allungato e slanciato. Il capo è di solito più lungo che largo, con occhi grandi, convessi e posizionati a metà della lunghezza del capo. Il mesonoto dell'operaia è allungato e depresso; il propodeo presenta di norma un paio di spine o piccoli denti. Le operaie potrebbero essere confuse con le operaie minori di Pheidole, ma si differenziano per le dimensioni generalmente maggiori (lunghezza totale superiore a 3 mm, mentre in Pheidole è di solito inferiore a 3 mm) e per la clava antennale poco definita e composta da quattro segmenti (ben definita in Pheidole e di solito composta da tre segmenti). (Da Mackay e Mackay, 2002).",
+    "species_key_status": "polyspecific_pending"
   },
   {
     "id": "cardiocondyla",
@@ -52,7 +53,8 @@
     "references": [],
     "body_length": "2-4 mm",
     "diagnostic_characters_en": "Seifert (2003) - [slightly modified from Bolton, 1982] Small to minute, monomorphic myrmicine ants. Palp formula 5,3 (16 species examined). Mandibles with 5 teeth which decrease in size from apical to basal. Clypeus with flattened and prominent projecting lateral portions, which are fused to the raised projecting median portion to form a shelf which projects forward over the mandibles. Median portion of clypeus posteriorly broadly inserted between narrow frontal lobes. Antennal scrobes absent. Eyes relatively large, situated in front of mid length of the head sides. Antennae with 11 - 12 segments, usually with a distinct 3-segmented club. Dorsal mesosoma without sutures; pronotal corners broadly rounded to bluntly angular. Propodeum unarmed to strongly bispinose. Metapleural lobes low and rounded. Petiole nodiform, with a moderate to long, usually slender, anterior peduncle. Postpetiole dorsoventrally flattened, in dorsal view always much broader than petiole. Sting large, knife blade-like in profile, without lamelliform appendages. Pilosity on dorsal body sparse to absent.",
-    "diagnostic_characters_it": "Seifert (2003) — [leggermente modificato da Bolton, 1982] Formiche mirmicine di dimensioni piccole o molto piccole, monomorfe. Formula palpare 5,3 (16 specie esaminate). Mandibole con 5 denti decrescenti in dimensione dall'apicale al basale. Clipeo con porzioni laterali appiattite e prominenti, fuse alla porzione mediana rialzata e sporgente a formare una mensola che si proietta in avanti sopra le mandibole. Porzione mediana del clipeo inserita posteriormente in modo ampio tra i lobi frontali stretti. Scrobi antennali assenti. Occhi relativamente grandi, situati anteriormente rispetto alla metà della lunghezza dei lati del capo. Antenne con 11–12 segmenti, di solito con una clava distinta di 3 segmenti. Mesosoma dorsale privo di suture; angoli pronotali ampiamente arrotondati o ottusamente angolari. Propodeo inerme o fortemente bispinoso. Lobi metapleurali bassi e arrotondati. Peziolo nodiforme, con peduncolo anteriore da moderato a lungo, generalmente sottile. Postpeziolo appiattito dorso-ventralmente, in visione dorsale sempre molto più largo del peziolo. Pungiglione grande, a profilo laminare, privo di appendici lamelliformi. Pelosità sulla superficie dorsale del corpo rada o assente."
+    "diagnostic_characters_it": "Seifert (2003) — [leggermente modificato da Bolton, 1982] Formiche mirmicine di dimensioni piccole o molto piccole, monomorfe. Formula palpare 5,3 (16 specie esaminate). Mandibole con 5 denti decrescenti in dimensione dall'apicale al basale. Clipeo con porzioni laterali appiattite e prominenti, fuse alla porzione mediana rialzata e sporgente a formare una mensola che si proietta in avanti sopra le mandibole. Porzione mediana del clipeo inserita posteriormente in modo ampio tra i lobi frontali stretti. Scrobi antennali assenti. Occhi relativamente grandi, situati anteriormente rispetto alla metà della lunghezza dei lati del capo. Antenne con 11–12 segmenti, di solito con una clava distinta di 3 segmenti. Mesosoma dorsale privo di suture; angoli pronotali ampiamente arrotondati o ottusamente angolari. Propodeo inerme o fortemente bispinoso. Lobi metapleurali bassi e arrotondati. Peziolo nodiforme, con peduncolo anteriore da moderato a lungo, generalmente sottile. Postpeziolo appiattito dorso-ventralmente, in visione dorsale sempre molto più largo del peziolo. Pungiglione grande, a profilo laminare, privo di appendici lamelliformi. Pelosità sulla superficie dorsale del corpo rada o assente.",
+    "species_key_status": "polyspecific_pending"
   },
   {
     "id": "crematogaster",
@@ -76,7 +78,8 @@
     ],
     "similar_genera": [],
     "references": [],
-    "body_length": "2-5 mm"
+    "body_length": "2-5 mm",
+    "species_key_status": "polyspecific_pending"
   },
   {
     "id": "formicoxenus",
@@ -191,7 +194,8 @@
       "/images/genera/messor/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "polyspecific_pending"
   },
   {
     "id": "monomorium",
@@ -214,7 +218,8 @@
       "/images/genera/monomorium/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "polyspecific_pending"
   },
   {
     "id": "myrmecina",
@@ -237,7 +242,8 @@
       "/images/genera/myrmecina/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "monospecific"
   },
   {
     "id": "myrmica",
@@ -260,7 +266,8 @@
       "/images/genera/myrmica/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "polyspecific_pending"
   },
   {
     "id": "oxyopomyrmex",
@@ -306,7 +313,8 @@
       "/images/genera/pheidole/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "monospecific"
   },
   {
     "id": "solenopsis",
@@ -329,7 +337,8 @@
       "/images/genera/solenopsis/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "monospecific"
   },
   {
     "id": "stenamma",
@@ -352,7 +361,8 @@
       "/images/genera/stenamma/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "polyspecific_pending"
   },
   {
     "id": "strongylognathus",
@@ -398,7 +408,8 @@
       "/images/genera/strumigenys/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "polyspecific_pending"
   },
   {
     "id": "temnothorax",
@@ -421,7 +432,8 @@
       "/images/genera/temnothorax/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "polyspecific_pending"
   },
   {
     "id": "tetramorium",
@@ -444,7 +456,8 @@
       "/images/genera/tetramorium/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "polyspecific_pending"
   },
   {
     "id": "cryptopone",
@@ -467,7 +480,8 @@
       "/images/genera/cryptopone/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "monospecific"
   },
   {
     "id": "hypoponera",
@@ -490,7 +504,8 @@
       "/images/genera/hypoponera/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "polyspecific_pending"
   },
   {
     "id": "ponera",
@@ -513,7 +528,8 @@
       "/images/genera/ponera/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "monospecific"
   },
   {
     "id": "bothriomyrmex",
@@ -536,7 +552,8 @@
       "/images/genera/bothriomyrmex/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "monospecific"
   },
   {
     "id": "dolichoderus",
@@ -559,7 +576,8 @@
       "/images/genera/dolichoderus/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "monospecific"
   },
   {
     "id": "linepithema",
@@ -582,7 +600,8 @@
       "/images/genera/linepithema/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "monospecific"
   },
   {
     "id": "liometopum",
@@ -628,7 +647,8 @@
       "/images/genera/tapinoma/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "polyspecific_pending"
   },
   {
     "id": "camponotus",
@@ -651,7 +671,8 @@
       "/images/genera/camponotus/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "polyspecific_pending"
   },
   {
     "id": "cataglyphis",
@@ -697,7 +718,8 @@
       "/images/genera/colobopsis/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "monospecific"
   },
   {
     "id": "formica",
@@ -720,7 +742,8 @@
       "/images/genera/formica/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "polyspecific_pending"
   },
   {
     "id": "lasius",
@@ -743,7 +766,8 @@
       "/images/genera/lasius/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "polyspecific_pending"
   },
   {
     "id": "lepisiota",
@@ -789,7 +813,8 @@
       "/images/genera/plagiolepis/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "polyspecific_pending"
   },
   {
     "id": "polyergus",
@@ -812,7 +837,8 @@
       "/images/genera/polyergus/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "monospecific"
   },
   {
     "id": "prenolepis",
@@ -858,7 +884,8 @@
       "/images/genera/stigmatomma/dorsal.webp"
     ],
     "similar_genera": [],
-    "references": []
+    "references": [],
+    "species_key_status": "polyspecific_pending"
   },
   {
     "id": "proceratium",
@@ -937,7 +964,8 @@
     ],
     "body_length": "1.5-3 mm",
     "diagnostic_characters_en": "Small monomorphic formicine ants (1.5–3 mm). Antennae 12-segmented, without a distinct club, scape surpassing the posterior margin of the head. Mandibles triangular with 5–6 teeth. Palp formula 6,4. Eyes well developed, placed at or slightly behind the midlength of the head. Propodeum unarmed, rounded in profile. Petiole with a low, anteroposteriorly compressed node. Acidopore circular, fringed with a ring of setae. Erect setae on mesosoma present but sparse, with characteristically paired setae on the pronotum, mesonotum and propodeum. Distinguished from Paratrechina by shorter scapes and legs and the presence of only paired erect mesosomal setae (not abundant erect setae); from Plagiolepis by the 12-segmented antennae (11 in Plagiolepis).",
-    "diagnostic_characters_it": "Formicine piccole e monomorfe (1,5–3 mm). Antenne a 12 segmenti, senza clava distinta, scapo che supera il margine posteriore del capo. Mandibole triangolari con 5–6 denti. Formula palpare 6,4. Occhi ben sviluppati, posti a metà o poco dietro la metà della lunghezza del capo. Propodeo inerme, arrotondato di profilo. Peziolo con un nodo basso, compresso antero-posteriormente. Acidoporo circolare, frangiato da un anello di setole. Setole erette sul mesosoma presenti ma rade, caratteristicamente disposte a coppie su pronoto, mesonoto e propodeo. Si distingue da Paratrechina per scapi e zampe più corti e per la presenza di sole setole mesosomaliche appaiate (non numerose setole erette); da Plagiolepis per le antenne a 12 segmenti (11 in Plagiolepis)."
+    "diagnostic_characters_it": "Formicine piccole e monomorfe (1,5–3 mm). Antenne a 12 segmenti, senza clava distinta, scapo che supera il margine posteriore del capo. Mandibole triangolari con 5–6 denti. Formula palpare 6,4. Occhi ben sviluppati, posti a metà o poco dietro la metà della lunghezza del capo. Propodeo inerme, arrotondato di profilo. Peziolo con un nodo basso, compresso antero-posteriormente. Acidoporo circolare, frangiato da un anello di setole. Setole erette sul mesosoma presenti ma rade, caratteristicamente disposte a coppie su pronoto, mesonoto e propodeo. Si distingue da Paratrechina per scapi e zampe più corti e per la presenza di sole setole mesosomaliche appaiate (non numerose setole erette); da Plagiolepis per le antenne a 12 segmenti (11 in Plagiolepis).",
+    "species_key_status": "polyspecific_pending"
   },
   {
     "id": "paratrechina",
@@ -968,7 +996,8 @@
     "references": [],
     "body_length": "2.5-3 mm",
     "diagnostic_characters_en": "Small monomorphic formicine ants (2.5–3 mm). Antennae 12-segmented, very long (scape about 1.5x head length), without a distinct club. Mandibles triangular with 5 teeth. Palp formula 6,4. Eyes large, placed at the midlength of the head. Legs very long relative to body size. Propodeum unarmed, rounded. Petiole with a low, inclined node. Acidopore circular, fringed with setae. Body covered with abundant erect macrosetae on head, mesosoma and gaster, which clearly separates it from Nylanderia (only sparse paired setae). Dark brown to blackish with a faint bluish iridescence.",
-    "diagnostic_characters_it": "Formicine piccole e monomorfe (2,5–3 mm). Antenne a 12 segmenti, molto lunghe (scapo circa 1,5 volte la lunghezza del capo), senza clava distinta. Mandibole triangolari con 5 denti. Formula palpare 6,4. Occhi grandi, posti a metà della lunghezza del capo. Zampe molto lunghe rispetto al corpo. Propodeo inerme, arrotondato. Peziolo con un nodo basso e inclinato. Acidoporo circolare, frangiato di setole. Corpo ricoperto da abbondanti macrosetole erette su capo, mesosoma e gastro, carattere che lo separa nettamente da Nylanderia (sole setole rade e appaiate). Colore bruno scuro a nerastro con debole iridescenza bluastra."
+    "diagnostic_characters_it": "Formicine piccole e monomorfe (2,5–3 mm). Antenne a 12 segmenti, molto lunghe (scapo circa 1,5 volte la lunghezza del capo), senza clava distinta. Mandibole triangolari con 5 denti. Formula palpare 6,4. Occhi grandi, posti a metà della lunghezza del capo. Zampe molto lunghe rispetto al corpo. Propodeo inerme, arrotondato. Peziolo con un nodo basso e inclinato. Acidoporo circolare, frangiato di setole. Corpo ricoperto da abbondanti macrosetole erette su capo, mesosoma e gastro, carattere che lo separa nettamente da Nylanderia (sole setole rade e appaiate). Colore bruno scuro a nerastro con debole iridescenza bluastra.",
+    "species_key_status": "monospecific"
   },
   {
     "id": "dorylus",
@@ -997,7 +1026,8 @@
     "references": [],
     "body_length": "3-10 mm",
     "diagnostic_characters_en": "Workers completely blind (no compound eyes, no ocelli). Strongly polymorphic, with minor workers (about 3 mm), media workers, and soldiers with hypertrophic heads and long, falcate mandibles (up to 10 mm). Antennae 12-segmented. Mandibles subtriangular with teeth along the inner margin in minor workers, falciform and edentate in major workers. Frontal lobes closely approximated, covering the antennal insertions. Promesonotal suture present. Propodeum unarmed, rounded. Petiole formed by a single segment (no postpetiole); node low and broad. Sting present and functional. Pygidium with lateral teeth. Colour uniformly yellowish-brown to reddish-brown. The complete absence of eyes, combined with extreme worker polymorphism and a single-segmented petiole with functional sting, immediately separates Dorylus from all other Italian ant genera.",
-    "diagnostic_characters_it": "Operaie completamente cieche (senza occhi composti né ocelli). Fortemente polimorfe, con operaie minori (circa 3 mm), operaie medie e soldati con capo ipertrofico e mandibole lunghe e falciformi (fino a 10 mm). Antenne a 12 segmenti. Mandibole subtriangolari con denti lungo il margine interno nelle operaie minori, falciformi ed edentule nei soldati. Lobi frontali ravvicinati, che coprono le inserzioni antennali. Sutura promesonotale presente. Propodeo inerme, arrotondato. Peziolo formato da un singolo segmento (assenza di postpeziolo); nodo basso e largo. Pungiglione presente e funzionale. Pigidio con denti laterali. Colore uniformemente bruno-giallastro a bruno-rossastro. L'assenza completa di occhi, associata all'estremo polimorfismo delle operaie e a un peziolo monosegmentato con pungiglione funzionale, separa immediatamente Dorylus da tutti gli altri generi italiani di formiche."
+    "diagnostic_characters_it": "Operaie completamente cieche (senza occhi composti né ocelli). Fortemente polimorfe, con operaie minori (circa 3 mm), operaie medie e soldati con capo ipertrofico e mandibole lunghe e falciformi (fino a 10 mm). Antenne a 12 segmenti. Mandibole subtriangolari con denti lungo il margine interno nelle operaie minori, falciformi ed edentule nei soldati. Lobi frontali ravvicinati, che coprono le inserzioni antennali. Sutura promesonotale presente. Propodeo inerme, arrotondato. Peziolo formato da un singolo segmento (assenza di postpeziolo); nodo basso e largo. Pungiglione presente e funzionale. Pigidio con denti laterali. Colore uniformemente bruno-giallastro a bruno-rossastro. L'assenza completa di occhi, associata all'estremo polimorfismo delle operaie e a un peziolo monosegmentato con pungiglione funzionale, separa immediatamente Dorylus da tutti gli altri generi italiani di formiche.",
+    "species_key_status": "monospecific"
   },
   {
     "id": "brachyponera",
@@ -1031,6 +1061,7 @@
     ],
     "body_length": "3-4 mm",
     "diagnostic_characters_en": "Medium-sized ponerines (3–4 mm), monomorphic, dark brown to black. Mandibles triangular with teeth along the masticatory margin; in minor workers some teeth well defined and the remaining margin finely serrated. Antennae 12-segmented. Eyes moderately large, placed at the midlength of the head. Palp formula 2,2 (reduced). Propodeum unarmed, rounded. Petiole nodiform, squamiform in profile. Subpetiolar process lobe-like. Hind tibial spur single and pectinate. Mid tibia without spine-like bristles on its outer surface. Constriction between first and second gastral segments present. Sting large and functional. Colour dark brown to black. Distinguished from Ponera by larger size, darker colour, and reduced palp formula; from Hypoponera by well-developed eyes and larger body size.",
-    "diagnostic_characters_it": "Ponerine di medie dimensioni (3–4 mm), monomorfe, da bruno scuro a nere. Mandibole triangolari con denti lungo il margine masticatorio; nelle operaie minori, alcuni denti ben definiti e il margine restante finemente seghettato. Antenne a 12 segmenti. Occhi moderatamente grandi, posti a metà della lunghezza del capo. Formula palpare 2,2 (ridotta). Propodeo inerme, arrotondato. Peziolo nodiforme, squamiforme di profilo. Processo subpeziale lobiforme. Sperone tibiale posteriore singolo e pettinato. Tibia media senza setole spiniformi sulla superficie esterna. Costrizione tra primo e secondo segmento gastrale presente. Pungiglione grande e funzionale. Colore da bruno scuro a nero. Si distingue da Ponera per le dimensioni maggiori, il colore più scuro e la formula palpare ridotta; da Hypoponera per gli occhi ben sviluppati e le dimensioni corporee maggiori."
+    "diagnostic_characters_it": "Ponerine di medie dimensioni (3–4 mm), monomorfe, da bruno scuro a nere. Mandibole triangolari con denti lungo il margine masticatorio; nelle operaie minori, alcuni denti ben definiti e il margine restante finemente seghettato. Antenne a 12 segmenti. Occhi moderatamente grandi, posti a metà della lunghezza del capo. Formula palpare 2,2 (ridotta). Propodeo inerme, arrotondato. Peziolo nodiforme, squamiforme di profilo. Processo subpeziale lobiforme. Sperone tibiale posteriore singolo e pettinato. Tibia media senza setole spiniformi sulla superficie esterna. Costrizione tra primo e secondo segmento gastrale presente. Pungiglione grande e funzionale. Colore da bruno scuro a nero. Si distingue da Ponera per le dimensioni maggiori, il colore più scuro e la formula palpare ridotta; da Hypoponera per gli occhi ben sviluppati e le dimensioni corporee maggiori.",
+    "species_key_status": "monospecific"
   }
 ]

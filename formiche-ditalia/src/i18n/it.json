@@ -462,5 +462,7 @@
   "roadmap_v22_species_desc": "Copertura completa della checklist Schifani 2022 (267 specie in 8 sottofamiglie)",
   "roadmap_v22_matrix": "Matrice cross-sottofamiglia",
   "roadmap_v22_matrix_desc": "Caratteri universali per discriminare prima la sottofamiglia, poi il genere",
-  "roadmap_v3_when": "2028+"
+  "roadmap_v3_when": "2028+",
+  "genus_species_id_label": "Identifica la specie",
+  "genus_species_key_pending": "Chiave a livello di specie in lavorazione per questo genere. Nel frattempo, consulta le specie sotto riportate o la pagina Sviluppi futuri."
 }
