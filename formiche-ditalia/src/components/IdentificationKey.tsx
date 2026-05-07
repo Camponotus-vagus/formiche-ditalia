@@ -32,6 +32,33 @@ interface ScoredGenus {
   matchedCount: number;
 }
 
+const STORAGE_KEY = 'formikey:state:v1';
+
+interface PersistedState {
+  selectedStates: WeightedSelection[];
+  maxMismatches: number;
+  selectedRegion: string;
+  hiddenCharacterIds: string[];
+}
+
+function loadPersistedState(): PersistedState | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    const raw = sessionStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object') return null;
+    return {
+      selectedStates: Array.isArray(parsed.selectedStates) ? parsed.selectedStates : [],
+      maxMismatches: typeof parsed.maxMismatches === 'number' ? parsed.maxMismatches : 1,
+      selectedRegion: typeof parsed.selectedRegion === 'string' ? parsed.selectedRegion : '',
+      hiddenCharacterIds: Array.isArray(parsed.hiddenCharacterIds) ? parsed.hiddenCharacterIds : [],
+    };
+  } catch {
+    return null;
+  }
+}
+
 /** Inline info tooltip — shows on click (mobile) and hover (desktop) */
 function InfoTip({ text }: { text: string }) {
   const [open, setOpen] = useState(false);
@@ -60,6 +87,8 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
   const [selectedStates, setSelectedStates] = useState<WeightedSelection[]>([]);
   const [maxMismatches, setMaxMismatches] = useState(1);
   const [selectedRegion, setSelectedRegion] = useState<string>('');
+  const [hiddenCharacterIds, setHiddenCharacterIds] = useState<Set<string>>(new Set());
+  const [hydrated, setHydrated] = useState(false);
   const [lang, setCurrentLang] = useState<Lang>(initialLang);
 
   useEffect(() => {
@@ -68,6 +97,33 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     window.addEventListener('langchange', handler);
     return () => window.removeEventListener('langchange', handler);
   }, []);
+
+  // Hydrate state from sessionStorage on mount (deferred to avoid SSR mismatch)
+  useEffect(() => {
+    const persisted = loadPersistedState();
+    if (persisted) {
+      setSelectedStates(persisted.selectedStates);
+      setMaxMismatches(persisted.maxMismatches);
+      setSelectedRegion(persisted.selectedRegion);
+      setHiddenCharacterIds(new Set(persisted.hiddenCharacterIds));
+    }
+    setHydrated(true);
+  }, []);
+
+  // Persist state to sessionStorage on change (only after hydration to avoid wiping)
+  useEffect(() => {
+    if (!hydrated || typeof window === 'undefined') return;
+    try {
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify({
+        selectedStates,
+        maxMismatches,
+        selectedRegion,
+        hiddenCharacterIds: [...hiddenCharacterIds],
+      }));
+    } catch {
+      // sessionStorage may be disabled or full — silently ignore
+    }
+  }, [hydrated, selectedStates, maxMismatches, selectedRegion, hiddenCharacterIds]);
 
   /** Wraps the first glossary term found in `text` with a GlossaryTooltip. */
   const annotateWithGlossary = (text: string): ReactNode => {
@@ -200,7 +256,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
 
   const bestCharacterId = useMemo(() => {
     const usedIds = new Set(selectedStates.map(s => s.characterId));
-    const remaining = characters.filter(c => !usedIds.has(c.id));
+    const remaining = characters.filter(c => !usedIds.has(c.id) && !hiddenCharacterIds.has(c.id));
 
     let bestId = '';
     let bestScore = -1;
@@ -229,7 +285,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
       }
     }
     return bestId;
-  }, [characters, selectedStates, scoredGenera, matrixLookup]);
+  }, [characters, selectedStates, scoredGenera, matrixLookup, hiddenCharacterIds]);
 
   // Issue 1: Scroll to and highlight the suggested character when it changes
   const prevBestCharRef = useRef<string>('');
@@ -251,7 +307,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
   // Issue 3: Best "easy" character for beginner tip
   const bestEasyCharId = useMemo(() => {
     const usedIds = new Set(selectedStates.map(s => s.characterId));
-    const easyChars = characters.filter(c => !usedIds.has(c.id) && c.difficulty === 'easy');
+    const easyChars = characters.filter(c => !usedIds.has(c.id) && !hiddenCharacterIds.has(c.id) && c.difficulty === 'easy');
 
     let bestId = '';
     let bestScore = -1;
@@ -281,7 +337,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     }
     // Only suggest if there's an easy character different from the main suggestion
     return bestId && bestId !== bestCharacterId ? bestId : '';
-  }, [characters, selectedStates, scoredGenera, matrixLookup, bestCharacterId]);
+  }, [characters, selectedStates, scoredGenera, matrixLookup, bestCharacterId, hiddenCharacterIds]);
 
   // Best character suggestion detail (for diagnosis panel)
   const suggestedCharDetail = useMemo(() => {
@@ -407,6 +463,19 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
   const reset = () => {
     setSelectedStates([]);
     setSelectedRegion('');
+    setHiddenCharacterIds(new Set());
+  };
+
+  const hideCharacter = (characterId: string) => {
+    setHiddenCharacterIds(prev => {
+      const next = new Set(prev);
+      next.add(characterId);
+      return next;
+    });
+  };
+
+  const restoreHiddenCharacters = () => {
+    setHiddenCharacterIds(new Set());
   };
 
   const usedIds = new Set(selectedStates.map(s => s.characterId));
@@ -414,7 +483,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
   const charsByRegion = bodyRegions.map(region => ({
     region,
     chars: characters
-      .filter(c => c.body_region === region && !usedIds.has(c.id))
+      .filter(c => c.body_region === region && !usedIds.has(c.id) && !hiddenCharacterIds.has(c.id))
       .sort((a, b) => {
         const order: Record<string, number> = { easy: 0, medium: 1, hard: 2 };
         return (order[a.difficulty] ?? 1) - (order[b.difficulty] ?? 1);
@@ -587,6 +656,13 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
                   {lang === 'it' ? 'Carattere consigliato' : 'Suggested character'}
                   <InfoTip text={lang === 'it' ? 'Questo carattere è il più utile per distinguere i generi rimasti.' : 'This character is the most useful to distinguish the remaining genera.'} />
                 </h3>
+                <button
+                  onClick={() => hideCharacter(bestChar.id)}
+                  className="ml-auto text-xs text-gray-500 hover:text-forest-700 underline cursor-pointer"
+                  title={lang === 'it' ? 'Nascondi questo carattere e suggerisci il successivo' : 'Hide this character and suggest the next one'}
+                >
+                  {lang === 'it' ? 'Non riesco a vederlo →' : "Can't see it →"}
+                </button>
               </div>
               <p className="text-sm font-medium text-gray-800 mb-3">
                 {annotateWithGlossary(lang === 'it' ? bestChar.name_it : bestChar.name_en)}
@@ -611,6 +687,23 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
             </div>
           );
         })()}
+
+        {/* Hidden characters banner */}
+        {hiddenCharacterIds.size > 0 && (
+          <div className="mb-4 flex items-center justify-between gap-3 px-4 py-2.5 rounded-lg bg-amber-50 border border-amber-200">
+            <span className="text-xs text-amber-800">
+              {hiddenCharacterIds.size} {lang === 'it'
+                ? (hiddenCharacterIds.size === 1 ? 'carattere nascosto' : 'caratteri nascosti')
+                : (hiddenCharacterIds.size === 1 ? 'character hidden' : 'characters hidden')}
+            </span>
+            <button
+              onClick={restoreHiddenCharacters}
+              className="text-xs font-medium text-amber-700 hover:text-amber-900 underline cursor-pointer"
+            >
+              {lang === 'it' ? 'Ripristina' : 'Restore'}
+            </button>
+          </div>
+        )}
 
         {/* Issue 3: Beginner tip — suggest easiest informative character */}
         {bestEasyCharId && (() => {
@@ -658,9 +751,19 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
                       id={`char-${char.id}`}
                       className="p-3 rounded-lg border border-gray-200 hover:border-gray-300 transition-all"
                     >
-                      <p className="text-sm font-medium text-gray-700 mb-2">
-                        {annotateWithGlossary(lang === 'it' ? char.name_it : char.name_en)}
-                      </p>
+                      <div className="flex items-start gap-2 mb-2">
+                        <p className="text-sm font-medium text-gray-700 flex-1">
+                          {annotateWithGlossary(lang === 'it' ? char.name_it : char.name_en)}
+                        </p>
+                        <button
+                          onClick={() => hideCharacter(char.id)}
+                          className="flex-shrink-0 text-gray-300 hover:text-gray-600 text-xs transition-colors cursor-pointer"
+                          aria-label={lang === 'it' ? 'Nascondi carattere' : 'Hide character'}
+                          title={lang === 'it' ? 'Nascondi questo carattere (non riesco a osservarlo)' : 'Hide this character (cannot observe it)'}
+                        >
+                          ✕
+                        </button>
+                      </div>
                       <div className="flex flex-wrap gap-2">
                         {char.states.map(state => {
                           const impact = selectedStates.length > 0 ? predictStateImpact(char.id, state.value) : 0;
