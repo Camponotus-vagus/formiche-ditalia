@@ -11,7 +11,7 @@
       {
         "sels": [
           "Segmenti della clava antennale=5",
-          "Formula palpale=da 1,2 a 5,3"
+          "Formula palpale (Myrmicinae)=da 1,2 a 5,3"
         ],
         "gap": "0.500",
         "passingCount": 41
@@ -27,7 +27,7 @@
       {
         "sels": [
           "Segmenti della clava antennale=5",
-          "Propodeo=con denti o spine"
+          "Propodeo (Myrmicinae)=con denti o spine"
         ],
         "gap": "0.500",
         "passingCount": 36
@@ -194,28 +194,26 @@
     "genus": "formicoxenus",
     "subfamily": "myrmicinae",
     "scientific_name": "Formicoxenus",
-    "profileSize": 20,
-    "distinctCharCount": 19,
-    "discriminationDepth": 3,
-    "uniqueSingles": [],
-    "pairs": [],
-    "triples": [
+    "profileSize": 22,
+    "distinctCharCount": 21,
+    "discriminationDepth": 1,
+    "uniqueSingles": [
       {
-        "sels": [
-          "Numero di segmenti antennali=11",
-          "Dentatura mandibolare=tra 6 e 9",
-          "Superficie ventrale del peziolo e postpeziolo=con dente o lobo ben sviluppato"
-        ],
-        "gap": "0.333",
-        "passingCount": 31
+        "char": "gen-44",
+        "val": "0",
+        "label": "Spina sul sternite postpetiolare (Myrmicinae)=presente, ben sviluppata e acuta in vista laterale",
+        "gap": "0.500",
+        "passingCount": 43
       }
     ],
+    "pairs": [],
+    "triples": [],
     "quadruples": [],
     "quintuples": [],
     "fullProfileResult": {
       "topGenus": "formicoxenus",
       "topScore": 1,
-      "uniqueTop": false,
+      "uniqueTop": true,
       "top5": [
         {
           "id": "formicoxenus",
@@ -224,8 +222,8 @@
         },
         {
           "id": "temnothorax",
-          "score": 1,
-          "mismatches": 0
+          "score": 0.95,
+          "mismatches": 1
         },
         {
           "id": "harpagoxenus",
@@ -233,12 +231,12 @@
           "mismatches": 1
         },
         {
-          "id": "leptothorax",
-          "score": 0.9444444444444444,
-          "mismatches": 1
+          "id": "bothriomyrmex",
+          "score": 0.2,
+          "mismatches": 0
         },
         {
-          "id": "bothriomyrmex",
+          "id": "brachyponera",
           "score": 0.2,
           "mismatches": 0
         }
@@ -302,52 +300,26 @@
     "genus": "leptothorax",
     "subfamily": "myrmicinae",
     "scientific_name": "Leptothorax",
-    "profileSize": 20,
-    "distinctCharCount": 19,
-    "discriminationDepth": 5,
-    "uniqueSingles": [],
+    "profileSize": 22,
+    "distinctCharCount": 21,
+    "discriminationDepth": 1,
+    "uniqueSingles": [
+      {
+        "char": "gen-44",
+        "val": "1",
+        "label": "Spina sul sternite postpetiolare (Myrmicinae)=assente o ridotta a piccolo dentello frontale",
+        "gap": "0.500",
+        "passingCount": 43
+      }
+    ],
     "pairs": [],
     "triples": [],
     "quadruples": [],
-    "quintuples": [
-      {
-        "sels": [
-          "Numero di segmenti antennali=11",
-          "Occhi composti=ovale",
-          "Dentatura mandibolare=tra 6 e 9",
-          "Superficie ventrale del peziolo e postpeziolo=al massimo con un piccolo dente o lobo",
-          "Articolazione del postpeziolo=articolato con la faccia anteriore del gastro"
-        ],
-        "gap": "0.200",
-        "passingCount": 38
-      },
-      {
-        "sels": [
-          "Numero di segmenti antennali=11",
-          "Occhi composti=ovale",
-          "Dentatura mandibolare=tra 6 e 9",
-          "Superficie ventrale del peziolo e postpeziolo=al massimo con un piccolo dente o lobo",
-          "Forma del gastro=ovale"
-        ],
-        "gap": "0.200",
-        "passingCount": 38
-      },
-      {
-        "sels": [
-          "Numero di segmenti antennali=11",
-          "Occhi composti=ovale",
-          "Dentatura mandibolare=tra 6 e 9",
-          "Superficie ventrale del peziolo e postpeziolo=al massimo con un piccolo dente o lobo",
-          "Pungiglione=...senza appendice apico-dorsale"
-        ],
-        "gap": "0.200",
-        "passingCount": 36
-      }
-    ],
+    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "leptothorax",
       "topScore": 1,
-      "uniqueTop": false,
+      "uniqueTop": true,
       "top5": [
         {
           "id": "leptothorax",
@@ -356,12 +328,7 @@
         },
         {
           "id": "temnothorax",
-          "score": 1,
-          "mismatches": 0
-        },
-        {
-          "id": "formicoxenus",
-          "score": 0.9444444444444444,
+          "score": 0.95,
           "mismatches": 1
         },
         {
@@ -371,6 +338,11 @@
         },
         {
           "id": "brachyponera",
+          "score": 0.2,
+          "mismatches": 0
+        },
+        {
+          "id": "camponotus",
           "score": 0.2,
           "mismatches": 0
         }
@@ -389,7 +361,7 @@
       {
         "sels": [
           "Segmenti della clava antennale=5",
-          "Formula palpale=6,4"
+          "Formula palpale (Myrmicinae)=6,4"
         ],
         "gap": "0.500",
         "passingCount": 27
@@ -643,15 +615,15 @@
     "pairs": [
       {
         "sels": [
-          "Formula palpale=6,4",
-          "Propodeo=con denti o spine"
+          "Formula palpale (Myrmicinae)=6,4",
+          "Propodeo (Myrmicinae)=con denti o spine"
         ],
         "gap": "0.500",
         "passingCount": 39
       },
       {
         "sels": [
-          "Propodeo=con denti o spine",
+          "Propodeo (Myrmicinae)=con denti o spine",
           "Speroni delle tibie medie e posteriori=pettinato"
         ],
         "gap": "0.500",
@@ -766,7 +738,7 @@
       },
       {
         "sels": [
-          "Propodeo=con denti o spine",
+          "Propodeo (Myrmicinae)=con denti o spine",
           "Casta soldato (operaia major)=presente, capo ipertrofico"
         ],
         "gap": "0.500",
@@ -820,7 +792,7 @@
       {
         "char": "gen-3",
         "val": "2",
-        "label": "Numero di segmenti antennali=10",
+        "label": "Numero di segmenti antennali (Myrmicinae)=10",
         "gap": "0.800",
         "passingCount": 43
       }
@@ -876,10 +848,10 @@
     "quintuples": [
       {
         "sels": [
-          "Numero di segmenti antennali=12",
+          "Numero di segmenti antennali (Myrmicinae)=12",
           "Segmenti della clava antennale=3",
           "Profilo del mesosoma=promesonoto a livello piu alto del propodeo",
-          "Propodeo=con denti o spine",
+          "Propodeo (Myrmicinae)=con denti o spine",
           "Casta soldato (operaia major)=assente o polimorfismo continuo"
         ],
         "gap": "0.200",
@@ -991,21 +963,21 @@
       {
         "char": "gen-3",
         "val": "0",
-        "label": "Numero di segmenti antennali=4",
+        "label": "Numero di segmenti antennali (Myrmicinae)=4",
         "gap": "0.800",
         "passingCount": 43
       },
       {
         "char": "gen-3",
         "val": "1",
-        "label": "Numero di segmenti antennali=6",
+        "label": "Numero di segmenti antennali (Myrmicinae)=6",
         "gap": "0.800",
         "passingCount": 43
       },
       {
         "char": "gen-8",
         "val": "2",
-        "label": "Formula palpale=1,1",
+        "label": "Formula palpale (Myrmicinae)=1,1",
         "gap": "0.800",
         "passingCount": 43
       },
@@ -1058,42 +1030,35 @@
     "genus": "temnothorax",
     "subfamily": "myrmicinae",
     "scientific_name": "Temnothorax",
-    "profileSize": 22,
-    "distinctCharCount": 20,
-    "discriminationDepth": 3,
-    "uniqueSingles": [],
-    "pairs": [],
-    "triples": [
+    "profileSize": 23,
+    "distinctCharCount": 21,
+    "discriminationDepth": 1,
+    "uniqueSingles": [
       {
-        "sels": [
-          "Numero di segmenti antennali=12",
-          "Propodeo=con denti o spine",
-          "Superficie ventrale del peziolo e postpeziolo=con dente o lobo ben sviluppato"
-        ],
-        "gap": "0.333",
-        "passingCount": 35
+        "char": "gen-43",
+        "val": "1",
+        "label": "Clipeo mediano in vista frontale (Myrmicinae)=convesso longitudinalmente, con o senza carena mediana",
+        "gap": "0.500",
+        "passingCount": 43
       }
     ],
+    "pairs": [],
+    "triples": [],
     "quadruples": [],
     "quintuples": [],
     "fullProfileResult": {
-      "topGenus": "leptothorax",
+      "topGenus": "temnothorax",
       "topScore": 1,
-      "uniqueTop": false,
+      "uniqueTop": true,
       "top5": [
-        {
-          "id": "leptothorax",
-          "score": 1,
-          "mismatches": 0
-        },
         {
           "id": "temnothorax",
           "score": 1,
           "mismatches": 0
         },
         {
-          "id": "formicoxenus",
-          "score": 0.9473684210526315,
+          "id": "leptothorax",
+          "score": 0.95,
           "mismatches": 1
         },
         {
@@ -1103,6 +1068,11 @@
         },
         {
           "id": "brachyponera",
+          "score": 0.2,
+          "mismatches": 0
+        },
+        {
+          "id": "camponotus",
           "score": 0.2,
           "mismatches": 0
         }
@@ -1137,7 +1107,7 @@
       {
         "sels": [
           "Porzioni laterali del clipeo=rialzato a cresta davanti alle inserzioni antennali",
-          "Propodeo=con denti o spine"
+          "Propodeo (Myrmicinae)=con denti o spine"
         ],
         "gap": "0.500",
         "passingCount": 39
@@ -1273,7 +1243,7 @@
     "pairs": [
       {
         "sels": [
-          "Colore=piceo",
+          "Colore (Ponerinae)=piceo",
           "Sviluppo degli occhi=vestigiali o assenti (0-1 ommatidio)"
         ],
         "gap": "0.500",
@@ -1412,14 +1382,14 @@
       {
         "char": "gen-27",
         "val": "2",
-        "label": "Colore=bicolore senza parti rosse o rossastre",
+        "label": "Colore (Dolichoderinae)=bicolore senza parti rosse o rossastre",
         "gap": "0.800",
         "passingCount": 43
       },
       {
         "char": "gen-28",
         "val": "0",
-        "label": "Formula palpale=4,3",
+        "label": "Formula palpale (Dolichoderinae)=4,3",
         "gap": "0.800",
         "passingCount": 43
       }
@@ -1533,8 +1503,8 @@
     "triples": [
       {
         "sels": [
-          "Colore=uniformemente da bruno a nero",
-          "Formula palpale=6,4",
+          "Colore (Dolichoderinae)=uniformemente da bruno a nero",
+          "Formula palpale (Dolichoderinae)=6,4",
           "Margine anteriore del clipeo=intero"
         ],
         "gap": "0.333",
@@ -1542,8 +1512,8 @@
       },
       {
         "sels": [
-          "Colore=uniformemente da bruno a nero",
-          "Formula palpale=6,4",
+          "Colore (Dolichoderinae)=uniformemente da bruno a nero",
+          "Formula palpale (Dolichoderinae)=6,4",
           "Squama peziolare=ben sviluppato"
         ],
         "gap": "0.333",
@@ -1885,7 +1855,7 @@
       {
         "char": "gen-35",
         "val": "2",
-        "label": "Formula palpale=5,4",
+        "label": "Formula palpale (Formicinae)=5,4",
         "gap": "0.800",
         "passingCount": 43
       }
@@ -1993,7 +1963,7 @@
       {
         "char": "gen-41",
         "val": "1",
-        "label": "Propodeo=armato con 2 denti",
+        "label": "Propodeo (Formicinae)=armato con 2 denti",
         "gap": "0.800",
         "passingCount": 43
       }
@@ -2046,15 +2016,15 @@
     "pairs": [
       {
         "sels": [
-          "Numero di segmenti antennali=11",
-          "Propodeo=arrotondato"
+          "Numero di segmenti antennali (Formicinae)=11",
+          "Propodeo (Formicinae)=arrotondato"
         ],
         "gap": "0.500",
         "passingCount": 43
       },
       {
         "sels": [
-          "Numero di segmenti antennali=11",
+          "Numero di segmenti antennali (Formicinae)=11",
           "Ocelli=vestigiali o assenti"
         ],
         "gap": "0.500",
@@ -2108,14 +2078,14 @@
       {
         "char": "gen-35",
         "val": "1",
-        "label": "Formula palpale=4,2",
+        "label": "Formula palpale (Formicinae)=4,2",
         "gap": "0.800",
         "passingCount": 43
       },
       {
         "char": "gen-37",
         "val": "1",
-        "label": "Forma delle mandibole=falciforme",
+        "label": "Forma delle mandibole (Formicinae)=falciforme",
         "gap": "0.800",
         "passingCount": 43
       },
@@ -2181,7 +2151,7 @@
           "4° articolo del palpo mascellare=...un poco piu lungo del 5o",
           "Denti mandibolari=4-6",
           "Inserzione delle antenne=molto vicino al margine posteriore del clipeo",
-          "Numero di segmenti antennali=12",
+          "Numero di segmenti antennali (Formicinae)=12",
           "Ocelli=ben sviluppati"
         ],
         "gap": "0.200",
@@ -2232,7 +2202,7 @@
     "pairs": [
       {
         "sels": [
-          "Forma delle mandibole=stretto e allungato, a sciabola",
+          "Forma delle mandibole (Myrmicinae)=stretto e allungato, a sciabola",
           "Speroni delle tibie medie e posteriori=pettinato"
         ],
         "gap": "0.500",
@@ -2289,8 +2259,8 @@
       {
         "sels": [
           "Segmenti della clava antennale=3",
-          "Forma delle mandibole=triangolare",
-          "Propodeo=senza denti o spine",
+          "Forma delle mandibole (Myrmicinae)=triangolare",
+          "Propodeo (Myrmicinae)=senza denti o spine",
           "Speroni delle tibie medie e posteriori=pettinato"
         ],
         "gap": "0.250",
