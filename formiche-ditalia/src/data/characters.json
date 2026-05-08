@@ -1081,5 +1081,53 @@
     ],
     "level": "genus",
     "subfamily_scope": "formicinae"
+  },
+  {
+    "id": "gen-43",
+    "name_it": "Clipeo mediano in vista frontale (Myrmicinae)",
+    "name_en": "Median clypeal dorsum, frontal view (Myrmicinae)",
+    "description_it": "",
+    "body_region": "head",
+    "difficulty": "medium",
+    "display_order": 43,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "depresso longitudinalmente, senza carena mediana",
+        "label_en": "longitudinally depressed, without median carina"
+      },
+      {
+        "value": "1",
+        "label_it": "convesso longitudinalmente, con o senza carena mediana",
+        "label_en": "longitudinally convex, with or without median carina"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
+  },
+  {
+    "id": "gen-44",
+    "name_it": "Spina sul sternite postpetiolare (Myrmicinae)",
+    "name_en": "Postpetiolar sternite spine (Myrmicinae)",
+    "description_it": "",
+    "body_region": "petiole",
+    "difficulty": "medium",
+    "display_order": 44,
+    "illustration_url": null,
+    "states": [
+      {
+        "value": "0",
+        "label_it": "presente, ben sviluppata e acuta in vista laterale",
+        "label_en": "well-developed acute spine in profile"
+      },
+      {
+        "value": "1",
+        "label_it": "assente o ridotta a piccolo dentello frontale",
+        "label_en": "absent or reduced to a small frontal denticle"
+      }
+    ],
+    "level": "genus",
+    "subfamily_scope": "myrmicinae"
   }
 ]
