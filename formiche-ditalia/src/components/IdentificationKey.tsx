@@ -211,8 +211,12 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
 
       for (const sel of selectedStates) {
         const values = matrixLookup[genus.id]?.[sel.characterId];
-        if (!values || values.includes('?')) {
+        if (!values) {
           missingCount++;
+          continue;
+        }
+        if (values.includes('?')) {
+          // Explicit unknown ('?'): per guide Sec. 4, the taxon survives without penalty.
           continue;
         }
         totalWeight += sel.weight;

@@ -53,8 +53,12 @@ export function score(selections, genera, matrixLookup, charById, maxMismatches 
     for (const sel of selections) {
       const values = matrixLookup[genus.id]?.[sel.characterId];
       const w = sel.weight ?? 1;
-      if (!values || values.includes('?')) {
+      if (!values) {
         missingCount++;
+        continue;
+      }
+      if (values.includes('?')) {
+        // Explicit unknown ('?'): per guide Sec. 4, the taxon survives without penalty.
         continue;
       }
       totalWeight += w;
