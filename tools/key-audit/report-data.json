@@ -10,62 +10,6 @@
     "pairs": [
       {
         "sels": [
-          "Segmenti della clava antennale=4",
-          "Dentatura mandibolare=tra 6 e 9"
-        ],
-        "gap": "0.400",
-        "passingCount": 39
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=4",
-          "Dentatura mandibolare=10 o piu"
-        ],
-        "gap": "0.400",
-        "passingCount": 35
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=4",
-          "Profilo del mesosoma=promesonoto a livello piu alto del propodeo"
-        ],
-        "gap": "0.400",
-        "passingCount": 33
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=4",
-          "Forma del peziolo e postpeziolo=non cubico"
-        ],
-        "gap": "0.150",
-        "passingCount": 41
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=4",
-          "Superficie ventrale del peziolo e postpeziolo=al massimo con un piccolo dente o lobo"
-        ],
-        "gap": "0.400",
-        "passingCount": 41
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=4",
-          "Pungiglione=...senza appendice apico-dorsale"
-        ],
-        "gap": "0.150",
-        "passingCount": 40
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=5",
-          "Dentatura mandibolare=tra 6 e 9"
-        ],
-        "gap": "0.400",
-        "passingCount": 39
-      },
-      {
-        "sels": [
           "Segmenti della clava antennale=5",
           "Formula palpale=da 1,2 a 5,3"
         ],
@@ -95,14 +39,6 @@
         ],
         "gap": "0.500",
         "passingCount": 40
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=5",
-          "Forma del peziolo e postpeziolo=non cubico"
-        ],
-        "gap": "0.150",
-        "passingCount": 41
       }
     ],
     "triples": [],
@@ -111,7 +47,7 @@
     "fullProfileResult": {
       "topGenus": "aphaenogaster",
       "topScore": 1,
-      "uniqueTop": true,
+      "uniqueTop": false,
       "top5": [
         {
           "id": "aphaenogaster",
@@ -120,7 +56,7 @@
         },
         {
           "id": "leptanilla",
-          "score": 0.43999999999999995,
+          "score": 1,
           "mismatches": 0
         },
         {
@@ -260,19 +196,20 @@
     "scientific_name": "Formicoxenus",
     "profileSize": 20,
     "distinctCharCount": 19,
-    "discriminationDepth": 2,
+    "discriminationDepth": 3,
     "uniqueSingles": [],
-    "pairs": [
+    "pairs": [],
+    "triples": [
       {
         "sels": [
+          "Numero di segmenti antennali=11",
           "Dentatura mandibolare=tra 6 e 9",
           "Superficie ventrale del peziolo e postpeziolo=con dente o lobo ben sviluppato"
         ],
-        "gap": "0.150",
-        "passingCount": 40
+        "gap": "0.333",
+        "passingCount": 31
       }
     ],
-    "triples": [],
     "quadruples": [],
     "quintuples": [],
     "fullProfileResult": {
@@ -292,12 +229,12 @@
         },
         {
           "id": "harpagoxenus",
-          "score": 0.9315789473684211,
+          "score": 0.9444444444444444,
           "mismatches": 1
         },
         {
           "id": "leptothorax",
-          "score": 0.9315789473684211,
+          "score": 0.9444444444444444,
           "mismatches": 1
         },
         {
@@ -367,31 +304,46 @@
     "scientific_name": "Leptothorax",
     "profileSize": 20,
     "distinctCharCount": 19,
-    "discriminationDepth": 3,
+    "discriminationDepth": 5,
     "uniqueSingles": [],
     "pairs": [],
-    "triples": [
+    "triples": [],
+    "quadruples": [],
+    "quintuples": [
       {
         "sels": [
           "Numero di segmenti antennali=11",
+          "Occhi composti=ovale",
           "Dentatura mandibolare=tra 6 e 9",
-          "Superficie ventrale del peziolo e postpeziolo=al massimo con un piccolo dente o lobo"
+          "Superficie ventrale del peziolo e postpeziolo=al massimo con un piccolo dente o lobo",
+          "Articolazione del postpeziolo=articolato con la faccia anteriore del gastro"
         ],
-        "gap": "0.100",
+        "gap": "0.200",
         "passingCount": 38
       },
       {
         "sels": [
           "Numero di segmenti antennali=11",
+          "Occhi composti=ovale",
           "Dentatura mandibolare=tra 6 e 9",
+          "Superficie ventrale del peziolo e postpeziolo=al massimo con un piccolo dente o lobo",
+          "Forma del gastro=ovale"
+        ],
+        "gap": "0.200",
+        "passingCount": 38
+      },
+      {
+        "sels": [
+          "Numero di segmenti antennali=11",
+          "Occhi composti=ovale",
+          "Dentatura mandibolare=tra 6 e 9",
+          "Superficie ventrale del peziolo e postpeziolo=al massimo con un piccolo dente o lobo",
           "Pungiglione=...senza appendice apico-dorsale"
         ],
-        "gap": "0.100",
-        "passingCount": 38
+        "gap": "0.200",
+        "passingCount": 36
       }
     ],
-    "quadruples": [],
-    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "leptothorax",
       "topScore": 1,
@@ -409,7 +361,7 @@
         },
         {
           "id": "formicoxenus",
-          "score": 0.9315789473684211,
+          "score": 0.9444444444444444,
           "mismatches": 1
         },
         {
@@ -449,22 +401,6 @@
         ],
         "gap": "0.500",
         "passingCount": 38
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=5",
-          "Speroni delle tibie medie e posteriori=pettinato"
-        ],
-        "gap": "0.400",
-        "passingCount": 26
-      },
-      {
-        "sels": [
-          "Formula palpale=6,4",
-          "Propodeo=senza denti o spine"
-        ],
-        "gap": "0.400",
-        "passingCount": 33
       }
     ],
     "triples": [],
@@ -482,7 +418,7 @@
         },
         {
           "id": "proceratium",
-          "score": 0.4842105263157894,
+          "score": 0.875,
           "mismatches": 1
         },
         {
@@ -514,30 +450,6 @@
     "pairs": [
       {
         "sels": [
-          "Setole erette sul mesosoma=presente",
-          "Segmenti della clava antennale=indistinta"
-        ],
-        "gap": "0.400",
-        "passingCount": 42
-      },
-      {
-        "sels": [
-          "Forma del capo=non triangolare",
-          "Segmenti della clava antennale=indistinta"
-        ],
-        "gap": "0.400",
-        "passingCount": 42
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=indistinta",
-          "Occhi composti=ovale"
-        ],
-        "gap": "0.400",
-        "passingCount": 42
-      },
-      {
-        "sels": [
           "Segmenti della clava antennale=indistinta",
           "Dentatura mandibolare=10 o piu"
         ],
@@ -547,98 +459,10 @@
       {
         "sels": [
           "Segmenti della clava antennale=indistinta",
-          "Formula palpale=da 1,2 a 5,3"
-        ],
-        "gap": "0.400",
-        "passingCount": 40
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=indistinta",
-          "Porzioni laterali del clipeo=non rialzato a cresta davanti alle inserzioni antennali"
-        ],
-        "gap": "0.400",
-        "passingCount": 41
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=indistinta",
-          "Profilo del mesosoma=promesonoto a livello piu alto del propodeo"
-        ],
-        "gap": "0.400",
-        "passingCount": 32
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=indistinta",
-          "Lati del pronoto=arrotondato, vista dorsale"
-        ],
-        "gap": "0.400",
-        "passingCount": 41
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=indistinta",
           "Speroni delle tibie medie e posteriori=semplice o assente"
         ],
         "gap": "0.500",
         "passingCount": 40
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=indistinta",
-          "Forma del peziolo e postpeziolo=non cubico"
-        ],
-        "gap": "0.400",
-        "passingCount": 41
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=indistinta",
-          "Superficie ventrale del peziolo e postpeziolo=al massimo con un piccolo dente o lobo"
-        ],
-        "gap": "0.400",
-        "passingCount": 40
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=indistinta",
-          "Postpeziolo, vista dorsale=largo quanto o poco piu del peziolo"
-        ],
-        "gap": "0.400",
-        "passingCount": 41
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=indistinta",
-          "Articolazione del postpeziolo=articolato con la faccia anteriore del gastro"
-        ],
-        "gap": "0.400",
-        "passingCount": 42
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=indistinta",
-          "Forma del gastro=ovale"
-        ],
-        "gap": "0.400",
-        "passingCount": 42
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=indistinta",
-          "Pungiglione=...senza appendice apico-dorsale"
-        ],
-        "gap": "0.400",
-        "passingCount": 40
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=indistinta",
-          "Casta soldato (operaia major)=assente o polimorfismo continuo"
-        ],
-        "gap": "0.400",
-        "passingCount": 42
       },
       {
         "sels": [
@@ -669,7 +493,7 @@
         },
         {
           "id": "leptanilla",
-          "score": 0.38999999999999996,
+          "score": 0.8333333333333334,
           "mismatches": 1
         },
         {
@@ -717,12 +541,12 @@
         },
         {
           "id": "proceratium",
-          "score": 0.4699999999999999,
+          "score": 0.875,
           "mismatches": 1
         },
         {
           "id": "leptanilla",
-          "score": 0.38999999999999996,
+          "score": 0.8333333333333334,
           "mismatches": 1
         },
         {
@@ -749,14 +573,6 @@
     "pairs": [
       {
         "sels": [
-          "Formula palpale=da 1,2 a 5,3",
-          "Forma del peziolo e postpeziolo=cubico"
-        ],
-        "gap": "0.150",
-        "passingCount": 42
-      },
-      {
-        "sels": [
           "Porzioni laterali del clipeo=non rialzato a cresta davanti alle inserzioni antennali",
           "Lati del pronoto=angolare, vista dorsale"
         ],
@@ -778,14 +594,6 @@
         ],
         "gap": "0.500",
         "passingCount": 41
-      },
-      {
-        "sels": [
-          "Speroni delle tibie medie e posteriori=semplice o assente",
-          "Forma del peziolo e postpeziolo=cubico"
-        ],
-        "gap": "0.150",
-        "passingCount": 43
       }
     ],
     "triples": [],
@@ -835,30 +643,6 @@
     "pairs": [
       {
         "sels": [
-          "Segmenti della clava antennale=3",
-          "Formula palpale=6,4"
-        ],
-        "gap": "0.400",
-        "passingCount": 39
-      },
-      {
-        "sels": [
-          "Dentatura mandibolare=tra 6 e 9",
-          "Formula palpale=6,4"
-        ],
-        "gap": "0.400",
-        "passingCount": 39
-      },
-      {
-        "sels": [
-          "Dentatura mandibolare=10 o piu",
-          "Forma del peziolo e postpeziolo=cubico"
-        ],
-        "gap": "0.150",
-        "passingCount": 38
-      },
-      {
-        "sels": [
           "Formula palpale=6,4",
           "Propodeo=con denti o spine"
         ],
@@ -867,51 +651,11 @@
       },
       {
         "sels": [
-          "Formula palpale=6,4",
-          "Forma del peziolo e postpeziolo=non cubico"
-        ],
-        "gap": "0.150",
-        "passingCount": 41
-      },
-      {
-        "sels": [
-          "Formula palpale=6,4",
-          "Forma del peziolo e postpeziolo=cubico"
-        ],
-        "gap": "0.150",
-        "passingCount": 29
-      },
-      {
-        "sels": [
-          "Lati del pronoto=arrotondato, vista dorsale",
-          "Forma del peziolo e postpeziolo=cubico"
-        ],
-        "gap": "0.150",
-        "passingCount": 42
-      },
-      {
-        "sels": [
           "Propodeo=con denti o spine",
           "Speroni delle tibie medie e posteriori=pettinato"
         ],
         "gap": "0.500",
         "passingCount": 38
-      },
-      {
-        "sels": [
-          "Speroni delle tibie medie e posteriori=pettinato",
-          "Forma del peziolo e postpeziolo=non cubico"
-        ],
-        "gap": "0.150",
-        "passingCount": 41
-      },
-      {
-        "sels": [
-          "Speroni delle tibie medie e posteriori=pettinato",
-          "Forma del peziolo e postpeziolo=cubico"
-        ],
-        "gap": "0.150",
-        "passingCount": 29
       }
     ],
     "triples": [],
@@ -929,7 +673,7 @@
         },
         {
           "id": "proceratium",
-          "score": 0.4699999999999999,
+          "score": 0.875,
           "mismatches": 1
         },
         {
@@ -1124,23 +868,24 @@
     "scientific_name": "Stenamma",
     "profileSize": 20,
     "distinctCharCount": 20,
-    "discriminationDepth": 4,
+    "discriminationDepth": 5,
     "uniqueSingles": [],
     "pairs": [],
     "triples": [],
-    "quadruples": [
+    "quadruples": [],
+    "quintuples": [
       {
         "sels": [
+          "Numero di segmenti antennali=12",
           "Segmenti della clava antennale=3",
-          "Dentatura mandibolare=tra 6 e 9",
           "Profilo del mesosoma=promesonoto a livello piu alto del propodeo",
+          "Propodeo=con denti o spine",
           "Casta soldato (operaia major)=assente o polimorfismo continuo"
         ],
-        "gap": "0.075",
-        "passingCount": 37
+        "gap": "0.200",
+        "passingCount": 33
       }
     ],
-    "quintuples": [],
     "fullProfileResult": {
       "topGenus": "stenamma",
       "topScore": 1,
@@ -1185,91 +930,11 @@
     "pairs": [
       {
         "sels": [
-          "Forma del capo=non triangolare",
-          "Forma delle mandibole=stretto e allungato, a sciabola"
-        ],
-        "gap": "0.400",
-        "passingCount": 43
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=3",
-          "Forma delle mandibole=stretto e allungato, a sciabola"
-        ],
-        "gap": "0.400",
-        "passingCount": 37
-      },
-      {
-        "sels": [
-          "Forma delle mandibole=stretto e allungato, a sciabola",
-          "Formula palpale=da 1,2 a 5,3"
-        ],
-        "gap": "0.400",
-        "passingCount": 41
-      },
-      {
-        "sels": [
-          "Forma delle mandibole=stretto e allungato, a sciabola",
-          "Porzioni laterali del clipeo=rialzato a cresta davanti alle inserzioni antennali"
-        ],
-        "gap": "0.400",
-        "passingCount": 27
-      },
-      {
-        "sels": [
-          "Forma delle mandibole=stretto e allungato, a sciabola",
-          "Forma del peziolo e postpeziolo=non cubico"
-        ],
-        "gap": "0.400",
-        "passingCount": 42
-      },
-      {
-        "sels": [
-          "Forma delle mandibole=stretto e allungato, a sciabola",
-          "Superficie ventrale del peziolo e postpeziolo=al massimo con un piccolo dente o lobo"
-        ],
-        "gap": "0.400",
-        "passingCount": 41
-      },
-      {
-        "sels": [
-          "Forma delle mandibole=stretto e allungato, a sciabola",
-          "Postpeziolo, vista dorsale=largo quanto o poco piu del peziolo"
-        ],
-        "gap": "0.400",
-        "passingCount": 42
-      },
-      {
-        "sels": [
-          "Forma delle mandibole=stretto e allungato, a sciabola",
-          "Pungiglione=...con appendice apico-dorsale, triangolare"
-        ],
-        "gap": "0.400",
-        "passingCount": 31
-      },
-      {
-        "sels": [
           "Porzioni laterali del clipeo=rialzato a cresta davanti alle inserzioni antennali",
           "Lati del pronoto=arrotondato, vista dorsale"
         ],
         "gap": "0.500",
         "passingCount": 42
-      },
-      {
-        "sels": [
-          "Porzioni laterali del clipeo=rialzato a cresta davanti alle inserzioni antennali",
-          "Propodeo=senza denti o spine"
-        ],
-        "gap": "0.400",
-        "passingCount": 33
-      },
-      {
-        "sels": [
-          "Propodeo=senza denti o spine",
-          "Pungiglione=...con appendice apico-dorsale, triangolare"
-        ],
-        "gap": "0.400",
-        "passingCount": 37
       }
     ],
     "triples": [],
@@ -1287,7 +952,7 @@
         },
         {
           "id": "stigmatomma",
-          "score": 0.39999999999999997,
+          "score": 0.8333333333333334,
           "mismatches": 1
         },
         {
@@ -1395,47 +1060,40 @@
     "scientific_name": "Temnothorax",
     "profileSize": 22,
     "distinctCharCount": 20,
-    "discriminationDepth": 2,
+    "discriminationDepth": 3,
     "uniqueSingles": [],
-    "pairs": [
+    "pairs": [],
+    "triples": [
       {
         "sels": [
           "Numero di segmenti antennali=12",
-          "Dentatura mandibolare=5"
-        ],
-        "gap": "0.150",
-        "passingCount": 42
-      },
-      {
-        "sels": [
-          "Numero di segmenti antennali=12",
+          "Propodeo=con denti o spine",
           "Superficie ventrale del peziolo e postpeziolo=con dente o lobo ben sviluppato"
         ],
-        "gap": "0.400",
-        "passingCount": 39
+        "gap": "0.333",
+        "passingCount": 35
       }
     ],
-    "triples": [],
     "quadruples": [],
     "quintuples": [],
     "fullProfileResult": {
-      "topGenus": "temnothorax",
+      "topGenus": "leptothorax",
       "topScore": 1,
-      "uniqueTop": true,
+      "uniqueTop": false,
       "top5": [
+        {
+          "id": "leptothorax",
+          "score": 1,
+          "mismatches": 0
+        },
         {
           "id": "temnothorax",
           "score": 1,
           "mismatches": 0
         },
         {
-          "id": "leptothorax",
-          "score": 0.985,
-          "mismatches": 0
-        },
-        {
           "id": "formicoxenus",
-          "score": 0.9349999999999999,
+          "score": 0.9473684210526315,
           "mismatches": 1
         },
         {
@@ -1462,51 +1120,11 @@
     "pairs": [
       {
         "sels": [
-          "Forma delle mandibole=triangolare",
-          "Porzioni laterali del clipeo=rialzato a cresta davanti alle inserzioni antennali"
-        ],
-        "gap": "0.400",
-        "passingCount": 43
-      },
-      {
-        "sels": [
-          "Dentatura mandibolare=tra 6 e 9",
-          "Porzioni laterali del clipeo=rialzato a cresta davanti alle inserzioni antennali"
-        ],
-        "gap": "0.150",
-        "passingCount": 38
-      },
-      {
-        "sels": [
-          "Dentatura mandibolare=tra 6 e 9",
-          "Pungiglione=...con appendice apico-dorsale, triangolare"
-        ],
-        "gap": "0.150",
-        "passingCount": 39
-      },
-      {
-        "sels": [
-          "Dentatura mandibolare=10 o piu",
-          "Porzioni laterali del clipeo=rialzato a cresta davanti alle inserzioni antennali"
-        ],
-        "gap": "0.150",
-        "passingCount": 35
-      },
-      {
-        "sels": [
           "Dentatura mandibolare=10 o piu",
           "Lati del pronoto=angolare, vista dorsale"
         ],
         "gap": "0.500",
         "passingCount": 36
-      },
-      {
-        "sels": [
-          "Dentatura mandibolare=10 o piu",
-          "Pungiglione=...con appendice apico-dorsale, triangolare"
-        ],
-        "gap": "0.150",
-        "passingCount": 37
       },
       {
         "sels": [
@@ -2615,14 +2233,6 @@
       {
         "sels": [
           "Forma delle mandibole=stretto e allungato, a sciabola",
-          "Dentatura mandibolare=tra 6 e 9"
-        ],
-        "gap": "0.150",
-        "passingCount": 38
-      },
-      {
-        "sels": [
-          "Forma delle mandibole=stretto e allungato, a sciabola",
           "Speroni delle tibie medie e posteriori=pettinato"
         ],
         "gap": "0.500",
@@ -2643,13 +2253,13 @@
           "mismatches": 0
         },
         {
-          "id": "strongylognathus",
-          "score": 0.8142857142857143,
+          "id": "proceratium",
+          "score": 0.8333333333333334,
           "mismatches": 1
         },
         {
-          "id": "proceratium",
-          "score": 0.7428571428571429,
+          "id": "strongylognathus",
+          "score": 0.8333333333333334,
           "mismatches": 1
         },
         {
@@ -2671,21 +2281,22 @@
     "scientific_name": "Proceratium",
     "profileSize": 8,
     "distinctCharCount": 8,
-    "discriminationDepth": 3,
+    "discriminationDepth": 4,
     "uniqueSingles": [],
     "pairs": [],
-    "triples": [
+    "triples": [],
+    "quadruples": [
       {
         "sels": [
           "Segmenti della clava antennale=3",
+          "Forma delle mandibole=triangolare",
           "Propodeo=senza denti o spine",
           "Speroni delle tibie medie e posteriori=pettinato"
         ],
-        "gap": "0.267",
-        "passingCount": 28
+        "gap": "0.250",
+        "passingCount": 27
       }
     ],
-    "quadruples": [],
     "quintuples": [],
     "fullProfileResult": {
       "topGenus": "proceratium",
@@ -2714,7 +2325,7 @@
         },
         {
           "id": "stigmatomma",
-          "score": 0.675,
+          "score": 0.8333333333333334,
           "mismatches": 1
         }
       ]
@@ -2864,22 +2475,6 @@
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
-      {
-        "sels": [
-          "Segmenti della clava antennale=indistinta",
-          "Dentatura mandibolare=tra 6 e 9"
-        ],
-        "gap": "0.400",
-        "passingCount": 39
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=indistinta",
-          "Speroni delle tibie medie e posteriori=pettinato"
-        ],
-        "gap": "0.400",
-        "passingCount": 26
-      },
       {
         "sels": [
           "Speroni delle tibie medie e posteriori=pettinato",
