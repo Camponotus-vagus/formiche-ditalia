@@ -220,8 +220,9 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
           missingCount++;
           continue;
         }
-        if (values.includes('?')) {
-          // Explicit unknown ('?'): per guide Sec. 4, the taxon survives without penalty.
+        if (values.includes('?') || values.includes('-')) {
+          // Uninformative cell — '?' (unknown, guide Sec. 4) or '-' (structurally
+          // inapplicable, item 3.1): the taxon survives without penalty either way.
           continue;
         }
         totalWeight += sel.weight;
@@ -275,7 +276,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
       let total = 0;
       for (const sg of scoredGenera) {
         const values = matrixLookup[sg.genus.id]?.[char.id];
-        if (!values || values.includes('?')) continue;
+        if (!values || values.includes('?') || values.includes('-')) continue;
         for (const v of values) {
           stateCounts[v] = (stateCounts[v] || 0) + 1;
         }
@@ -326,7 +327,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
       let total = 0;
       for (const sg of scoredGenera) {
         const values = matrixLookup[sg.genus.id]?.[char.id];
-        if (!values || values.includes('?')) continue;
+        if (!values || values.includes('?') || values.includes('-')) continue;
         for (const v of values) {
           stateCounts[v] = (stateCounts[v] || 0) + 1;
         }
@@ -358,7 +359,8 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     const second = scoredGenera[1];
     const topValues = matrixLookup[top.genus.id]?.[bestCharacterId];
     const secondValues = matrixLookup[second.genus.id]?.[bestCharacterId];
-    if (topValues && secondValues && !topValues.some(v => secondValues.includes(v))) {
+    const informative = (v?: string[]) => !!v && !v.includes('?') && !v.includes('-');
+    if (informative(topValues) && informative(secondValues) && !topValues!.some(v => secondValues!.includes(v))) {
       return {
         charName: lang === 'it' ? char.name_it : char.name_en,
         genus1: top.genus.scientific_name,
@@ -423,8 +425,8 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     const charScope = char?.subfamily_scope;
     return scoredGenera.filter(sg => {
       const values = matrixLookup[sg.genus.id]?.[charId];
-      if (values && !values.includes('?')) {
-        // Has data: count as excluded if doesn't match
+      if (values && !values.includes('?') && !values.includes('-')) {
+        // Has informative data: count as excluded if doesn't match
         return !values.includes(stateValue);
       }
       // No data: would be penalized if out of scope

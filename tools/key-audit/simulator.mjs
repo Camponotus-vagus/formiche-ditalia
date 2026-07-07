@@ -60,8 +60,9 @@ export function score(selections, genera, matrixLookup, charById, maxMismatches 
         missingCount++;
         continue;
       }
-      if (values.includes('?')) {
-        // Explicit unknown ('?'): per guide Sec. 4, the taxon survives without penalty.
+      if (values.includes('?') || values.includes('-')) {
+        // Uninformative cell — '?' (unknown, guide Sec. 4) or '-' (structurally
+        // inapplicable, item 3.1): the taxon survives without penalty either way.
         continue;
       }
       totalWeight += w;
@@ -103,7 +104,7 @@ export function compatibleSelections(genusId, matrixLookup) {
   const out = [];
   const m = matrixLookup[genusId] || {};
   for (const [charId, values] of Object.entries(m)) {
-    if (values.includes('?')) continue;
+    if (values.includes('?') || values.includes('-')) continue;
     for (const v of values) out.push({ characterId: charId, value: v });
   }
   return out;
@@ -138,7 +139,7 @@ export function characterEntropy(charId, scoredGenera, matrixLookup) {
   let total = 0;
   for (const sg of scoredGenera) {
     const values = matrixLookup[sg.genus.id]?.[charId];
-    if (!values || values.includes('?')) continue;
+    if (!values || values.includes('?') || values.includes('-')) continue;
     for (const v of values) stateCounts[v] = (stateCounts[v] || 0) + 1;
     total++;
   }
