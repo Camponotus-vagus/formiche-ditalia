@@ -802,7 +802,7 @@
     "genus_id": "leptothorax",
     "character_id": "gen-14",
     "state_values": [
-      "?"
+      "0"
     ]
   },
   {
@@ -3033,7 +3033,7 @@
     "genus_id": "leptanilla",
     "character_id": "gen-11",
     "state_values": [
-      "?"
+      "1"
     ]
   },
   {
