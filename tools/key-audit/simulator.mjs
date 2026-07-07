@@ -37,6 +37,9 @@ export function loadData(dir = DATA_DIR) {
  * @returns sorted ScoredGenus[]
  */
 export function score(selections, genera, matrixLookup, charById, maxMismatches = 1) {
+  // A user-selected '?' ("unknown") is score-neutral (mirror of IdentificationKey.tsx):
+  // it must neither imply a subfamily nor penalize any genus.
+  selections = selections.filter(sel => sel.value !== '?');
   if (selections.length === 0) {
     return genera.map(g => ({ genus: g, score: 1, mismatches: 0, matched: 0 }));
   }

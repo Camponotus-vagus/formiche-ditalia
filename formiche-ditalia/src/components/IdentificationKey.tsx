@@ -186,9 +186,11 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
 
   // Level 2: Detect implied subfamily from selected characters
   const impliedSubfamily = useMemo(() => {
-    if (selectedStates.length === 0) return null;
+    // A user-selected '?' ("unknown") is score-neutral: it must not imply a subfamily.
+    const effective = selectedStates.filter(sel => sel.value !== '?');
+    if (effective.length === 0) return null;
     const scopes = new Set(
-      selectedStates.map(sel => {
+      effective.map(sel => {
         const char = characters.find(c => c.id === sel.characterId);
         return char?.subfamily_scope;
       }).filter(Boolean)
@@ -198,7 +200,10 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
   }, [selectedStates, characters]);
 
   const scoredGenera = useMemo((): ScoredGenus[] => {
-    if (selectedStates.length === 0) {
+    // A user-selected '?' ("unknown") is score-neutral — drop it before scoring so it
+    // neither penalizes real-data genera nor counts toward the "any selection" branch.
+    const effectiveStates = selectedStates.filter(sel => sel.value !== '?');
+    if (effectiveStates.length === 0) {
       return regionFilteredGenera.map(g => ({ genus: g, score: 1, mismatches: 0, matchedCount: 0 }));
     }
 
@@ -209,7 +214,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
       let totalWeight = 0;
       let weightedScore = 0;
 
-      for (const sel of selectedStates) {
+      for (const sel of effectiveStates) {
         const values = matrixLookup[genus.id]?.[sel.characterId];
         if (!values) {
           missingCount++;
@@ -411,6 +416,8 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
   // Component D: Impact prediction per character state
   // Counts genera that would be excluded or significantly penalized
   const predictStateImpact = (charId: string, stateValue: string): number => {
+    // Selecting '?' ("unknown") is score-neutral — it excludes nothing.
+    if (stateValue === '?') return 0;
     const char = characters.find(c => c.id === charId);
     const charScope = char?.subfamily_scope;
     return scoredGenera.filter(sg => {
