@@ -455,6 +455,11 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     return entropy;
   };
 
+  const scrollToId = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
   const selectState = (characterId: string, value: string) => {
     // Component A: Calculate entropy weight at time of selection
     const entropy = calculateCharacterEntropy(characterId, scoredGenera);
@@ -555,8 +560,8 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
                   : 'Only one genus remaining — identification complete!'
               ) : gapInfo.confidenceLevel === 'high' ? (
                 lang === 'it'
-                  ? <><button type="button" className="font-semibold italic text-forest-600 hover:underline cursor-pointer" onClick={() => { const el = document.getElementById(`genus-card-${gapInfo.top?.id}`); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }}>{gapInfo.top?.scientific_name}</button> è il candidato più probabile (distacco: {Math.round(gapInfo.gap * 100)}%)</>
-                  : <><button type="button" className="font-semibold italic text-forest-600 hover:underline cursor-pointer" onClick={() => { const el = document.getElementById(`genus-card-${gapInfo.top?.id}`); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }}>{gapInfo.top?.scientific_name}</button> is the most likely candidate (gap: {Math.round(gapInfo.gap * 100)}%)</>
+                  ? <><button type="button" className="font-semibold italic text-forest-600 hover:underline cursor-pointer" onClick={() => scrollToId(`genus-card-${gapInfo.top?.id}`)}>{gapInfo.top?.scientific_name}</button> è il candidato più probabile (distacco: {Math.round(gapInfo.gap * 100)}%)</>
+                  : <><button type="button" className="font-semibold italic text-forest-600 hover:underline cursor-pointer" onClick={() => scrollToId(`genus-card-${gapInfo.top?.id}`)}>{gapInfo.top?.scientific_name}</button> is the most likely candidate (gap: {Math.round(gapInfo.gap * 100)}%)</>
               ) : gapInfo.confidenceLevel === 'medium' ? (
                 lang === 'it'
                   ? <>Alcuni generi ancora in competizione — seleziona altri caratteri</>
@@ -569,26 +574,29 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
             </p>
           </div>
           {suggestedCharDetail && scoredGenera.length >= 2 && (
-            <button
-              onClick={() => {
-                const el = document.getElementById(`char-${bestCharacterId}`);
-                if (el) {
-                  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            <div
+              role="button"
+              tabIndex={0}
+              onClick={() => scrollToId(`char-${bestCharacterId}`)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  scrollToId(`char-${bestCharacterId}`);
                 }
               }}
-              className="text-sm text-forest-600 hover:text-forest-800 hover:underline text-left mt-1 cursor-pointer"
+              className="block text-sm text-forest-600 hover:text-forest-800 hover:underline text-left mt-1 cursor-pointer"
             >
               {lang === 'it' ? '→ Prossimo passo:' : '→ Next step:'}{' '}
               <span className="font-medium">{suggestedCharDetail.charName}</span>
               {suggestedCharDetail.genus1 && suggestedCharDetail.genus2 && (
                 <>
                   {' '}{lang === 'it' ? '(distingue' : '(distinguishes'}{' '}
-                  <button type="button" className="italic text-forest-600 hover:underline cursor-pointer" onClick={(e) => { e.stopPropagation(); const el = document.getElementById(`genus-card-${scoredGenera[0]?.genus.id}`); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }}>{suggestedCharDetail.genus1}</button>
+                  <button type="button" className="italic text-forest-600 hover:underline cursor-pointer" onClick={(e) => { e.stopPropagation(); scrollToId(`genus-card-${scoredGenera[0]?.genus.id}`); }}>{suggestedCharDetail.genus1}</button>
                   {' '}{lang === 'it' ? 'da' : 'from'}{' '}
-                  <button type="button" className="italic text-forest-600 hover:underline cursor-pointer" onClick={(e) => { e.stopPropagation(); const el = document.getElementById(`genus-card-${scoredGenera[1]?.genus.id}`); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }}>{suggestedCharDetail.genus2}</button>)
+                  <button type="button" className="italic text-forest-600 hover:underline cursor-pointer" onClick={(e) => { e.stopPropagation(); scrollToId(`genus-card-${scoredGenera[1]?.genus.id}`); }}>{suggestedCharDetail.genus2}</button>)
                 </>
               )}
-            </button>
+            </div>
           )}
         </div>
       )}
