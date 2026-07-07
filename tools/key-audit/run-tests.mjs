@@ -16,7 +16,9 @@ tests.push('sanity.mjs'); // sanity has no assertions but must not throw
 
 let failed = 0;
 for (const t of tests) {
-  const res = spawnSync(process.execPath, [join(here, t)], { encoding: 'utf8' });
+  // cwd: here — the tests resolve the data dir relative to tools/key-audit, so run
+  // them from there regardless of where this runner was invoked (repo root, CI, …).
+  const res = spawnSync(process.execPath, [join(here, t)], { encoding: 'utf8', cwd: here });
   const ok = res.status === 0;
   if (!ok) failed++;
   console.log(`${ok ? '✅ PASS' : '❌ FAIL'}  ${t}`);

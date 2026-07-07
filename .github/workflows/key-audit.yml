@@ -1,0 +1,27 @@
+name: key-audit
+
+# Item 3.3: run the identification-key regression + data-integrity suite on every
+# change to the matrix, the scoring component, or the audit tooling — so undeclared
+# state values, orphan/duplicate rows, dead characters, and indistinguishable genus
+# pairs are caught before they reach the live site. Pure Node, no dependencies.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - 'formiche-ditalia/src/data/**'
+      - 'formiche-ditalia/src/components/IdentificationKey.tsx'
+      - 'tools/key-audit/**'
+      - '.github/workflows/key-audit.yml'
+
+jobs:
+  suite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Run key-audit suite (regression + data integrity)
+        run: node tools/key-audit/run-tests.mjs
