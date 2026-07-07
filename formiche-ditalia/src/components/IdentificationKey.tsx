@@ -391,13 +391,14 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
       return { progress: 0, progressLabel: lang === 'it' ? 'Inizia selezionando i caratteri' : 'Start selecting characters', totalGenera, topCandidates: totalGenera };
     }
 
-    // Top candidates = genera within 30% of the top score
-    const topScore = scoredGenera[0]?.score || 0;
-    const threshold = topScore * 0.7;
-    const topCandidates = scoredGenera.filter(sg => sg.score >= threshold).length;
+    // Item 1.2: progress is driven by the REAL remaining candidate set (the genera
+    // that still pass the tolerance filter — i.e. the cards shown and the counter),
+    // so the bar can never claim "almost identified" while many genera still remain.
+    const remaining = scoredGenera.length;
+    const topCandidates = remaining;
 
-    // Progress based on: how few top candidates remain + how many characters used
-    const candidateProgress = totalGenera > 1 ? 1 - (topCandidates / totalGenera) : 0;
+    // Progress based on: how few candidates remain + how many characters used
+    const candidateProgress = totalGenera > 1 ? 1 - (remaining / totalGenera) : 0;
     const charProgress = Math.min(1, selectedStates.length / 8); // ~8 chars = fully explored
 
     // Weighted combination: candidates matter more
@@ -536,7 +537,9 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
         <div className="flex items-center justify-between">
           <span className="text-sm text-gray-600">{progressInfo.progressLabel}</span>
           <span className="text-xs text-gray-500">
-            {progressInfo.topCandidates} {lang === 'it' ? 'candidati probabili su' : 'likely candidates out of'} {progressInfo.totalGenera}
+            {/* Item 1.2: show the real remaining candidate set — identical to the
+                number of genus cards rendered below (both are scoredGenera). */}
+            {scoredGenera.length} {lang === 'it' ? 'generi rimasti su' : 'genera remaining out of'} {progressInfo.totalGenera}
           </span>
         </div>
       </div>
