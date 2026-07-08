@@ -39,6 +39,7 @@ interface PersistedState {
   maxMismatches: number;
   selectedRegion: string;
   hiddenCharacterIds: string[];
+  preferEasy: boolean;
 }
 
 function loadPersistedState(): PersistedState | null {
@@ -53,6 +54,7 @@ function loadPersistedState(): PersistedState | null {
       maxMismatches: typeof parsed.maxMismatches === 'number' ? parsed.maxMismatches : 1,
       selectedRegion: typeof parsed.selectedRegion === 'string' ? parsed.selectedRegion : '',
       hiddenCharacterIds: Array.isArray(parsed.hiddenCharacterIds) ? parsed.hiddenCharacterIds : [],
+      preferEasy: typeof parsed.preferEasy === 'boolean' ? parsed.preferEasy : false,
     };
   } catch {
     return null;
@@ -88,6 +90,8 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
   const [maxMismatches, setMaxMismatches] = useState(1);
   const [selectedRegion, setSelectedRegion] = useState<string>('');
   const [hiddenCharacterIds, setHiddenCharacterIds] = useState<Set<string>>(new Set());
+  // Item 1.4: when true, the suggested character avoids 'hard' (microscopic) traits.
+  const [preferEasy, setPreferEasy] = useState(false);
   const [hydrated, setHydrated] = useState(false);
   const [lang, setCurrentLang] = useState<Lang>(initialLang);
 
@@ -106,6 +110,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
       setMaxMismatches(persisted.maxMismatches);
       setSelectedRegion(persisted.selectedRegion);
       setHiddenCharacterIds(new Set(persisted.hiddenCharacterIds));
+      setPreferEasy(persisted.preferEasy);
     }
     setHydrated(true);
   }, []);
@@ -119,11 +124,12 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
         maxMismatches,
         selectedRegion,
         hiddenCharacterIds: [...hiddenCharacterIds],
+        preferEasy,
       }));
     } catch {
       // sessionStorage may be disabled or full — silently ignore
     }
-  }, [hydrated, selectedStates, maxMismatches, selectedRegion, hiddenCharacterIds]);
+  }, [hydrated, selectedStates, maxMismatches, selectedRegion, hiddenCharacterIds, preferEasy]);
 
   /** Wraps the first glossary term found in `text` with a GlossaryTooltip. */
   const annotateWithGlossary = (text: string): ReactNode => {
@@ -268,34 +274,44 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     const usedIds = new Set(selectedStates.map(s => s.characterId));
     const remaining = characters.filter(c => !usedIds.has(c.id) && !hiddenCharacterIds.has(c.id));
 
-    let bestId = '';
-    let bestScore = -1;
-
-    for (const char of remaining) {
-      const stateCounts: Record<string, number> = {};
-      let total = 0;
-      for (const sg of scoredGenera) {
-        const values = matrixLookup[sg.genus.id]?.[char.id];
-        if (!values || values.includes('?') || values.includes('-')) continue;
-        for (const v of values) {
-          stateCounts[v] = (stateCounts[v] || 0) + 1;
+    // Best not-yet-used character by dynamic entropy over the current candidate set.
+    const pickBest = (candidates: typeof characters) => {
+      let bestId = '';
+      let bestScore = -1;
+      for (const char of candidates) {
+        const stateCounts: Record<string, number> = {};
+        let total = 0;
+        for (const sg of scoredGenera) {
+          const values = matrixLookup[sg.genus.id]?.[char.id];
+          if (!values || values.includes('?') || values.includes('-')) continue;
+          for (const v of values) {
+            stateCounts[v] = (stateCounts[v] || 0) + 1;
+          }
+          total++;
         }
-        total++;
-      }
-      if (total === 0) continue;
+        if (total === 0) continue;
 
-      let entropy = 0;
-      for (const count of Object.values(stateCounts)) {
-        const p = count / total;
-        if (p > 0) entropy -= p * Math.log2(p);
+        let entropy = 0;
+        for (const count of Object.values(stateCounts)) {
+          const p = count / total;
+          if (p > 0) entropy -= p * Math.log2(p);
+        }
+        if (entropy > bestScore) {
+          bestScore = entropy;
+          bestId = char.id;
+        }
       }
-      if (entropy > bestScore) {
-        bestScore = entropy;
-        bestId = char.id;
-      }
+      return { bestId, bestScore };
+    };
+
+    // Item 1.4: when "prefer easier" is on, suggest the best non-hard (easy/medium)
+    // character; fall back to a hard one only if no easier character discriminates.
+    if (preferEasy) {
+      const easier = pickBest(remaining.filter(c => c.difficulty !== 'hard'));
+      if (easier.bestId && easier.bestScore > 0) return easier.bestId;
     }
-    return bestId;
-  }, [characters, selectedStates, scoredGenera, matrixLookup, hiddenCharacterIds]);
+    return pickBest(remaining).bestId;
+  }, [characters, selectedStates, scoredGenera, matrixLookup, hiddenCharacterIds, preferEasy]);
 
   // Issue 1: Scroll to and highlight the suggested character when it changes
   const prevBestCharRef = useRef<string>('');
@@ -638,7 +654,17 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
           >
             {lang === 'it' ? 'Ricomincia' : 'Reset'}
           </button>
-          <label className="ml-auto flex items-center gap-2 text-sm text-gray-600">
+          <label className="ml-auto flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={preferEasy}
+              onChange={e => setPreferEasy(e.target.checked)}
+              className="w-4 h-4 rounded border-gray-300 text-forest-600 focus:ring-forest-400 cursor-pointer"
+            />
+            {lang === 'it' ? 'Preferisci caratteri facili' : 'Prefer easier characters'}
+            <InfoTip text={lang === 'it' ? 'Il carattere consigliato eviterà i tratti microscopici "difficili" (utile per principianti). Un carattere difficile viene proposto solo se indispensabile per distinguere i generi rimasti.' : 'The suggested character will avoid "hard" microscopic traits (useful for beginners). A hard character is only suggested when it is indispensable to separate the remaining genera.'} />
+          </label>
+          <label className="flex items-center gap-2 text-sm text-gray-600">
             {lang === 'it' ? 'Tolleranza' : 'Tolerance'}
             <InfoTip text={lang === 'it' ? 'Quanti errori sono ammessi. Con tolleranza 1, un genere che non matcha un carattere resta visibile. Aumenta se non sei sicuro delle osservazioni.' : 'How many mismatches are allowed. With tolerance 1, a genus that doesn\'t match one character stays visible. Increase if you\'re unsure of your observations.'} />:
             <select
