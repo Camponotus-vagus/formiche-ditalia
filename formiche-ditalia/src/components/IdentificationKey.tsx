@@ -92,6 +92,8 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
   const [hiddenCharacterIds, setHiddenCharacterIds] = useState<Set<string>>(new Set());
   // Item 1.4: when true, the suggested character avoids 'hard' (microscopic) traits.
   const [preferEasy, setPreferEasy] = useState(false);
+  // Item 2.4: expand the "excluded genera" trace panel.
+  const [showExcluded, setShowExcluded] = useState(false);
   const [hydrated, setHydrated] = useState(false);
   const [lang, setCurrentLang] = useState<Lang>(initialLang);
 
@@ -162,6 +164,17 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
         {after}
       </>
     );
+  };
+
+  // Item 2.4: human-readable character name / state label for the excluded-genera trace.
+  const charName = (charId: string) => {
+    const c = characters.find(ch => ch.id === charId);
+    return (lang === 'it' ? c?.name_it : c?.name_en) ?? charId;
+  };
+  const stateLabel = (charId: string, value: string) => {
+    const c = characters.find(ch => ch.id === charId);
+    const st = c?.states.find(s => s.value === value);
+    return (lang === 'it' ? st?.label_it : st?.label_en) ?? value;
   };
 
   const regions = [
@@ -269,6 +282,30 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     .filter(sg => sg.mismatches <= maxMismatches)
     .sort((a, b) => b.score - a.score || a.genus.scientific_name.localeCompare(b.genus.scientific_name));
   }, [regionFilteredGenera, selectedStates, matrixLookup, maxMismatches, impliedSubfamily]);
+
+  // Item 2.4: genera ruled out by the current answers, each with the reason(s) — which
+  // selected characters the genus contradicts. Lets users click to see WHY a genus was
+  // dropped (teaching; catching their own mis-scoring of a specimen).
+  const excludedGenera = useMemo(() => {
+    const effective = selectedStates.filter(sel => sel.value !== '?');
+    if (effective.length === 0) return [] as { genus: Genus; reasons: { characterId: string; userValue: string; genusValues: string[] }[] }[];
+    const keptIds = new Set(scoredGenera.map(sg => sg.genus.id));
+    const out: { genus: Genus; reasons: { characterId: string; userValue: string; genusValues: string[] }[] }[] = [];
+    for (const genus of regionFilteredGenera) {
+      if (keptIds.has(genus.id)) continue;
+      const reasons: { characterId: string; userValue: string; genusValues: string[] }[] = [];
+      for (const sel of effective) {
+        const values = matrixLookup[genus.id]?.[sel.characterId];
+        // Only real contradictions count: missing / '?' / '-' cells never exclude a genus.
+        if (!values || values.includes('?') || values.includes('-')) continue;
+        if (!values.includes(sel.value)) {
+          reasons.push({ characterId: sel.characterId, userValue: sel.value, genusValues: values });
+        }
+      }
+      out.push({ genus, reasons });
+    }
+    return out.sort((a, b) => a.genus.scientific_name.localeCompare(b.genus.scientific_name));
+  }, [regionFilteredGenera, selectedStates, scoredGenera, matrixLookup]);
 
   const bestCharacterId = useMemo(() => {
     const usedIds = new Set(selectedStates.map(s => s.characterId));
@@ -913,6 +950,50 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
                 )}
               </a>
             ))}
+          </div>
+        )}
+
+        {/* Item 2.4: excluded-genera trace — why each ruled-out genus was dropped. */}
+        {excludedGenera.length > 0 && (
+          <div className="mt-6">
+            <button
+              type="button"
+              onClick={() => setShowExcluded(v => !v)}
+              className="text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1.5 cursor-pointer"
+              aria-expanded={showExcluded}
+            >
+              <span className="text-xs">{showExcluded ? '▾' : '▸'}</span>
+              {lang === 'it' ? `Generi esclusi (${excludedGenera.length})` : `Excluded genera (${excludedGenera.length})`}
+              <InfoTip text={lang === 'it' ? 'Generi scartati dalle tue risposte. Espandi per vedere quale risposta ha escluso ciascuno — utile se sospetti un errore di osservazione.' : 'Genera ruled out by your answers. Expand to see which answer excluded each — useful if you suspect a mis-observation.'} />
+            </button>
+            {showExcluded && (
+              <ul className="mt-3 space-y-2.5">
+                {excludedGenera.map(({ genus, reasons }) => (
+                  <li key={genus.id} className="text-sm border-l-2 border-red-200 pl-3">
+                    <a href={`/generi/${genus.id}`} className="font-medium italic text-gray-700 hover:text-forest-600 transition-colors">
+                      {genus.scientific_name}
+                    </a>
+                    <span className="text-xs text-gray-400 ml-1.5 capitalize">{genus.subfamily_id}</span>
+                    {reasons.length > 0 ? (
+                      <ul className="mt-1 text-xs text-gray-500 space-y-0.5">
+                        {reasons.map((r, i) => (
+                          <li key={i}>
+                            {lang === 'it' ? 'escluso da ' : 'excluded by '}
+                            <span className="font-medium text-gray-600">{charName(r.characterId)}</span>
+                            {lang === 'it' ? ': hai risposto ' : ': you answered '}
+                            <span className="text-forest-600">&laquo;{stateLabel(r.characterId, r.userValue)}&raquo;</span>
+                            {lang === 'it' ? ', ma questo genere è ' : ', but this genus is '}
+                            <span className="text-red-600">&laquo;{r.genusValues.map(v => stateLabel(r.characterId, v)).join(lang === 'it' ? ' o ' : ' or ')}&raquo;</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <span className="text-xs text-gray-400 ml-1">{lang === 'it' ? '(fuori tolleranza)' : '(out of tolerance)'}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         )}
       </div>
