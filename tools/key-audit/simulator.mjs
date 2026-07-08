@@ -60,8 +60,9 @@ export function score(selections, genera, matrixLookup, charById, maxMismatches 
         missingCount++;
         continue;
       }
-      if (values.includes('?')) {
-        // Explicit unknown ('?'): per guide Sec. 4, the taxon survives without penalty.
+      if (values.includes('?') || values.includes('-')) {
+        // Uninformative cell — '?' (unknown, guide Sec. 4) or '-' (structurally
+        // inapplicable, item 3.1): the taxon survives without penalty either way.
         continue;
       }
       totalWeight += w;
@@ -103,7 +104,7 @@ export function compatibleSelections(genusId, matrixLookup) {
   const out = [];
   const m = matrixLookup[genusId] || {};
   for (const [charId, values] of Object.entries(m)) {
-    if (values.includes('?')) continue;
+    if (values.includes('?') || values.includes('-')) continue;
     for (const v of values) out.push({ characterId: charId, value: v });
   }
   return out;
@@ -125,6 +126,46 @@ export function isUniqueTop(targetId, selections, genera, matrixLookup, charById
   const gap = top.score - ranked[1].score;
   if (gap === 0) return { unique: false, reason: 'tied', tiedWith: ranked.filter(r => r.score === top.score && r.genus.id !== targetId).map(r => r.genus.id) };
   return { unique: true, score: top.score, gap };
+}
+
+/**
+ * Shannon entropy of a character over a candidate genus set.
+ * Mirror of IdentificationKey.tsx calculateCharacterEntropy / bestCharacterId loop:
+ * a genus coded '?' (or with no data) for the character contributes nothing; every
+ * real state adds to its bucket; `total` counts genera with usable data.
+ */
+export function characterEntropy(charId, scoredGenera, matrixLookup) {
+  const stateCounts = {};
+  let total = 0;
+  for (const sg of scoredGenera) {
+    const values = matrixLookup[sg.genus.id]?.[charId];
+    if (!values || values.includes('?') || values.includes('-')) continue;
+    for (const v of values) stateCounts[v] = (stateCounts[v] || 0) + 1;
+    total++;
+  }
+  if (total === 0) return 0;
+  let entropy = 0;
+  for (const count of Object.values(stateCounts)) {
+    const p = count / total;
+    if (p > 0) entropy -= p * Math.log2(p);
+  }
+  return entropy;
+}
+
+/**
+ * Best not-yet-answered character to ask next, by max dynamic entropy over the
+ * CURRENT candidate set (mirror of IdentificationKey.tsx bestCharacterId).
+ * @returns { id, entropy } or null if no informative character remains.
+ */
+export function bestNextCharacter(scoredGenera, characters, matrixLookup, usedIds = new Set(), hiddenIds = new Set()) {
+  let bestId = '';
+  let bestScore = -1;
+  for (const char of characters) {
+    if (usedIds.has(char.id) || hiddenIds.has(char.id)) continue;
+    const e = characterEntropy(char.id, scoredGenera, matrixLookup);
+    if (e > bestScore) { bestScore = e; bestId = char.id; }
+  }
+  return bestId ? { id: bestId, entropy: bestScore } : null;
 }
 
 export function selectionToString(sel, charById) {

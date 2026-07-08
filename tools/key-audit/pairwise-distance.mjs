@@ -26,9 +26,9 @@ export function pairwiseDistance(genusIdA, genusIdB, characters, matrixLookup) {
     const rawA = lookupA[c.id] || [];
     const rawB = lookupB[c.id] || [];
     const sa = new Set(rawA);
-    sa.delete('?'); sa.delete('NA');
+    sa.delete('?'); sa.delete('NA'); sa.delete('-');
     const sb = new Set(rawB);
-    sb.delete('?'); sb.delete('NA');
+    sb.delete('?'); sb.delete('NA'); sb.delete('-');
     if (sa.size === 0 || sb.size === 0) continue;
     comparable++;
     let overlap = false;

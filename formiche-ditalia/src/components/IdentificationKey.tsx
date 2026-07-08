@@ -220,8 +220,9 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
           missingCount++;
           continue;
         }
-        if (values.includes('?')) {
-          // Explicit unknown ('?'): per guide Sec. 4, the taxon survives without penalty.
+        if (values.includes('?') || values.includes('-')) {
+          // Uninformative cell — '?' (unknown, guide Sec. 4) or '-' (structurally
+          // inapplicable, item 3.1): the taxon survives without penalty either way.
           continue;
         }
         totalWeight += sel.weight;
@@ -275,7 +276,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
       let total = 0;
       for (const sg of scoredGenera) {
         const values = matrixLookup[sg.genus.id]?.[char.id];
-        if (!values || values.includes('?')) continue;
+        if (!values || values.includes('?') || values.includes('-')) continue;
         for (const v of values) {
           stateCounts[v] = (stateCounts[v] || 0) + 1;
         }
@@ -326,7 +327,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
       let total = 0;
       for (const sg of scoredGenera) {
         const values = matrixLookup[sg.genus.id]?.[char.id];
-        if (!values || values.includes('?')) continue;
+        if (!values || values.includes('?') || values.includes('-')) continue;
         for (const v of values) {
           stateCounts[v] = (stateCounts[v] || 0) + 1;
         }
@@ -358,7 +359,8 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     const second = scoredGenera[1];
     const topValues = matrixLookup[top.genus.id]?.[bestCharacterId];
     const secondValues = matrixLookup[second.genus.id]?.[bestCharacterId];
-    if (topValues && secondValues && !topValues.some(v => secondValues.includes(v))) {
+    const informative = (v?: string[]) => !!v && !v.includes('?') && !v.includes('-');
+    if (informative(topValues) && informative(secondValues) && !topValues!.some(v => secondValues!.includes(v))) {
       return {
         charName: lang === 'it' ? char.name_it : char.name_en,
         genus1: top.genus.scientific_name,
@@ -391,13 +393,14 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
       return { progress: 0, progressLabel: lang === 'it' ? 'Inizia selezionando i caratteri' : 'Start selecting characters', totalGenera, topCandidates: totalGenera };
     }
 
-    // Top candidates = genera within 30% of the top score
-    const topScore = scoredGenera[0]?.score || 0;
-    const threshold = topScore * 0.7;
-    const topCandidates = scoredGenera.filter(sg => sg.score >= threshold).length;
+    // Item 1.2: progress is driven by the REAL remaining candidate set (the genera
+    // that still pass the tolerance filter — i.e. the cards shown and the counter),
+    // so the bar can never claim "almost identified" while many genera still remain.
+    const remaining = scoredGenera.length;
+    const topCandidates = remaining;
 
-    // Progress based on: how few top candidates remain + how many characters used
-    const candidateProgress = totalGenera > 1 ? 1 - (topCandidates / totalGenera) : 0;
+    // Progress based on: how few candidates remain + how many characters used
+    const candidateProgress = totalGenera > 1 ? 1 - (remaining / totalGenera) : 0;
     const charProgress = Math.min(1, selectedStates.length / 8); // ~8 chars = fully explored
 
     // Weighted combination: candidates matter more
@@ -422,8 +425,8 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     const charScope = char?.subfamily_scope;
     return scoredGenera.filter(sg => {
       const values = matrixLookup[sg.genus.id]?.[charId];
-      if (values && !values.includes('?')) {
-        // Has data: count as excluded if doesn't match
+      if (values && !values.includes('?') && !values.includes('-')) {
+        // Has informative data: count as excluded if doesn't match
         return !values.includes(stateValue);
       }
       // No data: would be penalized if out of scope
@@ -536,7 +539,9 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
         <div className="flex items-center justify-between">
           <span className="text-sm text-gray-600">{progressInfo.progressLabel}</span>
           <span className="text-xs text-gray-500">
-            {progressInfo.topCandidates} {lang === 'it' ? 'candidati probabili su' : 'likely candidates out of'} {progressInfo.totalGenera}
+            {/* Item 1.2: show the real remaining candidate set — identical to the
+                number of genus cards rendered below (both are scoredGenera). */}
+            {scoredGenera.length} {lang === 'it' ? 'generi rimasti su' : 'genera remaining out of'} {progressInfo.totalGenera}
           </span>
         </div>
       </div>
