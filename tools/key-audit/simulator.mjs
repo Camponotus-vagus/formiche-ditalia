@@ -111,6 +111,32 @@ export function compatibleSelections(genusId, matrixLookup) {
 }
 
 /**
+ * Item 2.4: genera ruled out by the current selections, each with the reason(s) —
+ * which selected characters the genus contradicts. Mirror of IdentificationKey.tsx
+ * excludedGenera. A genus is excluded iff it does NOT pass the tolerance filter; a
+ * missing / '?' / '-' cell never contributes a reason.
+ */
+export function excludedGenera(selections, genera, matrixLookup, charById, maxMismatches = 1) {
+  const effective = selections.filter(sel => sel.value !== '?');
+  if (effective.length === 0) return [];
+  const keptIds = new Set(score(selections, genera, matrixLookup, charById, maxMismatches).map(sg => sg.genus.id));
+  const out = [];
+  for (const genus of genera) {
+    if (keptIds.has(genus.id)) continue;
+    const reasons = [];
+    for (const sel of effective) {
+      const values = matrixLookup[genus.id]?.[sel.characterId];
+      if (!values || values.includes('?') || values.includes('-')) continue;
+      if (!values.includes(sel.value)) {
+        reasons.push({ characterId: sel.characterId, userValue: sel.value, genusValues: values });
+      }
+    }
+    out.push({ genusId: genus.id, reasons });
+  }
+  return out;
+}
+
+/**
  * Is genus G the unique top-ranker for these selections?
  * If `tieAllowedSameSubfamily` is true, ties with same-subfamily genera don't count as failure
  * (only used to investigate; default false).
