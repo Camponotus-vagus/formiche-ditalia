@@ -348,21 +348,21 @@
     "description_en": "Small brown ant with the heart-shaped gaster typical of the genus. Smaller and less conspicuous than C. scutellaris, with uniformly brown colouring."
   },
   {
-    "id": "cryptopone-ochraceum",
+    "id": "cryptopone-ochracea",
     "genus_id": "cryptopone",
-    "scientific_name": "Cryptopone ochraceum",
+    "scientific_name": "Cryptopone ochracea",
     "author_year": "(Mayr, 1855)",
     "status": "native",
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
     "photo_urls": [
-      "/images/specie/cryptopone-ochraceum/head.webp",
-      "/images/specie/cryptopone-ochraceum/profile.webp",
-      "/images/specie/cryptopone-ochraceum/dorsal.webp"
+      "/images/specie/cryptopone-ochracea/head.webp",
+      "/images/specie/cryptopone-ochracea/profile.webp",
+      "/images/specie/cryptopone-ochracea/dorsal.webp"
     ],
     "synonyms": [],
-    "antweb_url": "https://www.antweb.org/browse.do?genus=Cryptopone&species=ochraceum&rank=species",
+    "antweb_url": "https://www.antweb.org/browse.do?genus=Cryptopone&species=ochracea&rank=species",
     "antcat_url": null,
     "gbif_id": null,
     "habitat_notes_en": "Moist and humus-rich soils, woodlands and gardens. Nests deep in the soil.",
@@ -444,21 +444,21 @@
     "description_en": "Glossy black ant of medium size. Typical species of shady woodlands, forming moderately sized colonies in decaying wood."
   },
   {
-    "id": "formica-rufifabris",
+    "id": "formica-rufibarbis",
     "genus_id": "formica",
-    "scientific_name": "Formica rufifabris",
+    "scientific_name": "Formica rufibarbis",
     "author_year": "Fabricius, 1793",
     "status": "native",
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
     "photo_urls": [
-      "/images/specie/formica-rufifabris/head.webp",
-      "/images/specie/formica-rufifabris/profile.webp",
-      "/images/specie/formica-rufifabris/dorsal.webp"
+      "/images/specie/formica-rufibarbis/head.webp",
+      "/images/specie/formica-rufibarbis/profile.webp",
+      "/images/specie/formica-rufibarbis/dorsal.webp"
     ],
     "synonyms": [],
-    "antweb_url": "https://www.antweb.org/browse.do?genus=Formica&species=rufifabris&rank=species",
+    "antweb_url": "https://www.antweb.org/browse.do?genus=Formica&species=rufibarbis&rank=species",
     "antcat_url": null,
     "gbif_id": null,
     "habitat_notes_en": "Meadows, woodland clearings, path edges. Nests in the ground in sunny areas.",
@@ -1547,21 +1547,21 @@
     "description_en": "Small light yellow-brown ant. Arboreal species nesting under bark and in dry branches. Very small colonies."
   },
   {
-    "id": "temnothorax-mullerianus",
+    "id": "temnothorax-muellerianus",
     "genus_id": "temnothorax",
-    "scientific_name": "Temnothorax mullerianus",
+    "scientific_name": "Temnothorax muellerianus",
     "author_year": "(Finzi, 1922)",
     "status": "native",
     "subspecies": [],
     "distribution_regions": [],
     "altitude_range": null,
     "photo_urls": [
-      "/images/specie/temnothorax-mullerianus/head.webp",
-      "/images/specie/temnothorax-mullerianus/profile.webp",
-      "/images/specie/temnothorax-mullerianus/dorsal.webp"
+      "/images/specie/temnothorax-muellerianus/head.webp",
+      "/images/specie/temnothorax-muellerianus/profile.webp",
+      "/images/specie/temnothorax-muellerianus/dorsal.webp"
     ],
     "synonyms": [],
-    "antweb_url": "https://www.antweb.org/browse.do?genus=Temnothorax&species=mullerianus&rank=species",
+    "antweb_url": "https://www.antweb.org/browse.do?genus=Temnothorax&species=muellerianus&rank=species",
     "antcat_url": null,
     "gbif_id": null,
     "habitat_notes_en": "Woodlands, rocky habitats. Nests in natural micro-cavities.",
