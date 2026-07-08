@@ -688,9 +688,11 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
                   {lang === 'it' ? 'Non riesco a vederlo →' : "Can't see it →"}
                 </button>
               </div>
-              <p className="text-sm font-medium text-gray-800 mb-3">
+              {/* div, not p: annotateWithGlossary renders GlossaryTooltip (a block
+                  <div role="tooltip">), which is invalid inside <p> and breaks hydration. */}
+              <div className="text-sm font-medium text-gray-800 mb-3">
                 {annotateWithGlossary(lang === 'it' ? bestChar.name_it : bestChar.name_en)}
-              </p>
+              </div>
               <div className="flex flex-wrap gap-2">
                 {bestChar.states.map(state => {
                   const impact = selectedStates.length > 0 ? predictStateImpact(bestChar.id, state.value) : 0;
@@ -776,9 +778,9 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
                       className="p-3 rounded-lg border border-gray-200 hover:border-gray-300 transition-all"
                     >
                       <div className="flex items-start gap-2 mb-2">
-                        <p className="text-sm font-medium text-gray-700 flex-1">
+                        <div className="text-sm font-medium text-gray-700 flex-1">
                           {annotateWithGlossary(lang === 'it' ? char.name_it : char.name_en)}
-                        </p>
+                        </div>
                         <button
                           onClick={() => hideCharacter(char.id)}
                           className="flex-shrink-0 text-gray-300 hover:text-gray-600 text-xs transition-colors cursor-pointer"
