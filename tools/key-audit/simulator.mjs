@@ -157,15 +157,25 @@ export function characterEntropy(charId, scoredGenera, matrixLookup) {
  * CURRENT candidate set (mirror of IdentificationKey.tsx bestCharacterId).
  * @returns { id, entropy } or null if no informative character remains.
  */
-export function bestNextCharacter(scoredGenera, characters, matrixLookup, usedIds = new Set(), hiddenIds = new Set()) {
-  let bestId = '';
-  let bestScore = -1;
-  for (const char of characters) {
-    if (usedIds.has(char.id) || hiddenIds.has(char.id)) continue;
-    const e = characterEntropy(char.id, scoredGenera, matrixLookup);
-    if (e > bestScore) { bestScore = e; bestId = char.id; }
+export function bestNextCharacter(scoredGenera, characters, matrixLookup, usedIds = new Set(), hiddenIds = new Set(), preferEasy = false) {
+  const pick = (cands) => {
+    let bestId = '';
+    let bestScore = -1;
+    for (const char of cands) {
+      if (usedIds.has(char.id) || hiddenIds.has(char.id)) continue;
+      const e = characterEntropy(char.id, scoredGenera, matrixLookup);
+      if (e > bestScore) { bestScore = e; bestId = char.id; }
+    }
+    return { bestId, bestScore };
+  };
+  // Item 1.4: prefer non-hard (easy/medium) characters; fall back to a hard one only
+  // if no easier character discriminates. Mirror of IdentificationKey.tsx bestCharacterId.
+  if (preferEasy) {
+    const easier = pick(characters.filter(c => c.difficulty !== 'hard'));
+    if (easier.bestId && easier.bestScore > 0) return { id: easier.bestId, entropy: easier.bestScore };
   }
-  return bestId ? { id: bestId, entropy: bestScore } : null;
+  const r = pick(characters);
+  return r.bestId ? { id: r.bestId, entropy: r.bestScore } : null;
 }
 
 export function selectionToString(sel, charById) {
