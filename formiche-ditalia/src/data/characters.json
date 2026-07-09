@@ -355,8 +355,8 @@
  },
  {
   "id": "gen-12",
-  "name_it": "Propodeo (Myrmicinae)",
-  "name_en": "Propodeum (Myrmicinae)",
+  "name_it": "Propodeo",
+  "name_en": "Propodeum",
   "description_it": "",
   "body_region": "thorax",
   "difficulty": "medium",
@@ -365,17 +365,22 @@
   "states": [
    {
     "value": "0",
-    "label_it": "senza denti o spine",
-    "label_en": "without teeth or spines"
+    "label_it": "arrotondato",
+    "label_en": "rounded / unarmed"
    },
    {
     "value": "1",
-    "label_it": "con denti o spine",
-    "label_en": "with teeth or spines"
+    "label_it": "con denti",
+    "label_en": "with teeth"
+   },
+   {
+    "value": "2",
+    "label_it": "con spine",
+    "label_en": "with spines"
    }
   ],
   "level": "genus",
-  "subfamily_scope": "myrmicinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-13",
@@ -1046,30 +1051,6 @@
     "value": "1",
     "label_it": "molto vicino al margine posteriore del clipeo",
     "label_en": "very close to the posterior clypeal margin"
-   }
-  ],
-  "level": "genus",
-  "subfamily_scope": "formicinae"
- },
- {
-  "id": "gen-41",
-  "name_it": "Propodeo (Formicinae)",
-  "name_en": "Propodeum (Formicinae)",
-  "description_it": "",
-  "body_region": "thorax",
-  "difficulty": "medium",
-  "display_order": 41,
-  "illustration_url": null,
-  "states": [
-   {
-    "value": "0",
-    "label_it": "arrotondato",
-    "label_en": "rounded"
-   },
-   {
-    "value": "1",
-    "label_it": "armato con 2 denti",
-    "label_en": "armed with 2 teeth"
    }
   ],
   "level": "genus",
