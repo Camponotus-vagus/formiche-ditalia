@@ -4447,7 +4447,7 @@
     "genus_id": "cryptopone",
     "character_id": "gen-6",
     "state_values": [
-      "?"
+      "0"
     ]
   },
   {
@@ -4694,7 +4694,8 @@
     "genus_id": "stigmatomma",
     "character_id": "gen-8",
     "state_values": [
-      "?"
+      "2",
+      "3"
     ]
   },
   {
@@ -4836,7 +4837,7 @@
     "genus_id": "brachyponera",
     "character_id": "gen-8",
     "state_values": [
-      "?"
+      "5"
     ]
   },
   {
@@ -5488,14 +5489,16 @@
     "genus_id": "dorylus",
     "character_id": "gen-21",
     "state_values": [
-      "?"
+      "1",
+      "2",
+      "3"
     ]
   },
   {
     "genus_id": "dorylus",
     "character_id": "gen-27",
     "state_values": [
-      "?"
+      "0"
     ]
   },
   {
