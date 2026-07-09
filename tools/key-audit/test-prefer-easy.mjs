@@ -11,7 +11,7 @@
 //      genera, and uses strictly fewer 'hard' characters than the default path.
 
 import {
-  loadData, score, isUniqueTop, characterEntropy, bestNextCharacter,
+  loadData, score, isUniqueTopWithinSubfamily, characterEntropy, bestNextCharacter,
 } from './simulator.mjs';
 
 const { genera, characters, matrixLookup, charById } = loadData();
@@ -41,7 +41,7 @@ function guidedPath(targetId, maxMismatches, preferEasy) {
   let hardUsed = 0;
   let scored = score(sels, genera, matrixLookup, charById, maxMismatches);
   for (let step = 0; step < characters.length; step++) {
-    if (isUniqueTop(targetId, sels, genera, matrixLookup, charById, maxMismatches).unique) break;
+    if (isUniqueTopWithinSubfamily(targetId, sels, genera, matrixLookup, charById, maxMismatches).unique) break;
     const answerable = characters.filter(c => {
       if (used.has(c.id)) return false;
       const tv = matrixLookup[targetId]?.[c.id];
@@ -67,7 +67,7 @@ function guidedPath(targetId, maxMismatches, preferEasy) {
     sels.push({ characterId: choice.id, value: matrixLookup[targetId][choice.id][0], weight: 1 });
     scored = score(sels, genera, matrixLookup, charById, maxMismatches);
   }
-  const uniq = isUniqueTop(targetId, sels, genera, matrixLookup, charById, maxMismatches);
+  const uniq = isUniqueTopWithinSubfamily(targetId, sels, genera, matrixLookup, charById, maxMismatches);
   return { ok: uniq.unique, steps: sels.length, hardUsed };
 }
 

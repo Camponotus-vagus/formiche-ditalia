@@ -12,10 +12,14 @@
 //     IDENTICAL profiles (distance 0); Step 4 (2026-07-07) added gen-45/gen-46
 //     specifically to separate the Formicinae trio, so they must now DIFFER. This
 //     assertion was updated from `=== 0` to `> 0` at that point.
-//   - GLOBAL GUARD (self-validating, mirrors sanity.mjs "0 identical-profile pairs"):
-//     no genus pair may have differences === 0 while comparable > 0. Such a pair is a
-//     true indistinguishable — two genera sharing evidence yet disjoint on nothing.
-//     This turns P6 into a live regression net for every future matrix edit.
+//   - WITHIN-SUBFAMILY GUARD (globalized-key design, 2026-07-09): no two genera of the
+//     SAME subfamily may have differences === 0 while comparable > 0 (a true
+//     indistinguishable). Cross-subfamily pairs are intentionally NOT flagged: after
+//     character globalization, genera of different subfamilies share the global
+//     characters as comparable ground and may legitimately tie on them — in the key
+//     they are separated by the subfamily mechanism (>=2-concordant impliedSubfamily) +
+//     subfamily-scoped characters, not by shared-character distance. See
+//     docs/superpowers/specs/2026-07-09-character-globalization-design.md §6.
 
 import { loadData } from './simulator.mjs';
 import { pairwiseDistance, pairwiseReport } from './pairwise-distance.mjs';
@@ -46,11 +50,16 @@ const selfResult = pairwiseDistance('aphaenogaster', 'aphaenogaster', characters
 log(selfResult.differences === 0,
     `self pair (aphaenogaster vs aphaenogaster) differences=0 (got ${selfResult.differences})`);
 
-// Global guard: no real indistinguishable pair (differences=0 with shared evidence).
+// Within-subfamily guard: no real indistinguishable pair OF THE SAME SUBFAMILY
+// (differences=0 with shared evidence). Cross-subfamily ties are acceptable by design
+// (see header note) — they are broken by the subfamily mechanism, not shared-character
+// distance.
+const subById = Object.fromEntries(genera.map(g => [g.id, g.subfamily_id]));
 const { all } = pairwiseReport(characters, genera, matrixLookup, 2);
-const trueIndistinguishable = all.filter(r => r.differences === 0 && r.comparable > 0);
+const trueIndistinguishable = all.filter(
+  r => r.differences === 0 && r.comparable > 0 && subById[r.a] === subById[r.b]);
 log(trueIndistinguishable.length === 0,
-    `no genus pair with differences=0 & comparable>0 (found ${trueIndistinguishable.length}${
+    `no SAME-subfamily pair with differences=0 & comparable>0 (found ${trueIndistinguishable.length}${
       trueIndistinguishable.length ? ': ' + trueIndistinguishable.map(r => `${r.a}×${r.b}`).join(', ') : ''})`);
 
 if (failures === 0) {

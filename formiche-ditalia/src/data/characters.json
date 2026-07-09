@@ -59,8 +59,8 @@
  },
  {
   "id": "gen-3",
-  "name_it": "Numero di segmenti antennali (Myrmicinae)",
-  "name_en": "Antennal segments (Myrmicinae)",
+  "name_it": "Numero di segmenti antennali",
+  "name_en": "Number of antennal segments",
   "description_it": "",
   "body_region": "antennae",
   "difficulty": "medium",
@@ -94,7 +94,7 @@
    }
   ],
   "level": "genus",
-  "subfamily_scope": "myrmicinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-4",
@@ -166,8 +166,8 @@
  },
  {
   "id": "gen-6",
-  "name_it": "Forma delle mandibole (Myrmicinae)",
-  "name_en": "Mandibular shape (Myrmicinae)",
+  "name_it": "Forma delle mandibole",
+  "name_en": "Mandibular shape",
   "description_it": "",
   "body_region": "head",
   "difficulty": "medium",
@@ -183,10 +183,15 @@
     "value": "1",
     "label_it": "stretto e allungato, a sciabola",
     "label_en": "narrow and elongate, sabre-like"
+   },
+   {
+    "value": "2",
+    "label_it": "falciforme",
+    "label_en": "falciform"
    }
   ],
   "level": "genus",
-  "subfamily_scope": "myrmicinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-7",
@@ -234,8 +239,8 @@
  },
  {
   "id": "gen-8",
-  "name_it": "Formula palpale (Myrmicinae)",
-  "name_en": "Palp formula (Myrmicinae)",
+  "name_it": "Formula palpale",
+  "name_en": "Palp formula",
   "description_it": "",
   "body_region": "head",
   "difficulty": "hard",
@@ -244,18 +249,63 @@
   "states": [
    {
     "value": "0",
-    "label_it": "da 1,2 a 5,3",
-    "label_en": "from 1,2 to 5,3"
-   },
-   {
-    "value": "1",
     "label_it": "6,4",
     "label_en": "6,4"
    },
    {
+    "value": "1",
+    "label_it": "5,4",
+    "label_en": "5,4"
+   },
+   {
     "value": "2",
+    "label_it": "5,3",
+    "label_en": "5,3"
+   },
+   {
+    "value": "3",
+    "label_it": "4,3",
+    "label_en": "4,3"
+   },
+   {
+    "value": "4",
+    "label_it": "4,2",
+    "label_en": "4,2"
+   },
+   {
+    "value": "5",
+    "label_it": "3,3",
+    "label_en": "3,3"
+   },
+   {
+    "value": "6",
+    "label_it": "3,2",
+    "label_en": "3,2"
+   },
+   {
+    "value": "7",
+    "label_it": "2,3",
+    "label_en": "2,3"
+   },
+   {
+    "value": "8",
+    "label_it": "2,2",
+    "label_en": "2,2"
+   },
+   {
+    "value": "9",
+    "label_it": "1,2",
+    "label_en": "1,2"
+   },
+   {
+    "value": "10",
     "label_it": "1,1",
     "label_en": "1,1"
+   },
+   {
+    "value": "11",
+    "label_it": "1,0",
+    "label_en": "1,0"
    },
    {
     "value": "?",
@@ -264,7 +314,7 @@
    }
   ],
   "level": "genus",
-  "subfamily_scope": "myrmicinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-9",
@@ -350,8 +400,8 @@
  },
  {
   "id": "gen-12",
-  "name_it": "Propodeo (Myrmicinae)",
-  "name_en": "Propodeum (Myrmicinae)",
+  "name_it": "Propodeo",
+  "name_en": "Propodeum",
   "description_it": "",
   "body_region": "thorax",
   "difficulty": "medium",
@@ -360,17 +410,22 @@
   "states": [
    {
     "value": "0",
-    "label_it": "senza denti o spine",
-    "label_en": "without teeth or spines"
+    "label_it": "arrotondato",
+    "label_en": "rounded / unarmed"
    },
    {
     "value": "1",
-    "label_it": "con denti o spine",
-    "label_en": "with teeth or spines"
+    "label_it": "con denti",
+    "label_en": "with teeth"
+   },
+   {
+    "value": "2",
+    "label_it": "con spine",
+    "label_en": "with spines"
    }
   ],
   "level": "genus",
-  "subfamily_scope": "myrmicinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-13",
@@ -596,27 +651,47 @@
  },
  {
   "id": "gen-21",
-  "name_it": "Colore (Ponerinae)",
-  "name_en": "Colour (Ponerinae)",
+  "name_it": "Colore del tegumento",
+  "name_en": "Cuticle colour",
   "description_it": "",
   "body_region": "gaster",
-  "difficulty": "easy",
+  "difficulty": "medium",
   "display_order": 21,
   "illustration_url": null,
   "states": [
    {
     "value": "0",
-    "label_it": "testaceo",
-    "label_en": "testaceous"
+    "label_it": "testaceo (giallo-brunastro)",
+    "label_en": "testaceous (yellowish-brown)"
    },
    {
     "value": "1",
-    "label_it": "piceo",
-    "label_en": "piceous"
+    "label_it": "ferrugineo (rossastro)",
+    "label_en": "ferruginous (reddish)"
+   },
+   {
+    "value": "2",
+    "label_it": "bruno",
+    "label_en": "brown"
+   },
+   {
+    "value": "3",
+    "label_it": "piceo (bruno molto scuro)",
+    "label_en": "piceous (very dark brown)"
+   },
+   {
+    "value": "4",
+    "label_it": "nero",
+    "label_en": "black"
+   },
+   {
+    "value": "?",
+    "label_it": "non valutato / sconosciuto",
+    "label_en": "not assessed / unknown"
    }
   ],
   "level": "genus",
-  "subfamily_scope": "ponerinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-22",
@@ -745,8 +820,8 @@
  },
  {
   "id": "gen-27",
-  "name_it": "Colore (Dolichoderinae)",
-  "name_en": "Colour (Dolichoderinae)",
+  "name_it": "Livrea (pattern cromatico)",
+  "name_en": "Colour pattern",
   "description_it": "",
   "body_region": "gaster",
   "difficulty": "easy",
@@ -755,46 +830,22 @@
   "states": [
    {
     "value": "0",
-    "label_it": "uniformemente da bruno a nero",
-    "label_en": "uniformly brown to black"
+    "label_it": "concolore (corpo di un solo colore)",
+    "label_en": "concolorous (uniform)"
    },
    {
     "value": "1",
-    "label_it": "bicolore con mesosoma rosso/rossastro",
-    "label_en": "bicoloured with red/reddish mesosoma"
+    "label_it": "bicolore (tagmata di colori nettamente diversi)",
+    "label_en": "bicoloured (tagmata contrasting)"
    },
    {
-    "value": "2",
-    "label_it": "bicolore senza parti rosse o rossastre",
-    "label_en": "bicoloured without any red or reddish part"
+    "value": "?",
+    "label_it": "non valutato / sconosciuto",
+    "label_en": "not assessed / unknown"
    }
   ],
   "level": "genus",
-  "subfamily_scope": "dolichoderinae"
- },
- {
-  "id": "gen-28",
-  "name_it": "Formula palpale (Dolichoderinae)",
-  "name_en": "Palpal formula (Dolichoderinae)",
-  "description_it": "",
-  "body_region": "head",
-  "difficulty": "hard",
-  "display_order": 28,
-  "illustration_url": null,
-  "states": [
-   {
-    "value": "0",
-    "label_it": "4,3",
-    "label_en": "4,3"
-   },
-   {
-    "value": "1",
-    "label_it": "6,4",
-    "label_en": "6,4"
-   }
-  ],
-  "level": "genus",
-  "subfamily_scope": "dolichoderinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-29",
@@ -941,35 +992,6 @@
   "subfamily_scope": "formicinae"
  },
  {
-  "id": "gen-35",
-  "name_it": "Formula palpale (Formicinae)",
-  "name_en": "Palpal formula (Formicinae)",
-  "description_it": "",
-  "body_region": "head",
-  "difficulty": "hard",
-  "display_order": 35,
-  "illustration_url": null,
-  "states": [
-   {
-    "value": "0",
-    "label_it": "6,4",
-    "label_en": "6,4"
-   },
-   {
-    "value": "1",
-    "label_it": "4,2",
-    "label_en": "4,2"
-   },
-   {
-    "value": "2",
-    "label_it": "5,4",
-    "label_en": "5,4"
-   }
-  ],
-  "level": "genus",
-  "subfamily_scope": "formicinae"
- },
- {
   "id": "gen-36",
   "name_it": "4° articolo del palpo mascellare",
   "name_en": "4th article of the maxillary palp",
@@ -988,30 +1010,6 @@
     "value": "1",
     "label_it": "...circa il doppio del 5o",
     "label_en": "...about twice as long as 5th"
-   }
-  ],
-  "level": "genus",
-  "subfamily_scope": "formicinae"
- },
- {
-  "id": "gen-37",
-  "name_it": "Forma delle mandibole (Formicinae)",
-  "name_en": "Mandibular shape (Formicinae)",
-  "description_it": "",
-  "body_region": "head",
-  "difficulty": "medium",
-  "display_order": 37,
-  "illustration_url": null,
-  "states": [
-   {
-    "value": "0",
-    "label_it": "triangolare",
-    "label_en": "triangular"
-   },
-   {
-    "value": "1",
-    "label_it": "falciforme",
-    "label_en": "falciform"
    }
   ],
   "level": "genus",
@@ -1065,54 +1063,6 @@
     "value": "1",
     "label_it": "molto vicino al margine posteriore del clipeo",
     "label_en": "very close to the posterior clypeal margin"
-   }
-  ],
-  "level": "genus",
-  "subfamily_scope": "formicinae"
- },
- {
-  "id": "gen-40",
-  "name_it": "Numero di segmenti antennali (Formicinae)",
-  "name_en": "Antennal segments (Formicinae)",
-  "description_it": "",
-  "body_region": "antennae",
-  "difficulty": "medium",
-  "display_order": 40,
-  "illustration_url": null,
-  "states": [
-   {
-    "value": "0",
-    "label_it": "11",
-    "label_en": "11"
-   },
-   {
-    "value": "1",
-    "label_it": "12",
-    "label_en": "12"
-   }
-  ],
-  "level": "genus",
-  "subfamily_scope": "formicinae"
- },
- {
-  "id": "gen-41",
-  "name_it": "Propodeo (Formicinae)",
-  "name_en": "Propodeum (Formicinae)",
-  "description_it": "",
-  "body_region": "thorax",
-  "difficulty": "medium",
-  "display_order": 41,
-  "illustration_url": null,
-  "states": [
-   {
-    "value": "0",
-    "label_it": "arrotondato",
-    "label_en": "rounded"
-   },
-   {
-    "value": "1",
-    "label_it": "armato con 2 denti",
-    "label_en": "armed with 2 teeth"
    }
   ],
   "level": "genus",
