@@ -4890,42 +4890,50 @@
     "genus_id": "formicoxenus",
     "character_id": "gen-21",
     "state_values": [
-      "?"
+      "0",
+      "1",
+      "2",
+      "3"
     ]
   },
   {
     "genus_id": "formicoxenus",
     "character_id": "gen-27",
     "state_values": [
-      "?"
+      "0"
     ]
   },
   {
     "genus_id": "harpagoxenus",
     "character_id": "gen-21",
     "state_values": [
-      "?"
+      "0",
+      "1",
+      "2"
     ]
   },
   {
     "genus_id": "harpagoxenus",
     "character_id": "gen-27",
     "state_values": [
-      "?"
+      "0"
     ]
   },
   {
     "genus_id": "leptothorax",
     "character_id": "gen-21",
     "state_values": [
-      "?"
+      "0",
+      "1",
+      "2",
+      "4"
     ]
   },
   {
     "genus_id": "leptothorax",
     "character_id": "gen-27",
     "state_values": [
-      "?"
+      "1"
     ]
   },
   {
@@ -5014,14 +5022,15 @@
     "genus_id": "oxyopomyrmex",
     "character_id": "gen-21",
     "state_values": [
-      "?"
+      "2",
+      "3"
     ]
   },
   {
     "genus_id": "oxyopomyrmex",
     "character_id": "gen-27",
     "state_values": [
-      "?"
+      "0"
     ]
   },
   {
@@ -5071,14 +5080,16 @@
     "genus_id": "strongylognathus",
     "character_id": "gen-21",
     "state_values": [
-      "?"
+      "0",
+      "1",
+      "2"
     ]
   },
   {
     "genus_id": "strongylognathus",
     "character_id": "gen-27",
     "state_values": [
-      "?"
+      "0"
     ]
   },
   {
@@ -5154,14 +5165,17 @@
     "genus_id": "cataglyphis",
     "character_id": "gen-21",
     "state_values": [
-      "?"
+      "1",
+      "2",
+      "3",
+      "4"
     ]
   },
   {
     "genus_id": "cataglyphis",
     "character_id": "gen-27",
     "state_values": [
-      "?"
+      "1"
     ]
   },
   {
@@ -5224,14 +5238,18 @@
     "genus_id": "lepisiota",
     "character_id": "gen-21",
     "state_values": [
-      "?"
+      "0",
+      "1",
+      "2",
+      "3",
+      "4"
     ]
   },
   {
     "genus_id": "lepisiota",
     "character_id": "gen-27",
     "state_values": [
-      "?"
+      "1"
     ]
   },
   {
@@ -5316,14 +5334,14 @@
     "genus_id": "bothriomyrmex",
     "character_id": "gen-21",
     "state_values": [
-      "?"
+      "0"
     ]
   },
   {
     "genus_id": "bothriomyrmex",
     "character_id": "gen-27",
     "state_values": [
-      "?"
+      "0"
     ]
   },
   {
