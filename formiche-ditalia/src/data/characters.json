@@ -59,8 +59,8 @@
  },
  {
   "id": "gen-3",
-  "name_it": "Numero di segmenti antennali (Myrmicinae)",
-  "name_en": "Antennal segments (Myrmicinae)",
+  "name_it": "Numero di segmenti antennali",
+  "name_en": "Number of antennal segments",
   "description_it": "",
   "body_region": "antennae",
   "difficulty": "medium",
@@ -94,7 +94,7 @@
    }
   ],
   "level": "genus",
-  "subfamily_scope": "myrmicinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-4",
@@ -1065,30 +1065,6 @@
     "value": "1",
     "label_it": "molto vicino al margine posteriore del clipeo",
     "label_en": "very close to the posterior clypeal margin"
-   }
-  ],
-  "level": "genus",
-  "subfamily_scope": "formicinae"
- },
- {
-  "id": "gen-40",
-  "name_it": "Numero di segmenti antennali (Formicinae)",
-  "name_en": "Antennal segments (Formicinae)",
-  "description_it": "",
-  "body_region": "antennae",
-  "difficulty": "medium",
-  "display_order": 40,
-  "illustration_url": null,
-  "states": [
-   {
-    "value": "0",
-    "label_it": "11",
-    "label_en": "11"
-   },
-   {
-    "value": "1",
-    "label_it": "12",
-    "label_en": "12"
    }
   ],
   "level": "genus",
