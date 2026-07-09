@@ -166,8 +166,8 @@
  },
  {
   "id": "gen-6",
-  "name_it": "Forma delle mandibole (Myrmicinae)",
-  "name_en": "Mandibular shape (Myrmicinae)",
+  "name_it": "Forma delle mandibole",
+  "name_en": "Mandibular shape",
   "description_it": "",
   "body_region": "head",
   "difficulty": "medium",
@@ -183,10 +183,15 @@
     "value": "1",
     "label_it": "stretto e allungato, a sciabola",
     "label_en": "narrow and elongate, sabre-like"
+   },
+   {
+    "value": "2",
+    "label_it": "falciforme",
+    "label_en": "falciform"
    }
   ],
   "level": "genus",
-  "subfamily_scope": "myrmicinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-7",
@@ -988,30 +993,6 @@
     "value": "1",
     "label_it": "...circa il doppio del 5o",
     "label_en": "...about twice as long as 5th"
-   }
-  ],
-  "level": "genus",
-  "subfamily_scope": "formicinae"
- },
- {
-  "id": "gen-37",
-  "name_it": "Forma delle mandibole (Formicinae)",
-  "name_en": "Mandibular shape (Formicinae)",
-  "description_it": "",
-  "body_region": "head",
-  "difficulty": "medium",
-  "display_order": 37,
-  "illustration_url": null,
-  "states": [
-   {
-    "value": "0",
-    "label_it": "triangolare",
-    "label_en": "triangular"
-   },
-   {
-    "value": "1",
-    "label_it": "falciforme",
-    "label_en": "falciform"
    }
   ],
   "level": "genus",
