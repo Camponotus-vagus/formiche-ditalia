@@ -208,14 +208,14 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     // A user-selected '?' ("unknown") is score-neutral: it must not imply a subfamily.
     const effective = selectedStates.filter(sel => sel.value !== '?');
     if (effective.length === 0) return null;
-    const scopes = new Set(
-      effective.map(sel => {
-        const char = characters.find(c => c.id === sel.characterId);
-        return char?.subfamily_scope;
-      }).filter(Boolean)
-    );
-    // If ALL selected characters belong to the same subfamily → that's the implied subfamily
-    return scopes.size === 1 ? [...scopes][0]! : null;
+    const scoped = effective.map(sel => {
+      const char = characters.find(c => c.id === sel.characterId);
+      return char?.subfamily_scope;
+    }).filter(Boolean);
+    const scopes = new Set(scoped);
+    // Quorum (spec §4): imply a subfamily only when >=2 selected scoped characters
+    // agree. One scoped answer never locks; mixed scopes never lock.
+    return (scopes.size === 1 && scoped.length >= 2) ? [...scopes][0]! : null;
   }, [selectedStates, characters]);
 
   const scoredGenera = useMemo((): ScoredGenus[] => {
