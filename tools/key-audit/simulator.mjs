@@ -28,6 +28,19 @@ export function loadData(dir = DATA_DIR) {
 }
 
 /**
+ * Implied subfamily: returns the shared subfamily_scope ONLY when at least two
+ * selected characters carry it and ALL scoped selections agree. One scoped answer,
+ * mixed scopes, or zero scoped answers → null. Global (null-scope) characters are
+ * ignored via filter(Boolean). Mirror of IdentificationKey.tsx impliedSubfamily.
+ * NOTE: caller passes selections already filtered of user '?' values.
+ */
+export function impliedSubfamily(selections, charById) {
+  const scoped = selections.map(sel => charById[sel.characterId]?.subfamily_scope).filter(Boolean);
+  const scopes = new Set(scoped);
+  return (scopes.size === 1 && scoped.length >= 2) ? [...scopes][0] : null;
+}
+
+/**
  * Run the scoring algorithm.
  * @param selections - array of { characterId, value, weight } (weight in 0..1, default 1)
  * @param genera - genera list (already region-filtered if applicable)
@@ -43,11 +56,8 @@ export function score(selections, genera, matrixLookup, charById, maxMismatches 
   if (selections.length === 0) {
     return genera.map(g => ({ genus: g, score: 1, mismatches: 0, matched: 0 }));
   }
-  // Implied subfamily: if all selected characters share the same subfamily_scope.
-  const scopes = new Set(
-    selections.map(sel => charById[sel.characterId]?.subfamily_scope).filter(Boolean)
-  );
-  const impliedSubfamily = scopes.size === 1 ? [...scopes][0] : null;
+  // Implied subfamily: only when >=2 selected scoped characters agree (spec §4).
+  const impliedSubfamilyVal = impliedSubfamily(selections, charById);
 
   const out = genera.map(genus => {
     let mismatches = 0, matched = 0, missingCount = 0;
@@ -74,7 +84,7 @@ export function score(selections, genera, matrixLookup, charById, maxMismatches 
       }
     }
 
-    const isOutOfScope = impliedSubfamily && genus.subfamily_id !== impliedSubfamily;
+    const isOutOfScope = impliedSubfamilyVal && genus.subfamily_id !== impliedSubfamilyVal;
     let s;
     if (totalWeight > 0) {
       const avgWeight = totalWeight / (matched + mismatches);
