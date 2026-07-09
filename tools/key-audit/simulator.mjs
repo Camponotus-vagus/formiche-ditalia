@@ -165,6 +165,32 @@ export function isUniqueTop(targetId, selections, genera, matrixLookup, charById
 }
 
 /**
+ * Within-subfamily convergence (globalized-key design, 2026-07-09). The target is
+ * "resolved" when it sits at the top score AND no genus of the SAME subfamily is tied
+ * with it. Cross-subfamily genera tied at the top are acceptable: after character
+ * globalization they share the global characters as comparable ground and can legitimately
+ * tie on them — in the key they are separated by the subfamily mechanism (>=2-concordant
+ * impliedSubfamily) + subfamily-scoped characters, not by the entropy-ranked global
+ * suggestion. Mirrors the P6 pairwise-distance within-subfamily guard. See
+ * docs/superpowers/specs/2026-07-09-character-globalization-design.md §6.
+ */
+export function isUniqueTopWithinSubfamily(targetId, selections, genera, matrixLookup, charById, maxMismatches = 1) {
+  const ranked = score(selections, genera, matrixLookup, charById, maxMismatches);
+  if (ranked.length === 0) return { unique: false, reason: 'no-genera-pass-tolerance' };
+  const target = ranked.find(r => r.genus.id === targetId);
+  if (!target) return { unique: false, reason: 'target-eliminated' };
+  const topScore = ranked[0].score;
+  if (target.score < topScore) return { unique: false, reason: 'not-top', top: ranked[0].genus.id };
+  const sub = target.genus.subfamily_id;
+  const sameSubTied = ranked.filter(
+    r => r.score === topScore && r.genus.id !== targetId && r.genus.subfamily_id === sub);
+  if (sameSubTied.length > 0) {
+    return { unique: false, reason: 'tied-within-subfamily', tiedWith: sameSubTied.map(r => r.genus.id) };
+  }
+  return { unique: true, score: target.score };
+}
+
+/**
  * Shannon entropy of a character over a candidate genus set.
  * Mirror of IdentificationKey.tsx calculateCharacterEntropy / bestCharacterId loop:
  * a genus coded '?' (or with no data) for the character contributes nothing; every

@@ -9,14 +9,16 @@
 // answer it truthfully as the target would, and stop when the target is the unique
 // top-ranked genus. Records the number of questions asked.
 //
-// Invariants:
-//   - Every one of the 43 genera converges to a unique top at tolerance 0 AND 1.
+// Invariants (globalized-key design, 2026-07-09):
+//   - Every one of the 43 genera converges to a WITHIN-SUBFAMILY unique top at tolerance
+//     0 AND 1. Cross-subfamily genera tied on the global characters are acceptable (they
+//     are broken in the key by the subfamily mechanism + scoped characters, not by the
+//     entropy-ranked global suggestion) — see isUniqueTopWithinSubfamily and the P6 guard.
 //   - The guided path is far shorter than answering all characters: max questions
-//     stays well under the character count (observed max: 6 @tol0, 8 @tol1 over 46
-//     characters). Guard set at ≤ 12 for headroom against future matrix growth.
+//     stays well under the character count. Guard set at ≤ 12 for headroom.
 
 import {
-  loadData, score, isUniqueTop, characterEntropy,
+  loadData, score, isUniqueTopWithinSubfamily, characterEntropy,
 } from './simulator.mjs';
 
 const { genera, characters, matrixLookup, charById } = loadData();
@@ -34,7 +36,7 @@ function guidedPath(targetId, maxMismatches) {
   const sels = [];
   let scored = score(sels, genera, matrixLookup, charById, maxMismatches);
   for (let step = 0; step < characters.length; step++) {
-    if (isUniqueTop(targetId, sels, genera, matrixLookup, charById, maxMismatches).unique) break;
+    if (isUniqueTopWithinSubfamily(targetId, sels, genera, matrixLookup, charById, maxMismatches).unique) break;
     let bestId = '';
     let bestE = -1;
     for (const c of characters) {
@@ -49,7 +51,7 @@ function guidedPath(targetId, maxMismatches) {
     sels.push({ characterId: bestId, value: matrixLookup[targetId][bestId][0], weight: 1 });
     scored = score(sels, genera, matrixLookup, charById, maxMismatches);
   }
-  const uniq = isUniqueTop(targetId, sels, genera, matrixLookup, charById, maxMismatches);
+  const uniq = isUniqueTopWithinSubfamily(targetId, sels, genera, matrixLookup, charById, maxMismatches);
   return { steps: sels.length, ok: uniq.unique, reason: uniq.reason, tiedWith: uniq.tiedWith };
 }
 
@@ -61,7 +63,7 @@ for (const tol of [0, 1]) {
   const maxSteps = Math.max(...converged.map(r => r.steps));
 
   log(fails.length === 0,
-      `tolerance=${tol}: all ${genera.length} genera converge to a unique top` +
+      `tolerance=${tol}: all ${genera.length} genera converge to a within-subfamily unique top` +
       (fails.length ? ` (failed: ${fails.map(f => `${f.id}(${f.reason}${f.tiedWith ? ':' + f.tiedWith.join('|') : ''})`).join(', ')})` : ''));
   log(maxSteps <= STEP_GUARD,
       `tolerance=${tol}: guided path max=${maxSteps} questions ≤ ${STEP_GUARD} (well below ${characters.length} characters)`);

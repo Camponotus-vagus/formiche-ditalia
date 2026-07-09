@@ -651,27 +651,47 @@
  },
  {
   "id": "gen-21",
-  "name_it": "Colore (Ponerinae)",
-  "name_en": "Colour (Ponerinae)",
+  "name_it": "Colore del tegumento",
+  "name_en": "Cuticle colour",
   "description_it": "",
   "body_region": "gaster",
-  "difficulty": "easy",
+  "difficulty": "medium",
   "display_order": 21,
   "illustration_url": null,
   "states": [
    {
     "value": "0",
-    "label_it": "testaceo",
-    "label_en": "testaceous"
+    "label_it": "testaceo (giallo-brunastro)",
+    "label_en": "testaceous (yellowish-brown)"
    },
    {
     "value": "1",
-    "label_it": "piceo",
-    "label_en": "piceous"
+    "label_it": "ferrugineo (rossastro)",
+    "label_en": "ferruginous (reddish)"
+   },
+   {
+    "value": "2",
+    "label_it": "bruno",
+    "label_en": "brown"
+   },
+   {
+    "value": "3",
+    "label_it": "piceo (bruno molto scuro)",
+    "label_en": "piceous (very dark brown)"
+   },
+   {
+    "value": "4",
+    "label_it": "nero",
+    "label_en": "black"
+   },
+   {
+    "value": "?",
+    "label_it": "non valutato / sconosciuto",
+    "label_en": "not assessed / unknown"
    }
   ],
   "level": "genus",
-  "subfamily_scope": "ponerinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-22",
@@ -800,8 +820,8 @@
  },
  {
   "id": "gen-27",
-  "name_it": "Colore (Dolichoderinae)",
-  "name_en": "Colour (Dolichoderinae)",
+  "name_it": "Livrea (pattern cromatico)",
+  "name_en": "Colour pattern",
   "description_it": "",
   "body_region": "gaster",
   "difficulty": "easy",
@@ -810,22 +830,22 @@
   "states": [
    {
     "value": "0",
-    "label_it": "uniformemente da bruno a nero",
-    "label_en": "uniformly brown to black"
+    "label_it": "concolore (corpo di un solo colore)",
+    "label_en": "concolorous (uniform)"
    },
    {
     "value": "1",
-    "label_it": "bicolore con mesosoma rosso/rossastro",
-    "label_en": "bicoloured with red/reddish mesosoma"
+    "label_it": "bicolore (tagmata di colori nettamente diversi)",
+    "label_en": "bicoloured (tagmata contrasting)"
    },
    {
-    "value": "2",
-    "label_it": "bicolore senza parti rosse o rossastre",
-    "label_en": "bicoloured without any red or reddish part"
+    "value": "?",
+    "label_it": "non valutato / sconosciuto",
+    "label_en": "not assessed / unknown"
    }
   ],
   "level": "genus",
-  "subfamily_scope": "dolichoderinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-29",
