@@ -1000,36 +1000,6 @@
     "species_key_status": "monospecific"
   },
   {
-    "id": "dorylus",
-    "scientific_name": "Dorylus",
-    "subfamily_id": "dorylinae",
-    "common_name_it": "formica legionaria",
-    "common_name_en": "driver ant",
-    "description_it": "Dorylus è un grande genere di formiche legionarie (Dorylinae) diffuso nel Paleotropico, con la sola specie D. fulvus presente in Europa e in Italia. Le operaie sono cieche (occhi composti assenti), fortemente polimorfe — dalle minori (circa 3 mm) ai soldati con capo ingrossato e mandibole falciformi (fino a 10 mm). Antenne a 12 segmenti; peziolo formato da un singolo segmento senza postpeziolo. Il pungiglione è presente e funzionale. D. fulvus conduce una vita interamente sotterranea, foraggiando nel suolo in colonne organizzate per predare artropodi ipogei. In Italia è presente sporadicamente nelle regioni centro-meridionali, in suoli argillosi e ben drenati.",
-    "description_en": "Dorylus is a large genus of army ants (Dorylinae) distributed across the Palaeotropics, with only D. fulvus occurring in Europe and Italy. Workers are blind (compound eyes absent), strongly polymorphic — from minors (about 3 mm) to soldiers with enlarged heads and falcate mandibles (up to 10 mm). Antennae 12-segmented; petiole consisting of a single segment without a postpetiole. Sting present and functional. D. fulvus leads a fully subterranean life, foraging underground in organized columns to prey on hypogaeic arthropods. In Italy it occurs sporadically in central-southern regions, in clay and well-drained soils.",
-    "habitat": null,
-    "nesting": null,
-    "diet": null,
-    "species_count_italy": 1,
-    "endemic_species_count": 0,
-    "distribution_notes": null,
-    "distribution_regions": [],
-    "diagnostic_characters": null,
-    "photo_urls": [
-      "/images/genera/dorylus/head.webp",
-      "/images/genera/dorylus/profile.webp",
-      "/images/genera/dorylus/dorsal.webp"
-    ],
-    "similar_genera": [
-      "leptanilla"
-    ],
-    "references": [],
-    "body_length": "3-10 mm",
-    "diagnostic_characters_en": "Workers completely blind (no compound eyes, no ocelli). Strongly polymorphic, with minor workers (about 3 mm), media workers, and soldiers with hypertrophic heads and long, falcate mandibles (up to 10 mm). Antennae 12-segmented. Mandibles subtriangular with teeth along the inner margin in minor workers, falciform and edentate in major workers. Frontal lobes closely approximated, covering the antennal insertions. Promesonotal suture present. Propodeum unarmed, rounded. Petiole formed by a single segment (no postpetiole); node low and broad. Sting present and functional. Pygidium with lateral teeth. Colour uniformly yellowish-brown to reddish-brown. The complete absence of eyes, combined with extreme worker polymorphism and a single-segmented petiole with functional sting, immediately separates Dorylus from all other Italian ant genera.",
-    "diagnostic_characters_it": "Operaie completamente cieche (senza occhi composti né ocelli). Fortemente polimorfe, con operaie minori (circa 3 mm), operaie medie e soldati con capo ipertrofico e mandibole lunghe e falciformi (fino a 10 mm). Antenne a 12 segmenti. Mandibole subtriangolari con denti lungo il margine interno nelle operaie minori, falciformi ed edentule nei soldati. Lobi frontali ravvicinati, che coprono le inserzioni antennali. Sutura promesonotale presente. Propodeo inerme, arrotondato. Peziolo formato da un singolo segmento (assenza di postpeziolo); nodo basso e largo. Pungiglione presente e funzionale. Pigidio con denti laterali. Colore uniformemente bruno-giallastro a bruno-rossastro. L'assenza completa di occhi, associata all'estremo polimorfismo delle operaie e a un peziolo monosegmentato con pungiglione funzionale, separa immediatamente Dorylus da tutti gli altri generi italiani di formiche.",
-    "species_key_status": "monospecific"
-  },
-  {
     "id": "brachyponera",
     "scientific_name": "Brachyponera",
     "subfamily_id": "ponerinae",

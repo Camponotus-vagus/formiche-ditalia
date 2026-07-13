@@ -140,7 +140,7 @@ md += `---\n\n`;
 
 md += `## Dettaglio per genere\n\n`;
 
-const subOrder = ['myrmicinae', 'formicinae', 'dolichoderinae', 'ponerinae', 'amblyoponinae', 'proceratiinae', 'leptanillinae', 'dorylinae'];
+const subOrder = ['myrmicinae', 'formicinae', 'dolichoderinae', 'ponerinae', 'amblyoponinae', 'proceratiinae', 'leptanillinae'];
 for (const subId of subOrder) {
   if (!generaBySub[subId]) continue;
   const sub = subById[subId];

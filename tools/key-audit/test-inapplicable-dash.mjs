@@ -27,10 +27,8 @@ console.log("Test 3.1: '-' inapplicable code is score-neutral");
 // --- A. the 5 inapplicable cells are exactly ['-'] -------------------------
 const INAPPLICABLE = [
   ['leptanilla', 'gen-5'],   // eyeless (Leptanillinae)
-  ['dorylus', 'gen-5'],      // eyeless (Dorylinae)
   ['stigmatomma', 'gen-16'], // single-waist (Amblyoponinae)
   ['stigmatomma', 'gen-17'],
-  ['dorylus', 'gen-16'],     // single-waist (Dorylinae)
 ];
 for (const [g, c] of INAPPLICABLE) {
   const v = matrixLookup[g]?.[c];
@@ -66,12 +64,12 @@ log(!!rProbe0 && rProbe0.mismatches === 0, `${target} survives probe-only at tol
 
 // --- C. '-' contributes nothing to entropy ---------------------------------
 // gen-5 entropy over all genera must equal the entropy computed while ignoring
-// the two '-' genera (leptanilla, dorylus) — i.e. they simply don't count.
+// the '-' genus (leptanilla) — i.e. it simply doesn't count.
 const allScored = genera.map(g => ({ genus: g }));
 const eWithDash = characterEntropy('gen-5', allScored, matrixLookup);
 const eWithoutDashGenera = characterEntropy(
   'gen-5',
-  allScored.filter(sg => !['leptanilla', 'dorylus'].includes(sg.genus.id)),
+  allScored.filter(sg => !['leptanilla'].includes(sg.genus.id)),
   matrixLookup
 );
 log(Math.abs(eWithDash - eWithoutDashGenera) < 1e-9,

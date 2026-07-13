@@ -1197,5 +1197,92 @@
   ],
   "level": "genus",
   "subfamily_scope": "formicinae"
+ },
+ {
+  "id": "gen-47",
+  "name_it": "Secondo tergite del gastro",
+  "name_en": "Second gastral tergite",
+  "description_it": "",
+  "body_region": "gaster",
+  "difficulty": "medium",
+  "display_order": 47,
+  "illustration_url": null,
+  "states": [
+   {
+    "value": "0",
+    "label_it": "normale, non arcuato a cupola",
+    "label_en": "normal, not dome-arched"
+   },
+   {
+    "value": "1",
+    "label_it": "ipertrofico e fortemente arcuato a cupola (forma la parte più posteriore del gastro, apice rivolto in avanti)",
+    "label_en": "hypertrophied and strongly dome-arched (forms the rearmost part of the gaster, apex directed forward)"
+   },
+   {
+    "value": "?",
+    "label_it": "non valutato / sconosciuto",
+    "label_en": "not assessed / unknown"
+   }
+  ],
+  "level": "genus",
+  "subfamily_scope": null
+ },
+ {
+  "id": "gen-48",
+  "name_it": "Denticolatura del margine clipeale",
+  "name_en": "Clypeal margin denticulation",
+  "description_it": "",
+  "body_region": "head",
+  "difficulty": "medium",
+  "display_order": 48,
+  "illustration_url": null,
+  "states": [
+   {
+    "value": "0",
+    "label_it": "intero o con setole semplici",
+    "label_en": "entire or with simple setae"
+   },
+   {
+    "value": "1",
+    "label_it": "armato di una fila di denticoli spiniformi",
+    "label_en": "armed with a single row of dentiform setae"
+   },
+   {
+    "value": "?",
+    "label_it": "non valutato / sconosciuto",
+    "label_en": "not assessed / unknown"
+   }
+  ],
+  "level": "genus",
+  "subfamily_scope": null
+ },
+ {
+  "id": "gen-49",
+  "name_it": "Lobi frontali e inserzioni antennali",
+  "name_en": "Frontal lobes and antennal insertions",
+  "description_it": "",
+  "body_region": "head",
+  "difficulty": "hard",
+  "display_order": 49,
+  "illustration_url": null,
+  "states": [
+   {
+    "value": "0",
+    "label_it": "lobi frontali presenti, coprono almeno in parte le inserzioni antennali",
+    "label_en": "frontal lobes present, at least partly covering the antennal insertions"
+   },
+   {
+    "value": "1",
+    "label_it": "lobi frontali assenti, inserzioni antennali completamente esposte al margine anteriore del capo",
+    "label_en": "frontal lobes absent, antennal insertions fully exposed at the anterior margin of the head"
+   },
+   {
+    "value": "?",
+    "label_it": "non valutato / sconosciuto",
+    "label_en": "not assessed / unknown"
+   }
+  ],
+  "level": "genus",
+  "subfamily_scope": null
  }
 ]
