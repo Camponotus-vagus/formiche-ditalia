@@ -7,7 +7,7 @@
 //   A. On the full initial candidate set, preferEasy=true never suggests a 'hard'
 //      character (an easy/medium character always discriminates at the start).
 //   B. Following the prefer-easy guided path (restricted to characters the target
-//      genus can actually answer) still reaches a unique ID for every one of the 43
+//      genus can actually answer) still reaches a unique ID for every one of the 42
 //      genera, and uses strictly fewer 'hard' characters than the default path.
 
 import {

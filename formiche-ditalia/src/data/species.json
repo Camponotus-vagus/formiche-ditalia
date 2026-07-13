@@ -1887,30 +1887,6 @@
     "description_en": "The longhorn crazy ant is one of the most widespread invasive ant species in the world. Workers small (2.5-3 mm), monomorphic, dark brown with a faint bluish iridescence. Immediately recognizable by the exceptionally long antennae and legs relative to body size and by its quick, erratic movements. Body covered with abundant erect macrosetae. Forms polygynous, highly populous colonies with numerous queens. Omnivorous, with a preference for sugary liquids. In Italy present mainly in enclosed heated environments."
   },
   {
-    "id": "dorylus-fulvus",
-    "genus_id": "dorylus",
-    "scientific_name": "Dorylus fulvus",
-    "author_year": "(Westwood, 1839)",
-    "status": "native",
-    "subspecies": [],
-    "distribution_regions": [],
-    "altitude_range": null,
-    "photo_urls": [
-      "/images/specie/dorylus-fulvus/head.webp",
-      "/images/specie/dorylus-fulvus/profile.webp",
-      "/images/specie/dorylus-fulvus/dorsal.webp"
-    ],
-    "synonyms": [],
-    "antweb_url": "https://www.antweb.org/browse.do?genus=Dorylus&species=fulvus&rank=species",
-    "antcat_url": null,
-    "gbif_id": null,
-    "habitat_notes_en": "Subterranean in clay and well-drained soils. Found in open Mediterranean landscapes, olive groves, pastures, and occasionally in urban gardens. Strictly hypogaeic; workers never forage on the surface.",
-    "habitat_notes_it": "Sotterranea in suoli argillosi e ben drenati. Presente in paesaggi mediterranei aperti, oliveti, pascoli e occasionalmente in giardini urbani. Strettamente ipogea; le operaie non foraggiano mai in superficie.",
-    "body_length": "3-10 mm",
-    "description_it": "Unica formica legionaria presente in Europa. Operaie completamente cieche, di colore bruno-giallastro a bruno-rossastro, con forte polimorfismo: le minori misurano circa 3 mm, mentre i soldati raggiungono i 10 mm con capo ipertrofico e mandibole falciformi. Conduce vita interamente sotterranea, foraggiando in colonne organizzate per predare artropodi ipogei (larve di coleotteri, lombrichi, termiti). Le colonie sono molto grandi, potenzialmente con centinaia di migliaia di operaie. I maschi sono giganteschi (fino a 3 cm), alati, e vengono talvolta attratti dalle luci artificiali. In Italia presente sporadicamente nelle regioni centro-meridionali.",
-    "description_en": "The only army ant present in Europe. Workers completely blind, yellowish-brown to reddish-brown, with strong polymorphism: minors measure about 3 mm, while soldiers reach 10 mm with hypertrophic heads and falcate mandibles. Leads a fully subterranean life, foraging in organized columns to prey on hypogaeic arthropods (beetle larvae, earthworms, termites). Colonies are very large, potentially with hundreds of thousands of workers. Males are gigantic (up to 3 cm), winged, and are sometimes attracted to artificial lights. In Italy occurs sporadically in central-southern regions."
-  },
-  {
     "id": "brachyponera-chinensis",
     "genus_id": "brachyponera",
     "scientific_name": "Brachyponera chinensis",

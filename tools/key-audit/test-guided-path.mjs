@@ -10,7 +10,7 @@
 // top-ranked genus. Records the number of questions asked.
 //
 // Invariants (globalized-key design, 2026-07-09):
-//   - Every one of the 43 genera converges to a WITHIN-SUBFAMILY unique top at tolerance
+//   - Every one of the 42 genera converges to a WITHIN-SUBFAMILY unique top at tolerance
 //     0 AND 1. Cross-subfamily genera tied on the global characters are acceptable (they
 //     are broken in the key by the subfamily mechanism + scoped characters, not by the
 //     entropy-ranked global suggestion) — see isUniqueTopWithinSubfamily and the P6 guard.
