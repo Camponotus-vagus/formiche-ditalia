@@ -133,7 +133,7 @@
    }
   ],
   "level": "genus",
-  "subfamily_scope": "myrmicinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-5",
@@ -813,10 +813,15 @@
     "value": "2",
     "label_it": "vestigiali o assenti (0-1 ommatidio)",
     "label_en": "vestigial or absent (0-1 ommatidium)"
+   },
+   {
+    "value": "?",
+    "label_it": "non valutato / sconosciuto",
+    "label_en": "not assessed / unknown"
    }
   ],
   "level": "genus",
-  "subfamily_scope": "ponerinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-27",
