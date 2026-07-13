@@ -1,5 +1,12 @@
 # Audit di raggiungibilità della chiave multi-access
 
+> ⚠️ **REPORT STORICO (2026-05-07) — NON riflette lo stato attuale.** Precede lo Step 4
+> (trio formicinae), la globalizzazione dei caratteri (2026-07-09), l'esclusione di
+> Dorylinae e lo Step 2B (2026-07-13). Sui dati attuali **tutti i 42 generi si risolvono
+> univocamente** (nessun genere bloccato). I generi qui indicati come non raggiungibili
+> (Nylanderia, Paratrechina, Leptanilla, ecc.) sono da tempo risolti. Conservato solo come
+> cronaca. Per rigenerarlo: `node tools/key-audit/build-report.mjs`.
+
 **Data:** 2026-05-07  
 **Algoritmo replicato da:** `formiche-ditalia/src/components/IdentificationKey.tsx`  
 **Strumenti:** `tools/key-audit/` (simulator.mjs, discriminate.mjs, deep-search.mjs)  
