@@ -594,7 +594,7 @@
    }
   ],
   "level": "genus",
-  "subfamily_scope": "myrmicinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-19",
@@ -647,7 +647,7 @@
    }
   ],
   "level": "genus",
-  "subfamily_scope": "myrmicinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-21",
