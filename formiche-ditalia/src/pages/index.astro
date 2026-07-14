@@ -74,6 +74,64 @@ const carouselGenera = generaWithPhotos
     </div>
   </section>
 
+  <!-- ═══════ SEZIONE: IL CATALOGO CRESCE (fasi regionali) ═══════ -->
+  <section class="py-16 sm:py-20 bg-forest-50 border-y border-forest-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-forest-900" data-i18n="home_growth_title">Il catalogo cresce</h2>
+        <p class="mt-3 text-base sm:text-lg text-forest-800 leading-relaxed" data-i18n="home_growth_subtitle">
+          Partiamo dalle specie di Roma verso l'intera mirmecofauna italiana, distribuita in tre grandi aree.
+        </p>
+        <div class="mt-6 flex items-baseline justify-center gap-2">
+          <span class="font-display text-5xl font-bold text-forest-700">79</span>
+          <span class="text-2xl font-semibold text-forest-400">/ 267</span>
+        </div>
+        <p class="mt-1 text-sm text-forest-600" data-i18n="home_growth_progress_label">specie italiane già nel catalogo</p>
+      </div>
+
+      <ol class="mt-10 grid gap-4 sm:grid-cols-3">
+        <!-- Area 1: Italia centro-meridionale (S) — prossima tappa (include Roma) -->
+        <li class="rounded-2xl bg-white border-2 border-brand-400 p-5 shadow-sm">
+          <div class="flex items-center gap-2.5 mb-3">
+            <span class="w-6 h-6 rounded-full bg-brand-50 border-2 border-brand-600 flex items-center justify-center flex-shrink-0">
+              <span class="w-2 h-2 rounded-full bg-brand-600"></span>
+            </span>
+            <span class="text-xs font-semibold uppercase tracking-wide text-brand-700" data-i18n="home_growth_phase1_status">Prossima tappa</span>
+          </div>
+          <p class="text-lg font-semibold text-brand-900" data-i18n="home_growth_phase1_area">Italia centro-meridionale</p>
+          <p class="text-sm text-brand-700" data-i18n="home_growth_phase1_detail">la penisola, con Roma</p>
+        </li>
+
+        <!-- Area 2: Italia settentrionale (N) — in programma -->
+        <li class="rounded-2xl bg-gray-50 border border-gray-200 p-5">
+          <div class="flex items-center gap-2.5 mb-3">
+            <span class="w-6 h-6 rounded-full bg-white border-2 border-dashed border-gray-400 flex-shrink-0"></span>
+            <span class="text-xs font-semibold uppercase tracking-wide text-gray-500" data-i18n="home_growth_phase2_status">In programma</span>
+          </div>
+          <p class="text-lg font-semibold text-gray-700" data-i18n="home_growth_phase2_area">Italia settentrionale</p>
+          <p class="text-sm text-gray-500" data-i18n="home_growth_phase2_detail">dalle Alpi all'Emilia-Romagna</p>
+        </li>
+
+        <!-- Area 3: Italia insulare (Si + Sa) — in programma -->
+        <li class="rounded-2xl bg-gray-50 border border-gray-200 p-5">
+          <div class="flex items-center gap-2.5 mb-3">
+            <span class="w-6 h-6 rounded-full bg-white border-2 border-dashed border-gray-400 flex-shrink-0"></span>
+            <span class="text-xs font-semibold uppercase tracking-wide text-gray-500" data-i18n="home_growth_phase3_status">In programma</span>
+          </div>
+          <p class="text-lg font-semibold text-gray-700" data-i18n="home_growth_phase3_area">Italia insulare</p>
+          <p class="text-sm text-gray-500" data-i18n="home_growth_phase3_detail">Sicilia e Sardegna</p>
+        </li>
+      </ol>
+
+      <div class="mt-8 text-center">
+        <a href="/sviluppi" class="inline-flex items-center gap-1.5 text-sm font-semibold text-forest-700 hover:text-forest-800 transition-colors">
+          <span data-i18n="home_growth_link">Segui l'espansione</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M13 5l7 7-7 7" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════ COSA PUOI FARE ═══════ -->
   <section class="py-20 sm:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -198,21 +256,6 @@ const carouselGenera = generaWithPhotos
           <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="home_step3_title">Identifica il genere</h3>
           <p class="text-gray-600 leading-relaxed" data-i18n="home_step3_desc">I generi compatibili vengono ordinati per punteggio. Anche con qualche errore, il risultato corretto resta in evidenza.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════ BANNER ESPANSIONE SPECIE ═══════ -->
-  <section class="py-6 bg-brand-50 border-y border-brand-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center flex-shrink-0">
-          <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
-        </div>
-        <p class="text-sm text-gray-700" data-i18n="home_expansion_notice">
-          <strong class="text-brand-700">Il catalogo cresce!</strong> Attualmente copriamo 79 specie di Roma. Stiamo lavorando per includere tutte le 267+ specie italiane dalla checklist Schifani 2022.
-        </p>
-        <a href="/sviluppi" class="text-sm text-brand-600 font-medium hover:text-brand-700 whitespace-nowrap" data-i18n="home_expansion_link">Scopri di piu</a>
       </div>
     </div>
   </section>
