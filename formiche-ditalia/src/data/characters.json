@@ -541,7 +541,7 @@
    }
   ],
   "level": "genus",
-  "subfamily_scope": "myrmicinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-17",
@@ -570,7 +570,7 @@
    }
   ],
   "level": "genus",
-  "subfamily_scope": "myrmicinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-18",
@@ -1128,8 +1128,8 @@
  },
  {
   "id": "gen-44",
-  "name_it": "Spina sul sternite postpetiolare (Myrmicinae)",
-  "name_en": "Postpetiolar sternite spine (Myrmicinae)",
+  "name_it": "Spina sul sternite postpetiolare",
+  "name_en": "Postpetiolar sternite spine",
   "description_it": "",
   "body_region": "petiole",
   "difficulty": "medium",
@@ -1153,7 +1153,7 @@
    }
   ],
   "level": "genus",
-  "subfamily_scope": "myrmicinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-45",
@@ -1285,6 +1285,30 @@
     "value": "?",
     "label_it": "non valutato / sconosciuto",
     "label_en": "not assessed / unknown"
+   }
+  ],
+  "level": "genus",
+  "subfamily_scope": null
+ },
+ {
+  "id": "gen-50",
+  "name_it": "Segmenti del peduncolo",
+  "name_en": "Waist segments",
+  "description_it": "",
+  "body_region": "petiole",
+  "difficulty": "easy",
+  "display_order": 50,
+  "illustration_url": null,
+  "states": [
+   {
+    "value": "0",
+    "label_it": "1 segmento (solo peziolo)",
+    "label_en": "1 segment (petiole only)"
+   },
+   {
+    "value": "1",
+    "label_it": "2 segmenti (peziolo + postpeziolo)",
+    "label_en": "2 segments (petiole plus postpetiole)"
    }
   ],
   "level": "genus",
