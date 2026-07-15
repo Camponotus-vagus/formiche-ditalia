@@ -203,6 +203,44 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     return lookup;
   }, [matrix]);
 
+  // Helper: calculate entropy of a character among given genera. Single implementation
+  // shared by bestCharacterId, bestEasyCharId and the answer-weight calculation below —
+  // previously three independent copies of this loop existed and only one was fixed
+  // when the entropy-normalisation bug was found, leaving the UI suggestion broken.
+  const calculateCharacterEntropy = (charId: string, generaList: ScoredGenus[]): number => {
+    const stateCounts: Record<string, number> = {};
+    let total = 0;
+    for (const sg of generaList) {
+      const values = matrixLookup[sg.genus.id]?.[charId];
+      // '?' (unknown) and '-' (structurally inapplicable) are both uninformative and must
+      // not enter the distribution — mirror of simulator.mjs characterEntropy.
+      if (!values || values.includes('?') || values.includes('-')) continue;
+      // Each genus contributes probability mass 1, split across its states, so a
+      // multi-state (polymorphic/range) cell does not inflate the distribution.
+      for (const v of values) {
+        stateCounts[v] = (stateCounts[v] || 0) + 1 / values.length;
+      }
+      total++;
+    }
+    if (total === 0) return 0;
+    let entropy = 0;
+    for (const count of Object.values(stateCounts)) {
+      const p = count / total;
+      if (p > 0) entropy -= p * Math.log2(p);
+    }
+    return entropy;
+  };
+
+  // Whether any genus in the list has informative (non-missing, non-'?', non-'-') data
+  // for this character — distinguishes "no data at all" (skip as a candidate question)
+  // from a genuine zero-entropy character (all candidates share one state, still a
+  // valid — if useless — pick), matching the pre-refactor per-site `total === 0` guard.
+  const hasCharacterData = (charId: string, generaList: ScoredGenus[]): boolean =>
+    generaList.some(sg => {
+      const values = matrixLookup[sg.genus.id]?.[charId];
+      return !!values && !values.includes('?') && !values.includes('-');
+    });
+
   // Level 2: Detect implied subfamily from selected characters
   const impliedSubfamily = useMemo(() => {
     // A user-selected '?' ("unknown") is score-neutral: it must not imply a subfamily.
@@ -316,23 +354,8 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
       let bestId = '';
       let bestScore = -1;
       for (const char of candidates) {
-        const stateCounts: Record<string, number> = {};
-        let total = 0;
-        for (const sg of scoredGenera) {
-          const values = matrixLookup[sg.genus.id]?.[char.id];
-          if (!values || values.includes('?') || values.includes('-')) continue;
-          for (const v of values) {
-            stateCounts[v] = (stateCounts[v] || 0) + 1;
-          }
-          total++;
-        }
-        if (total === 0) continue;
-
-        let entropy = 0;
-        for (const count of Object.values(stateCounts)) {
-          const p = count / total;
-          if (p > 0) entropy -= p * Math.log2(p);
-        }
+        if (!hasCharacterData(char.id, scoredGenera)) continue;
+        const entropy = calculateCharacterEntropy(char.id, scoredGenera);
         if (entropy > bestScore) {
           bestScore = entropy;
           bestId = char.id;
@@ -376,23 +399,8 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     let bestScore = -1;
 
     for (const char of easyChars) {
-      const stateCounts: Record<string, number> = {};
-      let total = 0;
-      for (const sg of scoredGenera) {
-        const values = matrixLookup[sg.genus.id]?.[char.id];
-        if (!values || values.includes('?') || values.includes('-')) continue;
-        for (const v of values) {
-          stateCounts[v] = (stateCounts[v] || 0) + 1;
-        }
-        total++;
-      }
-      if (total === 0) continue;
-
-      let entropy = 0;
-      for (const count of Object.values(stateCounts)) {
-        const p = count / total;
-        if (p > 0) entropy -= p * Math.log2(p);
-      }
+      if (!hasCharacterData(char.id, scoredGenera)) continue;
+      const entropy = calculateCharacterEntropy(char.id, scoredGenera);
       if (entropy > bestScore) {
         bestScore = entropy;
         bestId = char.id;
@@ -488,27 +496,6 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
       }
       return false;
     }).length;
-  };
-
-  // Helper: calculate entropy of a character among given genera
-  const calculateCharacterEntropy = (charId: string, generaList: ScoredGenus[]): number => {
-    const stateCounts: Record<string, number> = {};
-    let total = 0;
-    for (const sg of generaList) {
-      const values = matrixLookup[sg.genus.id]?.[charId];
-      if (!values || values.includes('?')) continue;
-      for (const v of values) {
-        stateCounts[v] = (stateCounts[v] || 0) + 1;
-      }
-      total++;
-    }
-    if (total === 0) return 0;
-    let entropy = 0;
-    for (const count of Object.values(stateCounts)) {
-      const p = count / total;
-      if (p > 0) entropy -= p * Math.log2(p);
-    }
-    return entropy;
   };
 
   const scrollToId = (id: string) => {

@@ -202,7 +202,10 @@ export function characterEntropy(charId, scoredGenera, matrixLookup) {
   for (const sg of scoredGenera) {
     const values = matrixLookup[sg.genus.id]?.[charId];
     if (!values || values.includes('?') || values.includes('-')) continue;
-    for (const v of values) stateCounts[v] = (stateCounts[v] || 0) + 1;
+    // Each genus contributes probability mass 1, split across its states: a multi-state
+    // (polymorphic/range) cell must not inflate the distribution. Without this, the
+    // "probabilities" don't sum to 1 and entropy can exceed log2(nStates).
+    for (const v of values) stateCounts[v] = (stateCounts[v] || 0) + 1 / values.length;
     total++;
   }
   if (total === 0) return 0;
