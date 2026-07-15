@@ -32,6 +32,15 @@ interface ScoredGenus {
   matchedCount: number;
 }
 
+// Single definition of "this matrix cell carries usable signal": the cell must exist and
+// be free of meta-codes — '?' (unknown, guide Sec. 4) and '-' (structurally inapplicable,
+// item 3.1) are both uninformative and must never enter an entropy distribution. Kept as
+// one predicate so the entropy calculation and its no-data guard cannot drift apart.
+// Mirror of simulator.mjs isInformative — change both together.
+// Typed as a predicate so callers narrow `string[] | undefined` to `string[]`.
+const isInformative = (values?: string[]): values is string[] =>
+  !!values && !values.includes('?') && !values.includes('-');
+
 const STORAGE_KEY = 'formikey:state:v1';
 
 interface PersistedState {
@@ -212,9 +221,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     let total = 0;
     for (const sg of generaList) {
       const values = matrixLookup[sg.genus.id]?.[charId];
-      // '?' (unknown) and '-' (structurally inapplicable) are both uninformative and must
-      // not enter the distribution — mirror of simulator.mjs characterEntropy.
-      if (!values || values.includes('?') || values.includes('-')) continue;
+      if (!isInformative(values)) continue;
       // Each genus contributes probability mass 1, split across its states, so a
       // multi-state (polymorphic/range) cell does not inflate the distribution.
       for (const v of values) {
@@ -231,15 +238,12 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     return entropy;
   };
 
-  // Whether any genus in the list has informative (non-missing, non-'?', non-'-') data
-  // for this character — distinguishes "no data at all" (skip as a candidate question)
-  // from a genuine zero-entropy character (all candidates share one state, still a
-  // valid — if useless — pick), matching the pre-refactor per-site `total === 0` guard.
+  // Whether any genus in the list has informative data for this character —
+  // distinguishes "no data at all" (skip as a candidate question) from a genuine
+  // zero-entropy character (all candidates share one state, still a valid — if
+  // useless — pick), matching the pre-refactor per-site `total === 0` guard.
   const hasCharacterData = (charId: string, generaList: ScoredGenus[]): boolean =>
-    generaList.some(sg => {
-      const values = matrixLookup[sg.genus.id]?.[charId];
-      return !!values && !values.includes('?') && !values.includes('-');
-    });
+    generaList.some(sg => isInformative(matrixLookup[sg.genus.id]?.[charId]));
 
   // Level 2: Detect implied subfamily from selected characters
   const impliedSubfamily = useMemo(() => {
