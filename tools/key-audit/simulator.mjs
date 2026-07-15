@@ -191,18 +191,41 @@ export function isUniqueTopWithinSubfamily(targetId, selections, genera, matrixL
 }
 
 /**
+ * Single definition of "this matrix cell carries usable signal": the cell must exist and
+ * be free of meta-codes — '?' (unknown) and '-' (structurally inapplicable) are both
+ * uninformative and must never enter an entropy distribution. Kept as one predicate so
+ * the entropy calculation and its no-data guard cannot drift apart.
+ * Mirror of IdentificationKey.tsx isInformative — change both together.
+ */
+export function isInformative(values) {
+  return !!values && !values.includes('?') && !values.includes('-');
+}
+
+/**
+ * Whether any genus in the set has informative data for this character. Distinguishes
+ * "no data at all" (not an askable question) from a genuine zero-entropy character.
+ * Mirror of IdentificationKey.tsx hasCharacterData.
+ */
+export function hasCharacterData(charId, scoredGenera, matrixLookup) {
+  return scoredGenera.some(sg => isInformative(matrixLookup[sg.genus.id]?.[charId]));
+}
+
+/**
  * Shannon entropy of a character over a candidate genus set.
- * Mirror of IdentificationKey.tsx calculateCharacterEntropy / bestCharacterId loop:
- * a genus coded '?' (or with no data) for the character contributes nothing; every
- * real state adds to its bucket; `total` counts genera with usable data.
+ * Mirror of IdentificationKey.tsx calculateCharacterEntropy: a genus coded '?' / '-'
+ * (or with no data) for the character contributes nothing; each contributing genus
+ * splits probability mass 1 across its states; `total` counts genera with usable data.
  */
 export function characterEntropy(charId, scoredGenera, matrixLookup) {
   const stateCounts = {};
   let total = 0;
   for (const sg of scoredGenera) {
     const values = matrixLookup[sg.genus.id]?.[charId];
-    if (!values || values.includes('?') || values.includes('-')) continue;
-    for (const v of values) stateCounts[v] = (stateCounts[v] || 0) + 1;
+    if (!isInformative(values)) continue;
+    // Each genus contributes probability mass 1, split across its states: a multi-state
+    // (polymorphic/range) cell must not inflate the distribution. Without this, the
+    // "probabilities" don't sum to 1 and entropy can exceed log2(nStates).
+    for (const v of values) stateCounts[v] = (stateCounts[v] || 0) + 1 / values.length;
     total++;
   }
   if (total === 0) return 0;
@@ -225,6 +248,10 @@ export function bestNextCharacter(scoredGenera, characters, matrixLookup, usedId
     let bestScore = -1;
     for (const char of cands) {
       if (usedIds.has(char.id) || hiddenIds.has(char.id)) continue;
+      // A character with no informative data in the CURRENT candidate set is not askable:
+      // its entropy is 0, which would still beat the -1 seed and win by default. Mirror of
+      // IdentificationKey.tsx pickBest / bestEasyCharId, which guard the same way.
+      if (!hasCharacterData(char.id, scoredGenera, matrixLookup)) continue;
       const e = characterEntropy(char.id, scoredGenera, matrixLookup);
       if (e > bestScore) { bestScore = e; bestId = char.id; }
     }
