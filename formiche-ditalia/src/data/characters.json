@@ -936,8 +936,8 @@
  },
  {
   "id": "gen-33",
-  "name_it": "Macchie gialle sul gastro",
-  "name_en": "Yellow dots on the gaster",
+  "name_it": "Maculatura del gastro",
+  "name_en": "Gastral maculation",
   "description_it": "",
   "body_region": "gaster",
   "difficulty": "easy",
@@ -951,12 +951,17 @@
    },
    {
     "value": "1",
-    "label_it": "presente, sui primi 2 tergiti",
-    "label_en": "present, on the first 2 tergites"
+    "label_it": "presente (macchie chiare discrete sui tergiti gastrali)",
+    "label_en": "present (discrete pale spots on the gastral tergites)"
+   },
+   {
+    "value": "?",
+    "label_it": "non valutato / sconosciuto",
+    "label_en": "not assessed / unknown"
    }
   ],
   "level": "genus",
-  "subfamily_scope": "dolichoderinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-34",
@@ -1266,6 +1271,35 @@
     "value": "1",
     "label_it": "2 segmenti (peziolo + postpeziolo)",
     "label_en": "2 segments (petiole plus postpetiole)"
+   }
+  ],
+  "level": "genus",
+  "subfamily_scope": null
+ },
+ {
+  "id": "gen-51",
+  "name_it": "Psammoforo",
+  "name_en": "Psammophore",
+  "description_it": "",
+  "body_region": "head",
+  "difficulty": "medium",
+  "display_order": 51,
+  "illustration_url": null,
+  "states": [
+   {
+    "value": "0",
+    "label_it": "assente",
+    "label_en": "absent"
+   },
+   {
+    "value": "1",
+    "label_it": "presente (cesto di setole lunghe e curve sulla faccia ventrale del capo)",
+    "label_en": "present (basket of long curved setae on the ventral surface of the head)"
+   },
+   {
+    "value": "?",
+    "label_it": "non valutato / sconosciuto",
+    "label_en": "not assessed / unknown"
    }
   ],
   "level": "genus",
