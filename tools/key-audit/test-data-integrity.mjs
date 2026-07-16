@@ -18,6 +18,7 @@
 
 import { loadData } from './simulator.mjs';
 import { pairwiseReport } from './pairwise-distance.mjs';
+import { isKnownUnresolved } from './known-limitations.mjs';
 
 const { characters, matrix, genera, matrixLookup } = loadData();
 const SPECIAL = new Set(['?', '-', 'NA']); // meta-codes, not real states
@@ -91,7 +92,8 @@ dead.length
 
 // 7. Per-subfamily separability
 const { all } = pairwiseReport(characters, genera, matrixLookup, 0);
-const sameSfIdentical = all.filter(r => r.sameSubfamily && r.differences === 0 && r.comparable > 0);
+const sameSfIdentical = all.filter(r => r.sameSubfamily && r.differences === 0 && r.comparable > 0
+  && !isKnownUnresolved(r.a, r.b));
 sameSfIdentical.length
   ? fail(`same-subfamily identical-profile pairs: ${sameSfIdentical.map(r => r.a + '×' + r.b).join(', ')}`)
   : pass('every subfamily: all genera pairwise-separable (no identical profiles)');

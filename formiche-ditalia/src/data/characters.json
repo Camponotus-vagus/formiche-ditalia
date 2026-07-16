@@ -195,8 +195,8 @@
  },
  {
   "id": "gen-7",
-  "name_it": "Dentatura mandibolare",
-  "name_en": "Mandibular dentition",
+  "name_it": "Numero di denti mandibolari",
+  "name_en": "Mandibular teeth count",
   "description_it": "",
   "body_region": "head",
   "difficulty": "medium",
@@ -205,28 +205,28 @@
   "states": [
    {
     "value": "0",
-    "label_it": "assente o solo con dente apicale",
-    "label_en": "absent or only with the apical tooth"
+    "label_it": "edentulo o con solo dente apicale (0-1)",
+    "label_en": "edentate or with apical tooth only (0-1)"
    },
    {
     "value": "1",
-    "label_it": "4",
-    "label_en": "4"
+    "label_it": "2-3 denti",
+    "label_en": "2-3 teeth"
    },
    {
     "value": "2",
-    "label_it": "5",
-    "label_en": "5"
+    "label_it": "4-5 denti",
+    "label_en": "4-5 teeth"
    },
    {
     "value": "3",
-    "label_it": "tra 6 e 9",
-    "label_en": "between 6 and 9"
+    "label_it": "6-9 denti",
+    "label_en": "6-9 teeth"
    },
    {
     "value": "4",
-    "label_it": "10 o piu",
-    "label_en": "10 or more"
+    "label_it": "10 o più denti",
+    "label_en": "10 or more teeth"
    },
    {
     "value": "?",
@@ -235,7 +235,7 @@
    }
   ],
   "level": "genus",
-  "subfamily_scope": "myrmicinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-8",
@@ -705,13 +705,13 @@
   "states": [
    {
     "value": "0",
-    "label_it": "con circa 7-9 denti separati",
-    "label_en": "with some 7-9 separated teeth"
+    "label_it": "denti discreti e separati",
+    "label_en": "discrete, separate teeth"
    },
    {
     "value": "1",
-    "label_it": "pochi denti ben definiti, il margine restante per lo piu finemente seghettato",
-    "label_en": "few well defined teeth, the remaining margin mostly finely serrated"
+    "label_it": "margine in gran parte finemente seghettato, con pochi denti ben definiti",
+    "label_en": "margin largely finely serrate, with few well-defined teeth"
    }
   ],
   "level": "genus",
@@ -1015,35 +1015,6 @@
     "value": "1",
     "label_it": "...circa il doppio del 5o",
     "label_en": "...about twice as long as 5th"
-   }
-  ],
-  "level": "genus",
-  "subfamily_scope": "formicinae"
- },
- {
-  "id": "gen-38",
-  "name_it": "Denti mandibolari",
-  "name_en": "Mandibular teeth",
-  "description_it": "",
-  "body_region": "head",
-  "difficulty": "medium",
-  "display_order": 38,
-  "illustration_url": null,
-  "states": [
-   {
-    "value": "0",
-    "label_it": "solo dente apicale",
-    "label_en": "apical tooth only"
-   },
-   {
-    "value": "1",
-    "label_it": "4-6",
-    "label_en": "4-6"
-   },
-   {
-    "value": "2",
-    "label_it": ">=7",
-    "label_en": ">=7"
    }
   ],
   "level": "genus",

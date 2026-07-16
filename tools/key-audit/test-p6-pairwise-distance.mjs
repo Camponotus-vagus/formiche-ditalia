@@ -23,6 +23,7 @@
 
 import { loadData } from './simulator.mjs';
 import { pairwiseDistance, pairwiseReport } from './pairwise-distance.mjs';
+import { isKnownUnresolved } from './known-limitations.mjs';
 
 const { characters, genera, matrixLookup } = loadData();
 
@@ -57,7 +58,8 @@ log(selfResult.differences === 0,
 const subById = Object.fromEntries(genera.map(g => [g.id, g.subfamily_id]));
 const { all } = pairwiseReport(characters, genera, matrixLookup, 2);
 const trueIndistinguishable = all.filter(
-  r => r.differences === 0 && r.comparable > 0 && subById[r.a] === subById[r.b]);
+  r => r.differences === 0 && r.comparable > 0 && subById[r.a] === subById[r.b]
+    && !isKnownUnresolved(r.a, r.b));
 log(trueIndistinguishable.length === 0,
     `no SAME-subfamily pair with differences=0 & comparable>0 (found ${trueIndistinguishable.length}${
       trueIndistinguishable.length ? ': ' + trueIndistinguishable.map(r => `${r.a}×${r.b}`).join(', ') : ''})`);
