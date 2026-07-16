@@ -429,8 +429,8 @@
  },
  {
   "id": "gen-13",
-  "name_it": "Speroni delle tibie medie e posteriori",
-  "name_en": "Spur of middle and hind tibiae",
+  "name_it": "Sperone della tibia posteriore",
+  "name_en": "Metatibial spur",
   "description_it": "",
   "body_region": "legs",
   "difficulty": "hard",
@@ -446,10 +446,20 @@
     "value": "1",
     "label_it": "pettinato",
     "label_en": "pectinate"
+   },
+   {
+    "value": "2",
+    "label_it": "due speroni (uno semplice + uno pettinato)",
+    "label_en": "two spurs (one simple + one pectinate)"
+   },
+   {
+    "value": "?",
+    "label_it": "non valutato / sconosciuto",
+    "label_en": "not assessed / unknown"
    }
   ],
   "level": "genus",
-  "subfamily_scope": "myrmicinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-14",
@@ -712,30 +722,6 @@
     "value": "1",
     "label_it": "margine in gran parte finemente seghettato, con pochi denti ben definiti",
     "label_en": "margin largely finely serrate, with few well-defined teeth"
-   }
-  ],
-  "level": "genus",
-  "subfamily_scope": "ponerinae"
- },
- {
-  "id": "gen-23",
-  "name_it": "Speroni della tibia posteriore",
-  "name_en": "Hind tibia spur(s)",
-  "description_it": "",
-  "body_region": "legs",
-  "difficulty": "hard",
-  "display_order": 23,
-  "illustration_url": null,
-  "states": [
-   {
-    "value": "0",
-    "label_it": "due speroni: uno semplice, uno pettinato",
-    "label_en": "two spurs: one simple, the other pectinate"
-   },
-   {
-    "value": "1",
-    "label_it": "un singolo sperone pettinato",
-    "label_en": "a single pectinate spur"
    }
   ],
   "level": "genus",
