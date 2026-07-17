@@ -1,5 +1,20 @@
 // Builds the final markdown report from report-data.json + extra deep analysis.
 // Output: tools/key-audit/REPORT-key-reachability.md
+//
+// ⚠️ READ BEFORE RUNNING — two things that have bitten people:
+//
+// 1. This script does NOT generate report-data.json. It only *reads* it.
+//    The generator is `discriminate.mjs` (it writes report-data.json at ~line 183).
+//    To refresh the data:  node discriminate.mjs     (it exits 1 by design when it
+//    flags the whitelisted-unreachable lasius×nylanderia pair — not a failure, but
+//    it breaks `&&` chains).
+//
+// 2. Running this OVERWRITES REPORT-key-reachability.md, which is a *deliberately
+//    frozen* 2026-05-07 historical snapshot carrying a hand-written "REPORT STORICO"
+//    banner. Regenerating silently strips that banner and re-dates the file to today.
+//    The hardcoded narrative below (dominance pairs, gen-33 as a formicinae-scoped
+//    character, etc.) describes that OLD state and is stale against the current data.
+//    Do not run this unless you intend to un-freeze and rewrite the report.
 import { loadData, score, compatibleSelections, selectionToString } from './simulator.mjs';
 import fs from 'node:fs';
 
