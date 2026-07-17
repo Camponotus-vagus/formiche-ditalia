@@ -189,11 +189,11 @@
     "pairs": [
       {
         "sels": [
-          "Superficie ventrale del peziolo e postpeziolo=con dente o lobo ben sviluppato",
-          "Clipeo mediano in vista frontale (Myrmicinae)=depresso longitudinalmente, senza carena mediana"
+          "Numero di segmenti antennali=11",
+          "Processo subpeziale=lobo ben sviluppato"
         ],
-        "gap": "0.400",
-        "passingCount": 31
+        "gap": "0.500",
+        "passingCount": 18
       },
       {
         "sels": [
@@ -202,6 +202,14 @@
         ],
         "gap": "0.500",
         "passingCount": 34
+      },
+      {
+        "sels": [
+          "Clipeo mediano in vista frontale (Myrmicinae)=depresso longitudinalmente, senza carena mediana",
+          "Processo subpeziale=lobo ben sviluppato"
+        ],
+        "gap": "0.150",
+        "passingCount": 29
       }
     ],
     "triples": [],
@@ -216,11 +224,6 @@
           "id": "formicoxenus",
           "score": 1,
           "mismatches": 0
-        },
-        {
-          "id": "temnothorax",
-          "score": 0.9655172413793104,
-          "mismatches": 1
         }
       ]
     }
@@ -300,19 +303,19 @@
       },
       {
         "sels": [
-          "Superficie ventrale del peziolo e postpeziolo=con dente o lobo ben sviluppato",
-          "Numero di denti mandibolari=edentulo o con solo dente apicale (0-1)"
-        ],
-        "gap": "0.150",
-        "passingCount": 28
-      },
-      {
-        "sels": [
           "Formula palpale=5,3",
           "Numero di denti mandibolari=edentulo o con solo dente apicale (0-1)"
         ],
         "gap": "0.500",
         "passingCount": 12
+      },
+      {
+        "sels": [
+          "Numero di denti mandibolari=edentulo o con solo dente apicale (0-1)",
+          "Processo subpeziale=dente o spina ben sviluppato"
+        ],
+        "gap": "0.500",
+        "passingCount": 8
       }
     ],
     "triples": [],
@@ -473,14 +476,6 @@
         ],
         "gap": "0.150",
         "passingCount": 30
-      },
-      {
-        "sels": [
-          "Segmenti della clava antennale=indistinta",
-          "Superficie ventrale del peziolo e postpeziolo=al massimo con un piccolo dente o lobo"
-        ],
-        "gap": "0.150",
-        "passingCount": 39
       },
       {
         "sels": [
@@ -1001,14 +996,6 @@
       {
         "sels": [
           "Forma delle mandibole=stretto e allungato, a sciabola",
-          "Superficie ventrale del peziolo e postpeziolo=al massimo con un piccolo dente o lobo"
-        ],
-        "gap": "0.500",
-        "passingCount": 40
-      },
-      {
-        "sels": [
-          "Forma delle mandibole=stretto e allungato, a sciabola",
           "Numero di denti mandibolari=edentulo o con solo dente apicale (0-1)"
         ],
         "gap": "0.500",
@@ -1064,14 +1051,6 @@
       },
       {
         "sels": [
-          "Superficie ventrale del peziolo e postpeziolo=al massimo con un piccolo dente o lobo",
-          "Numero di denti mandibolari=edentulo o con solo dente apicale (0-1)"
-        ],
-        "gap": "0.150",
-        "passingCount": 39
-      },
-      {
-        "sels": [
           "Formula palpale=4,3",
           "Numero di denti mandibolari=edentulo o con solo dente apicale (0-1)"
         ],
@@ -1107,8 +1086,8 @@
     "genus": "strumigenys",
     "subfamily": "myrmicinae",
     "scientific_name": "Strumigenys",
-    "profileSize": 36,
-    "distinctCharCount": 30,
+    "profileSize": 35,
+    "distinctCharCount": 29,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -1168,11 +1147,19 @@
     "pairs": [
       {
         "sels": [
-          "Superficie ventrale del peziolo e postpeziolo=con dente o lobo ben sviluppato",
-          "Livrea (pattern cromatico)=bicolore (tagmata di colori nettamente diversi)"
+          "Colore del tegumento=piceo (bruno molto scuro)",
+          "Processo subpeziale=dente o spina ben sviluppato"
         ],
-        "gap": "0.150",
-        "passingCount": 30
+        "gap": "0.500",
+        "passingCount": 24
+      },
+      {
+        "sels": [
+          "Livrea (pattern cromatico)=bicolore (tagmata di colori nettamente diversi)",
+          "Processo subpeziale=dente o spina ben sviluppato"
+        ],
+        "gap": "0.500",
+        "passingCount": 18
       }
     ],
     "triples": [],
@@ -1468,6 +1455,14 @@
       },
       {
         "sels": [
+          "Margine masticatorio della mandibola=margine in gran parte finemente seghettato, con pochi denti ben definiti",
+          "Processo subpeziale=lobo ben sviluppato"
+        ],
+        "gap": "0.150",
+        "passingCount": 42
+      },
+      {
+        "sels": [
           "Tibia media=senza setole spiniformi sulla superficie esterna",
           "Sviluppo degli occhi=vestigiali o assenti (0-1 ommatidio)"
         ],
@@ -1508,51 +1503,19 @@
       },
       {
         "sels": [
-          "Processo subpeziale=a lobo",
-          "Sviluppo degli occhi=piccoli (2-7 ommatidi)"
+          "Tibia media=senza setole spiniformi sulla superficie esterna",
+          "Processo subpeziale=lobo ben sviluppato"
         ],
         "gap": "0.150",
         "passingCount": 42
       },
       {
         "sels": [
-          "Processo subpeziale=a lobo",
-          "Formula palpale=1,2"
+          "Sviluppo degli occhi=piccoli (2-7 ommatidi)",
+          "Processo subpeziale=lobo ben sviluppato"
         ],
-        "gap": "0.150",
-        "passingCount": 41
-      },
-      {
-        "sels": [
-          "Processo subpeziale=a lobo",
-          "Formula palpale=1,1"
-        ],
-        "gap": "0.150",
-        "passingCount": 41
-      },
-      {
-        "sels": [
-          "Processo subpeziale=a lobo",
-          "Colore del tegumento=piceo (bruno molto scuro)"
-        ],
-        "gap": "0.150",
-        "passingCount": 41
-      },
-      {
-        "sels": [
-          "Processo subpeziale=a lobo",
-          "Numero di denti mandibolari=10 o più denti"
-        ],
-        "gap": "0.150",
-        "passingCount": 42
-      },
-      {
-        "sels": [
-          "Processo subpeziale=a lobo",
-          "Sperone della tibia posteriore=pettinato"
-        ],
-        "gap": "0.150",
-        "passingCount": 42
+        "gap": "0.500",
+        "passingCount": 16
       },
       {
         "sels": [
@@ -1585,6 +1548,30 @@
         ],
         "gap": "0.500",
         "passingCount": 24
+      },
+      {
+        "sels": [
+          "Formula palpale=1,2",
+          "Segmenti del peduncolo=1 segmento (solo peziolo)"
+        ],
+        "gap": "0.500",
+        "passingCount": 24
+      },
+      {
+        "sels": [
+          "Formula palpale=1,2",
+          "Numero di denti mandibolari=6-9 denti"
+        ],
+        "gap": "0.500",
+        "passingCount": 31
+      },
+      {
+        "sels": [
+          "Formula palpale=1,2",
+          "Numero di denti mandibolari=10 o più denti"
+        ],
+        "gap": "0.500",
+        "passingCount": 16
       }
     ],
     "triples": [],
@@ -1612,9 +1599,9 @@
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
-        "char": "gen-25",
-        "val": "1",
-        "label": "Processo subpeziale=con una macchia circolare translucida sottile anteriormente e posteriormente a forma di dente",
+        "char": "gen-15",
+        "val": "3",
+        "label": "Processo subpeziale=finestra translucida (sottile, spesso con dente posteriore)",
         "gap": "0.500",
         "passingCount": 42
       }
@@ -1640,8 +1627,8 @@
     "genus": "bothriomyrmex",
     "subfamily": "dolichoderinae",
     "scientific_name": "Bothriomyrmex",
-    "profileSize": 23,
-    "distinctCharCount": 22,
+    "profileSize": 24,
+    "distinctCharCount": 23,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -1690,11 +1677,6 @@
           "id": "bothriomyrmex",
           "score": 1,
           "mismatches": 0
-        },
-        {
-          "id": "camponotus",
-          "score": 0.8090909090909091,
-          "mismatches": 1
         }
       ]
     }
@@ -1703,8 +1685,8 @@
     "genus": "dolichoderus",
     "subfamily": "dolichoderinae",
     "scientific_name": "Dolichoderus",
-    "profileSize": 25,
-    "distinctCharCount": 22,
+    "profileSize": 26,
+    "distinctCharCount": 23,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -1736,8 +1718,8 @@
     "genus": "linepithema",
     "subfamily": "dolichoderinae",
     "scientific_name": "Linepithema",
-    "profileSize": 24,
-    "distinctCharCount": 22,
+    "profileSize": 25,
+    "distinctCharCount": 23,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -1770,16 +1752,6 @@
           "id": "linepithema",
           "score": 1,
           "mismatches": 0
-        },
-        {
-          "id": "camponotus",
-          "score": 0.8090909090909091,
-          "mismatches": 1
-        },
-        {
-          "id": "lasius",
-          "score": 0.8090909090909091,
-          "mismatches": 1
         }
       ]
     }
@@ -1788,8 +1760,8 @@
     "genus": "liometopum",
     "subfamily": "dolichoderinae",
     "scientific_name": "Liometopum",
-    "profileSize": 25,
-    "distinctCharCount": 22,
+    "profileSize": 26,
+    "distinctCharCount": 23,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -1816,22 +1788,7 @@
         },
         {
           "id": "camponotus",
-          "score": 0.8545454545454546,
-          "mismatches": 0
-        },
-        {
-          "id": "formica",
-          "score": 0.8090909090909091,
-          "mismatches": 1
-        },
-        {
-          "id": "lasius",
-          "score": 0.8090909090909091,
-          "mismatches": 1
-        },
-        {
-          "id": "nylanderia",
-          "score": 0.8090909090909091,
+          "score": 0.8173913043478261,
           "mismatches": 1
         }
       ]
@@ -1841,8 +1798,8 @@
     "genus": "tapinoma",
     "subfamily": "dolichoderinae",
     "scientific_name": "Tapinoma",
-    "profileSize": 26,
-    "distinctCharCount": 22,
+    "profileSize": 27,
+    "distinctCharCount": 23,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -1876,22 +1833,7 @@
         },
         {
           "id": "paratrechina",
-          "score": 0.8545454545454546,
-          "mismatches": 0
-        },
-        {
-          "id": "camponotus",
-          "score": 0.8090909090909091,
-          "mismatches": 1
-        },
-        {
-          "id": "formica",
-          "score": 0.8090909090909091,
-          "mismatches": 1
-        },
-        {
-          "id": "lasius",
-          "score": 0.8090909090909091,
+          "score": 0.8173913043478261,
           "mismatches": 1
         }
       ]
@@ -1901,8 +1843,8 @@
     "genus": "camponotus",
     "subfamily": "formicinae",
     "scientific_name": "Camponotus",
-    "profileSize": 31,
-    "distinctCharCount": 24,
+    "profileSize": 32,
+    "distinctCharCount": 25,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -1975,16 +1917,6 @@
           "id": "camponotus",
           "score": 1,
           "mismatches": 0
-        },
-        {
-          "id": "bothriomyrmex",
-          "score": 0.7583333333333333,
-          "mismatches": 1
-        },
-        {
-          "id": "linepithema",
-          "score": 0.7583333333333333,
-          "mismatches": 1
         }
       ]
     }
@@ -1993,8 +1925,8 @@
     "genus": "cataglyphis",
     "subfamily": "formicinae",
     "scientific_name": "Cataglyphis",
-    "profileSize": 29,
-    "distinctCharCount": 24,
+    "profileSize": 30,
+    "distinctCharCount": 25,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -2026,8 +1958,8 @@
     "genus": "colobopsis",
     "subfamily": "formicinae",
     "scientific_name": "Colobopsis",
-    "profileSize": 30,
-    "distinctCharCount": 24,
+    "profileSize": 31,
+    "distinctCharCount": 25,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -2059,8 +1991,8 @@
     "genus": "formica",
     "subfamily": "formicinae",
     "scientific_name": "Formica",
-    "profileSize": 30,
-    "distinctCharCount": 24,
+    "profileSize": 31,
+    "distinctCharCount": 25,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -2087,12 +2019,7 @@
         },
         {
           "id": "lasius",
-          "score": 0.9583333333333334,
-          "mismatches": 1
-        },
-        {
-          "id": "tapinoma",
-          "score": 0.7583333333333333,
+          "score": 0.96,
           "mismatches": 1
         }
       ]
@@ -2102,8 +2029,8 @@
     "genus": "lasius",
     "subfamily": "formicinae",
     "scientific_name": "Lasius",
-    "profileSize": 31,
-    "distinctCharCount": 24,
+    "profileSize": 32,
+    "distinctCharCount": 25,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -2139,12 +2066,7 @@
         },
         {
           "id": "paratrechina",
-          "score": 0.9583333333333334,
-          "mismatches": 1
-        },
-        {
-          "id": "tapinoma",
-          "score": 0.7583333333333333,
+          "score": 0.96,
           "mismatches": 1
         }
       ]
@@ -2154,8 +2076,8 @@
     "genus": "lepisiota",
     "subfamily": "formicinae",
     "scientific_name": "Lepisiota",
-    "profileSize": 28,
-    "distinctCharCount": 23,
+    "profileSize": 29,
+    "distinctCharCount": 24,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -2220,8 +2142,8 @@
     "genus": "plagiolepis",
     "subfamily": "formicinae",
     "scientific_name": "Plagiolepis",
-    "profileSize": 26,
-    "distinctCharCount": 24,
+    "profileSize": 27,
+    "distinctCharCount": 25,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -2294,8 +2216,8 @@
     "genus": "polyergus",
     "subfamily": "formicinae",
     "scientific_name": "Polyergus",
-    "profileSize": 24,
-    "distinctCharCount": 24,
+    "profileSize": 25,
+    "distinctCharCount": 25,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -2327,8 +2249,8 @@
     "genus": "prenolepis",
     "subfamily": "formicinae",
     "scientific_name": "Prenolepis",
-    "profileSize": 27,
-    "distinctCharCount": 24,
+    "profileSize": 28,
+    "distinctCharCount": 25,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -2352,11 +2274,6 @@
           "id": "prenolepis",
           "score": 1,
           "mismatches": 0
-        },
-        {
-          "id": "tapinoma",
-          "score": 0.7583333333333333,
-          "mismatches": 1
         }
       ]
     }
@@ -2398,8 +2315,8 @@
     "genus": "proceratium",
     "subfamily": "proceratiinae",
     "scientific_name": "Proceratium",
-    "profileSize": 31,
-    "distinctCharCount": 24,
+    "profileSize": 33,
+    "distinctCharCount": 25,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -2431,8 +2348,8 @@
     "genus": "leptanilla",
     "subfamily": "leptanillinae",
     "scientific_name": "Leptanilla",
-    "profileSize": 27,
-    "distinctCharCount": 24,
+    "profileSize": 25,
+    "distinctCharCount": 23,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -2464,8 +2381,8 @@
     "genus": "nylanderia",
     "subfamily": "formicinae",
     "scientific_name": "Nylanderia",
-    "profileSize": 26,
-    "distinctCharCount": 24,
+    "profileSize": 27,
+    "distinctCharCount": 25,
     "discriminationDepth": null,
     "uniqueSingles": [],
     "pairs": [],
@@ -2494,8 +2411,8 @@
     "genus": "paratrechina",
     "subfamily": "formicinae",
     "scientific_name": "Paratrechina",
-    "profileSize": 27,
-    "distinctCharCount": 24,
+    "profileSize": 28,
+    "distinctCharCount": 25,
     "discriminationDepth": 4,
     "uniqueSingles": [],
     "pairs": [],
@@ -2565,12 +2482,7 @@
         },
         {
           "id": "lasius",
-          "score": 0.9583333333333334,
-          "mismatches": 1
-        },
-        {
-          "id": "tapinoma",
-          "score": 0.7583333333333333,
+          "score": 0.96,
           "mismatches": 1
         }
       ]
@@ -2611,6 +2523,14 @@
       },
       {
         "sels": [
+          "Margine masticatorio della mandibola=margine in gran parte finemente seghettato, con pochi denti ben definiti",
+          "Processo subpeziale=dente o spina ben sviluppato"
+        ],
+        "gap": "0.150",
+        "passingCount": 41
+      },
+      {
+        "sels": [
           "Tibia media=senza setole spiniformi sulla superficie esterna",
           "Sviluppo degli occhi=ben sviluppati (medi-grandi, ≥8 ommatidi)"
         ],
@@ -2635,16 +2555,8 @@
       },
       {
         "sels": [
-          "Processo subpeziale=a lobo",
-          "Sviluppo degli occhi=ben sviluppati (medi-grandi, ≥8 ommatidi)"
-        ],
-        "gap": "0.150",
-        "passingCount": 41
-      },
-      {
-        "sels": [
-          "Processo subpeziale=a lobo",
-          "Formula palpale=3,3"
+          "Tibia media=senza setole spiniformi sulla superficie esterna",
+          "Processo subpeziale=dente o spina ben sviluppato"
         ],
         "gap": "0.150",
         "passingCount": 41
@@ -2680,6 +2592,14 @@
         ],
         "gap": "0.500",
         "passingCount": 21
+      },
+      {
+        "sels": [
+          "Segmenti della clava antennale=indistinta",
+          "Processo subpeziale=dente o spina ben sviluppato"
+        ],
+        "gap": "0.500",
+        "passingCount": 27
       }
     ],
     "triples": [],
