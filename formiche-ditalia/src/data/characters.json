@@ -497,8 +497,8 @@
  },
  {
   "id": "gen-15",
-  "name_it": "Superficie ventrale del peziolo e postpeziolo",
-  "name_en": "Ventral surface of petiole and postpetiole",
+  "name_it": "Processo subpeziale",
+  "name_en": "Subpetiolar process",
   "description_it": "",
   "body_region": "petiole",
   "difficulty": "hard",
@@ -507,13 +507,23 @@
   "states": [
    {
     "value": "0",
-    "label_it": "al massimo con un piccolo dente o lobo",
-    "label_en": "at most with a small tooth or lobe"
+    "label_it": "assente o ridotto (al massimo un piccolo dente o lobo)",
+    "label_en": "absent or reduced (at most a small tooth or lobe)"
    },
    {
     "value": "1",
-    "label_it": "con dente o lobo ben sviluppato",
-    "label_en": "with a well developed tooth or lobe"
+    "label_it": "lobo ben sviluppato",
+    "label_en": "well-developed lobe"
+   },
+   {
+    "value": "2",
+    "label_it": "dente o spina ben sviluppato",
+    "label_en": "well-developed tooth or spine"
+   },
+   {
+    "value": "3",
+    "label_it": "finestra translucida (sottile, spesso con dente posteriore)",
+    "label_en": "translucent fenestra (thin, often with a posterior tooth)"
    },
    {
     "value": "?",
@@ -522,7 +532,7 @@
    }
   ],
   "level": "genus",
-  "subfamily_scope": "myrmicinae"
+  "subfamily_scope": null
  },
  {
   "id": "gen-16",
@@ -746,30 +756,6 @@
     "value": "1",
     "label_it": "con setole spiniformi sulla superficie esterna",
     "label_en": "with spine-like bristles on its outer surface"
-   }
-  ],
-  "level": "genus",
-  "subfamily_scope": "ponerinae"
- },
- {
-  "id": "gen-25",
-  "name_it": "Processo subpeziale",
-  "name_en": "Subpetiolar process",
-  "description_it": "",
-  "body_region": "petiole",
-  "difficulty": "hard",
-  "display_order": 25,
-  "illustration_url": null,
-  "states": [
-   {
-    "value": "0",
-    "label_it": "a lobo",
-    "label_en": "lobe-like"
-   },
-   {
-    "value": "1",
-    "label_it": "con una macchia circolare translucida sottile anteriormente e posteriormente a forma di dente",
-    "label_en": "with a circular, translucent thin spot anteriorly and posteriorly tooth-like"
    }
   ],
   "level": "genus",
