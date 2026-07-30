@@ -122,3 +122,66 @@ export interface AnatomyTermPaths {
 }
 
 export type AnatomyPathsData = Record<string, AnatomyTermPaths>;
+
+// --- Blog "L'Occhio Digitale dell'Entomologo" (satellite section under /diario/) ---
+
+export type TerraSlug =
+  | 'messor'
+  | 'polyergus'
+  | 'pheidole'
+  | 'camponotus'
+  | 'atta'
+  | 'strumigenys'
+  | 'tetramorium'
+  | 'stigmatomma';
+
+export interface Terra {
+  slug: TerraSlug;
+  ordinal: number; // 1..8, position along the explorer's journey
+  name_it: string;
+  name_en: string;
+  genus: string; // ant genus name, italicized in the UI
+  pipeline_phase_it: string;
+  pipeline_phase_en: string;
+  blurb_it: string;
+  blurb_en: string;
+}
+
+export type SpedizioneNumero =
+  | '0'
+  | 'I'
+  | 'II'
+  | 'III'
+  | 'IV'
+  | 'V'
+  | 'VI'
+  | 'VII'
+  | 'VIII';
+
+export type SpedizioneStatus = 'concluso' | 'in-corso' | 'futuro';
+
+// A single training run within an expedition. Failed runs are first-class: the
+// blog narrates them, so they carry the same fields as the successful ones.
+export type TappaOutcome = 'successo' | 'fallimento' | 'superata';
+
+export interface Tappa {
+  id: string;
+  label_it: string;
+  label_en: string;
+  outcome: TappaOutcome;
+  metric: string; // headline figure exactly as reported in the postmortem
+}
+
+export interface Spedizione {
+  numero: SpedizioneNumero;
+  slug: string;
+  title_it: string;
+  title_en: string;
+  project_id: string;
+  status: SpedizioneStatus;
+  hardware: string | null;
+  postmortem: string | null; // postmortem filename, for traceability
+  blurb_it: string;
+  blurb_en: string;
+  tappe: Tappa[];
+}

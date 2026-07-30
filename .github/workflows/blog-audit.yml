@@ -1,0 +1,27 @@
+name: blog-audit
+
+# Sibling of key-audit.yml, for the blog section under /diario/. The blog's
+# static tables (Otto Terre, Spedizioni) and, later, its post frontmatter drive
+# page generation and bilingual parity — a duplicate slug or a missing English
+# field ships a broken or half-translated page. Pure Node, no dependencies.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - 'formiche-ditalia/src/data/blog/**'
+      - 'formiche-ditalia/src/content/**'
+      - 'tools/blog-audit/**'
+      - '.github/workflows/blog-audit.yml'
+
+jobs:
+  suite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Run blog-audit suite
+        run: node tools/blog-audit/run-tests.mjs
