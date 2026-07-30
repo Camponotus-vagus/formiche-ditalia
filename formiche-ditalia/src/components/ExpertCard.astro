@@ -6,7 +6,7 @@ interface Props {
 const { expert } = Astro.props;
 ---
 
-<a href={`/esperti/${expert.id}`} class="group block rounded-xl overflow-hidden border border-gray-200 hover:border-brand-400 hover:shadow-lg transition-all duration-200 p-5">
+<a href={`/esperti/${expert.id}/`} class="group block rounded-xl overflow-hidden border border-gray-200 hover:border-brand-400 hover:shadow-lg transition-all duration-200 p-5">
   <div class="flex items-start gap-4">
     {expert.profile_photo_url ? (
       <img

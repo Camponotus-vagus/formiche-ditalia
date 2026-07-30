@@ -44,11 +44,11 @@ const carouselGenera = generaWithPhotos
             La prima guida interattiva alle formiche italiane. Identifica, esplora e scopri la mirmecofauna del nostro paese.
           </p>
           <div class="mt-8 flex flex-col sm:flex-row gap-4">
-            <a href="/identifica" class="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-forest-600 text-white font-semibold hover:bg-forest-700 transition-all shadow-lg shadow-forest-600/25 hover:shadow-xl hover:shadow-forest-600/30 hover:-translate-y-0.5">
+            <a href="/identifica/" class="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-forest-600 text-white font-semibold hover:bg-forest-700 transition-all shadow-lg shadow-forest-600/25 hover:shadow-xl hover:shadow-forest-600/30 hover:-translate-y-0.5">
               <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
               <span data-i18n="home_hero_identify">Inizia a identificare</span>
             </a>
-            <a href="/generi" class="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-white text-forest-700 font-semibold border-2 border-forest-200 hover:border-forest-400 hover:bg-forest-50 transition-all">
+            <a href="/generi/" class="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-white text-forest-700 font-semibold border-2 border-forest-200 hover:border-forest-400 hover:bg-forest-50 transition-all">
               <span data-i18n="home_hero_browse">Esplora il catalogo</span>
             </a>
           </div>
@@ -61,7 +61,7 @@ const carouselGenera = generaWithPhotos
         <div class="lg:hidden mt-8">
           <div class="grid grid-cols-3 gap-2 max-w-sm mx-auto">
             {carouselGenera.slice(0, 6).map((g: any) => (
-              <a href={`/generi/${g.id}`} class="relative rounded-xl overflow-hidden aspect-square shadow-md hover:shadow-lg transition-shadow">
+              <a href={`/generi/${g.id}/`} class="relative rounded-xl overflow-hidden aspect-square shadow-md hover:shadow-lg transition-shadow">
                 <img src={g.photo_url} alt={g.scientific_name} class="w-full h-full object-cover" loading="lazy" />
                 <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-1.5">
                   <p class="text-[10px] font-medium text-white italic truncate">{g.scientific_name}</p>
@@ -124,7 +124,7 @@ const carouselGenera = generaWithPhotos
       </ol>
 
       <div class="mt-8 text-center">
-        <a href="/sviluppi" class="inline-flex items-center gap-1.5 text-sm font-semibold text-forest-700 hover:text-forest-800 transition-colors">
+        <a href="/sviluppi/" class="inline-flex items-center gap-1.5 text-sm font-semibold text-forest-700 hover:text-forest-800 transition-colors">
           <span data-i18n="home_growth_link">Segui l'espansione</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M13 5l7 7-7 7" /></svg>
         </a>
@@ -141,7 +141,7 @@ const carouselGenera = generaWithPhotos
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Identifica -->
-        <a href="/identifica" class="group relative bg-gradient-to-b from-forest-50 to-white rounded-2xl p-8 border border-forest-100 hover:border-forest-300 hover:shadow-lg hover:shadow-forest-100/50 transition-all hover:-translate-y-1">
+        <a href="/identifica/" class="group relative bg-gradient-to-b from-forest-50 to-white rounded-2xl p-8 border border-forest-100 hover:border-forest-300 hover:shadow-lg hover:shadow-forest-100/50 transition-all hover:-translate-y-1">
           <div class="w-14 h-14 rounded-xl bg-forest-100 flex items-center justify-center mb-6 group-hover:bg-forest-200 transition-colors">
             <svg class="w-7 h-7 text-forest-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
           </div>
@@ -154,7 +154,7 @@ const carouselGenera = generaWithPhotos
         </a>
 
         <!-- Esplora -->
-        <a href="/generi" class="group relative bg-gradient-to-b from-brand-50 to-white rounded-2xl p-8 border border-brand-100 hover:border-brand-300 hover:shadow-lg hover:shadow-brand-100/50 transition-all hover:-translate-y-1">
+        <a href="/generi/" class="group relative bg-gradient-to-b from-brand-50 to-white rounded-2xl p-8 border border-brand-100 hover:border-brand-300 hover:shadow-lg hover:shadow-brand-100/50 transition-all hover:-translate-y-1">
           <div class="w-14 h-14 rounded-xl bg-brand-100 flex items-center justify-center mb-6 group-hover:bg-brand-200 transition-colors">
             <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
           </div>
@@ -167,7 +167,7 @@ const carouselGenera = generaWithPhotos
         </a>
 
         <!-- Esperti -->
-        <a href="/esperti" class="group relative bg-gradient-to-b from-gray-50 to-white rounded-2xl p-8 border border-gray-200 hover:border-gray-300 hover:shadow-lg hover:shadow-gray-100/50 transition-all hover:-translate-y-1">
+        <a href="/esperti/" class="group relative bg-gradient-to-b from-gray-50 to-white rounded-2xl p-8 border border-gray-200 hover:border-gray-300 hover:shadow-lg hover:shadow-gray-100/50 transition-all hover:-translate-y-1">
           <div class="w-14 h-14 rounded-xl bg-gray-100 flex items-center justify-center mb-6 group-hover:bg-gray-200 transition-colors">
             <svg class="w-7 h-7 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
           </div>
@@ -190,14 +190,14 @@ const carouselGenera = generaWithPhotos
           <h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900" data-i18n="home_featured_title">Generi in evidenza</h2>
           <p class="mt-3 text-lg text-gray-500" data-i18n="home_featured_subtitle">Alcuni dei generi piu rappresentativi della fauna mirmecologica italiana.</p>
         </div>
-        <a href="/generi" class="hidden sm:inline-flex items-center text-sm font-semibold text-forest-600 hover:text-forest-700 transition-colors">
+        <a href="/generi/" class="hidden sm:inline-flex items-center text-sm font-semibold text-forest-600 hover:text-forest-700 transition-colors">
           <span data-i18n="home_featured_see_all">Vedi tutti</span>
           <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
         </a>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
         {featuredGenera.map((genus: any) => (
-          <a href={`/generi/${genus.id}`} class="group relative rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all hover:-translate-y-1">
+          <a href={`/generi/${genus.id}/`} class="group relative rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all hover:-translate-y-1">
             <div class="aspect-square overflow-hidden bg-gray-100">
               <img
                 src={genus.photo_urls[0]}
@@ -214,7 +214,7 @@ const carouselGenera = generaWithPhotos
         ))}
       </div>
       <div class="mt-8 text-center sm:hidden">
-        <a href="/generi" class="inline-flex items-center text-sm font-semibold text-forest-600 hover:text-forest-700 transition-colors">
+        <a href="/generi/" class="inline-flex items-center text-sm font-semibold text-forest-600 hover:text-forest-700 transition-colors">
           <span data-i18n="home_featured_see_all_mobile">Vedi tutti i generi</span>
           <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
         </a>
@@ -265,7 +265,7 @@ const carouselGenera = generaWithPhotos
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="font-display text-3xl sm:text-4xl font-bold text-white" data-i18n="home_cta_title">Pronto a identificare?</h2>
       <p class="mt-4 text-lg text-forest-100 max-w-xl mx-auto" data-i18n="home_cta_subtitle">La chiave interattiva ti guida passo dopo passo. Non serve essere un esperto per iniziare.</p>
-      <a href="/identifica" class="mt-8 inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white text-forest-700 font-bold text-lg hover:bg-forest-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+      <a href="/identifica/" class="mt-8 inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white text-forest-700 font-bold text-lg hover:bg-forest-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
         <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
         <span data-i18n="home_cta_button">Inizia ora</span>
       </a>

@@ -80,7 +80,7 @@ export default function ExpertsBrowser({ experts }: Props) {
         {filtered.map((expert) => (
           <a
             key={expert.id}
-            href={`/esperti/${expert.id}`}
+            href={`/esperti/${expert.id}/`}
             className="group block rounded-xl overflow-hidden border border-gray-200 hover:border-brand-400 hover:shadow-lg transition-all duration-200 p-5"
           >
             <div className="flex items-start gap-4">

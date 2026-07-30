@@ -92,7 +92,7 @@ export default function GeneraBrowser({ genera, subfamilies, species = [] }: Pro
         {filtered.map((genus) => (
           <a
             key={genus.id}
-            href={`/generi/${genus.id}`}
+            href={`/generi/${genus.id}/`}
             className="group block rounded-xl overflow-hidden border border-gray-200 hover:border-forest-400 hover:shadow-lg transition-all duration-200"
           >
             <div className="aspect-[4/3] overflow-hidden bg-gray-100">
@@ -130,7 +130,7 @@ export default function GeneraBrowser({ genera, subfamilies, species = [] }: Pro
             {filteredSpecies.map((sp) => (
               <a
                 key={sp.id}
-                href={`/specie/${sp.id}`}
+                href={`/specie/${sp.id}/`}
                 className="group flex items-center gap-3 rounded-xl border border-gray-200 hover:border-brand-400 hover:shadow-md p-3 transition-all"
               >
                 <div className="w-14 h-14 rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">

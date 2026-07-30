@@ -1,9 +1,14 @@
 {
+  "trailingSlash": true,
   "redirects": [
-    { "source": "/roadmap", "destination": "/sviluppi", "permanent": true },
-    { "source": "/specie/formica-rufifabris", "destination": "/specie/formica-rufibarbis", "permanent": true },
-    { "source": "/specie/cryptopone-ochraceum", "destination": "/specie/cryptopone-ochracea", "permanent": true },
-    { "source": "/specie/temnothorax-mullerianus", "destination": "/specie/temnothorax-muellerianus", "permanent": true }
+    { "source": "/roadmap", "destination": "/sviluppi/", "permanent": true },
+    { "source": "/roadmap/", "destination": "/sviluppi/", "permanent": true },
+    { "source": "/specie/formica-rufifabris", "destination": "/specie/formica-rufibarbis/", "permanent": true },
+    { "source": "/specie/formica-rufifabris/", "destination": "/specie/formica-rufibarbis/", "permanent": true },
+    { "source": "/specie/cryptopone-ochraceum", "destination": "/specie/cryptopone-ochracea/", "permanent": true },
+    { "source": "/specie/cryptopone-ochraceum/", "destination": "/specie/cryptopone-ochracea/", "permanent": true },
+    { "source": "/specie/temnothorax-mullerianus", "destination": "/specie/temnothorax-muellerianus/", "permanent": true },
+    { "source": "/specie/temnothorax-mullerianus/", "destination": "/specie/temnothorax-muellerianus/", "permanent": true }
   ],
   "headers": [
     {

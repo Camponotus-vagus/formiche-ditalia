@@ -898,7 +898,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
               <a
                 key={genus.id}
                 id={`genus-card-${genus.id}`}
-                href={`/generi/${genus.id}`}
+                href={`/generi/${genus.id}/`}
                 className="group block p-4 rounded-xl border border-gray-200 hover:border-forest-400 hover:shadow-md transition-all"
               >
                 <div className="flex items-start justify-between">
@@ -961,7 +961,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
               <ul className="mt-3 space-y-2.5">
                 {excludedGenera.map(({ genus, reasons }) => (
                   <li key={genus.id} className="text-sm border-l-2 border-red-200 pl-3">
-                    <a href={`/generi/${genus.id}`} className="font-medium italic text-gray-700 hover:text-forest-600 transition-colors">
+                    <a href={`/generi/${genus.id}/`} className="font-medium italic text-gray-700 hover:text-forest-600 transition-colors">
                       {genus.scientific_name}
                     </a>
                     <span className="text-xs text-gray-400 ml-1.5 capitalize">{genus.subfamily_id}</span>

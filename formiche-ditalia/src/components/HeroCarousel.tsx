@@ -83,7 +83,7 @@ export default function HeroCarousel({ genera, intervalMs = 5000 }: Props) {
 
       {/* Info overlay with slide-up animation */}
       <a
-        href={`/generi/${genus.id}`}
+        href={`/generi/${genus.id}/`}
         className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-xl px-4 py-3 shadow-lg hover:bg-white transition-colors"
       >
         <div className="flex items-center justify-between">
