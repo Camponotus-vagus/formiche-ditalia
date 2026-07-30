@@ -1,0 +1,143 @@
+---
+// One page per Expedition: the real ML project behind it, the runs it went
+// through — failures included, they are the point — and its diary pages.
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SPEDIZIONI } from '../../data/blog';
+import { getAllPosts } from '../../utils/blog/posts';
+
+export async function getStaticPaths() {
+  return SPEDIZIONI.map((spedizione) => ({
+    params: { slug: spedizione.slug },
+    props: { spedizione },
+  }));
+}
+
+const { spedizione } = Astro.props;
+const posts = (await getAllPosts()).filter(
+  (p) => 'spedizione' in p.it.data && p.it.data.spedizione === spedizione.numero,
+);
+
+const outcomeClass: Record<string, string> = {
+  successo: 'text-forest-700 border-forest-300 bg-forest-50',
+  fallimento: 'text-brand-800 border-brand-300 bg-brand-50',
+  superata: 'text-gray-600 border-gray-300 bg-gray-50',
+};
+
+const fmt = (d: Date, locale: string) =>
+  d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<BaseLayout title={spedizione.title_it} description={spedizione.blurb_it}>
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <p class="text-xs font-mono text-gray-400 mb-2">
+      <span data-i18n="blog_expedition_label">Spedizione</span> {spedizione.numero}
+    </p>
+    <h1 class="font-display text-3xl sm:text-4xl font-bold text-forest-900">
+      <span data-lang="it">{spedizione.title_it}</span>
+      <span data-lang="en" class="hidden">{spedizione.title_en}</span>
+    </h1>
+
+    <p class="mt-2 text-sm text-gray-500 flex flex-wrap gap-x-3 gap-y-1">
+      <span data-i18n={`blog_status_${spedizione.status}`}>{spedizione.status}</span>
+      {
+        spedizione.hardware && (
+          <>
+            <span aria-hidden="true">·</span>
+            <span>
+              <span data-i18n="blog_hardware_label">Hardware</span>: {spedizione.hardware}
+            </span>
+          </>
+        )
+      }
+    </p>
+
+    <p class="mt-6 text-lg text-gray-700 leading-relaxed">
+      <span data-lang="it" set:html={spedizione.blurb_it.replace(/\*(.+?)\*/g, '<em>$1</em>')} />
+      <span
+        data-lang="en"
+        class="hidden"
+        set:html={spedizione.blurb_en.replace(/\*(.+?)\*/g, '<em>$1</em>')}
+      />
+    </p>
+
+    {
+      spedizione.tappe.length > 0 && (
+        <section class="mt-10">
+          <h2 class="font-display text-xl font-bold text-forest-900 mb-4" data-i18n="blog_stages">
+            Tappe
+          </h2>
+          <ol class="space-y-2">
+            {spedizione.tappe.map((t) => (
+              <li class:list={['rounded-lg border p-3', outcomeClass[t.outcome]]}>
+                <div class="flex flex-wrap items-baseline gap-2">
+                  <span class="font-mono text-xs opacity-70">{t.id}</span>
+                  <span class="font-semibold">
+                    <span data-lang="it">{t.label_it}</span>
+                    <span data-lang="en" class="hidden">
+                      {t.label_en}
+                    </span>
+                  </span>
+                  <span
+                    class="text-xs uppercase tracking-wide opacity-70"
+                    data-i18n={`blog_outcome_${t.outcome}`}
+                  >
+                    {t.outcome}
+                  </span>
+                </div>
+                <p class="text-sm mt-1 opacity-90">
+                  <span data-lang="it">{t.metric_it}</span>
+                  <span data-lang="en" class="hidden">
+                    {t.metric_en}
+                  </span>
+                </p>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )
+    }
+
+    {
+      spedizione.postmortem && (
+        <p class="mt-8 text-xs text-gray-500">
+          <span data-i18n="blog_source_label">Fonte primaria</span>:{' '}
+          <code class="text-gray-600">{spedizione.postmortem}</code>
+        </p>
+      )
+    }
+
+    <section class="mt-12">
+      {
+        posts.length > 0 && (
+          <ul class="space-y-3">
+            {posts.map((p) => (
+              <li class="border-l-4 border-forest-200 pl-4 py-2">
+                <a href={p.href} class="block hover:bg-forest-50/50 rounded -ml-2 pl-2 transition-colors">
+                  <h2 class="font-semibold text-forest-900">
+                    <span data-lang="it">{p.it.data.title}</span>
+                    <span data-lang="en" class="hidden">
+                      {p.en?.data.title ?? p.it.data.title}
+                    </span>
+                  </h2>
+                  <p class="text-sm text-gray-500">
+                    <span data-lang="it">{fmt(p.it.data.publish_date, 'it-IT')}</span>
+                    <span data-lang="en" class="hidden">
+                      {fmt(p.it.data.publish_date, 'en-GB')}
+                    </span>
+                  </p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </section>
+
+    <p class="mt-12">
+      <a href="/diario/" class="text-sm text-forest-700 hover:underline" data-i18n="blog_back_to_diary">
+        Torna al diario
+      </a>
+    </p>
+  </main>
+</BaseLayout>

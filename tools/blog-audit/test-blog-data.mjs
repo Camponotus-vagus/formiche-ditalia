@@ -116,12 +116,16 @@ check(
   badOutcome.map((t) => `${t.spedizione}/${t.id}: ${t.outcome}`).join('; '),
 );
 
-const tappaNoMetric = allTappe.filter((t) => !t.metric).map((t) => `${t.spedizione}/${t.id}`);
-check(
-  'every tappa reports a metric',
-  tappaNoMetric.length === 0,
-  `missing on: ${tappaNoMetric.join(', ')}`,
-);
+for (const field of ['label', 'metric']) {
+  const missing = allTappe
+    .filter((t) => !t[`${field}_it`] || !t[`${field}_en`])
+    .map((t) => `${t.spedizione}/${t.id}`);
+  check(
+    `every tappa has ${field}_it and ${field}_en`,
+    missing.length === 0,
+    `missing on: ${missing.join(', ')}`,
+  );
+}
 
 for (const s of spedizioni) {
   const dupTappe = duplicates(s.tappe.map((t) => t.id));

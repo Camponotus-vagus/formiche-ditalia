@@ -16,35 +16,40 @@
         "label_it": "EfficientNet-B0, 9 specie di Messor",
         "label_en": "EfficientNet-B0, 9 Messor species",
         "outcome": "superata",
-        "metric": "46,9 % val acc (9 classi)"
+        "metric_it": "46,9 % val acc (9 classi)",
+        "metric_en": "46.9% val acc (9 classes)"
       },
       {
         "id": "e1",
         "label_it": "Sweep v1 globale, 403 classi",
         "label_en": "Global v1 sweep, 403 classes",
         "outcome": "successo",
-        "metric": "56,6 % @ 403 classi — +22 pp dal solo filtro di soglia per classe"
+        "metric_it": "56,6 % @ 403 classi — +22 pp dal solo filtro di soglia per classe",
+        "metric_en": "56.6% @ 403 classes — +22 pp from the class-threshold filter alone"
       },
       {
         "id": "e2",
         "label_it": "Sweep italiano, 222 classi",
         "label_en": "Italian sweep, 222 classes",
         "outcome": "successo",
-        "metric": "53 % @ 222 classi — l'Italia è più dura del globale"
+        "metric_it": "53 % @ 222 classi — l'Italia è più dura del globale",
+        "metric_en": "53% @ 222 classes — Italy is harder than the global set"
       },
       {
         "id": "e3",
         "label_it": "Valutazione formale v1",
         "label_en": "Formal v1 evaluation",
         "outcome": "successo",
-        "metric": "53,0 % sp@1 / 86,1 % gen@1 — il genere batte già Jansen 2018"
+        "metric_it": "53,0 % sp@1 / 86,1 % gen@1 — il genere batte già Jansen 2018",
+        "metric_en": "53.0% sp@1 / 86.1% gen@1 — genus already beats Jansen 2018"
       },
       {
         "id": "e3b",
         "label_it": "Fine-tune v1",
         "label_en": "v1 fine-tune",
         "outcome": "fallimento",
-        "metric": "51,9 % sp@1 — overfitting puro su 7,9 K immagini"
+        "metric_it": "51,9 % sp@1 — overfitting puro su 7,9 K immagini",
+        "metric_en": "51.9% sp@1 — pure overfitting on 7.9K images"
       }
     ]
   },
@@ -104,35 +109,40 @@
         "label_it": "Fine-tune 336→512 + testa lineare a due rami",
         "label_en": "336→512 fine-tune + dual-head linear",
         "outcome": "successo",
-        "metric": "77,59 % sp@1 — +3,56 pp sulla v2"
+        "metric_it": "77,59 % sp@1 — +3,56 pp sulla v2",
+        "metric_en": "77.59% sp@1 — +3.56 pp over v2"
       },
       {
         "id": "v3",
         "label_it": "Media dei pesi su tre semi",
         "label_en": "Three-seed weight averaging",
         "outcome": "successo",
-        "metric": "78,61 % sp@1 — +1,02 pp, va in produzione"
+        "metric_it": "78,61 % sp@1 — +1,02 pp, va in produzione",
+        "metric_en": "78.61% sp@1 — +1.02 pp, goes to production"
       },
       {
         "id": "v4",
         "label_it": "PL-Mixup fra congeneri",
         "label_en": "Intra-genus PL-Mixup",
         "outcome": "fallimento",
-        "metric": "78,39 % sp@1 — −0,22 pp, la v3 resta in produzione"
+        "metric_it": "78,39 % sp@1 — −0,22 pp, la v3 resta in produzione",
+        "metric_en": "78.39% sp@1 — −0.22 pp, v3 stays in production"
       },
       {
         "id": "v5",
         "label_it": "Geo-encoder MLP fuso in addestramento",
         "label_en": "MLP geo-encoder fused at training time",
         "outcome": "fallimento",
-        "metric": "78,32 % sp@1 — hash GBIF irrecuperabile, −33 % di copertura geografica"
+        "metric_it": "78,32 % sp@1 — hash GBIF irrecuperabile, −33 % di copertura geografica",
+        "metric_en": "78.32% sp@1 — unrecoverable GBIF hash, −33% geographic coverage"
       },
       {
         "id": "v6",
         "label_it": "SINR fuso all'inferenza",
         "label_en": "SINR fused at inference time",
         "outcome": "successo",
-        "metric": "81,40 % sp@1 (78,73 % sola visione) — primo superamento dell'80 %"
+        "metric_it": "81,40 % sp@1 (78,73 % sola visione) — primo superamento dell'80 %",
+        "metric_en": "81.40% sp@1 (78.73% vision-only) — first crossing of 80%"
       }
     ]
   },

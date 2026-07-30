@@ -14,4 +14,5 @@ export const collections = {
   'note-di-metodo': defineCollection({ loader: md('note-di-metodo'), schema: methodNoteSchema }),
   'method-notes': defineCollection({ loader: md('method-notes'), schema: methodNoteSchema }),
   intro: defineCollection({ loader: md('intro'), schema: introSchema }),
+  'intro-en': defineCollection({ loader: md('intro-en'), schema: introSchema }),
 };

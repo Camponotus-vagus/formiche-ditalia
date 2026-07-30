@@ -1,0 +1,121 @@
+---
+// Shared layout for diary pages, method notes and the intro post.
+//
+// The route passes both language variants of the body in the default slot, each
+// wrapped in its own [data-lang] block; this layout only frames them.
+
+import BaseLayout from '../BaseLayout.astro';
+import PostHeader from '../../components/blog/PostHeader.astro';
+import type { SpedizioneNumero, TerraSlug } from '../../types';
+
+interface NotaCorrezione {
+  date: Date;
+  description: string;
+}
+
+interface Props {
+  titleIt: string;
+  titleEn: string;
+  descriptionIt: string;
+  date: Date;
+  publishDate: Date;
+  terra?: TerraSlug;
+  spedizione?: SpedizioneNumero;
+  durationMinutes: number;
+  type: 'diario' | 'nota-di-metodo' | 'intro';
+  abstractIt?: string;
+  abstractEn?: string;
+  postmortemSource?: { file: string; section: string };
+  noteCorrezioni?: NotaCorrezione[];
+  ogImage?: string;
+}
+
+const {
+  titleIt,
+  titleEn,
+  descriptionIt,
+  date,
+  publishDate,
+  terra,
+  spedizione,
+  durationMinutes,
+  type,
+  abstractIt,
+  abstractEn,
+  postmortemSource,
+  noteCorrezioni = [],
+  ogImage,
+} = Astro.props;
+---
+
+<BaseLayout title={titleIt} description={descriptionIt} ogImage={ogImage}>
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <PostHeader
+      titleIt={titleIt}
+      titleEn={titleEn}
+      date={date}
+      publishDate={publishDate}
+      terra={terra}
+      spedizione={spedizione}
+      durationMinutes={durationMinutes}
+      type={type}
+    />
+
+    {
+      abstractIt && (
+        <aside class="mb-8 rounded-lg bg-forest-50 border border-forest-100 p-4">
+          <h2 class="text-xs font-semibold uppercase tracking-wide text-forest-700 mb-2" data-i18n="blog_abstract">
+            In breve
+          </h2>
+          <p class="text-sm text-gray-700">
+            <span data-lang="it">{abstractIt}</span>
+            <span data-lang="en" class="hidden">
+              {abstractEn}
+            </span>
+          </p>
+        </aside>
+      )
+    }
+
+    <div
+      class="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-forest-900 prose-a:text-forest-700 prose-a:no-underline hover:prose-a:underline"
+    >
+      <slot />
+    </div>
+
+    {
+      postmortemSource && (
+        <p class="mt-10 pt-6 border-t border-gray-200 text-xs text-gray-500">
+          <span data-i18n="blog_source_label">Fonte primaria</span>:{' '}
+          <code class="text-gray-600">{postmortemSource.file}</code> — {postmortemSource.section}
+        </p>
+      )
+    }
+
+    {
+      noteCorrezioni.length > 0 && (
+        <section class="mt-6 rounded-lg border border-brand-200 bg-brand-50 p-4">
+          <h2 class="text-xs font-semibold uppercase tracking-wide text-brand-800 mb-2" data-i18n="blog_corrections">
+            Correzioni
+          </h2>
+          <ul class="space-y-1 text-sm text-gray-700">
+            {noteCorrezioni.map((n) => (
+              <li>
+                <time datetime={n.date.toISOString()} class="text-gray-500">
+                  {n.date.toLocaleDateString('it-IT')}
+                </time>{' '}
+                — {n.description}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    <p class="mt-10">
+      <a href="/diario/" class="text-sm text-forest-700 hover:underline" data-i18n="blog_back_to_diary">
+        Torna al diario
+      </a>
+    </p>
+  </article>
+</BaseLayout>

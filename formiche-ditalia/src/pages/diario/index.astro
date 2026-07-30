@@ -1,0 +1,126 @@
+---
+// Blog landing. The blog is a satellite of the site, so this page — not the
+// site homepage — is where the Eight Lands map and the expedition register live.
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ExplorerMap from '../../components/blog/ExplorerMap.astro';
+import { SPEDIZIONI } from '../../data/blog';
+import { countByTerra, getAllPosts } from '../../utils/blog/posts';
+
+const posts = await getAllPosts();
+const recent = posts.slice(0, 5);
+const postCounts = countByTerra(posts);
+
+const concluse = SPEDIZIONI.filter((s) => s.status !== 'futuro');
+const future = SPEDIZIONI.filter((s) => s.status === 'futuro');
+
+const fmt = (d: Date, locale: string) =>
+  d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<BaseLayout
+  title="L'Occhio Digitale dell'Entomologo"
+  description="Diario di un'esplorazione: come il deep learning impara a riconoscere le formiche."
+>
+  <section class="bg-gradient-to-b from-forest-50 to-white py-12">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h1
+        class="font-display text-4xl sm:text-5xl font-bold text-forest-900 mb-3"
+        data-i18n="blog_title"
+      >
+        L'Occhio Digitale dell'Entomologo
+      </h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-i18n="blog_tagline">
+        Diario di un'esplorazione: come il deep learning impara a riconoscere le formiche.
+      </p>
+    </div>
+  </section>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <ExplorerMap postCounts={postCounts} />
+
+    <section class="my-12">
+      <h2 class="font-display text-2xl font-bold text-forest-900 mb-4" data-i18n="blog_recent">
+        Ultime tappe
+      </h2>
+      {
+        recent.length === 0 ? (
+          <p class="text-gray-500" data-i18n="blog_no_posts">
+            Nessuna tappa pubblicata, per ora.
+          </p>
+        ) : (
+          <ul class="space-y-3">
+            {recent.map((p) => (
+              <li class="border-l-4 border-forest-200 pl-4 py-2">
+                <a
+                  href={p.href}
+                  class="block hover:bg-forest-50/50 rounded -ml-2 pl-2 transition-colors"
+                >
+                  <h3 class="font-semibold text-forest-900">
+                    <span data-lang="it">{p.it.data.title}</span>
+                    <span data-lang="en" class="hidden">
+                      {p.en?.data.title ?? p.it.data.title}
+                    </span>
+                  </h3>
+                  <p class="text-sm text-gray-500">
+                    <span data-lang="it">{fmt(p.it.data.publish_date, 'it-IT')}</span>
+                    <span data-lang="en" class="hidden">
+                      {fmt(p.it.data.publish_date, 'en-GB')}
+                    </span>
+                  </p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </section>
+
+    <section class="my-12 grid sm:grid-cols-2 gap-8">
+      <div>
+        <h2
+          class="font-display text-lg font-bold text-forest-900 mb-3"
+          data-i18n="blog_expeditions_done"
+        >
+          Spedizioni concluse
+        </h2>
+        <ul class="space-y-1 text-sm">
+          {
+            concluse.map((s) => (
+              <li>
+                <span class="text-gray-400 font-mono text-xs">{s.numero}</span>{' '}
+                <a href={`/spedizioni/${s.slug}/`} class="text-forest-700 hover:underline">
+                  <span data-lang="it">{s.title_it}</span>
+                  <span data-lang="en" class="hidden">
+                    {s.title_en}
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div>
+        <h2
+          class="font-display text-lg font-bold text-forest-900 mb-3"
+          data-i18n="blog_expeditions_future"
+        >
+          Spedizioni future
+        </h2>
+        <ul class="space-y-1 text-sm">
+          {
+            future.map((s) => (
+              <li class="text-gray-600">
+                <span class="text-gray-400 font-mono text-xs">{s.numero}</span>{' '}
+                <span data-lang="it">{s.title_it}</span>
+                <span data-lang="en" class="hidden">
+                  {s.title_en}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

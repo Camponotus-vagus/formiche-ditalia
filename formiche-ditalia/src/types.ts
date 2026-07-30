@@ -169,7 +169,10 @@ export interface Tappa {
   label_it: string;
   label_en: string;
   outcome: TappaOutcome;
-  metric: string; // headline figure exactly as reported in the postmortem
+  // Headline figure exactly as reported in the postmortem. Bilingual because the
+  // gloss after the number ("goes to production") is prose, not just a number.
+  metric_it: string;
+  metric_en: string;
 }
 
 export interface Spedizione {

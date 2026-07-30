@@ -1,0 +1,90 @@
+---
+// Masthead of a blog post: type, Land, Expedition, dates, reading time.
+//
+// The title arrives already split in two languages: both are emitted and the
+// language switcher toggles them (see applyLangBlocks in src/i18n).
+
+import { getSpedizione, getTerra } from '../../data/blog';
+import type { SpedizioneNumero, TerraSlug } from '../../types';
+
+interface Props {
+  titleIt: string;
+  titleEn: string;
+  date: Date;
+  publishDate: Date;
+  terra?: TerraSlug;
+  spedizione?: SpedizioneNumero;
+  durationMinutes: number;
+  type: 'diario' | 'nota-di-metodo' | 'intro';
+}
+
+const { titleIt, titleEn, date, publishDate, terra, spedizione, durationMinutes, type } =
+  Astro.props;
+
+const terraData = terra ? getTerra(terra) : undefined;
+const spedizioneData = spedizione ? getSpedizione(spedizione) : undefined;
+
+const typeKey =
+  type === 'diario' ? 'blog_type_diario' : type === 'intro' ? 'blog_type_intro' : 'blog_type_nota';
+const typeLabelIt =
+  type === 'diario' ? 'Pagina di Diario' : type === 'intro' ? 'Introduzione' : 'Nota di Metodo';
+
+const fmt = (d: Date, locale: string) =>
+  d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<header class="mb-10 pb-8 border-b border-gray-200">
+  <div class="flex flex-wrap items-center gap-2 mb-4 text-xs">
+    <span class="px-2 py-1 rounded bg-forest-100 text-forest-800 font-medium" data-i18n={typeKey}>
+      {typeLabelIt}
+    </span>
+    {
+      terraData && (
+        <a
+          href={`/terre/${terraData.slug}/`}
+          class="px-2 py-1 rounded bg-brand-100 text-brand-800 font-medium hover:bg-brand-200 transition-colors"
+        >
+          <span data-lang="it">{terraData.name_it}</span>
+          <span data-lang="en" class="hidden">
+            {terraData.name_en}
+          </span>
+        </a>
+      )
+    }
+    {
+      spedizioneData && (
+        <a
+          href={`/spedizioni/${spedizioneData.slug}/`}
+          class="px-2 py-1 rounded border border-gray-300 text-gray-600 hover:border-forest-400 transition-colors"
+        >
+          <span data-i18n="blog_expedition_label">Spedizione</span>{' '}
+          {spedizioneData.numero}
+        </a>
+      )
+    }
+  </div>
+
+  <h1 class="font-display text-3xl sm:text-4xl font-bold text-forest-900 leading-tight">
+    <span data-lang="it">{titleIt}</span>
+    <span data-lang="en" class="hidden">{titleEn}</span>
+  </h1>
+
+  <p class="mt-4 text-sm text-gray-500 flex flex-wrap items-center gap-x-3 gap-y-1">
+    <span>
+      <span data-i18n="blog_event_date">Fatti del</span>{' '}
+      <time datetime={date.toISOString()}>
+        <span data-lang="it">{fmt(date, 'it-IT')}</span>
+        <span data-lang="en" class="hidden">{fmt(date, 'en-GB')}</span>
+      </time>
+    </span>
+    <span aria-hidden="true">·</span>
+    <span>
+      {durationMinutes} <span data-i18n="blog_reading_time">min di lettura</span>
+    </span>
+    <span aria-hidden="true">·</span>
+    <time datetime={publishDate.toISOString()} class="text-gray-400">
+      <span data-lang="it">{fmt(publishDate, 'it-IT')}</span>
+      <span data-lang="en" class="hidden">{fmt(publishDate, 'en-GB')}</span>
+    </time>
+  </p>
+</header>
