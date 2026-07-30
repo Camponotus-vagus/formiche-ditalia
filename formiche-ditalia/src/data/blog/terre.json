@@ -1,0 +1,90 @@
+[
+  {
+    "slug": "messor",
+    "ordinal": 1,
+    "name_it": "I Granai di Messor",
+    "name_en": "The Granaries of Messor",
+    "genus": "Messor",
+    "pipeline_phase_it": "tassonomia",
+    "pipeline_phase_en": "taxonomy",
+    "blurb_it": "Le formiche del genere *Messor* raccolgono e immagazzinano semi. Qui si raccolgono e immagazzinano i nomi delle specie: si decide cosa esiste nel mondo che il modello dovrà imparare a riconoscere.",
+    "blurb_en": "*Messor* ants gather and store seeds. Here we gather and store species names: we decide what exists in the world that the model will have to learn to recognize."
+  },
+  {
+    "slug": "polyergus",
+    "ordinal": 2,
+    "name_it": "I Sentieri di Polyergus",
+    "name_en": "The Trails of Polyergus",
+    "genus": "Polyergus",
+    "pipeline_phase_it": "raccolta dati",
+    "pipeline_phase_en": "data collection",
+    "blurb_it": "*Polyergus* è la formica amazzone, che razzia altre colonie. Qui si razziano i grandi archivi (AntWeb, GBIF, iNaturalist) per portare a casa le immagini.",
+    "blurb_en": "*Polyergus* is the Amazon ant, raiding other colonies. Here we raid the great archives (AntWeb, GBIF, iNaturalist) to bring home the images."
+  },
+  {
+    "slug": "pheidole",
+    "ordinal": 3,
+    "name_it": "La Cernita di Pheidole",
+    "name_en": "The Sorting of Pheidole",
+    "genus": "Pheidole",
+    "pipeline_phase_it": "preparazione e split",
+    "pipeline_phase_en": "preparation and split",
+    "blurb_it": "Le *Pheidole* hanno caste maggiori e minori distinte: la colonia *cerne* le sue lavoratrici. Qui si cerne il dataset (deduplicazione, sinonimie, divisione train/val/test) prima di darlo in pasto al modello.",
+    "blurb_en": "*Pheidole* colonies have distinct major and minor castes: the colony *sorts* its workers. Here we sort the dataset (deduplication, synonymies, train/val/test split) before feeding it to the model."
+  },
+  {
+    "slug": "camponotus",
+    "ordinal": 4,
+    "name_it": "Le Stive di Camponotus",
+    "name_en": "The Holds of Camponotus",
+    "genus": "Camponotus",
+    "pipeline_phase_it": "scelta del backbone",
+    "pipeline_phase_en": "backbone choice",
+    "blurb_it": "Il genere *Camponotus* contiene le formiche più grandi e robuste del mondo. Qui si sceglie il *backbone*, l'animale da soma del modello: la rete pre-addestrata che porta tutto il peso visivo della pipeline.",
+    "blurb_en": "The *Camponotus* genus contains the largest and most robust ants in the world. Here we choose the *backbone*, the model's pack animal: the pre-trained network that carries all the visual weight of the pipeline."
+  },
+  {
+    "slug": "atta",
+    "ordinal": 5,
+    "name_it": "I Giardini di Atta",
+    "name_en": "Atta's Gardens",
+    "genus": "Atta",
+    "pipeline_phase_it": "addestramento",
+    "pipeline_phase_en": "training",
+    "blurb_it": "Le *Atta*, formiche tagliafoglie, *coltivano* funghi nutrendoli con foglie tagliate. Qui si coltiva il modello, nutrendolo di immagini.",
+    "blurb_en": "*Atta* leaf-cutter ants *cultivate* fungus by feeding it cut leaves. Here we cultivate the model, feeding it with images."
+  },
+  {
+    "slug": "strumigenys",
+    "ordinal": 6,
+    "name_it": "La Mira di Strumigenys",
+    "name_en": "Strumigenys' Aim",
+    "genus": "Strumigenys",
+    "pipeline_phase_it": "valutazione",
+    "pipeline_phase_en": "evaluation",
+    "blurb_it": "Le mandibole a scatto di *Strumigenys* colpiscono il bersaglio con precisione millimetrica. Qui si misura quanto il modello colpisce il bersaglio: accuracy, F1, calibrazione, confusion matrix.",
+    "blurb_en": "*Strumigenys'* trap-jaws snap on the target with millimetric precision. Here we measure how well the model hits the target: accuracy, F1, calibration, confusion matrix."
+  },
+  {
+    "slug": "tetramorium",
+    "ordinal": 7,
+    "name_it": "I Porti di Tetramorium",
+    "name_en": "The Ports of Tetramorium",
+    "genus": "Tetramorium",
+    "pipeline_phase_it": "deployment",
+    "pipeline_phase_en": "deployment",
+    "blurb_it": "*Tetramorium* è la formica cosmopolita che vive nelle crepe del marciapiede, fra gli umani. Qui il modello arriva in tasca all'utente, dentro un browser, in città.",
+    "blurb_en": "*Tetramorium* is the cosmopolitan ant that lives in pavement cracks, among humans. Here the model arrives in the user's pocket, inside a browser, in the city."
+  },
+  {
+    "slug": "stigmatomma",
+    "ordinal": 8,
+    "name_it": "Le Tane di Stigmatomma",
+    "name_en": "Stigmatomma's Burrows",
+    "genus": "Stigmatomma",
+    "pipeline_phase_it": "domande aperte",
+    "pipeline_phase_en": "open questions",
+    "blurb_it": "Le *Stigmatomma*, formiche primitive di Amblyoponinae, vivono nascoste nel suolo, raramente viste. Qui stanno le cose che ancora non sappiamo: ablation non corse, ipotesi non testate, fallimenti che non hanno trovato spiegazione.",
+    "blurb_en": "*Stigmatomma*, primitive ants of the Amblyoponinae, live hidden in the soil, rarely seen. Here lie the things we don't yet know: unrun ablations, untested hypotheses, failures that found no explanation."
+  }
+]

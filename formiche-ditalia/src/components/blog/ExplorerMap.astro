@@ -1,0 +1,61 @@
+---
+// Placeholder for the blog's signature object: the illustrated map of the Eight
+// Lands (spec §4.5, milestone M2). Until the illustration exists this renders an
+// honest grid — same links, same data, no fake cartography.
+
+import { TERRE } from '../../data/blog';
+
+interface Props {
+  activeTerra?: string;
+  postCounts?: Record<string, number>;
+}
+
+const { activeTerra, postCounts = {} } = Astro.props;
+---
+
+<section aria-labelledby="otto-terre-heading">
+  <h2
+    id="otto-terre-heading"
+    class="font-display text-2xl font-bold text-forest-900 mb-4"
+    data-i18n="blog_lands"
+  >
+    Le Otto Terre dell'Esplorazione
+  </h2>
+  <ol class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+    {
+      TERRE.map((t) => {
+        const count = postCounts[t.slug] ?? 0;
+        const isActive = t.slug === activeTerra;
+        return (
+          <li>
+            <a
+              href={`/terre/${t.slug}/`}
+              aria-current={isActive ? 'page' : undefined}
+              class:list={[
+                'block h-full rounded-lg border p-4 transition-colors',
+                isActive
+                  ? 'border-forest-500 bg-forest-50'
+                  : 'border-gray-200 hover:border-forest-300 hover:bg-forest-50/40',
+              ]}
+            >
+              <span class="text-xs font-mono text-gray-400">{t.ordinal}</span>
+              <h3 class="font-display font-bold text-forest-900 leading-snug mt-1">
+                <span data-lang="it">{t.name_it}</span>
+                <span data-lang="en" class="hidden">
+                  {t.name_en}
+                </span>
+              </h3>
+              <p class="text-xs text-gray-500 mt-1">
+                <span data-lang="it">{t.pipeline_phase_it}</span>
+                <span data-lang="en" class="hidden">
+                  {t.pipeline_phase_en}
+                </span>
+                {count > 0 && <span class="text-gray-400"> · {count}</span>}
+              </p>
+            </a>
+          </li>
+        );
+      })
+    }
+  </ol>
+</section>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getLang, setLang, type Lang } from '../i18n';
+import { applyLangBlocks, getLang, setLang, type Lang } from '../i18n';
 
 export default function LanguageSwitcher() {
   const [lang, setCurrentLang] = useState<Lang>('it');
@@ -34,6 +34,8 @@ export default function LanguageSwitcher() {
       const enText = el.getAttribute('data-en') || '';
       el.textContent = (newLang === 'en' ? enText : itText) || itText || enText;
     });
+    // Swap whole bilingual blocks (blog post bodies, headings, blurbs).
+    applyLangBlocks(newLang);
   };
 
   return (

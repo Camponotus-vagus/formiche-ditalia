@@ -1,0 +1,58 @@
+---
+// Diary pages and the intro post share this route: both are narrative entries
+// the reader reaches from /diario/, and there will only ever be one intro.
+
+import { render } from 'astro:content';
+import PostLayout from '../../layouts/blog/PostLayout.astro';
+import { getPairs } from '../../utils/blog/posts';
+import type { SpedizioneNumero, TerraSlug } from '../../types';
+
+export async function getStaticPaths() {
+  const [diari, intro] = await Promise.all([
+    getPairs('diario', 'diary'),
+    getPairs('intro', 'intro-en'),
+  ]);
+
+  return [...diari, ...intro].map((pair) => ({
+    params: { slug: pair.id },
+    props: { pair, kind: pair.it.collection === 'intro' ? 'intro' : 'diario' },
+  }));
+}
+
+const { pair, kind } = Astro.props;
+const { it, en } = pair;
+
+const { Content: ContentIt } = await render(it);
+const rendered = en ? await render(en) : undefined;
+const ContentEn = rendered?.Content;
+
+const data = it.data as typeof it.data & {
+  terra?: TerraSlug;
+  spedizione?: SpedizioneNumero;
+  postmortem_source?: { file: string; section: string };
+};
+---
+
+<PostLayout
+  titleIt={it.data.title}
+  titleEn={en?.data.title ?? it.data.title}
+  descriptionIt={it.data.images.alt_hero}
+  date={it.data.date}
+  publishDate={it.data.publish_date}
+  terra={data.terra}
+  spedizione={data.spedizione}
+  durationMinutes={it.data.duration_minutes}
+  type={kind}
+  postmortemSource={data.postmortem_source}
+  noteCorrezioni={it.data.note_correzioni}
+  ogImage={it.data.images.hero}
+>
+  <div data-lang="it"><ContentIt /></div>
+  {
+    ContentEn && (
+      <div data-lang="en" class="hidden">
+        <ContentEn />
+      </div>
+    )
+  }
+</PostLayout>

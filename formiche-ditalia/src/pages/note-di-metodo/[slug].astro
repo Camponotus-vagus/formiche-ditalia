@@ -1,0 +1,44 @@
+---
+// Method Notes get their own route: they are cross-expedition and atemporal, so
+// they are cited from diary pages rather than read in sequence.
+
+import { render } from 'astro:content';
+import PostLayout from '../../layouts/blog/PostLayout.astro';
+import { getPairs } from '../../utils/blog/posts';
+
+export async function getStaticPaths() {
+  const note = await getPairs('note-di-metodo', 'method-notes');
+  return note.map((pair) => ({ params: { slug: pair.id }, props: { pair } }));
+}
+
+const { pair } = Astro.props;
+const { it, en } = pair;
+
+const { Content: ContentIt } = await render(it);
+const rendered = en ? await render(en) : undefined;
+const ContentEn = rendered?.Content;
+---
+
+<PostLayout
+  titleIt={it.data.title}
+  titleEn={en?.data.title ?? it.data.title}
+  descriptionIt={it.data.abstract}
+  date={it.data.date}
+  publishDate={it.data.publish_date}
+  terra={it.data.terra}
+  durationMinutes={it.data.duration_minutes}
+  type="nota-di-metodo"
+  abstractIt={it.data.abstract}
+  abstractEn={en?.data.abstract ?? it.data.abstract}
+  noteCorrezioni={it.data.note_correzioni}
+  ogImage={it.data.images.hero}
+>
+  <div data-lang="it"><ContentIt /></div>
+  {
+    ContentEn && (
+      <div data-lang="en" class="hidden">
+        <ContentEn />
+      </div>
+    )
+  }
+</PostLayout>

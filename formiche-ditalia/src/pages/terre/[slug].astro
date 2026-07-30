@@ -1,0 +1,79 @@
+---
+// One page per Land: what the Land stands for in the pipeline, and every post
+// filed under it, across all expeditions.
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { TERRE } from '../../data/blog';
+import { getAllPosts } from '../../utils/blog/posts';
+
+export async function getStaticPaths() {
+  return TERRE.map((terra) => ({ params: { slug: terra.slug }, props: { terra } }));
+}
+
+const { terra } = Astro.props;
+const posts = (await getAllPosts()).filter(
+  (p) => 'terra' in p.it.data && p.it.data.terra === terra.slug,
+);
+
+const fmt = (d: Date, locale: string) =>
+  d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<BaseLayout title={terra.name_it} description={terra.blurb_it.replace(/\*/g, '')}>
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <p class="text-xs font-mono text-gray-400 mb-2">
+      {terra.ordinal} / {TERRE.length}
+    </p>
+    <h1 class="font-display text-3xl sm:text-4xl font-bold text-forest-900">
+      <span data-lang="it">{terra.name_it}</span>
+      <span data-lang="en" class="hidden">{terra.name_en}</span>
+    </h1>
+    <p class="mt-2 text-sm text-gray-500">
+      <span data-i18n="blog_land_label">Terra</span> ·{' '}
+      <span data-lang="it">{terra.pipeline_phase_it}</span>
+      <span data-lang="en" class="hidden">{terra.pipeline_phase_en}</span>
+    </p>
+
+    <p class="mt-6 text-lg text-gray-700 leading-relaxed">
+      <span data-lang="it" set:html={terra.blurb_it.replace(/\*(.+?)\*/g, '<em>$1</em>')} />
+      <span data-lang="en" class="hidden" set:html={terra.blurb_en.replace(/\*(.+?)\*/g, '<em>$1</em>')} />
+    </p>
+
+    <section class="mt-12">
+      {
+        posts.length === 0 ? (
+          <p class="text-gray-500" data-i18n="blog_no_posts">
+            Nessuna tappa pubblicata, per ora.
+          </p>
+        ) : (
+          <ul class="space-y-3">
+            {posts.map((p) => (
+              <li class="border-l-4 border-forest-200 pl-4 py-2">
+                <a href={p.href} class="block hover:bg-forest-50/50 rounded -ml-2 pl-2 transition-colors">
+                  <h2 class="font-semibold text-forest-900">
+                    <span data-lang="it">{p.it.data.title}</span>
+                    <span data-lang="en" class="hidden">
+                      {p.en?.data.title ?? p.it.data.title}
+                    </span>
+                  </h2>
+                  <p class="text-sm text-gray-500">
+                    <span data-lang="it">{fmt(p.it.data.publish_date, 'it-IT')}</span>
+                    <span data-lang="en" class="hidden">
+                      {fmt(p.it.data.publish_date, 'en-GB')}
+                    </span>
+                  </p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </section>
+
+    <p class="mt-12">
+      <a href="/diario/" class="text-sm text-forest-700 hover:underline" data-i18n="blog_back_to_diary">
+        Torna al diario
+      </a>
+    </p>
+  </main>
+</BaseLayout>

@@ -15,6 +15,11 @@ const siteUrl = 'https://formicheditalia.it';
 const currentUrl = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
 const ogImageUrl = new URL(ogImage || '/images/og-default.png', siteUrl).href;
 
+// Detected from the path rather than passed as a prop: a new blog route added
+// later cannot forget to opt in.
+import { BLOG_PRELAUNCH, isBlogRoute } from '../utils/blog/prelaunch.mjs';
+const noindex = BLOG_PRELAUNCH && isBlogRoute(Astro.url.pathname);
+
 import '../styles/global.css';
 import LanguageSwitcher from '../components/LanguageSwitcher.tsx';
 import Analytics from '@vercel/analytics/astro';
@@ -29,6 +34,7 @@ import SpeedInsights from '@vercel/speed-insights/astro';
   <title>{fullTitle}</title>
   <meta name="description" content={metaDescription} />
   <link rel="canonical" href={currentUrl} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
   <!-- Google Search Console -->
   <meta name="google-site-verification" content="x3UJYaGbhCrgVXwTQXZjrW9iBBEu9oVd_HONJPNqRC4" />
   <!-- Open Graph -->
@@ -132,7 +138,8 @@ import SpeedInsights from '@vercel/speed-insights/astro';
       try { lang = localStorage.getItem('lang'); } catch(e) { return; }
       if (lang && lang !== 'it') {
         document.documentElement.lang = lang;
-        import('../i18n').then(({ t }) => {
+        import('../i18n').then(({ t, applyLangBlocks }) => {
+          applyLangBlocks(lang as any);
           document.querySelectorAll('[data-i18n]').forEach((el) => {
             const key = el.getAttribute('data-i18n');
             if (key) {
