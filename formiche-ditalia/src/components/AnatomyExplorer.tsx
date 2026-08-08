@@ -1,7 +1,8 @@
-import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { getLang, type Lang } from '../i18n';
 import AnatomyView from './AnatomyView';
-import type { AnatomyPathsData, AnatomyViewId } from '../types';
+import { PLATES, TERM_PLATE, plateSrc, highlightSrc } from '../data/anatomy-plates';
+import type { AnatomyPlateId } from '../types';
 
 interface AnatomyTerm {
   id: string;
@@ -98,23 +99,20 @@ const REGION_COLORS: Record<string, { bg: string; border: string; text: string; 
   gaster: { bg: 'bg-rose-50', border: 'border-rose-200', text: 'text-rose-800', activeBg: 'bg-rose-100' },
 };
 
-const viewRegionColors = {
-  head: { fill: 'rgba(16,185,129,0.25)', stroke: 'rgb(16,185,129)' },
-  mesosoma: { fill: 'rgba(56,189,248,0.25)', stroke: 'rgb(56,189,248)' },
-  waist: { fill: 'rgba(245,158,11,0.25)', stroke: 'rgb(245,158,11)' },
-  gaster: { fill: 'rgba(244,63,94,0.25)', stroke: 'rgb(244,63,94)' },
-};
+// Which body region each term is filed under, derived from REGIONS so the two
+// cannot fall out of step.
+const TERM_REGION: Record<string, string> = Object.fromEntries(
+  REGIONS.flatMap(r => r.terms.map(t => [t.id, r.id]))
+);
 
 interface Props {
   characters?: { name_it: string; name_en: string; body_region: string; difficulty: string; states: { label_it: string }[] }[];
-  paths: AnatomyPathsData;
 }
 
-export default function AnatomyExplorer({ characters = [], paths }: Props) {
+export default function AnatomyExplorer({ characters = [] }: Props) {
   const [lang, setLang] = useState<Lang>('it');
   const [openRegion, setOpenRegion] = useState<string | null>('head');
   const [activeTerm, setActiveTerm] = useState<string | null>(null);
-  const [hoveredTerm, setHoveredTerm] = useState<string | null>(null);
 
   useEffect(() => {
     setLang(getLang());
@@ -144,11 +142,11 @@ export default function AnatomyExplorer({ characters = [], paths }: Props) {
 
   const profileRef = useRef<HTMLDivElement>(null);
   const headRef = useRef<HTMLDivElement>(null);
-  const dorsalRef = useRef<HTMLDivElement>(null);
-  const viewRefs: Record<AnatomyViewId, React.RefObject<HTMLDivElement | null>> = {
+  const profile2Ref = useRef<HTMLDivElement>(null);
+  const plateRefs: Record<AnatomyPlateId, React.RefObject<HTMLDivElement | null>> = {
     profile: profileRef,
     head: headRef,
-    dorsal: dorsalRef,
+    profile2: profile2Ref,
   };
 
   const handleTermClick = useCallback((termId: string) => {
@@ -159,31 +157,20 @@ export default function AnatomyExplorer({ characters = [], paths }: Props) {
     setActiveTerm(termId);
 
     // Auto-expand region in panel if collapsed
-    const region = paths[termId]?.region;
+    const region = TERM_REGION[termId];
     if (region && openRegion !== region) {
       setOpenRegion(region);
     }
 
-    // Mobile scroll-to-view
-    const termViews = Object.keys(paths[termId]?.views || {}) as AnatomyViewId[];
-    if (termViews.length > 0 && window.innerWidth < 1024) {
-      const primaryView = termViews.includes('profile') ? 'profile' : termViews[0];
-      viewRefs[primaryView]?.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // On mobile the plates sit below the term list, so bring the one that
+    // actually changed into view.
+    const plate = TERM_PLATE[termId];
+    if (plate && window.innerWidth < 1024) {
+      plateRefs[plate]?.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-  }, [activeTerm, paths, openRegion, viewRefs]);
+  }, [activeTerm, openRegion, plateRefs]);
 
-  const termLabels = useMemo(() => {
-    const map: Record<string, { it: string; en: string }> = {};
-    REGIONS.forEach(r => r.terms.forEach(t => {
-      map[t.id] = { it: t.label_it, en: t.label_en };
-    }));
-    return map;
-  }, []);
-
-  const activeViews = useMemo(() => {
-    if (!activeTerm || !paths[activeTerm]) return new Set<AnatomyViewId>();
-    return new Set(Object.keys(paths[activeTerm].views) as AnatomyViewId[]);
-  }, [activeTerm, paths]);
+  const activePlate = activeTerm ? TERM_PLATE[activeTerm] ?? null : null;
 
   return (
     <div className="flex flex-col lg:flex-row gap-6">
@@ -230,8 +217,6 @@ export default function AnatomyExplorer({ characters = [], paths }: Props) {
                         <button
                           key={term.id}
                           onClick={() => handleTermClick(term.id)}
-                          onMouseEnter={() => setHoveredTerm(term.id)}
-                          onMouseLeave={() => setHoveredTerm(null)}
                           className={`text-xs px-3 py-1.5 rounded-lg border transition-all cursor-pointer ${
                             activeTerm === term.id
                               ? `${colors.activeBg} ${colors.border} ${colors.text} font-semibold shadow-sm`
@@ -279,55 +264,32 @@ export default function AnatomyExplorer({ characters = [], paths }: Props) {
         </div>
       </div>
 
-      {/* Right: 3-view SVG overlay panel */}
+      {/* Right: the three plates. The one carrying the active term swaps to
+          its highlighted variant; the other two dim so the eye goes to it. */}
       <div className="lg:w-[60%] lg:sticky lg:top-20 lg:self-start space-y-3">
         <div ref={profileRef}>
           <AnatomyView
-            viewId="profile"
-            imageSrc="/images/anatomy/view-profile.png"
-            alt="Lateral profile"
-            paths={paths}
-            activeTerm={activeTerm}
-            hoveredTerm={hoveredTerm}
-            regionColors={viewRegionColors}
-            lang={lang}
-            termLabels={termLabels}
-            dimmed={activeTerm !== null && !activeViews.has('profile')}
-            onTermClick={handleTermClick}
-            onTermHover={setHoveredTerm}
+            base={plateSrc('profile')}
+            highlight={highlightSrc('profile', activeTerm)}
+            alt={lang === 'it' ? PLATES.profile.alt_it : PLATES.profile.alt_en}
+            dimmed={activePlate !== null && activePlate !== 'profile'}
           />
         </div>
         <div className="grid grid-cols-2 gap-3">
           <div ref={headRef}>
             <AnatomyView
-              viewId="head"
-              imageSrc="/images/anatomy/view-head.png"
-              alt="Frontal head"
-              paths={paths}
-              activeTerm={activeTerm}
-              hoveredTerm={hoveredTerm}
-              regionColors={viewRegionColors}
-              lang={lang}
-              termLabels={termLabels}
-              dimmed={activeTerm !== null && !activeViews.has('head')}
-              onTermClick={handleTermClick}
-              onTermHover={setHoveredTerm}
+              base={plateSrc('head')}
+              highlight={highlightSrc('head', activeTerm)}
+              alt={lang === 'it' ? PLATES.head.alt_it : PLATES.head.alt_en}
+              dimmed={activePlate !== null && activePlate !== 'head'}
             />
           </div>
-          <div ref={dorsalRef}>
+          <div ref={profile2Ref}>
             <AnatomyView
-              viewId="dorsal"
-              imageSrc="/images/anatomy/view-dorsal.png"
-              alt="Dorsal view"
-              paths={paths}
-              activeTerm={activeTerm}
-              hoveredTerm={hoveredTerm}
-              regionColors={viewRegionColors}
-              lang={lang}
-              termLabels={termLabels}
-              dimmed={activeTerm !== null && !activeViews.has('dorsal')}
-              onTermClick={handleTermClick}
-              onTermHover={setHoveredTerm}
+              base={plateSrc('profile2')}
+              highlight={highlightSrc('profile2', activeTerm)}
+              alt={lang === 'it' ? PLATES.profile2.alt_it : PLATES.profile2.alt_en}
+              dimmed={activePlate !== null && activePlate !== 'profile2'}
             />
           </div>
         </div>

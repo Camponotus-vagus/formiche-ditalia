@@ -103,25 +103,16 @@ export interface Expert {
   has_phd?: boolean;
 }
 
-export interface AnatomyLabelPosition {
-  x: number;
-  y: number;
-  anchor: 'start' | 'middle' | 'end';
+// The three plates the anatomy page is drawn on. 'profile2' is a second
+// lateral view (a myrmicine, carrying the waist and sting), not a dorsal one.
+export type AnatomyPlateId = 'profile' | 'head' | 'profile2';
+
+export interface AnatomyPlate {
+  // Basename under /images/anatomy/, without the .webp extension.
+  file: string;
+  alt_it: string;
+  alt_en: string;
 }
-
-export interface AnatomyViewPath {
-  path: string;
-  label: AnatomyLabelPosition;
-}
-
-export type AnatomyViewId = 'profile' | 'head' | 'dorsal';
-
-export interface AnatomyTermPaths {
-  region: 'head' | 'mesosoma' | 'waist' | 'gaster';
-  views: Partial<Record<AnatomyViewId, AnatomyViewPath>>;
-}
-
-export type AnatomyPathsData = Record<string, AnatomyTermPaths>;
 
 // --- Blog "L'Occhio Digitale dell'Entomologo" (satellite section under /diario/) ---
 
