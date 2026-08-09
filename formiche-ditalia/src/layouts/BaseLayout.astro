@@ -15,10 +15,14 @@ const siteUrl = 'https://formicheditalia.it';
 const currentUrl = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
 const ogImageUrl = new URL(ogImage || '/images/og-default.png', siteUrl).href;
 
-// Detected from the path rather than passed as a prop: a new blog route added
-// later cannot forget to opt in.
-import { BLOG_PRELAUNCH, isBlogRoute } from '../utils/blog/prelaunch.mjs';
-const noindex = BLOG_PRELAUNCH && isBlogRoute(Astro.url.pathname);
+// Derived from the path rather than passed as a prop, so a route added later
+// cannot forget to opt in. The same module drives the sitemap filter in
+// astro.config.mjs — one answer, read in two places.
+import { robotsDirective, is404Route } from '../utils/seo/noindex.mjs';
+const robots = robotsDirective(Astro.url.pathname);
+// The 404 page is the one page that must not name a canonical: /404/ is not a
+// URL that exists. See src/utils/seo/noindex.mjs.
+const emitCanonical = !is404Route(Astro.url.pathname);
 
 import '../styles/global.css';
 import LanguageSwitcher from '../components/LanguageSwitcher.tsx';
@@ -33,8 +37,8 @@ import SpeedInsights from '@vercel/speed-insights/astro';
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{fullTitle}</title>
   <meta name="description" content={metaDescription} />
-  <link rel="canonical" href={currentUrl} />
-  {noindex && <meta name="robots" content="noindex, nofollow" />}
+  {emitCanonical && <link rel="canonical" href={currentUrl} />}
+  {robots && <meta name="robots" content={robots} />}
   <!-- Google Search Console -->
   <meta name="google-site-verification" content="x3UJYaGbhCrgVXwTQXZjrW9iBBEu9oVd_HONJPNqRC4" />
   <!-- Open Graph -->

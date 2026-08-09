@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
-import { BLOG_PRELAUNCH, isBlogRoute } from './src/utils/blog/prelaunch.mjs';
+import { isNoindexRoute } from './src/utils/seo/noindex.mjs';
 
 export default defineConfig({
   site: 'https://formicheditalia.it',
@@ -13,10 +13,12 @@ export default defineConfig({
   integrations: [
     react(),
     tailwind(),
-    // The blog routes stay out of the sitemap until post #0 ships — see
-    // src/utils/blog/prelaunch.mjs.
+    // A page that carries a `noindex` robots tag has no business in the
+    // sitemap: submitting it asks Google to crawl a URL we then tell it to
+    // drop. src/utils/seo/noindex.mjs is the same module BaseLayout reads for
+    // the meta tag, so the two answers cannot disagree.
     sitemap({
-      filter: (page) => !BLOG_PRELAUNCH || !isBlogRoute(new URL(page).pathname),
+      filter: (page) => !isNoindexRoute(new URL(page).pathname),
     }),
   ],
   output: 'static',
