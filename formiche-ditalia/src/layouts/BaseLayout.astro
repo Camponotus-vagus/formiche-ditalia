@@ -1,15 +1,20 @@
 ---
 interface Props {
   title: string;
+  // English tab title (issue #32 §9). The build is static and Italian-first; the
+  // language switcher swaps the title client-side from the data attributes below.
+  // Falls back to the Italian title when absent.
+  titleEn?: string;
   description?: string;
   canonicalUrl?: string;
   ogImage?: string;
   structuredData?: Record<string, unknown>;
 }
 
-const { title, description, canonicalUrl, ogImage, structuredData } = Astro.props;
+const { title, titleEn, description, canonicalUrl, ogImage, structuredData } = Astro.props;
 const siteTitle = "Formiche d'Italia";
 const fullTitle = title === siteTitle ? title : `${title} — ${siteTitle}`;
+const fullTitleEn = !titleEn || titleEn === siteTitle ? (titleEn ? titleEn : fullTitle) : `${titleEn} — ${siteTitle}`;
 const metaDescription = description || "La guida italiana alla mirmecologia — identificazione, catalogo specie e rete di esperti";
 const siteUrl = 'https://formicheditalia.it';
 const currentUrl = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
@@ -35,7 +40,7 @@ import SpeedInsights from '@vercel/speed-insights/astro';
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{fullTitle}</title>
+  <title data-title-it={fullTitle} data-title-en={fullTitleEn}>{fullTitle}</title>
   <meta name="description" content={metaDescription} />
   {emitCanonical && <link rel="canonical" href={currentUrl} />}
   {robots && <meta name="robots" content={robots} />}
@@ -138,10 +143,21 @@ import SpeedInsights from '@vercel/speed-insights/astro';
   <script>
     // Apply saved language on page load (fixes language reset on navigation)
     (function() {
+      // The <title> is server-rendered in Italian; both variants travel as data
+      // attributes so the switcher can swap it without an i18n key (issue #32 §9).
+      var applyTitle = function(lang: string) {
+        var t = document.querySelector('title');
+        var next = t && t.getAttribute(lang === 'en' ? 'data-title-en' : 'data-title-it');
+        if (next) document.title = next;
+      };
+      window.addEventListener('langchange', function(e) {
+        applyTitle((e as CustomEvent).detail);
+      });
       var lang;
       try { lang = localStorage.getItem('lang'); } catch(e) { return; }
       if (lang && lang !== 'it') {
         document.documentElement.lang = lang;
+        applyTitle(lang);
         import('../i18n').then(({ t, applyLangBlocks }) => {
           applyLangBlocks(lang as any);
           document.querySelectorAll('[data-i18n]').forEach((el) => {
