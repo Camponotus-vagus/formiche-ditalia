@@ -3,8 +3,8 @@
     "genus": "aphaenogaster",
     "subfamily": "myrmicinae",
     "scientific_name": "Aphaenogaster",
-    "profileSize": 34,
-    "distinctCharCount": 29,
+    "profileSize": 35,
+    "distinctCharCount": 30,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -109,8 +109,8 @@
     "genus": "cardiocondyla",
     "subfamily": "myrmicinae",
     "scientific_name": "Cardiocondyla",
-    "profileSize": 33,
-    "distinctCharCount": 31,
+    "profileSize": 34,
+    "distinctCharCount": 32,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -142,8 +142,8 @@
     "genus": "crematogaster",
     "subfamily": "myrmicinae",
     "scientific_name": "Crematogaster",
-    "profileSize": 38,
-    "distinctCharCount": 31,
+    "profileSize": 39,
+    "distinctCharCount": 32,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -182,8 +182,8 @@
     "genus": "formicoxenus",
     "subfamily": "myrmicinae",
     "scientific_name": "Formicoxenus",
-    "profileSize": 35,
-    "distinctCharCount": 30,
+    "profileSize": 36,
+    "distinctCharCount": 31,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -232,8 +232,8 @@
     "genus": "harpagoxenus",
     "subfamily": "myrmicinae",
     "scientific_name": "Harpagoxenus",
-    "profileSize": 33,
-    "distinctCharCount": 30,
+    "profileSize": 34,
+    "distinctCharCount": 31,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -333,7 +333,7 @@
         },
         {
           "id": "temnothorax",
-          "score": 0.9655172413793104,
+          "score": 0.9666666666666667,
           "mismatches": 1
         }
       ]
@@ -343,8 +343,8 @@
     "genus": "leptothorax",
     "subfamily": "myrmicinae",
     "scientific_name": "Leptothorax",
-    "profileSize": 35,
-    "distinctCharCount": 31,
+    "profileSize": 36,
+    "distinctCharCount": 32,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -380,7 +380,7 @@
         },
         {
           "id": "temnothorax",
-          "score": 0.9666666666666667,
+          "score": 0.967741935483871,
           "mismatches": 1
         }
       ]
@@ -390,8 +390,8 @@
     "genus": "manica",
     "subfamily": "myrmicinae",
     "scientific_name": "Manica",
-    "profileSize": 35,
-    "distinctCharCount": 31,
+    "profileSize": 36,
+    "distinctCharCount": 32,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -464,8 +464,8 @@
     "genus": "messor",
     "subfamily": "myrmicinae",
     "scientific_name": "Messor",
-    "profileSize": 38,
-    "distinctCharCount": 31,
+    "profileSize": 39,
+    "distinctCharCount": 32,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -564,6 +564,14 @@
         ],
         "gap": "0.500",
         "passingCount": 16
+      },
+      {
+        "sels": [
+          "Psammoforo=presente (cesto di setole lunghe e curve sulla faccia ventrale del capo)",
+          "Pungiglione=ridotto, modificato o vestigiale, non pungente (senza acidoporo)"
+        ],
+        "gap": "0.500",
+        "passingCount": 12
       }
     ],
     "triples": [],
@@ -586,8 +594,8 @@
     "genus": "monomorium",
     "subfamily": "myrmicinae",
     "scientific_name": "Monomorium",
-    "profileSize": 38,
-    "distinctCharCount": 31,
+    "profileSize": 40,
+    "distinctCharCount": 32,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -619,8 +627,8 @@
     "genus": "myrmecina",
     "subfamily": "myrmicinae",
     "scientific_name": "Myrmecina",
-    "profileSize": 34,
-    "distinctCharCount": 31,
+    "profileSize": 35,
+    "distinctCharCount": 32,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -637,16 +645,24 @@
           "Lati del pronoto=angolare, vista dorsale",
           "Forma del peziolo e postpeziolo=cubico"
         ],
-        "gap": "0.500",
+        "gap": "0.800",
         "passingCount": 24
       },
       {
         "sels": [
           "Lati del pronoto=angolare, vista dorsale",
-          "Pungiglione=...senza appendice apico-dorsale"
+          "Appendice apico-dorsale del pungiglione=assente"
         ],
-        "gap": "0.500",
+        "gap": "0.800",
         "passingCount": 40
+      },
+      {
+        "sels": [
+          "Lati del pronoto=angolare, vista dorsale",
+          "Pungiglione=ridotto, modificato o vestigiale, non pungente (senza acidoporo)"
+        ],
+        "gap": "0.150",
+        "passingCount": 27
       },
       {
         "sels": [
@@ -695,6 +711,14 @@
         ],
         "gap": "0.150",
         "passingCount": 28
+      },
+      {
+        "sels": [
+          "Forma del peziolo e postpeziolo=cubico",
+          "Pungiglione=ridotto, modificato o vestigiale, non pungente (senza acidoporo)"
+        ],
+        "gap": "0.150",
+        "passingCount": 26
       }
     ],
     "triples": [],
@@ -717,8 +741,8 @@
     "genus": "myrmica",
     "subfamily": "myrmicinae",
     "scientific_name": "Myrmica",
-    "profileSize": 36,
-    "distinctCharCount": 31,
+    "profileSize": 37,
+    "distinctCharCount": 32,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -735,7 +759,7 @@
           "Lati del pronoto=arrotondato, vista dorsale",
           "Forma del peziolo e postpeziolo=cubico"
         ],
-        "gap": "0.500",
+        "gap": "0.800",
         "passingCount": 41
       },
       {
@@ -801,6 +825,14 @@
         ],
         "gap": "0.150",
         "passingCount": 28
+      },
+      {
+        "sels": [
+          "Forma del peziolo e postpeziolo=cubico",
+          "Pungiglione=presente e pungente"
+        ],
+        "gap": "0.150",
+        "passingCount": 39
       }
     ],
     "triples": [],
@@ -823,8 +855,8 @@
     "genus": "oxyopomyrmex",
     "subfamily": "myrmicinae",
     "scientific_name": "Oxyopomyrmex",
-    "profileSize": 31,
-    "distinctCharCount": 30,
+    "profileSize": 32,
+    "distinctCharCount": 31,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -856,8 +888,8 @@
     "genus": "pheidole",
     "subfamily": "myrmicinae",
     "scientific_name": "Pheidole",
-    "profileSize": 38,
-    "distinctCharCount": 31,
+    "profileSize": 39,
+    "distinctCharCount": 32,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -889,8 +921,8 @@
     "genus": "solenopsis",
     "subfamily": "myrmicinae",
     "scientific_name": "Solenopsis",
-    "profileSize": 31,
-    "distinctCharCount": 29,
+    "profileSize": 32,
+    "distinctCharCount": 30,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -922,8 +954,8 @@
     "genus": "stenamma",
     "subfamily": "myrmicinae",
     "scientific_name": "Stenamma",
-    "profileSize": 32,
-    "distinctCharCount": 31,
+    "profileSize": 33,
+    "distinctCharCount": 32,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -972,8 +1004,8 @@
     "genus": "strongylognathus",
     "subfamily": "myrmicinae",
     "scientific_name": "Strongylognathus",
-    "profileSize": 31,
-    "distinctCharCount": 29,
+    "profileSize": 32,
+    "distinctCharCount": 30,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -1006,7 +1038,7 @@
           "Porzioni laterali del clipeo=rialzato a cresta davanti alle inserzioni antennali",
           "Lati del pronoto=arrotondato, vista dorsale"
         ],
-        "gap": "0.500",
+        "gap": "0.800",
         "passingCount": 41
       },
       {
@@ -1086,8 +1118,8 @@
     "genus": "strumigenys",
     "subfamily": "myrmicinae",
     "scientific_name": "Strumigenys",
-    "profileSize": 35,
-    "distinctCharCount": 29,
+    "profileSize": 36,
+    "distinctCharCount": 30,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -1140,8 +1172,8 @@
     "genus": "temnothorax",
     "subfamily": "myrmicinae",
     "scientific_name": "Temnothorax",
-    "profileSize": 38,
-    "distinctCharCount": 30,
+    "profileSize": 39,
+    "distinctCharCount": 31,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -1182,8 +1214,8 @@
     "genus": "tetramorium",
     "subfamily": "myrmicinae",
     "scientific_name": "Tetramorium",
-    "profileSize": 37,
-    "distinctCharCount": 30,
+    "profileSize": 38,
+    "distinctCharCount": 31,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -1240,7 +1272,7 @@
           "Porzioni laterali del clipeo=rialzato a cresta davanti alle inserzioni antennali",
           "Lati del pronoto=angolare, vista dorsale"
         ],
-        "gap": "0.500",
+        "gap": "0.800",
         "passingCount": 24
       },
       {
@@ -1342,9 +1374,9 @@
       {
         "sels": [
           "Lati del pronoto=angolare, vista dorsale",
-          "Pungiglione=...con appendice apico-dorsale, triangolare"
+          "Appendice apico-dorsale del pungiglione=presente, triangolare"
         ],
-        "gap": "0.500",
+        "gap": "0.800",
         "passingCount": 29
       }
     ],
@@ -1368,8 +1400,8 @@
     "genus": "cryptopone",
     "subfamily": "ponerinae",
     "scientific_name": "Cryptopone",
-    "profileSize": 21,
-    "distinctCharCount": 21,
+    "profileSize": 22,
+    "distinctCharCount": 22,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -1408,8 +1440,8 @@
     "genus": "hypoponera",
     "subfamily": "ponerinae",
     "scientific_name": "Hypoponera",
-    "profileSize": 27,
-    "distinctCharCount": 21,
+    "profileSize": 28,
+    "distinctCharCount": 22,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -1594,8 +1626,8 @@
     "genus": "ponera",
     "subfamily": "ponerinae",
     "scientific_name": "Ponera",
-    "profileSize": 22,
-    "distinctCharCount": 21,
+    "profileSize": 23,
+    "distinctCharCount": 22,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -1627,8 +1659,8 @@
     "genus": "bothriomyrmex",
     "subfamily": "dolichoderinae",
     "scientific_name": "Bothriomyrmex",
-    "profileSize": 24,
-    "distinctCharCount": 23,
+    "profileSize": 25,
+    "distinctCharCount": 24,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -1685,8 +1717,8 @@
     "genus": "dolichoderus",
     "subfamily": "dolichoderinae",
     "scientific_name": "Dolichoderus",
-    "profileSize": 26,
-    "distinctCharCount": 23,
+    "profileSize": 27,
+    "distinctCharCount": 24,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -1718,8 +1750,8 @@
     "genus": "linepithema",
     "subfamily": "dolichoderinae",
     "scientific_name": "Linepithema",
-    "profileSize": 25,
-    "distinctCharCount": 23,
+    "profileSize": 26,
+    "distinctCharCount": 24,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -1760,8 +1792,8 @@
     "genus": "liometopum",
     "subfamily": "dolichoderinae",
     "scientific_name": "Liometopum",
-    "profileSize": 26,
-    "distinctCharCount": 23,
+    "profileSize": 27,
+    "distinctCharCount": 24,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -1785,11 +1817,6 @@
           "id": "liometopum",
           "score": 1,
           "mismatches": 0
-        },
-        {
-          "id": "camponotus",
-          "score": 0.8173913043478261,
-          "mismatches": 1
         }
       ]
     }
@@ -1798,8 +1825,8 @@
     "genus": "tapinoma",
     "subfamily": "dolichoderinae",
     "scientific_name": "Tapinoma",
-    "profileSize": 27,
-    "distinctCharCount": 23,
+    "profileSize": 28,
+    "distinctCharCount": 24,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -1830,11 +1857,6 @@
           "id": "tapinoma",
           "score": 1,
           "mismatches": 0
-        },
-        {
-          "id": "paratrechina",
-          "score": 0.8173913043478261,
-          "mismatches": 1
         }
       ]
     }
@@ -1843,8 +1865,8 @@
     "genus": "camponotus",
     "subfamily": "formicinae",
     "scientific_name": "Camponotus",
-    "profileSize": 32,
-    "distinctCharCount": 25,
+    "profileSize": 33,
+    "distinctCharCount": 26,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -1853,7 +1875,7 @@
           "Casta soldato con capo troncato=assente",
           "Inserzione delle antenne=distante dal margine posteriore del clipeo"
         ],
-        "gap": "0.500",
+        "gap": "0.800",
         "passingCount": 42
       },
       {
@@ -1869,7 +1891,7 @@
           "Inserzione delle antenne=distante dal margine posteriore del clipeo",
           "Ocelli=ben sviluppati"
         ],
-        "gap": "0.500",
+        "gap": "0.800",
         "passingCount": 39
       },
       {
@@ -1925,8 +1947,8 @@
     "genus": "cataglyphis",
     "subfamily": "formicinae",
     "scientific_name": "Cataglyphis",
-    "profileSize": 30,
-    "distinctCharCount": 25,
+    "profileSize": 31,
+    "distinctCharCount": 26,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -1958,8 +1980,8 @@
     "genus": "colobopsis",
     "subfamily": "formicinae",
     "scientific_name": "Colobopsis",
-    "profileSize": 31,
-    "distinctCharCount": 25,
+    "profileSize": 32,
+    "distinctCharCount": 26,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -1991,8 +2013,8 @@
     "genus": "formica",
     "subfamily": "formicinae",
     "scientific_name": "Formica",
-    "profileSize": 31,
-    "distinctCharCount": 25,
+    "profileSize": 32,
+    "distinctCharCount": 26,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -2019,7 +2041,7 @@
         },
         {
           "id": "lasius",
-          "score": 0.96,
+          "score": 0.9615384615384616,
           "mismatches": 1
         }
       ]
@@ -2029,8 +2051,8 @@
     "genus": "lasius",
     "subfamily": "formicinae",
     "scientific_name": "Lasius",
-    "profileSize": 32,
-    "distinctCharCount": 25,
+    "profileSize": 33,
+    "distinctCharCount": 26,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -2066,7 +2088,7 @@
         },
         {
           "id": "paratrechina",
-          "score": 0.96,
+          "score": 0.9615384615384616,
           "mismatches": 1
         }
       ]
@@ -2076,8 +2098,8 @@
     "genus": "lepisiota",
     "subfamily": "formicinae",
     "scientific_name": "Lepisiota",
-    "profileSize": 29,
-    "distinctCharCount": 24,
+    "profileSize": 30,
+    "distinctCharCount": 25,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -2120,6 +2142,14 @@
         ],
         "gap": "0.150",
         "passingCount": 40
+      },
+      {
+        "sels": [
+          "Propodeo=con denti",
+          "Pungiglione=assente, sostituito dall'acidoporo (orifizio circolare frangiato di setole all'apice del gastro)"
+        ],
+        "gap": "0.500",
+        "passingCount": 22
       }
     ],
     "triples": [],
@@ -2142,8 +2172,8 @@
     "genus": "plagiolepis",
     "subfamily": "formicinae",
     "scientific_name": "Plagiolepis",
-    "profileSize": 27,
-    "distinctCharCount": 25,
+    "profileSize": 28,
+    "distinctCharCount": 26,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -2216,8 +2246,8 @@
     "genus": "polyergus",
     "subfamily": "formicinae",
     "scientific_name": "Polyergus",
-    "profileSize": 25,
-    "distinctCharCount": 25,
+    "profileSize": 26,
+    "distinctCharCount": 26,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -2249,8 +2279,8 @@
     "genus": "prenolepis",
     "subfamily": "formicinae",
     "scientific_name": "Prenolepis",
-    "profileSize": 28,
-    "distinctCharCount": 25,
+    "profileSize": 29,
+    "distinctCharCount": 26,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -2282,8 +2312,8 @@
     "genus": "stigmatomma",
     "subfamily": "amblyoponinae",
     "scientific_name": "Stigmatomma",
-    "profileSize": 30,
-    "distinctCharCount": 26,
+    "profileSize": 31,
+    "distinctCharCount": 27,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -2315,8 +2345,8 @@
     "genus": "proceratium",
     "subfamily": "proceratiinae",
     "scientific_name": "Proceratium",
-    "profileSize": 33,
-    "distinctCharCount": 25,
+    "profileSize": 34,
+    "distinctCharCount": 26,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -2348,8 +2378,8 @@
     "genus": "leptanilla",
     "subfamily": "leptanillinae",
     "scientific_name": "Leptanilla",
-    "profileSize": 25,
-    "distinctCharCount": 23,
+    "profileSize": 26,
+    "distinctCharCount": 24,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -2381,8 +2411,8 @@
     "genus": "nylanderia",
     "subfamily": "formicinae",
     "scientific_name": "Nylanderia",
-    "profileSize": 27,
-    "distinctCharCount": 25,
+    "profileSize": 28,
+    "distinctCharCount": 26,
     "discriminationDepth": null,
     "uniqueSingles": [],
     "pairs": [],
@@ -2411,8 +2441,8 @@
     "genus": "paratrechina",
     "subfamily": "formicinae",
     "scientific_name": "Paratrechina",
-    "profileSize": 28,
-    "distinctCharCount": 25,
+    "profileSize": 29,
+    "distinctCharCount": 26,
     "discriminationDepth": 4,
     "uniqueSingles": [],
     "pairs": [],
@@ -2425,7 +2455,7 @@
           "Numero di segmenti antennali=12",
           "Numero di denti mandibolari=4-5 denti"
         ],
-        "gap": "0.250",
+        "gap": "0.400",
         "passingCount": 39
       },
       {
@@ -2445,7 +2475,7 @@
           "Ocelli=vestigiali o assenti",
           "Numero di denti mandibolari=4-5 denti"
         ],
-        "gap": "0.250",
+        "gap": "0.400",
         "passingCount": 36
       },
       {
@@ -2482,7 +2512,7 @@
         },
         {
           "id": "lasius",
-          "score": 0.96,
+          "score": 0.9615384615384616,
           "mismatches": 1
         }
       ]
@@ -2492,8 +2522,8 @@
     "genus": "brachyponera",
     "subfamily": "ponerinae",
     "scientific_name": "Brachyponera",
-    "profileSize": 22,
-    "distinctCharCount": 21,
+    "profileSize": 23,
+    "distinctCharCount": 22,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [

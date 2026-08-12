@@ -618,8 +618,8 @@
  },
  {
   "id": "gen-19",
-  "name_it": "Pungiglione",
-  "name_en": "Sting",
+  "name_it": "Appendice apico-dorsale del pungiglione",
+  "name_en": "Apico-dorsal appendage of the sting",
   "description_it": "",
   "body_region": "gaster",
   "difficulty": "hard",
@@ -628,13 +628,13 @@
   "states": [
    {
     "value": "0",
-    "label_it": "...senza appendice apico-dorsale",
-    "label_en": "...without apico-dorsal appendix"
+    "label_it": "assente",
+    "label_en": "absent"
    },
    {
     "value": "1",
-    "label_it": "...con appendice apico-dorsale, triangolare",
-    "label_en": "...with an apico-dorsal appendix, triangular"
+    "label_it": "presente, triangolare",
+    "label_en": "present, triangular"
    },
    {
     "value": "?",
@@ -1281,6 +1281,40 @@
     "value": "1",
     "label_it": "presente (cesto di setole lunghe e curve sulla faccia ventrale del capo)",
     "label_en": "present (basket of long curved setae on the ventral surface of the head)"
+   },
+   {
+    "value": "?",
+    "label_it": "non valutato / sconosciuto",
+    "label_en": "not assessed / unknown"
+   }
+  ],
+  "level": "genus",
+  "subfamily_scope": null
+ },
+ {
+  "id": "gen-52",
+  "name_it": "Pungiglione",
+  "name_en": "Sting",
+  "description_it": "",
+  "body_region": "gaster",
+  "difficulty": "easy",
+  "display_order": 52,
+  "illustration_url": null,
+  "states": [
+   {
+    "value": "0",
+    "label_it": "presente e pungente",
+    "label_en": "present and stinging"
+   },
+   {
+    "value": "1",
+    "label_it": "assente, sostituito dall'acidoporo (orifizio circolare frangiato di setole all'apice del gastro)",
+    "label_en": "absent, replaced by the acidopore (circular orifice fringed with setae at the gastral apex)"
+   },
+   {
+    "value": "2",
+    "label_it": "ridotto, modificato o vestigiale, non pungente (senza acidoporo)",
+    "label_en": "reduced, modified or vestigial, not stinging (no acidopore)"
    },
    {
     "value": "?",
