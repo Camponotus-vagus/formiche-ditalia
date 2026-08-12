@@ -6,7 +6,7 @@ import experts from '../../data/experts.json';
 const pageTitle = "Esperti di mirmecologia italiana";
 ---
 
-<BaseLayout title={pageTitle} description="Directory degli esperti di mirmecologia in Italia — ricercatori, professori e curatori museali.">
+<BaseLayout title={pageTitle} titleEn="Italian myrmecology experts" description="Directory degli esperti di mirmecologia in Italia — ricercatori, professori e curatori museali.">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <h1 class="font-display text-3xl font-bold text-gray-900 mb-8" data-i18n="experts_title">{pageTitle}</h1>
     <ExpertsBrowser client:load experts={experts} />
