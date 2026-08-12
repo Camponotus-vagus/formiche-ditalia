@@ -30,6 +30,10 @@ interface ScoredGenus {
   score: number;
   mismatches: number;
   matchedCount: number;
+  missingCount: number;
+  // Characters whose informative data contradicts the user's answer — the genus
+  // survives only thanks to the tolerance. Shown on the card as "contraddice: …".
+  mismatchedCharIds: string[];
 }
 
 // Single definition of "this matrix cell carries usable signal": the cell must exist and
@@ -60,7 +64,7 @@ function loadPersistedState(): PersistedState | null {
     if (!parsed || typeof parsed !== 'object') return null;
     return {
       selectedStates: Array.isArray(parsed.selectedStates) ? parsed.selectedStates : [],
-      maxMismatches: typeof parsed.maxMismatches === 'number' ? parsed.maxMismatches : 1,
+      maxMismatches: typeof parsed.maxMismatches === 'number' ? parsed.maxMismatches : 0,
       selectedRegion: typeof parsed.selectedRegion === 'string' ? parsed.selectedRegion : '',
       hiddenCharacterIds: Array.isArray(parsed.hiddenCharacterIds) ? parsed.hiddenCharacterIds : [],
       preferEasy: typeof parsed.preferEasy === 'boolean' ? parsed.preferEasy : false,
@@ -96,7 +100,7 @@ function InfoTip({ text }: { text: string }) {
 
 export default function IdentificationKey({ characters, matrix, genera, glossary = [], lang: initialLang }: Props) {
   const [selectedStates, setSelectedStates] = useState<WeightedSelection[]>([]);
-  const [maxMismatches, setMaxMismatches] = useState(1);
+  const [maxMismatches, setMaxMismatches] = useState(0);
   const [selectedRegion, setSelectedRegion] = useState<string>('');
   const [hiddenCharacterIds, setHiddenCharacterIds] = useState<Set<string>>(new Set());
   // Item 1.4: when true, the suggested character avoids 'hard' (microscopic) traits.
@@ -265,15 +269,14 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     // neither penalizes real-data genera nor counts toward the "any selection" branch.
     const effectiveStates = selectedStates.filter(sel => sel.value !== '?');
     if (effectiveStates.length === 0) {
-      return regionFilteredGenera.map(g => ({ genus: g, score: 1, mismatches: 0, matchedCount: 0 }));
+      return regionFilteredGenera.map(g => ({ genus: g, score: 1, mismatches: 0, matchedCount: 0, missingCount: 0, mismatchedCharIds: [] }));
     }
 
     return regionFilteredGenera.map((genus) => {
-      let mismatches = 0;
       let matched = 0;
       let missingCount = 0;
       let totalWeight = 0;
-      let weightedScore = 0;
+      const mismatchedCharIds: string[] = [];
 
       for (const sel of effectiveStates) {
         const values = matrixLookup[genus.id]?.[sel.characterId];
@@ -289,11 +292,11 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
         totalWeight += sel.weight;
         if (values.includes(sel.value)) {
           matched++;
-          weightedScore += sel.weight;
         } else {
-          mismatches++;
+          mismatchedCharIds.push(sel.characterId);
         }
       }
+      const mismatches = mismatchedCharIds.length;
 
       // Level 2: If all selected characters point to one subfamily,
       // genera from OTHER subfamilies with no data get a heavy penalty
@@ -319,10 +322,13 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
         }
       }
 
-      return { genus, score, mismatches, matchedCount: matched };
+      return { genus, score, mismatches, matchedCount: matched, missingCount, mismatchedCharIds };
     })
     .filter(sg => sg.mismatches <= maxMismatches)
-    .sort((a, b) => b.score - a.score || a.genus.scientific_name.localeCompare(b.genus.scientific_name));
+    // Mismatch-first: a genus that contradicts an answer (tolerated) must never rank
+    // above a genus that matches everything, regardless of score (issue #32 §3).
+    // Mirror of simulator.mjs score() sort — change both together.
+    .sort((a, b) => a.mismatches - b.mismatches || b.score - a.score || a.genus.scientific_name.localeCompare(b.genus.scientific_name));
   }, [regionFilteredGenera, selectedStates, matrixLookup, maxMismatches, impliedSubfamily]);
 
   // Item 2.4: genera ruled out by the current answers, each with the reason(s) — which
@@ -445,6 +451,9 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     }
     const top = scoredGenera[0];
     const second = scoredGenera.length >= 2 ? scoredGenera[1] : null;
+    // With the mismatch-first sort the gap can go negative (a 0-mismatch genus may
+    // outrank a higher-scoring tolerated one) — that falls into 'low' confidence,
+    // which is the right signal, so no clamping.
     const gap = second ? top.score - second.score : 1;
     const confidenceLevel = gap > 0.3 ? 'high' as const : gap > 0.1 ? 'medium' as const : 'low' as const;
     return { gap, confidenceLevel, top: top.genus, second: second?.genus ?? null };
@@ -691,7 +700,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
           </label>
           <label className="flex items-center gap-2 text-sm text-gray-600">
             {lang === 'it' ? 'Tolleranza' : 'Tolerance'}
-            <InfoTip text={lang === 'it' ? 'Quanti errori sono ammessi. Con tolleranza 1, un genere che non matcha un carattere resta visibile. Aumenta se non sei sicuro delle osservazioni.' : 'How many mismatches are allowed. With tolerance 1, a genus that doesn\'t match one character stays visible. Increase if you\'re unsure of your observations.'} />:
+            <InfoTip text={lang === 'it' ? 'Quanti errori sono ammessi (0 = nessuno). Aumentala se non sei sicuro di un\'osservazione: i generi che contraddicono una risposta restano visibili, ma vengono marcati e ordinati dopo quelli pienamente compatibili.' : 'How many mismatches are allowed (0 = none). Increase it if you\'re unsure of an observation: genera contradicting an answer stay visible, but are marked and ranked below fully matching ones.'} />:
             <select
               value={maxMismatches}
               onChange={e => setMaxMismatches(Number(e.target.value))}
@@ -891,7 +900,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {scoredGenera.map(({ genus, score, mismatches }) => (
+            {scoredGenera.map(({ genus, score, mismatches, mismatchedCharIds }) => (
               <a
                 key={genus.id}
                 id={`genus-card-${genus.id}`}
@@ -926,6 +935,17 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
                       style={{ width: `${Math.round(score * 100)}%` }}
                     />
                   </div>
+                )}
+                {/* Issue #32 §3: a genus kept only by the tolerance must say WHICH
+                    answer it contradicts, or the ranking looks arbitrary. */}
+                {mismatches > 0 && (
+                  <p className="mt-2 text-xs text-red-600">
+                    {lang === 'it' ? 'contraddice: ' : 'contradicts: '}
+                    {mismatchedCharIds.map(id => {
+                      const c = characters.find(ch => ch.id === id);
+                      return c ? (lang === 'it' ? c.name_it : c.name_en) : id;
+                    }).join(', ')}
+                  </p>
                 )}
                 {genus.photo_urls[0] && (
                   <img

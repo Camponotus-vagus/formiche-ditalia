@@ -46,22 +46,23 @@ export function impliedSubfamily(selections, charById) {
  * @param genera - genera list (already region-filtered if applicable)
  * @param matrixLookup - precomputed
  * @param charById - precomputed
- * @param maxMismatches - tolerance (default 1, matching UI default)
+ * @param maxMismatches - tolerance (default 0, matching UI default — issue #32 §3)
  * @returns sorted ScoredGenus[]
  */
-export function score(selections, genera, matrixLookup, charById, maxMismatches = 1) {
+export function score(selections, genera, matrixLookup, charById, maxMismatches = 0) {
   // A user-selected '?' ("unknown") is score-neutral (mirror of IdentificationKey.tsx):
   // it must neither imply a subfamily nor penalize any genus.
   selections = selections.filter(sel => sel.value !== '?');
   if (selections.length === 0) {
-    return genera.map(g => ({ genus: g, score: 1, mismatches: 0, matched: 0 }));
+    return genera.map(g => ({ genus: g, score: 1, mismatches: 0, matched: 0, missingCount: 0, mismatchedCharIds: [] }));
   }
   // Implied subfamily: only when >=2 selected scoped characters agree (spec §4).
   const impliedSubfamilyVal = impliedSubfamily(selections, charById);
 
   const out = genera.map(genus => {
-    let mismatches = 0, matched = 0, missingCount = 0;
-    let totalWeight = 0, weightedScore = 0;
+    let matched = 0, missingCount = 0;
+    let totalWeight = 0;
+    const mismatchedCharIds = [];
 
     for (const sel of selections) {
       const values = matrixLookup[genus.id]?.[sel.characterId];
@@ -78,11 +79,11 @@ export function score(selections, genera, matrixLookup, charById, maxMismatches 
       totalWeight += w;
       if (values.includes(sel.value)) {
         matched++;
-        weightedScore += w;
       } else {
-        mismatches++;
+        mismatchedCharIds.push(sel.characterId);
       }
     }
+    const mismatches = mismatchedCharIds.length;
 
     const isOutOfScope = impliedSubfamilyVal && genus.subfamily_id !== impliedSubfamilyVal;
     let s;
@@ -95,10 +96,13 @@ export function score(selections, genera, matrixLookup, charById, maxMismatches 
     } else {
       s = isOutOfScope ? 0.2 : 0.5;
     }
-    return { genus, score: s, mismatches, matched };
+    return { genus, score: s, mismatches, matched, missingCount, mismatchedCharIds };
   })
     .filter(sg => sg.mismatches <= maxMismatches)
+    // Mismatch-first: a tolerated genus never outranks a fully matching one
+    // (issue #32 §3). Mirror of IdentificationKey.tsx — change both together.
     .sort((a, b) =>
+      a.mismatches - b.mismatches ||
       b.score - a.score ||
       a.genus.scientific_name.localeCompare(b.genus.scientific_name)
     );
@@ -115,7 +119,7 @@ export function score(selections, genera, matrixLookup, charById, maxMismatches 
  * `scoredGenera` is the output of score() for the current selections at the SAME
  * maxMismatches passed here.
  */
-export function predictStateImpact(charId, stateValue, scoredGenera, matrixLookup, maxMismatches = 1) {
+export function predictStateImpact(charId, stateValue, scoredGenera, matrixLookup, maxMismatches = 0) {
   // Selecting '?' ("unknown") is score-neutral — it excludes nothing.
   if (stateValue === '?') return 0;
   return scoredGenera.filter(sg => {
@@ -148,7 +152,7 @@ export function compatibleSelections(genusId, matrixLookup) {
  * excludedGenera. A genus is excluded iff it does NOT pass the tolerance filter; a
  * missing / '?' / '-' cell never contributes a reason.
  */
-export function excludedGenera(selections, genera, matrixLookup, charById, maxMismatches = 1) {
+export function excludedGenera(selections, genera, matrixLookup, charById, maxMismatches = 0) {
   const effective = selections.filter(sel => sel.value !== '?');
   if (effective.length === 0) return [];
   const keptIds = new Set(score(selections, genera, matrixLookup, charById, maxMismatches).map(sg => sg.genus.id));
@@ -173,7 +177,7 @@ export function excludedGenera(selections, genera, matrixLookup, charById, maxMi
  * If `tieAllowedSameSubfamily` is true, ties with same-subfamily genera don't count as failure
  * (only used to investigate; default false).
  */
-export function isUniqueTop(targetId, selections, genera, matrixLookup, charById, maxMismatches = 1) {
+export function isUniqueTop(targetId, selections, genera, matrixLookup, charById, maxMismatches = 0) {
   const ranked = score(selections, genera, matrixLookup, charById, maxMismatches);
   if (ranked.length === 0) return { unique: false, reason: 'no-genera-pass-tolerance' };
   const top = ranked[0];
@@ -196,7 +200,7 @@ export function isUniqueTop(targetId, selections, genera, matrixLookup, charById
  * suggestion. Mirrors the P6 pairwise-distance within-subfamily guard. See
  * docs/superpowers/specs/2026-07-09-character-globalization-design.md §6.
  */
-export function isUniqueTopWithinSubfamily(targetId, selections, genera, matrixLookup, charById, maxMismatches = 1) {
+export function isUniqueTopWithinSubfamily(targetId, selections, genera, matrixLookup, charById, maxMismatches = 0) {
   const ranked = score(selections, genera, matrixLookup, charById, maxMismatches);
   if (ranked.length === 0) return { unique: false, reason: 'no-genera-pass-tolerance' };
   const target = ranked.find(r => r.genus.id === targetId);
