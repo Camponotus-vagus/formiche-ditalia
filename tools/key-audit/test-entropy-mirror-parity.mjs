@@ -148,6 +148,29 @@ if (simEntropyFn) {
   );
 }
 
+// --- 4. predictStateImpact parity (issue #32 §2) ------------------------------
+// Both implementations must exclude a genus only when informative data contradicts
+// the hypothetical answer AND the tolerance budget is exhausted. The fingerprint is
+// the tolerance-respecting exclusion condition; if it disappears from either file,
+// the -N badge (or its offline oracle) has regressed to counting no-data genera.
+const IMPACT_FINGERPRINT = /sg\.mismatches \+ 1 > maxMismatches/;
+log(
+  IMPACT_FINGERPRINT.test(tsx),
+  "IdentificationKey.tsx's predictStateImpact respects the tolerance budget " +
+    '(sg.mismatches + 1 > maxMismatches) — if missing, the -N badge no longer counts ' +
+    'actual exclusions from the shown set'
+);
+log(
+  IMPACT_FINGERPRINT.test(sim),
+  "simulator.mjs's predictStateImpact respects the tolerance budget — if missing, the " +
+    'offline mirror has drifted from the production badge'
+);
+log(
+  hasFn(sim, 'predictStateImpact'),
+  'simulator.mjs defines (exports) predictStateImpact — if missing, re-add the mirror ' +
+    'so test-predict-impact-parity.mjs can oracle-check the badge semantics'
+);
+
 if (failures === 0) {
   console.log('\nPASS — production has one entropy implementation, and it mirrors simulator.mjs');
   process.exit(0);

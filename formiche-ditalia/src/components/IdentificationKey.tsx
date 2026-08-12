@@ -424,8 +424,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     const second = scoredGenera[1];
     const topValues = matrixLookup[top.genus.id]?.[bestCharacterId];
     const secondValues = matrixLookup[second.genus.id]?.[bestCharacterId];
-    const informative = (v?: string[]) => !!v && !v.includes('?') && !v.includes('-');
-    if (informative(topValues) && informative(secondValues) && !topValues!.some(v => secondValues!.includes(v))) {
+    if (isInformative(topValues) && isInformative(secondValues) && !topValues.some(v => secondValues.includes(v))) {
       return {
         charName: lang === 'it' ? char.name_it : char.name_en,
         genus1: top.genus.scientific_name,
@@ -481,24 +480,22 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     return { progress, progressLabel, totalGenera, topCandidates };
   }, [regionFilteredGenera.length, scoredGenera, selectedStates.length, lang]);
 
-  // Component D: Impact prediction per character state
-  // Counts genera that would be excluded or significantly penalized
+  // Component D: Impact prediction per character state.
+  // Exact count of genera the hypothetical selection would remove from the shown
+  // set. Membership in scoredGenera is decided solely by the tolerance filter
+  // (mismatches <= maxMismatches) and mismatches only grow when informative data
+  // contradicts an answer — so the exact hypothetical outcome is O(1) per genus,
+  // no re-scoring needed. Mirror of simulator.mjs predictStateImpact — change
+  // both together.
   const predictStateImpact = (charId: string, stateValue: string): number => {
     // Selecting '?' ("unknown") is score-neutral — it excludes nothing.
     if (stateValue === '?') return 0;
-    const char = characters.find(c => c.id === charId);
-    const charScope = char?.subfamily_scope;
     return scoredGenera.filter(sg => {
       const values = matrixLookup[sg.genus.id]?.[charId];
-      if (values && !values.includes('?') && !values.includes('-')) {
-        // Has informative data: count as excluded if doesn't match
-        return !values.includes(stateValue);
-      }
-      // No data: would be penalized if out of scope
-      if (charScope && sg.genus.subfamily_id !== charScope) {
-        return true; // out-of-scope genera get heavy penalty
-      }
-      return false;
+      // Missing, '?' or '-' cells never add a mismatch, so they never exclude.
+      if (!isInformative(values)) return false;
+      if (values.includes(stateValue)) return false;
+      return sg.mismatches + 1 > maxMismatches;
     }).length;
   };
 
