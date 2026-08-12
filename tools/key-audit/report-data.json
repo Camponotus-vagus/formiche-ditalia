@@ -1762,14 +1762,6 @@
         ],
         "gap": "0.150",
         "passingCount": 42
-      },
-      {
-        "sels": [
-          "Squama peziolare=ben sviluppato",
-          "Colore del tegumento=bruno"
-        ],
-        "gap": "0.150",
-        "passingCount": 42
       }
     ],
     "triples": [],
@@ -1865,8 +1857,8 @@
     "genus": "camponotus",
     "subfamily": "formicinae",
     "scientific_name": "Camponotus",
-    "profileSize": 33,
-    "distinctCharCount": 26,
+    "profileSize": 34,
+    "distinctCharCount": 27,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -1947,8 +1939,8 @@
     "genus": "cataglyphis",
     "subfamily": "formicinae",
     "scientific_name": "Cataglyphis",
-    "profileSize": 31,
-    "distinctCharCount": 26,
+    "profileSize": 32,
+    "distinctCharCount": 27,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -1980,8 +1972,8 @@
     "genus": "colobopsis",
     "subfamily": "formicinae",
     "scientific_name": "Colobopsis",
-    "profileSize": 32,
-    "distinctCharCount": 26,
+    "profileSize": 33,
+    "distinctCharCount": 27,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -2013,8 +2005,8 @@
     "genus": "formica",
     "subfamily": "formicinae",
     "scientific_name": "Formica",
-    "profileSize": 32,
-    "distinctCharCount": 26,
+    "profileSize": 33,
+    "distinctCharCount": 27,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -2041,7 +2033,7 @@
         },
         {
           "id": "lasius",
-          "score": 0.9615384615384616,
+          "score": 0.9629629629629629,
           "mismatches": 1
         }
       ]
@@ -2051,8 +2043,8 @@
     "genus": "lasius",
     "subfamily": "formicinae",
     "scientific_name": "Lasius",
-    "profileSize": 33,
-    "distinctCharCount": 26,
+    "profileSize": 34,
+    "distinctCharCount": 27,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -2088,7 +2080,7 @@
         },
         {
           "id": "paratrechina",
-          "score": 0.9615384615384616,
+          "score": 0.9629629629629629,
           "mismatches": 1
         }
       ]
@@ -2098,8 +2090,8 @@
     "genus": "lepisiota",
     "subfamily": "formicinae",
     "scientific_name": "Lepisiota",
-    "profileSize": 30,
-    "distinctCharCount": 25,
+    "profileSize": 31,
+    "distinctCharCount": 26,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -2172,8 +2164,8 @@
     "genus": "plagiolepis",
     "subfamily": "formicinae",
     "scientific_name": "Plagiolepis",
-    "profileSize": 28,
-    "distinctCharCount": 26,
+    "profileSize": 29,
+    "distinctCharCount": 27,
     "discriminationDepth": 2,
     "uniqueSingles": [],
     "pairs": [
@@ -2246,8 +2238,8 @@
     "genus": "polyergus",
     "subfamily": "formicinae",
     "scientific_name": "Polyergus",
-    "profileSize": 26,
-    "distinctCharCount": 26,
+    "profileSize": 27,
+    "distinctCharCount": 27,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -2279,8 +2271,8 @@
     "genus": "prenolepis",
     "subfamily": "formicinae",
     "scientific_name": "Prenolepis",
-    "profileSize": 29,
-    "distinctCharCount": 26,
+    "profileSize": 30,
+    "distinctCharCount": 27,
     "discriminationDepth": 1,
     "uniqueSingles": [
       {
@@ -2411,8 +2403,8 @@
     "genus": "nylanderia",
     "subfamily": "formicinae",
     "scientific_name": "Nylanderia",
-    "profileSize": 28,
-    "distinctCharCount": 26,
+    "profileSize": 29,
+    "distinctCharCount": 27,
     "discriminationDepth": null,
     "uniqueSingles": [],
     "pairs": [],
@@ -2441,8 +2433,8 @@
     "genus": "paratrechina",
     "subfamily": "formicinae",
     "scientific_name": "Paratrechina",
-    "profileSize": 29,
-    "distinctCharCount": 26,
+    "profileSize": 30,
+    "distinctCharCount": 27,
     "discriminationDepth": 4,
     "uniqueSingles": [],
     "pairs": [],
@@ -2512,7 +2504,7 @@
         },
         {
           "id": "lasius",
-          "score": 0.9615384615384616,
+          "score": 0.9629629629629629,
           "mismatches": 1
         }
       ]

@@ -38,7 +38,10 @@ log(JSON.stringify(r0.map(sg => sg.genus.id).sort()) === JSON.stringify(EXPECTED
 
 // Named regressions from the issue, measured on the 8-genus state at tol 0:
 log(predictStateImpact('gen-32', '0', r0, matrixLookup, 0) === 1, 'gen-32 "ben sviluppato" predicts 1 (was -7)');
-log(predictStateImpact('gen-32', '1', r0, matrixLookup, 0) === 1, 'gen-32 "virtualmente assente" predicts 1 (was -7)');
+// Since the Formicinae extension of gen-32 (issue #32 §5) the 6 Formicinae in the
+// 8-genus set carry an informative '0', so "virtualmente assente" genuinely removes
+// them plus linepithema — the badge stays exact, only the data grew.
+log(predictStateImpact('gen-32', '1', r0, matrixLookup, 0) === 6, 'gen-32 "virtualmente assente" predicts 6 (was -7 on no-data)');
 log(predictStateImpact('gen-19', '0', r0, matrixLookup, 0) === 0, 'gen-19 state 0 predicts 0 (was -8)');
 log(predictStateImpact('gen-19', '1', r0, matrixLookup, 0) === 0, 'gen-19 state 1 predicts 0 (was -8)');
 log(predictStateImpact('gen-46', '1', r0, matrixLookup, 0) === 4, 'gen-46 "presente" predicts 4 (was -6/-7)');

@@ -8951,5 +8951,82 @@
     "state_values": [
       "0"
     ]
+  },
+  {
+    "genus_id": "camponotus",
+    "character_id": "gen-32",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "cataglyphis",
+    "character_id": "gen-32",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "colobopsis",
+    "character_id": "gen-32",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "formica",
+    "character_id": "gen-32",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "lasius",
+    "character_id": "gen-32",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "lepisiota",
+    "character_id": "gen-32",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "plagiolepis",
+    "character_id": "gen-32",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "polyergus",
+    "character_id": "gen-32",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "prenolepis",
+    "character_id": "gen-32",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "nylanderia",
+    "character_id": "gen-32",
+    "state_values": [
+      "0"
+    ]
+  },
+  {
+    "genus_id": "paratrechina",
+    "character_id": "gen-32",
+    "state_values": [
+      "0"
+    ]
   }
 ]
