@@ -31,13 +31,20 @@ export function loadData(dir = DATA_DIR) {
  * Implied subfamily: returns the shared subfamily_scope ONLY when at least two
  * selected characters carry it and ALL scoped selections agree. One scoped answer,
  * mixed scopes, or zero scoped answers → null. Global (null-scope) characters are
- * ignored via filter(Boolean). Mirror of IdentificationKey.tsx impliedSubfamily.
+ * ignored via filter(Boolean). Mirror of IdentificationKey.tsx impliedSubfamilyDetail
+ * + effectiveImpliedSubfamily.
  * NOTE: caller passes selections already filtered of user '?' values.
+ * `dismissedScope` (issue #32 §1): the subfamily whose lock the user dismissed via
+ * the banner — when the computed scope equals it, the lock is off and this returns
+ * null. Dismissal is per subfamily: a quorum on a DIFFERENT subfamily still locks.
+ * The banner's contributor listing is display-only and deliberately un-mirrored
+ * (like progressInfo/gapInfo).
  */
-export function impliedSubfamily(selections, charById) {
+export function impliedSubfamily(selections, charById, dismissedScope = null) {
   const scoped = selections.map(sel => charById[sel.characterId]?.subfamily_scope).filter(Boolean);
   const scopes = new Set(scoped);
-  return (scopes.size === 1 && scoped.length >= 2) ? [...scopes][0] : null;
+  const subfamily = (scopes.size === 1 && scoped.length >= 2) ? [...scopes][0] : null;
+  return subfamily && subfamily !== dismissedScope ? subfamily : null;
 }
 
 /**
@@ -47,9 +54,10 @@ export function impliedSubfamily(selections, charById) {
  * @param matrixLookup - precomputed
  * @param charById - precomputed
  * @param maxMismatches - tolerance (default 0, matching UI default — issue #32 §3)
+ * @param dismissedScope - subfamily whose implied lock the user dismissed (issue #32 §1)
  * @returns sorted ScoredGenus[]
  */
-export function score(selections, genera, matrixLookup, charById, maxMismatches = 0) {
+export function score(selections, genera, matrixLookup, charById, maxMismatches = 0, dismissedScope = null) {
   // A user-selected '?' ("unknown") is score-neutral (mirror of IdentificationKey.tsx):
   // it must neither imply a subfamily nor penalize any genus.
   selections = selections.filter(sel => sel.value !== '?');
@@ -57,7 +65,7 @@ export function score(selections, genera, matrixLookup, charById, maxMismatches 
     return genera.map(g => ({ genus: g, score: 1, mismatches: 0, matched: 0, missingCount: 0, mismatchedCharIds: [] }));
   }
   // Implied subfamily: only when >=2 selected scoped characters agree (spec §4).
-  const impliedSubfamilyVal = impliedSubfamily(selections, charById);
+  const impliedSubfamilyVal = impliedSubfamily(selections, charById, dismissedScope);
 
   const out = genera.map(genus => {
     let matched = 0, missingCount = 0;
