@@ -106,6 +106,28 @@ export function score(selections, genera, matrixLookup, charById, maxMismatches 
 }
 
 /**
+ * Impact prediction per character state: the exact number of genera the hypothetical
+ * selection (charId = stateValue) would remove from the currently shown set. Membership
+ * in scoredGenera is decided solely by the tolerance filter (mismatches <= maxMismatches)
+ * and mismatches only grow when informative data contradicts an answer — so the exact
+ * hypothetical outcome is O(1) per genus, no re-scoring needed.
+ * Mirror of IdentificationKey.tsx predictStateImpact — change both together.
+ * `scoredGenera` is the output of score() for the current selections at the SAME
+ * maxMismatches passed here.
+ */
+export function predictStateImpact(charId, stateValue, scoredGenera, matrixLookup, maxMismatches = 1) {
+  // Selecting '?' ("unknown") is score-neutral — it excludes nothing.
+  if (stateValue === '?') return 0;
+  return scoredGenera.filter(sg => {
+    const values = matrixLookup[sg.genus.id]?.[charId];
+    // Missing, '?' or '-' cells never add a mismatch, so they never exclude.
+    if (!isInformative(values)) return false;
+    if (values.includes(stateValue)) return false;
+    return sg.mismatches + 1 > maxMismatches;
+  }).length;
+}
+
+/**
  * Compatible selections for a genus: the set of (charId, value) the genus matches.
  * Each character's state list is expanded into individual entries.
  * Characters with '?' are excluded (genus has no data).
