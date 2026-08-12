@@ -395,7 +395,11 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
 
     // Item 1.4: when "prefer easier" is on, suggest the best non-hard (easy/medium)
     // character; fall back to a hard one only if no easier character discriminates.
-    if (preferEasy) {
+    // Issue #32 §7: the FIRST pick behaves as prefer-easy regardless of the toggle —
+    // entropy-optimal on a fresh page is a dissection-grade character (palp formula),
+    // the wrong first move for the beginner the fresh page is most likely serving.
+    const effectivePreferEasy = preferEasy || selectedStates.filter(s => s.value !== '?').length === 0;
+    if (effectivePreferEasy) {
       const easier = pickBest(remaining.filter(c => c.difficulty !== 'hard'));
       if (easier.bestId && easier.bestScore > 0) return easier.bestId;
     }
@@ -982,7 +986,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {scoredGenera.map(({ genus, score, mismatches, mismatchedCharIds }) => (
+            {scoredGenera.map(({ genus, score, mismatches, mismatchedCharIds, matchedCount, missingCount }) => (
               <a
                 key={genus.id}
                 id={`genus-card-${genus.id}`}
@@ -997,11 +1001,16 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
                     <p className="text-xs text-gray-500 capitalize mt-0.5">{genus.subfamily_id}</p>
                   </div>
                   {selectedStates.length > 0 && (
-                    <span className={`text-xs px-2 py-1 rounded-full font-medium ${
-                      score >= 0.8 ? 'bg-green-100 text-green-700' :
-                      score >= 0.5 ? 'bg-yellow-100 text-yellow-700' :
-                      'bg-red-100 text-red-700'
-                    }`}>
+                    <span
+                      className={`text-xs px-2 py-1 rounded-full font-medium ${
+                        score >= 0.8 ? 'bg-green-100 text-green-700' :
+                        score >= 0.5 ? 'bg-yellow-100 text-yellow-700' :
+                        'bg-red-100 text-red-700'
+                      }`}
+                      title={lang === 'it'
+                        ? 'Compatibilità: concordanza con le tue risposte e copertura dei dati (i dati mancanti la abbassano)'
+                        : 'Compatibility: agreement with your answers and data coverage (missing data lowers it)'}
+                    >
                       {Math.round(score * 100)}%
                     </span>
                   )}
@@ -1017,6 +1026,18 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
                       style={{ width: `${Math.round(score * 100)}%` }}
                     />
                   </div>
+                )}
+                {/* Issue #32 §8: the raw percentage tracks agreement AND data
+                    coverage; spell out the two ingredients so it stops reading as
+                    a pure match measure. */}
+                {selectedStates.length > 0 && (matchedCount + mismatches > 0 || missingCount > 0) && (
+                  <p className="mt-1.5 text-[11px] text-gray-400">
+                    {matchedCount + mismatches > 0 && (
+                      <>{matchedCount}/{matchedCount + mismatches} {lang === 'it' ? 'caratteri concordi' : 'characters agree'}</>
+                    )}
+                    {matchedCount + mismatches > 0 && missingCount > 0 && <> · </>}
+                    {missingCount > 0 && <>{missingCount} {lang === 'it' ? 'senza dati' : 'without data'}</>}
+                  </p>
                 )}
                 {/* Issue #32 §3: a genus kept only by the tolerance must say WHICH
                     answer it contradicts, or the ranking looks arbitrary. */}

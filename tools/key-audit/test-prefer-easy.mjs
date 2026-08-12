@@ -85,6 +85,18 @@ for (const tol of [0, 1]) {
       `tolerance=${tol}: prefer-easy uses ≤ hard chars than default (easy=${easyHard} vs default=${defHard})`);
 }
 
+// Issue #32 §7: the FIRST suggestion on a fresh page must behave as prefer-easy
+// regardless of the toggle (entropy-optimal at zero selections is the dissection-grade
+// palp formula — the wrong first move for a beginner). Two checks: the policy oracle
+// (fresh-set prefer-easy pick is non-hard — assertion A above already covers it) and a
+// source-level guard that the TSX actually forces the branch on the first pick.
+{
+  const { readFileSync } = await import('node:fs');
+  const tsx = readFileSync('../../formiche-ditalia/src/components/IdentificationKey.tsx', 'utf8');
+  log(/effectivePreferEasy = preferEasy \|\|/.test(tsx),
+      'IdentificationKey.tsx forces prefer-easy on the first pick (effectivePreferEasy guard present)');
+}
+
 if (failures === 0) {
   console.log('\n1.4 PASS — prefer-easier suggestion avoids hard traits yet still resolves every genus');
   process.exit(0);
