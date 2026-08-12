@@ -148,7 +148,23 @@ if (simEntropyFn) {
   );
 }
 
-// --- 4. predictStateImpact parity (issue #32 §2) ------------------------------
+// --- 4. mismatch-first sort parity (issue #32 §3) -----------------------------
+// Both ranked outputs must sort by mismatches BEFORE score, so a genus kept only by
+// the tolerance can never outrank a fully matching one. The fingerprint is the
+// leading sort key.
+const SORT_FINGERPRINT = /a\.mismatches - b\.mismatches \|\|/;
+log(
+  SORT_FINGERPRINT.test(tsx),
+  "IdentificationKey.tsx's scoredGenera sorts mismatch-first (a.mismatches - b.mismatches ||) — " +
+    'if missing, contradicting genera can again rank above fully matching ones'
+);
+log(
+  SORT_FINGERPRINT.test(sim),
+  "simulator.mjs's score() sorts mismatch-first — if missing, the offline mirror has " +
+    'drifted from the production ranking'
+);
+
+// --- 5. predictStateImpact parity (issue #32 §2) ------------------------------
 // Both implementations must exclude a genus only when informative data contradicts
 // the hypothetical answer AND the tolerance budget is exhausted. The fingerprint is
 // the tolerance-respecting exclusion condition; if it disappears from either file,
