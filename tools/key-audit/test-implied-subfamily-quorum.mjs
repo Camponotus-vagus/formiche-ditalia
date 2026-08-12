@@ -37,6 +37,35 @@ if (other) {
   log(impliedSubfamily(selMixed, charById) === null, 'mixed scopes imply NO subfamily');
 }
 
+// Dismissal (issue #32 §1): the banner's "don't lock the subfamily" must fully
+// disengage the out-of-scope penalty — same scores as no quorum at all — while a
+// dismissal of a DIFFERENT subfamily must not suppress the lock.
+log(impliedSubfamily(sel2, charById, scopeName) === null,
+    'dismissing the implied scope disengages the lock');
+log(impliedSubfamily(sel2, charById, 'some-other-subfamily') === scopeName,
+    'dismissing a different scope does not suppress the lock');
+
+// Behavioural: with the lock dismissed, every genus scores exactly as if no
+// subfamily were implied (compare against a single-selection run where the quorum
+// cannot form — penalties must match the no-lock branch).
+{
+  const locked = score(sel2, genera, matrixLookup, charById, 99);
+  const dismissed = score(sel2, genera, matrixLookup, charById, 99, scopeName);
+  const outOfScope = genera.filter(g => g.subfamily_id && g.subfamily_id !== scopeName);
+  const worse = outOfScope.filter(g => {
+    const l = locked.find(r => r.genus.id === g.id);
+    const d = dismissed.find(r => r.genus.id === g.id);
+    return l && d && d.score < l.score;
+  });
+  log(worse.length === 0, 'no out-of-scope genus scores worse with the lock dismissed');
+  const improved = outOfScope.some(g => {
+    const l = locked.find(r => r.genus.id === g.id);
+    const d = dismissed.find(r => r.genus.id === g.id);
+    return l && d && d.score > l.score;
+  });
+  log(improved, 'at least one out-of-scope genus recovers score when the lock is dismissed');
+}
+
 // Behavioural: pick an out-of-scope genus lacking data for BOTH chars, so the
 // out-of-scope penalty must engage only at quorum (2 answers), not at 1. Use a large
 // maxMismatches to isolate the score from the tolerance filter and assert on score value.

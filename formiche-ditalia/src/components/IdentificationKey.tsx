@@ -53,6 +53,9 @@ interface PersistedState {
   selectedRegion: string;
   hiddenCharacterIds: string[];
   preferEasy: boolean;
+  // Subfamily whose implied lock the user dismissed via the banner (issue #32 §1).
+  // Optional in stored v1 blobs from before this field existed.
+  dismissedScopeLock: string | null;
 }
 
 function loadPersistedState(): PersistedState | null {
@@ -68,6 +71,7 @@ function loadPersistedState(): PersistedState | null {
       selectedRegion: typeof parsed.selectedRegion === 'string' ? parsed.selectedRegion : '',
       hiddenCharacterIds: Array.isArray(parsed.hiddenCharacterIds) ? parsed.hiddenCharacterIds : [],
       preferEasy: typeof parsed.preferEasy === 'boolean' ? parsed.preferEasy : false,
+      dismissedScopeLock: typeof parsed.dismissedScopeLock === 'string' ? parsed.dismissedScopeLock : null,
     };
   } catch {
     return null;
@@ -107,6 +111,8 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
   const [preferEasy, setPreferEasy] = useState(false);
   // Item 2.4: expand the "excluded genera" trace panel.
   const [showExcluded, setShowExcluded] = useState(false);
+  // Issue #32 §1: subfamily lock the user dismissed via the banner (null = none).
+  const [dismissedScopeLock, setDismissedScopeLock] = useState<string | null>(null);
   const [hydrated, setHydrated] = useState(false);
   const [lang, setCurrentLang] = useState<Lang>(initialLang);
 
@@ -126,6 +132,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
       setSelectedRegion(persisted.selectedRegion);
       setHiddenCharacterIds(new Set(persisted.hiddenCharacterIds));
       setPreferEasy(persisted.preferEasy);
+      setDismissedScopeLock(persisted.dismissedScopeLock);
     }
     setHydrated(true);
   }, []);
@@ -140,11 +147,12 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
         selectedRegion,
         hiddenCharacterIds: [...hiddenCharacterIds],
         preferEasy,
+        dismissedScopeLock,
       }));
     } catch {
       // sessionStorage may be disabled or full — silently ignore
     }
-  }, [hydrated, selectedStates, maxMismatches, selectedRegion, hiddenCharacterIds, preferEasy]);
+  }, [hydrated, selectedStates, maxMismatches, selectedRegion, hiddenCharacterIds, preferEasy, dismissedScopeLock]);
 
   /** Wraps the first glossary term found in `text` with a GlossaryTooltip. */
   const annotateWithGlossary = (text: string): ReactNode => {
@@ -249,20 +257,31 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
   const hasCharacterData = (charId: string, generaList: ScoredGenus[]): boolean =>
     generaList.some(sg => isInformative(matrixLookup[sg.genus.id]?.[charId]));
 
-  // Level 2: Detect implied subfamily from selected characters
-  const impliedSubfamily = useMemo(() => {
+  // Level 2: Detect implied subfamily from selected characters. Returns the scope
+  // plus the selections that formed the quorum, so the UI can SAY why the lock
+  // engaged (issue #32 §1) instead of silently penalizing other subfamilies.
+  const impliedSubfamilyDetail = useMemo(() => {
     // A user-selected '?' ("unknown") is score-neutral: it must not imply a subfamily.
     const effective = selectedStates.filter(sel => sel.value !== '?');
-    if (effective.length === 0) return null;
-    const scoped = effective.map(sel => {
-      const char = characters.find(c => c.id === sel.characterId);
-      return char?.subfamily_scope;
-    }).filter(Boolean);
-    const scopes = new Set(scoped);
+    if (effective.length === 0) return { subfamily: null as string | null, contributors: [] as Character[] };
+    const contributors = effective
+      .map(sel => characters.find(c => c.id === sel.characterId))
+      .filter((c): c is Character => !!c?.subfamily_scope);
+    const scopes = new Set(contributors.map(c => c.subfamily_scope));
     // Quorum (spec §4): imply a subfamily only when >=2 selected scoped characters
     // agree. One scoped answer never locks; mixed scopes never lock.
-    return (scopes.size === 1 && scoped.length >= 2) ? [...scopes][0]! : null;
+    const subfamily = (scopes.size === 1 && contributors.length >= 2) ? contributors[0].subfamily_scope! : null;
+    return { subfamily, contributors: subfamily ? contributors : [] };
   }, [selectedStates, characters]);
+
+  // The lock the user dismissed via the banner. Dismissal is per subfamily: if the
+  // quorum later points to a DIFFERENT subfamily, the lock re-engages with a fresh
+  // banner. Cleared by reset(), untouched by undo.
+  const effectiveImpliedSubfamily =
+    impliedSubfamilyDetail.subfamily && impliedSubfamilyDetail.subfamily !== dismissedScopeLock
+      ? impliedSubfamilyDetail.subfamily
+      : null;
+  const impliedSubfamily = effectiveImpliedSubfamily;
 
   const scoredGenera = useMemo((): ScoredGenus[] => {
     // A user-selected '?' ("unknown") is score-neutral — drop it before scoring so it
@@ -529,10 +548,27 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
     setSelectedStates(prev => prev.slice(0, -1));
   };
 
+  // Issue #32 §1: subfamily-scope badge for scoped characters whose label does not
+  // already name the scope (gen-43/45/46 carry it in the name and skip the badge
+  // automatically — data-driven, no hardcoded id list). The subfamily name is a
+  // Latin taxon, identical in IT and EN.
+  const scopeBadge = (char: Character): ReactNode =>
+    char.subfamily_scope && !char.name_it.toLowerCase().includes(char.subfamily_scope) ? (
+      <span
+        className="inline-block align-middle ml-1.5 text-[10px] font-medium bg-gray-100 text-gray-500 rounded px-1.5 py-0.5 whitespace-nowrap"
+        title={lang === 'it'
+          ? `Carattere valutabile solo nella sottofamiglia ${char.subfamily_scope}`
+          : `Character only assessable within the subfamily ${char.subfamily_scope}`}
+      >
+        {char.subfamily_scope.charAt(0).toUpperCase() + char.subfamily_scope.slice(1)}
+      </span>
+    ) : null;
+
   const reset = () => {
     setSelectedStates([]);
     setSelectedRegion('');
     setHiddenCharacterIds(new Set());
+    setDismissedScopeLock(null);
   };
 
   const hideCharacter = (characterId: string) => {
@@ -728,6 +764,50 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
           </div>
         )}
 
+        {/* Issue #32 §1: the implied-subfamily lock is visible and dismissible. When
+            >=2 scoped selections agree, out-of-scope genera get the heavy missing-data
+            penalty — the user must SEE that, know which answers caused it, and be able
+            to switch it off (e.g. when they picked scoped characters without knowing
+            their ant's subfamily). */}
+        {impliedSubfamilyDetail.subfamily && (() => {
+          const sub = impliedSubfamilyDetail.subfamily;
+          const subLabel = sub.charAt(0).toUpperCase() + sub.slice(1);
+          const contributorNames = impliedSubfamilyDetail.contributors
+            .map(c => (lang === 'it' ? c.name_it : c.name_en)).join(', ');
+          return effectiveImpliedSubfamily ? (
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-3 px-4 py-2.5 rounded-lg bg-amber-50 border border-amber-200">
+              <span className="text-xs text-amber-800">
+                {lang === 'it'
+                  ? <>Sottofamiglia implicita: <span className="font-semibold">{subLabel}</span> (dai caratteri: {contributorNames}). I generi delle altre sottofamiglie vengono penalizzati.</>
+                  : <>Implied subfamily: <span className="font-semibold">{subLabel}</span> (from: {contributorNames}). Genera of other subfamilies are penalized.</>}
+                <InfoTip text={lang === 'it'
+                  ? 'Hai risposto ad almeno due caratteri valutabili solo in questa sottofamiglia, quindi la chiave assume che la tua formica vi appartenga. Se non ne sei sicuro, disattiva il blocco.'
+                  : 'You answered at least two characters only assessable within this subfamily, so the key assumes your ant belongs to it. If unsure, switch the lock off.'} />
+              </span>
+              <button
+                onClick={() => setDismissedScopeLock(sub)}
+                className="text-xs font-medium text-amber-700 hover:text-amber-900 underline cursor-pointer"
+              >
+                {lang === 'it' ? 'Non bloccare la sottofamiglia' : "Don't lock the subfamily"}
+              </button>
+            </div>
+          ) : (
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-3 px-4 py-2.5 rounded-lg bg-gray-50 border border-gray-200">
+              <span className="text-xs text-gray-500">
+                {lang === 'it'
+                  ? <>Blocco sottofamiglia ({subLabel}) disattivato: nessuna penalità alle altre sottofamiglie.</>
+                  : <>Subfamily lock ({subLabel}) off: no penalty to other subfamilies.</>}
+              </span>
+              <button
+                onClick={() => setDismissedScopeLock(null)}
+                className="text-xs font-medium text-gray-600 hover:text-gray-800 underline cursor-pointer"
+              >
+                {lang === 'it' ? 'Riattiva' : 'Re-enable'}
+              </button>
+            </div>
+          );
+        })()}
+
         {/* Suggested character — prominent box at top */}
         {bestCharacterId && (() => {
           const bestChar = characters.find(c => c.id === bestCharacterId);
@@ -752,6 +832,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
                   <div role="tooltip">), which is invalid inside <p> and breaks hydration. */}
               <div className="text-sm font-medium text-gray-800 mb-3">
                 {annotateWithGlossary(lang === 'it' ? bestChar.name_it : bestChar.name_en)}
+                {scopeBadge(bestChar)}
               </div>
               <div className="flex flex-wrap gap-2">
                 {bestChar.states.map(state => {
@@ -840,6 +921,7 @@ export default function IdentificationKey({ characters, matrix, genera, glossary
                       <div className="flex items-start gap-2 mb-2">
                         <div className="text-sm font-medium text-gray-700 flex-1">
                           {annotateWithGlossary(lang === 'it' ? char.name_it : char.name_en)}
+                          {scopeBadge(char)}
                         </div>
                         <button
                           onClick={() => hideCharacter(char.id)}

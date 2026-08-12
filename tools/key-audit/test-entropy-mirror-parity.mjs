@@ -164,7 +164,24 @@ log(
     'drifted from the production ranking'
 );
 
-// --- 5. predictStateImpact parity (issue #32 §2) ------------------------------
+// --- 5. dismissible subfamily lock parity (issue #32 §1) ----------------------
+// Both implementations must disengage the implied-subfamily lock when the user
+// dismissed exactly that subfamily via the banner. Fingerprint: the per-subfamily
+// dismissal comparison.
+const DISMISS_TSX = /!== dismissedScopeLock/;
+const DISMISS_SIM = /!== dismissedScope\b/;
+log(
+  DISMISS_TSX.test(tsx),
+  "IdentificationKey.tsx compares the implied subfamily against dismissedScopeLock — " +
+    'if missing, the banner\'s "don\'t lock" button no longer disengages the penalty'
+);
+log(
+  DISMISS_SIM.test(sim),
+  "simulator.mjs's impliedSubfamily honours its dismissedScope parameter — if missing, " +
+    'the offline mirror has drifted from the dismissible lock'
+);
+
+// --- 6. predictStateImpact parity (issue #32 §2) ------------------------------
 // Both implementations must exclude a genus only when informative data contradicts
 // the hypothetical answer AND the tolerance budget is exhausted. The fingerprint is
 // the tolerance-respecting exclusion condition; if it disappears from either file,
