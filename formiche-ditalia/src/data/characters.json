@@ -1139,13 +1139,13 @@
   "states": [
    {
     "value": "0",
-    "label_it": "assente (mesosoma uniformemente convesso o solo allungato, senza depressione dietro il pronoto)",
-    "label_en": "absent (mesosoma evenly convex or merely elongate, no distinct depression behind pronotum)"
+    "label_it": "assente: nessuna ruga longitudinale (un semplice solco metanotale senza rughe non conta)",
+    "label_en": "absent: no longitudinal rugae (a plain metanotal groove without rugae does not count)"
    },
    {
     "value": "1",
-    "label_it": "presente (depressione mesonotale distinta subito dietro il pronoto, con rughe longitudinali dal mesonoto alla mesopleura)",
-    "label_en": "present (distinct mesonotal depression immediately behind the pronotum, with longitudinal rugae running from mesonotum onto mesopleuron)"
+    "label_it": "presente: rughe longitudinali dal mesonoto alla mesopleura, associate a una depressione dietro il pronoto",
+    "label_en": "present: longitudinal rugae running from the mesonotum onto the mesopleuron, associated with a depression behind the pronotum"
    }
   ],
   "level": "genus",
