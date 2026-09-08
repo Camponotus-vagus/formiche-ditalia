@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { applyLangBlocks, getLang, setLang, type Lang } from '../i18n';
+import { applyLangBlocks, getLang, setLang, type Lang } from '../i18n/lang';
 
 export default function LanguageSwitcher() {
   const [lang, setCurrentLang] = useState<Lang>('it');
@@ -8,24 +8,28 @@ export default function LanguageSwitcher() {
     setCurrentLang(getLang());
   }, []);
 
-  const toggle = () => {
+  const toggle = async () => {
     const newLang: Lang = lang === 'it' ? 'en' : 'it';
     setLang(newLang);
     setCurrentLang(newLang);
     document.documentElement.lang = newLang;
+
+    // The translations (75.9 KB of it.json + en.json) are fetched here, on the
+    // first toggle, rather than statically at the top of this module — that import
+    // put the whole bundle on every page's critical path for a single button.
+    // Hoisted out of the loop below, which used to fire one promise per element.
+    const { t } = await import('../i18n');
+
     // Use innerHTML for translations containing HTML markup (e.g. <strong>, <em>, <a>),
     // textContent otherwise. Values come from our own i18n JSON files, not user input.
     document.querySelectorAll('[data-i18n]').forEach((el) => {
       const key = el.getAttribute('data-i18n');
-      if (key) {
-        import('../i18n').then(({ t }) => {
-          const value = t(key as any, newLang);
-          if (/<[a-z][\s\S]*>/i.test(value)) {
-            el.innerHTML = value;
-          } else {
-            el.textContent = value;
-          }
-        });
+      if (!key) return;
+      const value = t(key as any, newLang);
+      if (/<[a-z][\s\S]*>/i.test(value)) {
+        el.innerHTML = value;
+      } else {
+        el.textContent = value;
       }
     });
     // Swap bilingual data fields (description_it/description_en, bio_it/bio_en, etc.)
