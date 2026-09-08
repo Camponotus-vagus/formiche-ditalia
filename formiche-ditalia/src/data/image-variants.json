@@ -35,5 +35,23 @@
     256,
     384,
     640
+  ],
+  "/images/anatomy/profile.webp": [
+    384,
+    640,
+    1024,
+    1440
+  ],
+  "/images/anatomy/head-view.webp": [
+    256,
+    384,
+    640,
+    1024
+  ],
+  "/images/anatomy/profile_2.webp": [
+    256,
+    384,
+    640,
+    1024
   ]
 }

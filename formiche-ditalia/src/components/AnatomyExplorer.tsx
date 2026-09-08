@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { getLang, type Lang } from '../i18n';
 import AnatomyView from './AnatomyView';
-import { PLATES, TERM_PLATE, plateSrc, highlightSrc } from '../data/anatomy-plates';
+import { PLATES, TERM_PLATE, plateSrc, plateSrcSet, plateFallbackSrc, PLATE_SIZES, highlightSrc } from '../data/anatomy-plates';
 import type { AnatomyPlateId } from '../types';
 
 interface AnatomyTerm {
@@ -269,7 +269,11 @@ export default function AnatomyExplorer({ characters = [] }: Props) {
       <div className="lg:w-[60%] lg:sticky lg:top-20 lg:self-start space-y-3">
         <div ref={profileRef}>
           <AnatomyView
-            base={plateSrc('profile')}
+            base={plateFallbackSrc('profile')}
+            srcSet={plateSrcSet('profile')}
+            sizes={PLATE_SIZES.profile}
+            width={PLATES.profile.width}
+            height={PLATES.profile.height}
             highlight={highlightSrc('profile', activeTerm)}
             alt={lang === 'it' ? PLATES.profile.alt_it : PLATES.profile.alt_en}
             dimmed={activePlate !== null && activePlate !== 'profile'}
@@ -278,7 +282,11 @@ export default function AnatomyExplorer({ characters = [] }: Props) {
         <div className="grid grid-cols-2 gap-3">
           <div ref={headRef}>
             <AnatomyView
-              base={plateSrc('head')}
+              base={plateFallbackSrc('head')}
+              srcSet={plateSrcSet('head')}
+              sizes={PLATE_SIZES.head}
+              width={PLATES.head.width}
+              height={PLATES.head.height}
               highlight={highlightSrc('head', activeTerm)}
               alt={lang === 'it' ? PLATES.head.alt_it : PLATES.head.alt_en}
               dimmed={activePlate !== null && activePlate !== 'head'}
@@ -286,7 +294,11 @@ export default function AnatomyExplorer({ characters = [] }: Props) {
           </div>
           <div ref={profile2Ref}>
             <AnatomyView
-              base={plateSrc('profile2')}
+              base={plateFallbackSrc('profile2')}
+              srcSet={plateSrcSet('profile2')}
+              sizes={PLATE_SIZES.profile2}
+              width={PLATES.profile2.width}
+              height={PLATES.profile2.height}
               highlight={highlightSrc('profile2', activeTerm)}
               alt={lang === 'it' ? PLATES.profile2.alt_it : PLATES.profile2.alt_en}
               dimmed={activePlate !== null && activePlate !== 'profile2'}

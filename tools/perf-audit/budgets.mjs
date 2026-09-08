@@ -33,17 +33,15 @@ export const OVERSIZED_ALLOWLIST = new Set([
 ]);
 
 /**
- * Pages allowed to emit react-dom float image preloads, with the reason.
+ * Pages allowed to emit react-dom float image preloads.
  *
- * This is a record of a known issue, not an endorsement. /anatomia preloads
- * 305 KB of illustrations (profile 127 KB, head-view 109 KB, profile_2 61 KB)
- * from the client:load AnatomyExplorer island, and at 375px none of them are
- * above the fold. Fixing it is a separate change on a separate page; listing it
- * here keeps the guard active everywhere else instead of deleting the test.
+ * Empty, and it should stay that way. /anatomia was the one entry — 305 KB of
+ * illustrations preloaded at high priority from the client:load AnatomyExplorer
+ * island, none of them above the fold at 375px — fixed by giving the plates
+ * fetchPriority="low" (not loading="lazy": clicking a term scrolls its plate
+ * into view, and a lazy base that had not loaded would leave an empty box).
  */
-export const PRELOAD_ALLOWLIST = new Set([
-  'anatomia/index.html',
-]);
+export const PRELOAD_ALLOWLIST = new Set([]);
 
 /**
  * Cap for the PWA / touch icons at the public/ root. They sit outside
