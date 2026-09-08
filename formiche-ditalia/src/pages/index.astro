@@ -66,11 +66,13 @@ const carouselGenera = generaWithPhotos
           <div class="grid grid-cols-3 gap-2 max-w-sm mx-auto">
             {carouselGenera.slice(0, 6).map((g: any) => (
               <a href={`/generi/${g.id}/`} class="relative rounded-xl overflow-hidden aspect-square shadow-md hover:shadow-lg transition-shadow">
+                <!-- alt="" is deliberate: this link already carries the genus name as
+                     visible text below, so a repeated alt is redundant to a screen reader. -->
                 <img
                   src={variantUrl(g.photo_url, 384)}
                   srcset={srcSet(g.photo_url)}
                   sizes={GENUS_GRID_SIZES}
-                  alt={g.scientific_name}
+                  alt=""
                   class="w-full h-full object-cover"
                   loading="lazy"
                 />
@@ -95,7 +97,9 @@ const carouselGenera = generaWithPhotos
         </p>
         <div class="mt-6 flex items-baseline justify-center gap-2">
           <span class="font-display text-5xl font-bold text-forest-700">79</span>
-          <span class="text-2xl font-semibold text-forest-400">/ 267</span>
+          <!-- forest-600, not forest-400: on bg-forest-50 that was 2.7:1, below the 3:1
+                 WCAG floor for large text. forest-600 is 5.6:1. -->
+            <span class="text-2xl font-semibold text-forest-600">/ 267</span>
         </div>
         <p class="mt-1 text-sm text-forest-600" data-i18n="home_growth_progress_label">specie italiane già nel catalogo</p>
       </div>
@@ -210,11 +214,13 @@ const carouselGenera = generaWithPhotos
         {featuredGenera.map((genus: any) => (
           <a href={`/generi/${genus.id}/`} class="group relative rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all hover:-translate-y-1">
             <div class="aspect-square overflow-hidden bg-gray-100">
+              <!-- alt="" is deliberate — see the hero strip above: the <h3> in this same
+                   <a> already names the genus. -->
               <img
                 src={variantUrl(genus.photo_urls[0], 384)}
                 srcset={srcSet(genus.photo_urls[0])}
                 sizes={GENUS_GRID_SIZES}
-                alt={`${genus.scientific_name}, vista frontale`}
+                alt=""
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
               />
