@@ -112,6 +112,11 @@ export interface AnatomyPlate {
   file: string;
   alt_it: string;
   alt_en: string;
+  // Intrinsic pixel size of the source plate. The <img> is `w-full h-auto` with
+  // no aspect-ratio container, so without these the box has no height until the
+  // image decodes and the page jumps under anyone scrolling towards it.
+  width: number;
+  height: number;
 }
 
 // --- Blog "L'Occhio Digitale dell'Entomologo" (satellite section under /diario/) ---

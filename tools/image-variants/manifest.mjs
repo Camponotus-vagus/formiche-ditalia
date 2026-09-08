@@ -23,6 +23,18 @@ export const MANIFEST = [
     widths: [256, 384, 640, 960],
     quality: 72,
   })),
+
+  // The three anatomy plates, the only anatomy images fetched on page load —
+  // the 31 highlighted variants are click-time and never touch the score.
+  // Quality 82 rather than 72: these are line drawings with lettered captions,
+  // where WebP artefacts show up on thin strokes and small type.
+  //
+  // Rendered widths: the profile plate spans the plates column (343 CSS px at a
+  // 375px viewport, ~653 px on desktop); head and profile_2 share a two-column
+  // grid inside it, so roughly half that. The ladders cover up to DPR 3.
+  { src: 'images/anatomy/profile.webp', widths: [384, 640, 1024, 1440], quality: 82 },
+  { src: 'images/anatomy/head-view.webp', widths: [256, 384, 640, 1024], quality: 82 },
+  { src: 'images/anatomy/profile_2.webp', widths: [256, 384, 640, 1024], quality: 82 },
 ];
 
 /** Variant path for a source: `a/b/head.webp` + 384 -> `a/b/head-384.webp`. */
