@@ -44,3 +44,14 @@ export const OVERSIZED_ALLOWLIST = new Set([
 export const PRELOAD_ALLOWLIST = new Set([
   'anatomia/index.html',
 ]);
+
+/**
+ * Cap for the PWA / touch icons at the public/ root. They sit outside
+ * public/images/, so IMAGE_FILE_CAP never saw them — and icon-192x192.png was
+ * 47.7 KB, fetched at HIGH priority on every page load because the browser
+ * resolves it from the manifest, competing directly with LCP. Regenerating them
+ * from the logo master with a 128-colour palette took the three to 3.8 / 13.5 /
+ * 3.8 KB with no visible difference.
+ */
+export const PWA_ICON_CAP = 32 * 1024;
+export const PWA_ICONS = ['icon-192x192.png', 'icon-512x512.png', 'apple-touch-icon.png'];

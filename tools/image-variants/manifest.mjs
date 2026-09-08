@@ -30,3 +30,24 @@ export function variantPath(src, width) {
   const dot = src.lastIndexOf('.');
   return `${src.slice(0, dot)}-${width}${src.slice(dot)}`;
 }
+
+/**
+ * PWA / touch icons, regenerated from the same 4096x4096 master as the header
+ * logo — they are the same artwork. The committed PNGs were encoded without
+ * palette compression: 48.8 KB for a 192px icon, 252.5 KB for a 512px one.
+ * icon-192x192.png in particular is fetched at HIGH priority on every page load
+ * (the browser resolves it from the manifest), so it competed directly with LCP.
+ *
+ * These write over existing files rather than adding siblings: unlike the photos,
+ * the icons are generated deliverables and logo.webp is their master.
+ */
+export const ICON_SOURCE = 'images/brand/logo.webp';
+
+/** @type {{ out: string, size: number, flatten: boolean }[]} */
+export const ICONS = [
+  { out: 'icon-192x192.png', size: 192, flatten: false },
+  { out: 'icon-512x512.png', size: 512, flatten: false },
+  // iOS composites this itself and the committed file has no alpha channel;
+  // keep it opaque so the rounded corners iOS applies land on the right colour.
+  { out: 'apple-touch-icon.png', size: 180, flatten: true },
+];
