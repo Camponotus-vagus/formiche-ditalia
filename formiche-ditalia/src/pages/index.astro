@@ -56,7 +56,10 @@ const carouselGenera = generaWithPhotos
         </div>
         <!-- Desktop: carousel interattivo -->
         <div class="hidden lg:block pb-10">
-          <HeroCarousel client:load genera={carouselGenera} intervalMs={4000} />
+          <!-- client:media mirrors the `hidden lg:block` wrapper above: below 1024px
+               the carousel is display:none, so hydrating it only downloaded React,
+               mounted an invisible tree and ran a 4s setInterval on it forever. -->
+          <HeroCarousel client:media="(min-width: 1024px)" genera={carouselGenera} intervalMs={4000} />
         </div>
         <!-- Mobile/tablet: griglia statica di specimen -->
         <div class="lg:hidden mt-8">
