@@ -57,6 +57,12 @@ export default function HeroCarousel({ genera, intervalMs = 5000 }: Props) {
           key={genus.id}
           src={genus.photo_url}
           alt={`${genus.scientific_name}, specimen`}
+          // react-dom/server emits a float <link rel="preload" as="image"> for every
+          // SSR'd <img>, unless loading is "lazy" (or fetchPriority is "low"). Without
+          // this, mobile got a high-priority preload for a carousel it never shows —
+          // the wrapper is `hidden lg:block`. Desktop is unaffected: the element is in
+          // the initial viewport, so lazy still fetches it right away.
+          loading="lazy"
           className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out ${
             isTransitioning
               ? `opacity-0 ${direction === 'next' ? 'scale-110' : 'scale-95'}`
