@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroCarousel from '../components/HeroCarousel.tsx';
 import genera from '../data/genera.json';
+import { srcSet, variantUrl, GENUS_GRID_SIZES } from '../utils/images';
 
 // Pick genera with photos, sorted by species count
 const generaWithPhotos = genera
@@ -62,7 +63,14 @@ const carouselGenera = generaWithPhotos
           <div class="grid grid-cols-3 gap-2 max-w-sm mx-auto">
             {carouselGenera.slice(0, 6).map((g: any) => (
               <a href={`/generi/${g.id}/`} class="relative rounded-xl overflow-hidden aspect-square shadow-md hover:shadow-lg transition-shadow">
-                <img src={g.photo_url} alt={g.scientific_name} class="w-full h-full object-cover" loading="lazy" />
+                <img
+                  src={variantUrl(g.photo_url, 384)}
+                  srcset={srcSet(g.photo_url)}
+                  sizes={GENUS_GRID_SIZES}
+                  alt={g.scientific_name}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
                 <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-1.5">
                   <p class="text-[10px] font-medium text-white italic truncate">{g.scientific_name}</p>
                 </div>
@@ -200,7 +208,9 @@ const carouselGenera = generaWithPhotos
           <a href={`/generi/${genus.id}/`} class="group relative rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all hover:-translate-y-1">
             <div class="aspect-square overflow-hidden bg-gray-100">
               <img
-                src={genus.photo_urls[0]}
+                src={variantUrl(genus.photo_urls[0], 384)}
+                srcset={srcSet(genus.photo_urls[0])}
+                sizes={GENUS_GRID_SIZES}
                 alt={`${genus.scientific_name}, vista frontale`}
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
