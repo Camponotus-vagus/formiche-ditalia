@@ -12,7 +12,11 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     react(),
-    tailwind(),
+    // applyBaseStyles defaults to true, which injects @astrojs/tailwind/base.css —
+    // byte-for-byte the same three @tailwind directives already in global.css. That
+    // generated Tailwind's full output twice, shipping two ~61 KB near-identical
+    // render-blocking stylesheets on every page. global.css is the single source.
+    tailwind({ applyBaseStyles: false }),
     // A page that carries a `noindex` robots tag has no business in the
     // sitemap: submitting it asks Google to crawl a URL we then tell it to
     // drop. src/utils/seo/noindex.mjs is the same module BaseLayout reads for

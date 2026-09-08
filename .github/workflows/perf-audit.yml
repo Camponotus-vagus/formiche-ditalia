@@ -1,0 +1,47 @@
+name: perf-audit
+
+# Byte budgets and build-output invariants for the site, so the weight the mobile
+# PageSpeed work removed cannot creep back unnoticed: duplicated Tailwind
+# stylesheets, oversized images, phantom image preloads, the i18n bundle landing
+# back on the critical path, or the hero carousel hydrating where it is hidden.
+#
+# Unlike key-audit and blog-audit, this suite reads the BUILD OUTPUT, so it needs
+# npm ci + a real build. That build step is also the only thing in CI that checks
+# the site still compiles at all.
+#
+# Deliberately no Lighthouse timing assertions: those depend on the runner's CPU,
+# which varies enough on GitHub-hosted runners that the thresholds end up being
+# retuned instead of the site being fixed. Bytes are deterministic.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - 'formiche-ditalia/src/**'
+      - 'formiche-ditalia/public/images/**'
+      - 'formiche-ditalia/astro.config.mjs'
+      - 'formiche-ditalia/package.json'
+      - 'formiche-ditalia/package-lock.json'
+      - 'tools/perf-audit/**'
+      - 'tools/image-variants/**'
+      - '.github/workflows/perf-audit.yml'
+
+jobs:
+  suite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: formiche-ditalia/package-lock.json
+      - name: Install
+        run: npm ci
+        working-directory: formiche-ditalia
+      - name: Build
+        run: npm run build
+        working-directory: formiche-ditalia
+      - name: Run perf-audit suite (budgets + build-output invariants)
+        run: node tools/perf-audit/run-tests.mjs

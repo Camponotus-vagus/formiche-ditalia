@@ -1,4 +1,8 @@
 ---
+import { variantUrl } from '../utils/images';
+
+const LOGO = '/images/brand/logo.webp';
+
 interface Props {
   title: string;
   // English tab title (issue #32 §9). The build is static and Italian-first; the
@@ -75,7 +79,17 @@ import SpeedInsights from '@vercel/speed-insights/astro';
   <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2 font-display text-xl font-bold text-forest-700 hover:text-forest-600 transition-colors">
-        <img src="/images/brand/logo.webp" alt="" width="36" height="36" class="rounded-full" />
+        <!-- Rendered at 36x36. The 4096x4096 original is 763 KB and used to ship on
+             every page, above the fold; these variants are 2.5 KB / 5.9 KB.
+             alt="" is correct — the link's own text already says "Formiche d'Italia". -->
+        <img
+          src={variantUrl(LOGO, 72)}
+          srcset={`${variantUrl(LOGO, 72)} 1x, ${variantUrl(LOGO, 144)} 2x`}
+          alt=""
+          width="36"
+          height="36"
+          class="rounded-full"
+        />
         Formiche d'Italia
       </a>
       <div class="hidden sm:flex items-center gap-6">

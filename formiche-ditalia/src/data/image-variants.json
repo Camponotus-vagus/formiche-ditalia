@@ -1,0 +1,39 @@
+{
+  "/images/brand/logo.webp": [
+    72,
+    144
+  ],
+  "/images/genera/lasius/head.webp": [
+    256,
+    384,
+    640,
+    960
+  ],
+  "/images/genera/temnothorax/head.webp": [
+    256,
+    384,
+    640
+  ],
+  "/images/genera/camponotus/head.webp": [
+    256,
+    384,
+    640,
+    960
+  ],
+  "/images/genera/messor/head.webp": [
+    256,
+    384,
+    640,
+    960
+  ],
+  "/images/genera/strumigenys/head.webp": [
+    256,
+    384,
+    640
+  ],
+  "/images/genera/tetramorium/head.webp": [
+    256,
+    384,
+    640
+  ]
+}
