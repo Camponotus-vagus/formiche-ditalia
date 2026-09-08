@@ -14,7 +14,7 @@ import { statSync, existsSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 import { dirname, join, resolve } from 'node:path';
-import { MANIFEST, variantPath } from './manifest.mjs';
+import { MANIFEST, variantPath, ICON_SOURCE, ICONS } from './manifest.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const APP = resolve(here, '..', '..', 'formiche-ditalia');
@@ -88,6 +88,27 @@ for (const entry of MANIFEST) {
     saved += srcStat.size - outSize;
     console.log(`  ${String(w).padStart(4)}w  written     ${kb(outSize)}`);
   }
+}
+
+// --- PWA / touch icons -------------------------------------------------------
+console.log('\nicons (from ' + ICON_SOURCE + ')');
+const iconSrc = join(PUBLIC, ICON_SOURCE);
+for (const icon of ICONS) {
+  const outPath = join(PUBLIC, icon.out);
+  const before = existsSync(outPath) ? statSync(outPath).size : 0;
+  let pipeline = sharp(iconSrc).resize(icon.size, icon.size, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } });
+  if (icon.flatten) pipeline = pipeline.flatten({ background: '#ffffff' });
+  // 128 colours is the knee of the curve for this artwork: 256 gives 16.5 KB and
+  // anything from 128 down gives 3.8 KB, visually indistinguishable from the source.
+  await pipeline.png({ palette: true, colours: 128, effort: 10 }).toFile(outPath + '.tmp');
+  const after = statSync(outPath + '.tmp').size;
+  if (before && after >= before) {
+    console.log(`  ${icon.out.padEnd(22)} kept (${kb(before)}; re-encode was ${kb(after)})`);
+    (await import('node:fs')).unlinkSync(outPath + '.tmp');
+    continue;
+  }
+  (await import('node:fs')).renameSync(outPath + '.tmp', outPath);
+  console.log(`  ${icon.out.padEnd(22)} ${kb(before)} -> ${kb(after)}`);
 }
 
 const mapPath = join(APP, 'src', 'data', 'image-variants.json');
