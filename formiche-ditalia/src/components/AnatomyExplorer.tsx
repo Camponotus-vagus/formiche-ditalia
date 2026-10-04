@@ -266,6 +266,7 @@ export default function AnatomyExplorer({ characters = [] }: Props) {
           activeTerm={activeTerm}
           onTermChange={handleViewerTerm}
           modelBaseUrl="/models/anatomy/"
+          lang={lang}
         />
       </div>
     </div>

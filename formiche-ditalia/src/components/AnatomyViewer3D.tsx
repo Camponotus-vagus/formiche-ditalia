@@ -70,11 +70,33 @@ interface ModelRec {
   meshes: THREE.Mesh[];
   meshTerm: Map<string, { id: string; score: number }>;
 }
+type Notice = { kind: 'switched'; from: ModelKey | null; to: ModelKey } | { kind: 'missing' };
+
+export type ViewerLang = 'it' | 'en';
+
+const UI: Record<ViewerLang, {
+  model: string; reset: string; loading: string; noWebgl: string; close: string;
+  switched: (from: string, to: string) => string; missing: string; thisModel: string;
+}> = {
+  it: {
+    model: 'Modello', reset: 'Ripristina vista', loading: 'Caricamento del modello…',
+    noWebgl: 'Modello 3D non disponibile su questo dispositivo.', close: 'Chiudi',
+    switched: (from, to) => `Struttura assente in ${from}: mostrata su ${to}`,
+    missing: 'Struttura non ancora disponibile nel modello 3D', thisModel: 'questo modello',
+  },
+  en: {
+    model: 'Model', reset: 'Reset view', loading: 'Loading model…',
+    noWebgl: '3D model not available on this device.', close: 'Close',
+    switched: (from, to) => `Structure absent in ${from}: shown on ${to}`,
+    missing: 'Structure not yet available in the 3D model', thisModel: 'this model',
+  },
+};
+
 interface EngineOpts {
   baseUrl: string;
   onTermChange: (id: string | null) => void;
   onModelChange: (key: ModelKey) => void;
-  onNotice: (msg: string | null) => void;
+  onNotice: (notice: Notice | null) => void;
   onHover: (hover: { id: string; x: number; y: number } | null) => void;
   onModelsLoaded: (loaded: ModelKey[]) => void;
 }
@@ -346,7 +368,7 @@ class AnatomyEngine {
     const tok = ++this.token;
     const prev = this.term;
     let id = requested;
-    let notice: string | null = null;
+    let notice: Notice | null = null;
     if (id && !this.model?.json.terms[id]) {
       let found: ModelRec | null = null;
       for (const d of MODEL_DEFS) {
@@ -356,13 +378,12 @@ class AnatomyEngine {
         if (o?.json.terms[id]) { found = o; break; }
       }
       if (found) {
-        const from = MODEL_DEFS.find((d) => d.key === this.currentKey);
-        notice = `Struttura assente in ${from?.clade ?? 'questo modello'}: mostrata su ${found.def.clade}`;
+        notice = { kind: 'switched', from: this.currentKey, to: found.def.key };
         this.clearHighlight();
         this.showModel(found.def.key);
       } else {
         id = null;
-        notice = 'Struttura non ancora disponibile nel modello 3D';
+        notice = { kind: 'missing' };
       }
     }
     this.opts.onNotice(notice);
@@ -542,10 +563,14 @@ export interface AnatomyViewer3DProps {
   onTermChange?: (id: string | null) => void;
   /** cartella (o URL) che contiene formica.glb/.json e tetramorium.glb/.json */
   modelBaseUrl: string;
+  /** lingua dell'interfaccia (default 'it') */
+  lang?: ViewerLang;
   className?: string;
 }
 
-export default function AnatomyViewer3D({ activeTerm, onTermChange, modelBaseUrl, className }: AnatomyViewer3DProps) {
+export default function AnatomyViewer3D({ activeTerm, onTermChange, modelBaseUrl, lang = 'it', className }: AnatomyViewer3DProps) {
+  const ui = UI[lang] ?? UI.it;
+  const li = lang === 'en' ? 1 : 0; // index into TERM_NAMES: [italiano, english]
   const stageRef = useRef<HTMLDivElement>(null);
   const engineRef = useRef<AnatomyEngine | null>(null);
   const readyRef = useRef(false);
@@ -557,7 +582,7 @@ export default function AnatomyViewer3D({ activeTerm, onTermChange, modelBaseUrl
   const [modelKey, setModelKey] = useState<ModelKey | null>(null);
   const [loaded, setLoaded] = useState<ModelKey[]>([]);
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
-  const [notice, setNotice] = useState<string | null>(null);
+  const [notice, setNotice] = useState<Notice | null>(null);
   const [hover, setHover] = useState<{ id: string; x: number; y: number } | null>(null);
   const [shownTerm, setShownTerm] = useState<string | null>(null);
 
@@ -616,11 +641,14 @@ export default function AnatomyViewer3D({ activeTerm, onTermChange, modelBaseUrl
   }, [notice]);
 
   const names = shownTerm ? TERM_NAMES[shownTerm] : undefined;
+  const clade = (k: ModelKey | null) => MODEL_DEFS.find((d) => d.key === k)?.clade ?? ui.thisModel;
+  const noticeText = !notice ? null
+    : notice.kind === 'switched' ? ui.switched(clade(notice.from), clade(notice.to)) : ui.missing;
 
   return (
     <div className={className}>
       <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
-        <div role="group" aria-label="Modello" className="inline-flex overflow-hidden rounded-full border border-[#2f6b3a] bg-white">
+        <div role="group" aria-label={ui.model} className="inline-flex overflow-hidden rounded-full border border-[#2f6b3a] bg-white">
           {MODEL_DEFS.map((d) => (
             <button
               key={d.key}
@@ -641,7 +669,7 @@ export default function AnatomyViewer3D({ activeTerm, onTermChange, modelBaseUrl
           onClick={() => engineRef.current?.resetView()}
           className="rounded-full border border-stone-300 bg-white px-3.5 py-2 text-sm hover:border-[#2f6b3a] hover:text-[#2f6b3a]"
         >
-          Ripristina vista
+          {ui.reset}
         </button>
       </div>
 
@@ -651,15 +679,15 @@ export default function AnatomyViewer3D({ activeTerm, onTermChange, modelBaseUrl
       >
         <div ref={stageRef} className="absolute inset-0" />
         {status === 'loading' && (
-          <div className="pointer-events-none absolute inset-0 grid place-items-center text-stone-500">Caricamento del modello…</div>
+          <div className="pointer-events-none absolute inset-0 grid place-items-center text-stone-500">{ui.loading}</div>
         )}
         {status === 'error' && (
-          <div className="absolute inset-0 grid place-items-center p-6 text-center text-stone-500">Modello 3D non disponibile su questo dispositivo.</div>
+          <div className="absolute inset-0 grid place-items-center p-6 text-center text-stone-500">{ui.noWebgl}</div>
         )}
         {names && (
           <div className="pointer-events-none absolute left-3 top-3 flex flex-col rounded-lg border border-stone-300 border-l-4 border-l-[#2f6b3a] bg-white/90 px-3 py-1.5 leading-tight backdrop-blur">
-            <strong className="text-base text-[#1f4a28]">{names[0]}</strong>
-            <span className="text-xs italic text-stone-500">{names[1]}</span>
+            <strong className="text-base text-[#1f4a28]">{names[li]}</strong>
+            <span className="text-xs italic text-stone-500">{names[1 - li]}</span>
           </div>
         )}
         {hover && (
@@ -667,13 +695,13 @@ export default function AnatomyViewer3D({ activeTerm, onTermChange, modelBaseUrl
             className="pointer-events-none absolute whitespace-nowrap rounded-md bg-stone-900/90 px-2 py-1 text-xs text-white"
             style={{ left: hover.x + 12, top: hover.y + 12 }}
           >
-            {TERM_NAMES[hover.id]?.[0] ?? hover.id}
+            {TERM_NAMES[hover.id]?.[li] ?? hover.id}
           </div>
         )}
-        {notice && (
+        {noticeText && (
           <div role="status" className="absolute inset-x-3 bottom-3 flex items-center justify-between gap-2 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900">
-            <span>{notice}</span>
-            <button type="button" aria-label="Chiudi" className="text-xl leading-none" onClick={() => setNotice(null)}>×</button>
+            <span>{noticeText}</span>
+            <button type="button" aria-label={ui.close} className="text-xl leading-none" onClick={() => setNotice(null)}>×</button>
           </div>
         )}
       </div>
