@@ -1,8 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { getLang, type Lang } from '../i18n';
-import AnatomyView from './AnatomyView';
-import { PLATES, TERM_PLATE, plateSrc, plateSrcSet, plateFallbackSrc, PLATE_SIZES, highlightSrc } from '../data/anatomy-plates';
-import type { AnatomyPlateId } from '../types';
+import AnatomyViewer3D from './AnatomyViewer3D';
 
 interface AnatomyTerm {
   id: string;
@@ -140,14 +138,7 @@ export default function AnatomyExplorer({ characters = [] }: Props) {
       })),
   }));
 
-  const profileRef = useRef<HTMLDivElement>(null);
-  const headRef = useRef<HTMLDivElement>(null);
-  const profile2Ref = useRef<HTMLDivElement>(null);
-  const plateRefs: Record<AnatomyPlateId, React.RefObject<HTMLDivElement | null>> = {
-    profile: profileRef,
-    head: headRef,
-    profile2: profile2Ref,
-  };
+  const viewerRef = useRef<HTMLDivElement>(null);
 
   const handleTermClick = useCallback((termId: string) => {
     if (!termId || termId === activeTerm) {
@@ -162,15 +153,18 @@ export default function AnatomyExplorer({ characters = [] }: Props) {
       setOpenRegion(region);
     }
 
-    // On mobile the plates sit below the term list, so bring the one that
-    // actually changed into view.
-    const plate = TERM_PLATE[termId];
-    if (plate && window.innerWidth < 1024) {
-      plateRefs[plate]?.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // On mobile the 3D model sits below the term list, so bring it into view.
+    if (window.innerWidth < 1024) {
+      viewerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-  }, [activeTerm, openRegion, plateRefs]);
+  }, [activeTerm, openRegion]);
 
-  const activePlate = activeTerm ? TERM_PLATE[activeTerm] ?? null : null;
+  // Selection made from the viewer itself (click on the model, model switch).
+  const handleViewerTerm = useCallback((termId: string | null) => {
+    setActiveTerm(termId);
+    const region = termId ? TERM_REGION[termId] : null;
+    if (region) setOpenRegion(region);
+  }, []);
 
   return (
     <div className="flex flex-col lg:flex-row gap-6">
@@ -178,8 +172,8 @@ export default function AnatomyExplorer({ characters = [] }: Props) {
       <div className="lg:w-[40%] space-y-3">
         <p className="text-sm text-gray-500 mb-2">
           {lang === 'it'
-            ? 'Clicca su un termine morfologico per vedere la parte evidenziata nell\'illustrazione.'
-            : 'Click a morphological term to see the highlighted part in the illustration.'}
+            ? 'Clicca su un termine morfologico per vederlo evidenziato sul modello 3D.'
+            : 'Click a morphological term to see it highlighted on the 3D model.'}
         </p>
 
         {enrichedRegions.map(region => {
@@ -264,47 +258,15 @@ export default function AnatomyExplorer({ characters = [] }: Props) {
         </div>
       </div>
 
-      {/* Right: the three plates. The one carrying the active term swaps to
-          its highlighted variant; the other two dim so the eye goes to it. */}
-      <div className="lg:w-[60%] lg:sticky lg:top-20 lg:self-start space-y-3">
-        <div ref={profileRef}>
-          <AnatomyView
-            base={plateFallbackSrc('profile')}
-            srcSet={plateSrcSet('profile')}
-            sizes={PLATE_SIZES.profile}
-            width={PLATES.profile.width}
-            height={PLATES.profile.height}
-            highlight={highlightSrc('profile', activeTerm)}
-            alt={lang === 'it' ? PLATES.profile.alt_it : PLATES.profile.alt_en}
-            dimmed={activePlate !== null && activePlate !== 'profile'}
-          />
-        </div>
-        <div className="grid grid-cols-2 gap-3">
-          <div ref={headRef}>
-            <AnatomyView
-              base={plateFallbackSrc('head')}
-              srcSet={plateSrcSet('head')}
-              sizes={PLATE_SIZES.head}
-              width={PLATES.head.width}
-              height={PLATES.head.height}
-              highlight={highlightSrc('head', activeTerm)}
-              alt={lang === 'it' ? PLATES.head.alt_it : PLATES.head.alt_en}
-              dimmed={activePlate !== null && activePlate !== 'head'}
-            />
-          </div>
-          <div ref={profile2Ref}>
-            <AnatomyView
-              base={plateFallbackSrc('profile2')}
-              srcSet={plateSrcSet('profile2')}
-              sizes={PLATE_SIZES.profile2}
-              width={PLATES.profile2.width}
-              height={PLATES.profile2.height}
-              highlight={highlightSrc('profile2', activeTerm)}
-              alt={lang === 'it' ? PLATES.profile2.alt_it : PLATES.profile2.alt_en}
-              dimmed={activePlate !== null && activePlate !== 'profile2'}
-            />
-          </div>
-        </div>
+      {/* Right: interactive 3D model. The selected structure turns red and the
+          ant rotates to show it; structures that exist only in the other
+          subfamily switch model (Formicinae: Formica / Myrmicinae: Tetramorium). */}
+      <div ref={viewerRef} className="lg:w-[60%] lg:sticky lg:top-20 lg:self-start">
+        <AnatomyViewer3D
+          activeTerm={activeTerm}
+          onTermChange={handleViewerTerm}
+          modelBaseUrl="/models/anatomy/"
+        />
       </div>
     </div>
   );

@@ -1,0 +1,414 @@
+{
+ "taxon": "formica",
+ "label": {
+  "it": "Formica (Formicinae) — operaia di Formica gr. fusca",
+  "en": "Formica (Formicinae) — Formica fusca-group worker"
+ },
+ "units": "mm",
+ "up": "+Y",
+ "anterior": "+X",
+ "center": [
+  -0.74,
+  -0.2525,
+  -0.0
+ ],
+ "size": 10.7709,
+ "terms": {
+  "antenna": {
+   "objects": [
+    "funiculus_L",
+    "funiculus_R",
+    "scape_L",
+    "scape_R"
+   ],
+   "target": [
+    2.0783,
+    0.5563,
+    -0.0
+   ],
+   "direction": [
+    0.509,
+    0.509,
+    -0.6941
+   ],
+   "frame": 4.1842
+  },
+  "antennal-socket": {
+   "objects": [
+    "antennal-socket_L",
+    "antennal-socket_R"
+   ],
+   "target": [
+    0.9609,
+    0.1503,
+    -0.0
+   ],
+   "direction": [
+    0.6046,
+    0.7557,
+    -0.2519
+   ],
+   "frame": 0.9
+  },
+  "clypeus": {
+   "objects": [
+    "clypeus"
+   ],
+   "target": [
+    1.1032,
+    -0.0159,
+    -0.0
+   ],
+   "direction": [
+    0.7707,
+    0.6371,
+    -0.0
+   ],
+   "frame": 1.5
+  },
+  "clypeal-socket": {
+   "objects": [
+    "clypeal-socket_L",
+    "clypeal-socket_R"
+   ],
+   "target": [
+    1.1445,
+    -0.001,
+    -0.0
+   ],
+   "direction": [
+    0.7098,
+    0.6084,
+    -0.3549
+   ],
+   "frame": 0.8
+  },
+  "compound-eye": {
+   "objects": [
+    "compound-eye_L",
+    "compound-eye_R"
+   ],
+   "target": [
+    0.5298,
+    0.2524,
+    -0.0
+   ],
+   "direction": [
+    0.0966,
+    0.2414,
+    -0.9656
+   ],
+   "frame": 1.4581
+  },
+  "frontal-carina": {
+   "objects": [
+    "frontal-carina_L",
+    "frontal-carina_R"
+   ],
+   "target": [
+    1.0062,
+    0.3683,
+    -0.0
+   ],
+   "direction": [
+    0.5524,
+    0.8336,
+    -0.0
+   ],
+   "frame": 0.9
+  },
+  "frontal-triangle": {
+   "objects": [
+    "frontal-triangle"
+   ],
+   "target": [
+    0.9826,
+    0.1701,
+    -0.0
+   ],
+   "direction": [
+    0.5524,
+    0.8336,
+    -0.0
+   ],
+   "frame": 0.8
+  },
+  "funiculus": {
+   "objects": [
+    "funiculus_L",
+    "funiculus_R"
+   ],
+   "target": [
+    2.4417,
+    0.5563,
+    -0.0
+   ],
+   "direction": [
+    0.5413,
+    0.2952,
+    -0.7873
+   ],
+   "frame": 3.8718
+  },
+  "mandible": {
+   "objects": [
+    "mandible_L",
+    "mandible_R"
+   ],
+   "target": [
+    1.1986,
+    -0.4007,
+    0.0
+   ],
+   "direction": [
+    0.6178,
+    0.7772,
+    -0.1196
+   ],
+   "frame": 1.2
+  },
+  "labial-palp": {
+   "objects": [
+    "labial-palp_L",
+    "labial-palp_R"
+   ],
+   "target": [
+    0.7919,
+    -0.4515,
+    -0.0
+   ],
+   "direction": [
+    0.2519,
+    -0.6046,
+    -0.7557
+   ],
+   "frame": 1.0
+  },
+  "maxillary-palp": {
+   "objects": [
+    "maxillary-palp_L",
+    "maxillary-palp_R"
+   ],
+   "target": [
+    0.5319,
+    -0.4435,
+    -0.0
+   ],
+   "direction": [
+    0.2978,
+    -0.4467,
+    -0.8437
+   ],
+   "frame": 1.1
+  },
+  "ocelli": {
+   "objects": [
+    "ocelli"
+   ],
+   "target": [
+    0.4004,
+    0.6495,
+    -0.0
+   ],
+   "direction": [
+    0.1961,
+    0.9806,
+    -0.0
+   ],
+   "frame": 0.9
+  },
+  "scape": {
+   "objects": [
+    "scape_L",
+    "scape_R"
+   ],
+   "target": [
+    1.4046,
+    0.6775,
+    -0.0
+   ],
+   "direction": [
+    0.3714,
+    0.5571,
+    -0.7428
+   ],
+   "frame": 2.3099
+  },
+  "mesosoma": {
+   "objects": [
+    "mesosoma"
+   ],
+   "target": [
+    -0.924,
+    0.201,
+    -0.0
+   ],
+   "direction": [
+    0.0,
+    0.3304,
+    -0.9439
+   ],
+   "frame": 2.4
+  },
+  "pronotum": {
+   "objects": [
+    "hl-pronotum"
+   ],
+   "target": [
+    -0.2858,
+    0.2817,
+    -0.0
+   ],
+   "direction": [
+    0.2223,
+    0.4001,
+    -0.8891
+   ],
+   "frame": 1.5
+  },
+  "mesonotum": {
+   "objects": [
+    "hl-mesonotum"
+   ],
+   "target": [
+    -0.94,
+    0.4342,
+    0.0001
+   ],
+   "direction": [
+    0.0,
+    0.8192,
+    -0.5735
+   ],
+   "frame": 1.4
+  },
+  "metanotum": {
+   "objects": [
+    "hl-metanotum"
+   ],
+   "target": [
+    -1.3225,
+    0.3464,
+    -0.0
+   ],
+   "direction": [
+    -0.1741,
+    0.6963,
+    -0.6963
+   ],
+   "frame": 1.0
+  },
+  "propodeum": {
+   "objects": [
+    "hl-propodeum"
+   ],
+   "target": [
+    -1.6458,
+    0.1976,
+    -0.0
+   ],
+   "direction": [
+    -0.3796,
+    0.3796,
+    -0.8436
+   ],
+   "frame": 1.2
+  },
+  "metapleural-gland": {
+   "objects": [
+    "metapleural-gland_L",
+    "metapleural-gland_R"
+   ],
+   "target": [
+    -1.7096,
+    0.0144,
+    -0.0006
+   ],
+   "direction": [
+    -0.33,
+    -0.0471,
+    -0.9428
+   ],
+   "frame": 0.6
+  },
+  "apical-spur": {
+   "objects": [
+    "apical-spur_fore_L",
+    "apical-spur_fore_R",
+    "apical-spur_hind_L",
+    "apical-spur_hind_R",
+    "apical-spur_mid_L",
+    "apical-spur_mid_R"
+   ],
+   "target": [
+    1.1394,
+    -1.0611,
+    -1.4009
+   ],
+   "direction": [
+    0.7519,
+    -0.6516,
+    0.1003
+   ],
+   "frame": 0.55
+  },
+  "petiole": {
+   "objects": [
+    "petiole"
+   ],
+   "target": [
+    -1.9858,
+    0.1525,
+    -0.0
+   ],
+   "direction": [
+    -0.144,
+    0.24,
+    -0.96
+   ],
+   "frame": 1.0
+  },
+  "gaster": {
+   "objects": [
+    "gaster-III",
+    "gaster-IV",
+    "gaster-V",
+    "gaster-VI",
+    "gaster-VII"
+   ],
+   "target": [
+    -2.825,
+    0.1943,
+    -0.0
+   ],
+   "direction": [
+    -0.2683,
+    0.3578,
+    -0.8944
+   ],
+   "frame": 2.6
+  },
+  "cloacal-orifice": {
+   "objects": [
+    "cloacal-orifice"
+   ],
+   "target": [
+    -3.6099,
+    -0.12,
+    -0.0
+   ],
+   "direction": [
+    -0.9082,
+    -0.0908,
+    -0.4087
+   ],
+   "frame": 0.8
+  }
+ },
+ "overlays": [
+  "hl-mesonotum",
+  "hl-metanotum",
+  "hl-pronotum",
+  "hl-propodeum"
+ ]
+}
