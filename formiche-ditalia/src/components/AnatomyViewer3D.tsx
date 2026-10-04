@@ -357,7 +357,7 @@ class AnatomyEngine {
       }
       if (found) {
         const from = MODEL_DEFS.find((d) => d.key === this.currentKey);
-        notice = `Struttura assente in ${from?.clade ?? 'questo modello'}: mostrata su ${found.def.clade} (${found.def.genus})`;
+        notice = `Struttura assente in ${from?.clade ?? 'questo modello'}: mostrata su ${found.def.clade}`;
         this.clearHighlight();
         this.showModel(found.def.key);
       } else {
@@ -632,7 +632,7 @@ export default function AnatomyViewer3D({ activeTerm, onTermChange, modelBaseUrl
                 modelKey === d.key ? 'bg-[#2f6b3a] text-white' : 'text-[#2f6b3a]'
               }`}
             >
-              {d.clade} ({d.genus})
+              {d.clade}
             </button>
           ))}
         </div>
