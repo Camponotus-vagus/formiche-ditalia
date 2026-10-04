@@ -20,16 +20,7 @@ import characters from '../data/characters.json';
   <section class="py-12 bg-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <AnatomyExplorer client:load characters={characters} />
-      <p class="text-center text-sm text-gray-400 mt-8" data-i18n="anatomy_attribution">
-  Illustrazioni originali di Francesco Simone Mensa, dalla tesi
-  <a
-    href="https://www.researchgate.net/publication/330994606_Chiave_interattiva_per_il_riconoscimento_dei_generi_di_Formicidae_italiani_e_delle_specie_della_citta_di_Roma"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="text-forest-600 hover:underline"
-  >"Chiave interattiva per il riconoscimento dei generi di Formicidae italiani e delle specie della città di Roma"</a>
-  (Mensa, 2017).
-</p>
+      <p class="text-center text-sm text-gray-400 mt-8" data-i18n="anatomy_attribution" set:html={"Modelli 3D di un'operaia di <em>Formica</em> (Formicinae) e di <em>Tetramorium</em> (Myrmicinae), ricostruiti su fotografie di esemplari <a href=\"https://www.antweb.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-forest-600 hover:underline\">AntWeb</a> (CASENT0173170, CASENT0280931, CASENT0173203). Terminologia dalla tesi <a href=\"https://www.researchgate.net/publication/330994606_Chiave_interattiva_per_il_riconoscimento_dei_generi_di_Formicidae_italiani_e_delle_specie_della_citta_di_Roma\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-forest-600 hover:underline\">\"Chiave interattiva per il riconoscimento dei generi di Formicidae italiani e delle specie della città di Roma\"</a> (Mensa, 2017)."} />
     </div>
   </section>
 
