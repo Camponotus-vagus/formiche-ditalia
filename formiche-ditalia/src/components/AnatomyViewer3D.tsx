@@ -83,7 +83,8 @@ interface EngineOpts {
 
 const GENERIC_TERMS = new Set(['antenna', 'mesosoma', 'gaster']);
 const FLY_MS = 1200;
-const DRACO_PATH = 'https://www.gstatic.com/draco/versioned/decoders/1.5.7/';
+// Draco decoder served from the site itself (public/draco/), so the page's CSP doesn't need third-party hosts.
+const DRACO_PATH = '/draco/';
 const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
 function slerpDir(a: THREE.Vector3, b: THREE.Vector3, t: number, out: THREE.Vector3): THREE.Vector3 {
