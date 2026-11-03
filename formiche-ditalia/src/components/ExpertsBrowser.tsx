@@ -39,14 +39,23 @@ export default function ExpertsBrowser({ experts }: Props) {
     return [...new Set(experts.map(e => e.region).filter(Boolean))].sort() as string[];
   }, [experts]);
 
+  // Alphabetical by surname (last word of the name), then by full name.
+  const sorted = useMemo(() => {
+    const surname = (name: string) => name.trim().split(/\s+/).pop() ?? name;
+    return [...experts].sort((a, b) =>
+      surname(a.name).localeCompare(surname(b.name), 'it', { sensitivity: 'base' }) ||
+      a.name.localeCompare(b.name, 'it', { sensitivity: 'base' })
+    );
+  }, [experts]);
+
   const filtered = useMemo(() => {
-    return experts.filter((e) => {
+    return sorted.filter((e) => {
       if (search && !e.name.toLowerCase().includes(search.toLowerCase()) &&
           !e.specializations.some(s => s.toLowerCase().includes(search.toLowerCase()))) return false;
       if (regionFilter && e.region !== regionFilter) return false;
       return true;
     });
-  }, [experts, search, regionFilter]);
+  }, [sorted, search, regionFilter]);
 
   return (
     <div>
